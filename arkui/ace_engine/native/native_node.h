@@ -7747,12 +7747,19 @@ typedef enum {
     * .value[0].i32: number of cached items in the swiper adapter. \n
     * .value[1]?.i32: whether the cached items will be displayed. \n
     * The value <b>0</b> indicates that cached items will not be displayed, \n
-    * and <b>1</b> indicates that cached nodes will be displayed. The default value is <b>0</b>. \n
+    * and <b>1</b> indicates that cached items will be displayed. The default value is <b>0</b>. \n
     * This parameter is supported from API version 19. \n
+    * .value[2]?.i32: whether the cachedCount is independent of group calculation. \n
+    * The value <b>1</b> indicates that cachedCount is calculated by actual child component count,\n
+    * and is independent of displayCount group calculation.\n
+    * The value <b>0</b> indicates that, when NODE_SWIPER_DISPLAY_COUNT is enabled to turn pages by group,\n
+    * cachedCount is calculated by group.The default value is <b>0</b>. \n
+    * This parameter is supported from API version 24. \n
     * \n
     * Format of the return value {@link ArkUI_AttributeItem}:\n
     * .value[0].i32: number of cached items in the swiper adapter. \n
     * .value[1].i32: whether the cached items will be displayed. This parameter is supported from API version 19. \n
+    * .value[2].i32: whether the cachedCount is independent of group calculation. This parameter is supported from API version 24. \n
     */
     NODE_SWIPER_CACHED_COUNT,
 
