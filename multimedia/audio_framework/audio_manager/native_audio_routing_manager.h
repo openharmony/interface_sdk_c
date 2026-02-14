@@ -85,7 +85,7 @@ typedef int32_t (*OH_AudioRoutingManager_OnDeviceChangedCallback) (
  *     Do not release the audioDeviceDescriptorArray pointer separately
  *     instead call {@link OH_AudioRoutingManager_ReleaseDevices} to release the DeviceDescriptor array
  *     when it is no use anymore.
- * @since 26
+ * @since 26.0.0
  */
 typedef void (*OH_AudioRoutingManager_PreferredDeviceChangedCallback) (
     OH_AudioDeviceDescriptorArray *audioDeviceDescriptorArray);
@@ -248,7 +248,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_UnregisterDeviceChangeCallback(
  * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds.
  *     or {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails.
  *     or {@link #AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error.
- * @since 26
+ * @since 26.0.0
  */
 OH_AudioCommon_Result OH_AudioRoutingManager_RegisterPreferredOutputDevicesChangeCallback(
     OH_AudioRoutingManager *audioRoutingManager, OH_AudioStream_Usage streamUsage,
@@ -264,7 +264,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_RegisterPreferredOutputDevicesChang
  * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds.
  *     or {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails.
  *     or {@link #AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error.
- * @since 26
+ * @since 26.0.0
  */
 OH_AudioCommon_Result OH_AudioRoutingManager_UnregisterPreferredOutputDevicesChangeCallback(
     OH_AudioRoutingManager *audioRoutingManager,
@@ -283,7 +283,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_UnregisterPreferredOutputDevicesCha
  * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds.
  *     or {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails.
  *     or {@link #AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error.
- * @since 26
+ * @since 26.0.0
  */
 OH_AudioCommon_Result OH_AudioRoutingManager_RegisterPreferredInputDevicesChangeCallback(
     OH_AudioRoutingManager *audioRoutingManager, OH_AudioStream_SourceType sourceType,
@@ -299,7 +299,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_RegisterPreferredInputDevicesChange
  * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds.
  *     or {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails.
  *     or {@link #AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error.
- * @since 26
+ * @since 26.0.0
  */
 OH_AudioCommon_Result OH_AudioRoutingManager_UnregisterPreferredInputDevicesChangeCallback(
     OH_AudioRoutingManager *audioRoutingManager,
