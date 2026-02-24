@@ -1364,7 +1364,7 @@ OH_Drawing_Range* OH_Drawing_GetRangeByArrayIndex(OH_Drawing_Array* array, size_
  * Supported array type: String indices array, get by <b>OH_Drawing_GetRunStringIndices</b>.
  * Supported array type: Rect array, get by <b>OH_Drawing_RectCreateArray</b>.
  * Supported array type: FontDescriptors array, get by <b>OH_Drawing_GetFontFullDescriptorsFromStream</b>.
- * Supported array type: Text ranges array, get by <b>OH_Drawing_TypographyLayoutWithConstraints</b>.
+ * Supported array type: Text ranges array, get by <b>OH_Drawing_TypographyLayoutWithConstraintsWithBuffer</b>.
  * @return Returns an error code.
  *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
  *         Returns {@link OH_DRAWING_ERROR_INCORRECT_PARAMETER} if the array is nullptr or not supported.
