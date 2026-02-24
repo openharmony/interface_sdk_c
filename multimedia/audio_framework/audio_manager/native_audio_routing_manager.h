@@ -87,7 +87,7 @@ typedef int32_t (*OH_AudioRoutingManager_OnDeviceChangedCallback) (
  *     when it is no use anymore.
  * @since 26.0.0
  */
-typedef void (*OH_AudioRoutingManager_OnPreferredDeviceChangedCallback) (
+typedef int32_t (*OH_AudioRoutingManager_OnPreferredDeviceChangedCallback) (
     OH_AudioDeviceDescriptorArray *audioDeviceDescriptorArray);
 
 /**
