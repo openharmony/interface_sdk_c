@@ -1427,6 +1427,10 @@
         "name": "OH_Drawing_TextStyleAddFontVariation"
     },
     {
+        "first_introduced": "24",
+        "name": "OH_Drawing_TextStyleAddFontVariationWithNormalization"
+    },
+    {
         "first_introduced": "12",
         "name": "OH_Drawing_TextStyleGetFontFeatures"
     },
