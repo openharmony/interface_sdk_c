@@ -41,8 +41,8 @@
  * @version 1.0
  */
 
-#ifndef NATIVE_AUDIO_ROUTING_MANAGER_H
-#define NATIVE_AUDIO_ROUTING_MANAGER_H
+#ifndef NATIVE_AUDIO_ROUTING_ENHANCE_MANAGER_H
+#define NATIVE_AUDIO_ROUTING_ENHANCE_MANAGER_H
 
 #include "native_audio_device_base.h"
 #ifdef __cplusplus
@@ -166,5 +166,5 @@ OH_AudioCommon_Result OH_AudioSessionManager_SelectOutputDeviceForAudioCapturer(
 }
 #endif
 
-#endif // NATIVE_AUDIO_ROUTING_MANAGER_H
+#endif // NATIVE_AUDIO_ROUTING_ENHANCE_MANAGER_H
 /** @} */
