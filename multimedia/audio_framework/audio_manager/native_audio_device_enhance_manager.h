@@ -116,7 +116,7 @@ typedef void (*OH_AudioDeviceEnhanceManager_CurrentInputDeviceChangedCallback) (
  * the first parameter in enhanced audio device management functions.
  * The functional APIs of this manager are only available on specific devices.
  * Your application can first call {@link OH_AudioDeviceEnhanceManager_IsSupported} to check
- * if the host device supports them before using.
+ * if the system supports them before using.
  *
  * @param audioDeviceEnhanceManager Indicates the pointer to the {@link OH_AudioDeviceEnhanceManager}
  *     handle obtained by this function.
@@ -129,22 +129,24 @@ OH_AudioCommon_Result OH_AudioManager_GetAudioDeviceEnhanceManager(
     OH_AudioDeviceEnhanceManager **audioDeviceEnhanceManager);
 
 /**
- * @brief Queries whether the host device supports the enhanced audio device management functions
- * provided by {@link OH_AudioDeviceEnhanceManager}. Your application can call this interface first
- * to confirm that the host device supports these enhanced audio device management functional APIs.
- * Directly calling any functional APIs of the manager will have no effect when the host device
- * does not support them.
+ * @brief Queries whether the system supports the enhanced routing functions provided by this manager,
+ * including selecting input and output devices for the application or audio streams.
+ * Your application is advised to call this API first to confirm system support before using
+ * these enhanced routing APIs. Even for the same type of host device, some models may support
+ * these functions while others may not due to hardware limitations. If the system does not support
+ * these enhanced routing functions, calling them will have no effect, and the system will select
+ * default input/output devices for the application or audio streams instead.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
- * @param supported query result, true means the host device supports the enhanced functions,
+ * @param supported query result, true means the system supports the enhanced functions,
  *     false means not supported.
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error.
  * @since 26.0.0
  */
-OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_IsSupported(
+OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_IsEnhancedRoutingSupported(
     OH_AudioDeviceEnhanceManager *audioDeviceEnhanceManager, bool *supported);
 
 /**
@@ -155,19 +157,19 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_IsSupported(
  * to listen for the actual output device. The selection will become invalid when
  * your application exits or the selected device goes offline. After your application restarts or
  * the device comes back online, your application must re-issue the selection for it to take effect.
- * If the host device does not support this function, The system will select an default output device
+ * If the system does not support this function, The system will select a default output device
  * for your application.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
  * @param deviceDescriptor The target device. The available device must be in the array returned
  *     by {@link OH_AudioRoutingManager_GetAvailableDevices}.
- *     When the nullptr is passed, system will clear the last selection and select an default
+ *     When nullptr is passed, system will clear the last selection and select a default
  *     output device for your application.
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the host device does not support this function.
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the system does not support this function.
  * @since 26.0.0
  */
 OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDevice(
@@ -181,19 +183,19 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDevice(
  * to listen for the actual input device. The selection will become invalid when
  * your application exits or the selected device goes offline. After your application restarts or
  * the device comes back online, your application must re-issue the selection for it to take effect.
- * If the host device does not support this function, The system will select an default input device
+ * If the system does not support this function, The system will select a default input device
  * for your application.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
  * @param deviceDescriptor The target device. The available device must be in the array returned
  *     by {@link OH_AudioRoutingManager_GetAvailableDevices}.
- *     When the nullptr is passed, system will clear the last selection and select an default
+ *     When nullptr is passed, system will clear the last selection and select a default
  *     input device for your application.
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the host device does not support this function.
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the system does not support this function.
  * @since 26.0.0
  */
 OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectInputDevice(
@@ -205,20 +207,20 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectInputDevice(
  * your application will use application's forced selection or the system's default output device.
  * The selection will become invalid when your application exits or the selected device goes offline.
  * After your application restarts or the device comes back online, your application must re-issue the
- * selection for it to take effect. If the host device does not support this function, The system will select
- * an default input device for the renderer.
+ * selection for it to take effect. If the system does not support this function, The system will select
+ * a default input device for the renderer.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
  * @param renderer Indicates the renderer reference created by {@link OH_AudioStreamBuilder_GenerateRenderer}.
  * @param deviceDescriptor The target device. The available device must be in the array returned
  *     by {@link OH_AudioRoutingManager_GetAvailableDevices}.
- *     When the nullptr is passed, system will clear the last selection and select an default
+ *     When nullptr is passed, system will clear the last selection and select a default
  *     output device for the renderer.
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the host device does not support this function.
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the system does not support this function.
  * @since 26.0.0
  */
 OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDeviceForAudioRenderer(
@@ -231,20 +233,20 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDeviceForAudioRen
  * your application will use application's forced selection or the system's default input device.
  * The selection will become invalid when your application exits or the selected device goes offline.
  * After your application restarts or the device comes back online, your application must re-issue the
- * selection for it to take effect. If the host device does not support this function, The system will select
- * an default input device for the capturer.
+ * selection for it to take effect. If the system does not support this function, The system will select
+ * a default input device for the capturer.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
  * @param capturer Indicates the capturer reference created by {@link OH_AudioStreamBuilder_GenerateCapturer}.
  * @param deviceDescriptor The target device. The available device must be in the array returned
  *     by {@link OH_AudioRoutingManager_GetAvailableDevices}.
- *     When the nullptr is passed, system will clear the last selection and select an default
+ *     When nullptr is passed, system will clear the last selection and select a default
  *     input device for the capturer.
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the host device does not support this function.
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the system does not support this function.
  * @since 26.0.0
  */
 OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectInputDeviceForAudioCapturer(
@@ -276,7 +278,7 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_RegisterCurrentOutputDeviceCh
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
  * @param callback the {@link OH_AudioDeviceEnhanceManager_CurrentOutputDeviceChangedCallback}
- *     which is used to receive the device change event. When the nullptr is passed,
+ *     which is used to receive the device change event. When nullptr is passed,
  *     the system will unregister all previously registered audio output device change callbacks.
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
@@ -312,7 +314,7 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_RegisterCurrentInputDeviceCha
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
  * @param callback the {@link OH_AudioDeviceEnhanceManager_CurrentInputDeviceChangedCallback}
- *     which is used to receive the input device change event. When the nullptr is passed,
+ *     which is used to receive the input device change event. When nullptr is passed,
  *     the system will unregister all previously registered audio input device change callbacks.
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
