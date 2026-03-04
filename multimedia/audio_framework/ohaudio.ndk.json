@@ -581,7 +581,7 @@
     }
     {
         "first_introduced": "26.0.0",
-        "name": "OH_AudioDeviceEnhanceManager_IsSupported"
+        "name": "OH_AudioDeviceEnhanceManager_IsEnhancedRoutingSupported"
     }
     {
         "first_introduced": "26.0.0",
