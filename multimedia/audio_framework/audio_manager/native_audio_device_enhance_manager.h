@@ -31,7 +31,7 @@
  * @brief Declares audio device enhance manager related interfaces.
  *
  * The interfaces in this file are used for obtaining the OH_AudioDeviceEnhanceManager handle,
- * switching the input or output devices of the application itself,
+ * switching the input or output devices of your application itself,
  * as well as other enhanced functions related to audio devices or routing.
  *
  * @library libohaudio.so
@@ -115,7 +115,7 @@ typedef void (*OH_AudioDeviceEnhanceManager_CurrentInputDeviceChangedCallback) (
  * @brief Obtains the audio device enhance manager handle, which is used as
  * the first parameter in enhanced audio device management functions.
  * The functional APIs of this manager are only available on specific devices.
- * The application must first call {@link OH_AudioDeviceEnhanceManager_IsSupported} to check
+ * Your application must first call {@link OH_AudioDeviceEnhanceManager_IsSupported} to check
  * if the host device supports them before using.
  *
  * @param audioDeviceEnhanceManager Indicates the pointer to the {@link OH_AudioDeviceEnhanceManager}
@@ -130,7 +130,7 @@ OH_AudioCommon_Result OH_AudioManager_GetAudioDeviceEnhanceManager(
 
 /**
  * @brief Queries whether the host device supports the enhanced audio device management functions
- * provided by {@link OH_AudioDeviceEnhanceManager}. The application must call this interface first
+ * provided by {@link OH_AudioDeviceEnhanceManager}. Your application must call this interface first
  * to confirm that the host device supports these enhanced audio device management functional APIs.
  * Directly calling any functional APIs of the manager will have no effect when the host device
  * does not support them.
@@ -148,13 +148,13 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_IsSupported(
     OH_AudioDeviceEnhanceManager *audioDeviceEnhanceManager, bool *supported);
 
 /**
- * @brief Selects the output device for the application. This setting applies to
- * all playback streams created under the application, unless a specific output device
- * is designated for a particular stream. The application can use
+ * @brief Selects the output device for your application. This setting applies to
+ * all playback streams created under your application, unless a specific output device
+ * is designated for a particular stream. Your application can use
  * {@link OH_AudioDeviceEnhanceManager_RegisterCurrentOutputDeviceChangeCallback} to register a callback
  * to listen for the actual output device. The selection will become invalid when
- * the application exits or the selected device goes offline. After the application restarts or
- * the device comes back online, the application must re-issue the selection for it to take effect.
+ * your application exits or the selected device goes offline. After your application restarts or
+ * the device comes back online, your application must re-issue the selection for it to take effect.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
@@ -171,13 +171,13 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDevice(
     OH_AudioDeviceEnhanceManager *audioDeviceEnhanceManager, OH_AudioDeviceDescriptor *deviceDescriptor);
 
 /**
- * @brief Selects the input device for the application. This setting applies to
- * all recording streams created under the application, unless a specific input device
- * is designated for a particular stream. The application can use
+ * @brief Selects the input device for your application. This setting applies to
+ * all recording streams created under your application, unless a specific input device
+ * is designated for a particular stream. Your application can use
  * {@link OH_AudioDeviceEnhanceManager_RegisterCurrentInputDeviceChangeCallback} to register a callback
  * to listen for the actual input device. The selection will become invalid when
- * the application exits or the selected device goes offline. After the application restarts or
- * the device comes back online, the application must re-issue the selection for it to take effect.
+ * your application exits or the selected device goes offline. After your application restarts or
+ * the device comes back online, your application must re-issue the selection for it to take effect.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
@@ -194,11 +194,11 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectInputDevice(
     OH_AudioDeviceEnhanceManager *audioDeviceEnhanceManager, OH_AudioDeviceDescriptor *deviceDescriptor);
 
 /**
- * @brief Selects the output device for the target renderer. The application must ensure that the specified
+ * @brief Selects the output device for the target renderer. Your application must ensure that the specified
  * renderer is valid. This selection only applies to the designated stream; other playback streams in
- * the application will use the application's forced selection or the system's default output device.
- * The selection will become invalid when the application exits or the selected device goes offline.
- * After the application restarts or the device comes back online, the application must re-issue the
+ * your application will use application's forced selection or the system's default output device.
+ * The selection will become invalid when your application exits or the selected device goes offline.
+ * After your application restarts or the device comes back online, your application must re-issue the
  * selection for it to take effect.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
@@ -218,11 +218,11 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDeviceForAudioRen
     OH_AudioDeviceDescriptor *deviceDescriptor);
 
 /**
- * @brief Selects the input device for the target capturer. The application must ensure that the specified
+ * @brief Selects the input device for the target capturer. Your application must ensure that the specified
  * capturer is valid. This selection only applies to the designated stream; other recording streams in
- * the application will use the application's forced selection or the system's default input device.
- * The selection will become invalid when the application exits or the selected device goes offline.
- * After the application restarts or the device comes back online, the application must re-issue the
+ * your application will use application's forced selection or the system's default input device.
+ * The selection will become invalid when your application exits or the selected device goes offline.
+ * After your application restarts or the device comes back online, your application must re-issue the
  * selection for it to take effect.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
@@ -242,7 +242,9 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectInputDeviceForAudioCapt
     OH_AudioDeviceDescriptor *deviceDescriptor);
 
 /**
- * @brief Register the audio output device change event callback.
+ * @brief Register the audio output device change event callback. When the callback is registered for
+ * the first time, it will immediately receive a callback notification that returns the current
+ * output device of your application.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
@@ -277,7 +279,9 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_UnregisterCurrentOutputDevice
     OH_AudioDeviceEnhanceManager_CurrentOutputDeviceChangedCallback callback);
 
 /**
- * @brief Register the audio input device change event callback.
+ * @brief Register the audio input device change event callback. When the callback is registered for
+ * the first time, it will immediately receive a callback notification that returns the current
+ * input device of your application.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
