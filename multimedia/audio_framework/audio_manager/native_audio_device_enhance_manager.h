@@ -160,8 +160,7 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_IsEnhancedRoutingSupported(
  * to register a callback to listen for the actual output device. The selection will become invalid when
  * your application exits or the selected device goes offline. After your application restarts or
  * the device comes back online, your application must re-issue the selection for it to take effect.
- * If the system does not support this function, The system will select a default output device
- * for your application.
+ * If the system does not support this function, it will select a default output device for your application.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
@@ -189,8 +188,7 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDevice(
  * to register a callback to listen for the actual input device. The selection will become invalid when
  * your application exits or the selected device goes offline. After your application restarts or
  * the device comes back online, your application must re-issue the selection for it to take effect.
- * If the system does not support this function, The system will select a default input device
- * for your application.
+ * If the system does not support this function, it will select a default input device for your application.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
@@ -213,8 +211,8 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectInputDevice(
  * your application will use application's forced selection or the system's default output device.
  * The selection will become invalid when your application exits or the selected device goes offline.
  * After your application restarts or the device comes back online, your application must re-issue the
- * selection for it to take effect. If the system does not support this function, The system will select
- * a default input device for the renderer.
+ * selection for it to take effect. If the system does not support this function, it will select a default
+ * output device for the renderer.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
@@ -239,8 +237,8 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDeviceForAudioRen
  * your application will use application's forced selection or the system's default input device.
  * The selection will become invalid when your application exits or the selected device goes offline.
  * After your application restarts or the device comes back online, your application must re-issue the
- * selection for it to take effect. If the system does not support this function, The system will select
- * a default input device for the capturer.
+ * selection for it to take effect. If the system does not support this function, it will select a default
+ * input device for the capturer.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
