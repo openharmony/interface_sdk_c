@@ -152,9 +152,12 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_IsEnhancedRoutingSupported(
 /**
  * @brief Selects the output device for your application. This setting applies to
  * all playback streams created under your application, unless a specific output device
- * is designated for a particular stream. Your application can use
- * {@link OH_AudioDeviceEnhanceManager_RegisterCurrentOutputDeviceChangeCallback} to register a callback
- * to listen for the actual output device. The selection will become invalid when
+ * is designated for a particular stream. When application implements its own UX for
+ * output device selection, it can obtain the list of available output devices through
+ * {@link OH_AudioRoutingManager_GetAvailableDevices}, and use the
+ * {@link OH_AudioRoutingManager_GetPreferredOutputDevice} API to obtain the currently selected output device.
+ * Your application can use {@link OH_AudioDeviceEnhanceManager_RegisterCurrentOutputDeviceChangeCallback}
+ * to register a callback to listen for the actual output device. The selection will become invalid when
  * your application exits or the selected device goes offline. After your application restarts or
  * the device comes back online, your application must re-issue the selection for it to take effect.
  * If the system does not support this function, The system will select a default output device
@@ -178,9 +181,12 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDevice(
 /**
  * @brief Selects the input device for your application. This setting applies to
  * all recording streams created under your application, unless a specific input device
- * is designated for a particular stream. Your application can use
- * {@link OH_AudioDeviceEnhanceManager_RegisterCurrentInputDeviceChangeCallback} to register a callback
- * to listen for the actual input device. The selection will become invalid when
+ * is designated for a particular stream. When application implements its own UX for
+ * input device selection, it can obtain the list of available input devices through
+ * {@link OH_AudioRoutingManager_GetAvailableDevices}, and use the
+ * {@link OH_AudioRoutingManager_GetPreferredInputDevice} API to obtain the currently selected input device.
+ * Your application can use {@link OH_AudioDeviceEnhanceManager_RegisterCurrentInputDeviceChangeCallback}
+ * to register a callback to listen for the actual input device. The selection will become invalid when
  * your application exits or the selected device goes offline. After your application restarts or
  * the device comes back online, your application must re-issue the selection for it to take effect.
  * If the system does not support this function, The system will select a default input device
