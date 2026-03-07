@@ -76,30 +76,26 @@ typedef int32_t (*OH_AudioRoutingManager_OnDeviceChangedCallback) (
 );
 
 /**
- * @brief This function pointer will point to the callback function that is used to
- * return the preferred audio output device descriptors. There may be more than one
- * audio device descriptor returned.
+ * @brief This callback function pointer is used to return the preferred audio output device
+ * descriptors. Multiple audio device descriptors may be returned.
  *
- * @param audioDeviceDescriptorArray the {@link OH_AudioDeviceDescriptorArray} pointer
- *     variable which will be set the audio output device descriptors value. Do not release
- *     the audioDeviceDescriptorArray pointer separately instead call
- *     {@link OH_AudioRoutingManager_ReleaseDevices} to release the DeviceDescriptor array
- *     when it is no use anymore.
+ * @param audioDeviceDescriptorArray pointer to {@link OH_AudioDeviceDescriptorArray} that will
+ *     be populated with the audio output device descriptors values. Do not release this pointer
+ *     separately; instead, call {@link OH_AudioRoutingManager_ReleaseDevices} to release the device
+ *     descriptor array when it is no longer needed.
  * @since 26.0.0
  */
 typedef int32_t (*OH_AudioRoutingManager_OnPreferredOutputDeviceChangedCallback) (
     OH_AudioDeviceDescriptorArray *audioDeviceDescriptorArray);
 
 /**
- * @brief This function pointer will point to the callback function that is used to
- * return the preferred audio input device descriptors. There may be more than one
- * audio device descriptor returned.
+ * @brief This callback function pointer is used to return the preferred audio input device
+ * descriptors. Multiple audio device descriptors may be returned.
  *
- * @param audioDeviceDescriptorArray the {@link OH_AudioDeviceDescriptorArray} pointer
- *     variable which will be set the audio input device descriptors value. Do not release
- *     the audioDeviceDescriptorArray pointer separately instead call
- *     {@link OH_AudioRoutingManager_ReleaseDevices} to release the DeviceDescriptor array
- *     when it is no use anymore.
+ * @param audioDeviceDescriptorArray pointer to {@link OH_AudioDeviceDescriptorArray} that will
+ *     be populated with the audio input device descriptors values. Do not release this pointer
+ *     separately; instead, call {@link OH_AudioRoutingManager_ReleaseDevices} to release the device
+ *     descriptor array when it is no longer needed.
  * @since 26.0.0
  */
 typedef int32_t (*OH_AudioRoutingManager_OnPreferredInputDeviceChangedCallback) (
