@@ -247,7 +247,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_UnregisterDeviceChangeCallback(
     OH_AudioRoutingManager_OnDeviceChangedCallback callback);
 
 /**
- * @brief Subscribes to preferred output device change events. When preferred device for target audio
+ * @brief Subscribes to preferred output device change events. When the preferred output device for target audio
  * stream usage changes, registered clients will receive the callback. To avoid resource waste or other
  * abnormal situations, when your application no longer needs this callback, you must release it by calling
  * {@link OH_AudioRoutingManager_UnregisterPreferredOutputDevicesChangeCallback}.
@@ -255,7 +255,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_UnregisterDeviceChangeCallback(
  * @param audioRoutingManager the {@link OH_AudioRoutingManager}
  *     handle returned by {@link OH_AudioManager_GetAudioRoutingManager}.
  * @param streamUsage the {@link OH_AudioStream_Usage} which is used as
- *     the filter parameter for registering the preferred output devices change event.
+ *     the filter parameter for registering the preferred output device change event.
  * @param callback the {@link OH_AudioRoutingManager_OnPreferredOutputDeviceChangedCallback} which is used
  *     to receive preferred output device change event.
  * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
@@ -286,7 +286,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_UnregisterPreferredOutputDevicesCha
     OH_AudioRoutingManager_OnPreferredOutputDeviceChangedCallback callback);
 
 /**
- * @brief Subscribes to preferred input device change events. When preferred device for target audio
+ * @brief Subscribes to preferred input device change events. When the preferred input device for target audio
  * stream source type changes, registered clients will receive the callback. To avoid resource waste or other
  * abnormal situations, when your application no longer needs this callback, you must release it by calling
  * {@link OH_AudioRoutingManager_UnregisterPreferredInputDevicesChangeCallback}.
@@ -294,7 +294,7 @@ OH_AudioCommon_Result OH_AudioRoutingManager_UnregisterPreferredOutputDevicesCha
  * @param audioRoutingManager the {@link OH_AudioRoutingManager}
  *     handle returned by {@link OH_AudioManager_GetAudioRoutingManager}.
  * @param sourceType the {@link OH_AudioStream_SourceType} which is used as
- *     the filter parameter for registering the preferred input devices change event.
+ *     the filter parameter for registering the preferred input device change event.
  * @param callback the {@link OH_AudioRoutingManager_OnPreferredInputDeviceChangedCallback} which is used
  *     to receive preferred input device change event.
  * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
