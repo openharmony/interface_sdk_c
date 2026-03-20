@@ -28,7 +28,7 @@
 /**
  * @file native_audio_routing_enhance_manager.h
  *
- * @brief Declares audio device enhance manager related interfaces.
+ * @brief Declares audio device enhancement manager related interfaces.
  *
  * The interfaces in this file are used for obtaining the OH_AudioDeviceEnhanceManager handle,
  * switching the input or output devices of your application itself,
@@ -50,7 +50,7 @@ extern "C" {
 #endif
 
 /**
- * @brief Defines the handle type of the audio device enhance manager,
+ * @brief Defines the handle type of the audio device enhancement manager,
  * which is used for enhanced audio device management functions.
  *
  * @since 26.0.0
@@ -58,61 +58,7 @@ extern "C" {
 typedef struct OH_AudioDeviceEnhanceManager OH_AudioDeviceEnhanceManager;
 
 /**
- * @brief Declares the recommended action when the audio output device changes.
- *
- * @since 26.0.0
- */
-typedef enum {
-    /**
-     * @brief Recommends to continue the playback.
-     */
-    DEVICE_CHANGE_RECOMMEND_TO_CONTINUE = 0,
-
-    /**
-     * @brief Recommends to stop the playback.
-     */
-    DEVICE_CHANGE_RECOMMEND_TO_STOP = 1,
-} OH_AudioDeviceEnhanceManager_OutputDeviceChangeRecommendedAction;
-
-/**
- * @brief This function pointer will point to the callback function that
- * is used to return the audio device change event.
- *
- * @param audioDeviceDescriptorArray the {@link OH_AudioDeviceDescriptorArray}
- *     pointer variable which will be set the audio device descriptors value.
- *     Do not release the audioDeviceDescriptorArray pointer separately
- *     instead call {@link OH_AudioDeviceEnhanceManager_ReleaseDevices}
- *     to release the DeviceDescriptor array when it is no use anymore.
- * @param changeReason the {@link OH_AudioStream_DeviceChangeReason} indicates
- *     the cause of the device change.
- * @param recommendedAction the {@link OH_AudioDeviceEnhanceManager_OutputDeviceChangeRecommendedAction}
- *     recommended action when device changes.
- * @since 26.0.0
- */
-typedef void (*OH_AudioDeviceEnhanceManager_CurrentOutputDeviceChangedCallback) (
-    OH_AudioDeviceDescriptorArray *devices,
-    OH_AudioStream_DeviceChangeReason changeReason,
-    OH_AudioDeviceEnhanceManager_OutputDeviceChangeRecommendedAction recommendedAction);
-
-/**
- * @brief This function pointer will point to the callback function that
- *     is used to return the audio input device change event.
- *
- * @param audioDeviceDescriptorArray the {@link OH_AudioDeviceDescriptorArray}
- *     pointer variable which will be set the audio input device descriptors value.
- *     Do not release the audioDeviceDescriptorArray pointer separately
- *     instead call {@link OH_AudioDeviceEnhanceManager_ReleaseDevices}
- *     to release the DeviceDescriptor array when it is no use anymore.
- * @param changeReason the {@link OH_AudioStream_DeviceChangeReason} indicates
- *     the cause of the input device change.
- * @since 26.0.0
- */
-typedef void (*OH_AudioDeviceEnhanceManager_CurrentInputDeviceChangedCallback) (
-    OH_AudioDeviceDescriptorArray *devices,
-    OH_AudioStream_DeviceChangeReason changeReason);
-
-/**
- * @brief Obtains the audio device enhance manager handle, which is used as
+ * @brief Obtains the audio device enhancement manager handle, which is used as
  * the first parameter in enhanced audio device management functions.
  * The functional APIs of this manager are only available on specific devices.
  * Your application can first call {@link OH_AudioDeviceEnhanceManager_IsSupported} to check
@@ -121,8 +67,7 @@ typedef void (*OH_AudioDeviceEnhanceManager_CurrentInputDeviceChangedCallback) (
  * @param audioDeviceEnhanceManager Indicates the pointer to the {@link OH_AudioDeviceEnhanceManager}
  *     handle obtained by this function.
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} If the execution is successful,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} if system state error.
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails.
  * @since 26.0.0
  */
 OH_AudioCommon_Result OH_AudioManager_GetAudioDeviceEnhanceManager(
@@ -143,7 +88,7 @@ OH_AudioCommon_Result OH_AudioManager_GetAudioDeviceEnhanceManager(
  *     false means not supported.
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error.
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio service error occurs, such as the service died.
  * @since 26.0.0
  */
 OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_IsEnhancedRoutingSupported(
@@ -166,11 +111,11 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_IsEnhancedRoutingSupported(
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
  * @param deviceDescriptor The target device. The available device must be in the array returned
  *     by {@link OH_AudioRoutingManager_GetAvailableDevices}.
- *     When nullptr is passed, system will clear the last selection and select a default
+ *     If nullptr is passed, system will clear the last selection and select a default
  *     output device for your application.
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error,
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio service error occurs, such as the service died,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the system does not support this function.
  * @since 26.0.0
  */
@@ -194,11 +139,11 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDevice(
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
  * @param deviceDescriptor The target device. The available device must be in the array returned
  *     by {@link OH_AudioRoutingManager_GetAvailableDevices}.
- *     When nullptr is passed, system will clear the last selection and select a default
+ *     If nullptr is passed, system will clear the last selection and select a default
  *     input device for your application.
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error,
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio service error occurs, such as the service died,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the system does not support this function.
  * @since 26.0.0
  */
@@ -219,11 +164,11 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectInputDevice(
  * @param renderer Indicates the renderer reference created by {@link OH_AudioStreamBuilder_GenerateRenderer}.
  * @param deviceDescriptor The target device. The available device must be in the array returned
  *     by {@link OH_AudioRoutingManager_GetAvailableDevices}.
- *     When nullptr is passed, system will clear the last selection and select a default
+ *     If nullptr is passed, system will clear the last selection and select a default
  *     output device for the renderer.
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error,
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio service error occurs, such as the service died,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the system does not support this function.
  * @since 26.0.0
  */
@@ -245,103 +190,17 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDeviceForAudioRen
  * @param capturer Indicates the capturer reference created by {@link OH_AudioStreamBuilder_GenerateCapturer}.
  * @param deviceDescriptor The target device. The available device must be in the array returned
  *     by {@link OH_AudioRoutingManager_GetAvailableDevices}.
- *     When nullptr is passed, system will clear the last selection and select a default
+ *     If nullptr is passed, system will clear the last selection and select a default
  *     input device for the capturer.
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error,
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio service error occurs, such as the service died,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the system does not support this function.
  * @since 26.0.0
  */
 OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectInputDeviceForAudioCapturer(
     OH_AudioDeviceEnhanceManager *audioDeviceEnhanceManager, OH_AudioCapturer *capturer,
     OH_AudioDeviceDescriptor *deviceDescriptor);
-
-/**
- * @brief Register the audio output device change event callback. When the callback is registered for
- * the first time, it will immediately receive a callback notification that returns the current
- * output device of your application.
- *
- * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
- *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
- * @param callback the {@link OH_AudioDeviceEnhanceManager_CurrentOutputDeviceChangedCallback}
- *     which is used to receive the device change event
- * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_NO_MEMORY} if there is a memory shortage,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} if system state error,
- * @since 26.0.0
- */
-OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_RegisterCurrentOutputDeviceChangeCallback(
-    OH_AudioDeviceEnhanceManager *audioDeviceEnhanceManager,
-    OH_AudioDeviceEnhanceManager_CurrentOutputDeviceChangedCallback callback);
-
-/**
- * @brief Unregister the audio output device change event callback.
- *
- * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
- *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
- * @param callback the {@link OH_AudioDeviceEnhanceManager_CurrentOutputDeviceChangedCallback}
- *     which is used to receive the device change event. When nullptr is passed,
- *     the system will unregister all previously registered audio output device change callbacks.
- * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} if system state error,
- * @since 26.0.0
- */
-OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_UnregisterCurrentOutputDeviceChangeCallback(
-    OH_AudioDeviceEnhanceManager *audioDeviceEnhanceManager,
-    OH_AudioDeviceEnhanceManager_CurrentOutputDeviceChangedCallback callback);
-
-/**
- * @brief Register the audio input device change event callback. When the callback is registered for
- * the first time, it will immediately receive a callback notification that returns the current
- * input device of your application.
- *
- * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
- *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
- * @param callback the {@link OH_AudioDeviceEnhanceManager_CurrentInputDeviceChangedCallback}
- *     which is used to receive the input device change event.
- * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_NO_MEMORY} if there is a memory shortage,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error,
- * @since 26.0.0
- */
-OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_RegisterCurrentInputDeviceChangeCallback(
-    OH_AudioDeviceEnhanceManager *audioDeviceEnhanceManager,
-    OH_AudioDeviceEnhanceManager_CurrentInputDeviceChangedCallback callback);
-
-/**
- * @brief Unregister the audio input device change event callback.
- *
- * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
- *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
- * @param callback the {@link OH_AudioDeviceEnhanceManager_CurrentInputDeviceChangedCallback}
- *     which is used to receive the input device change event. When nullptr is passed,
- *     the system will unregister all previously registered audio input device change callbacks.
- * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error,
- * @since 26.0.0
- */
-OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_UnregisterCurrentInputDeviceChangeCallback(
-    OH_AudioDeviceEnhanceManager *audioDeviceEnhanceManager,
-    OH_AudioDeviceEnhanceManager_CurrentInputDeviceChangedCallback callback);
-
-/**
- * @brief Release the audio device descriptor array object.
- *
- * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
- *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
- * @param audioDeviceDescriptorArray the audio device descriptor array to be released.
- * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if the execution is successful
- *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails.
- * @since 26.0.0
- */
-OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_ReleaseDevices(
-    OH_AudioDeviceEnhanceManager *audioDeviceEnhanceManager,
-    OH_AudioDeviceDescriptorArray *audioDeviceDescriptorArray);
 
 #ifdef __cplusplus
 }
