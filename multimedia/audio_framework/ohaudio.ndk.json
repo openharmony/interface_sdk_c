@@ -599,24 +599,4 @@
         "first_introduced": "26.0.0",
         "name": "OH_AudioDeviceEnhanceManager_SelectInputDeviceForAudioCapturer"
     }
-    {
-        "first_introduced": "26.0.0",
-        "name": "OH_AudioDeviceEnhanceManager_RegisterCurrentOutputDeviceChangeCallback"
-    }
-    {
-        "first_introduced": "26.0.0",
-        "name": "OH_AudioDeviceEnhanceManager_UnregisterCurrentOutputDeviceChangeCallback"
-    }
-    {
-        "first_introduced": "26.0.0",
-        "name": "OH_AudioDeviceEnhanceManager_RegisterCurrentInputDeviceChangeCallback"
-    }
-    {
-        "first_introduced": "26.0.0",
-        "name": "OH_AudioDeviceEnhanceManager_UnregisterCurrentInputDeviceChangeCallback"
-    }
-    {
-        "first_introduced": "26.0.0",
-        "name": "OH_AudioDeviceEnhanceManager_ReleaseDevices"
-    }
 ]
