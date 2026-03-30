@@ -46,7 +46,6 @@
 #include "native_averrors.h"
 #include "native_window/external_window.h"
 #include "native_avformat.h"
-#include "native_mfmagic.h"
 
 #ifdef __cplusplus
 extern "C" {
