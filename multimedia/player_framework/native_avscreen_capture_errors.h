@@ -60,7 +60,7 @@ typedef enum OH_AVSCREEN_CAPTURE_ErrCode {
      */
     AV_SCREEN_CAPTURE_ERR_NO_MEMORY = AV_SCREEN_CAPTURE_ERR_BASE + 1,
     /**
-     * @error operation not be permitted.
+     * @error operation not permitted.
      */
     AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT = AV_SCREEN_CAPTURE_ERR_BASE + 2,
     /**
@@ -88,7 +88,7 @@ typedef enum OH_AVSCREEN_CAPTURE_ErrCode {
      */
     AV_SCREEN_CAPTURE_ERR_INVALID_STATE = AV_SCREEN_CAPTURE_ERR_BASE + 8,
     /**
-     * @error unsupport interface.
+     * @error unsupported interface.
      */
     AV_SCREEN_CAPTURE_ERR_UNSUPPORT = AV_SCREEN_CAPTURE_ERR_BASE + 9,
     /**
