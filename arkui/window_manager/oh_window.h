@@ -375,6 +375,17 @@ int32_t OH_WindowManager_LockCursor(int32_t windowId, bool isCursorFollowMovemen
  */
 int32_t OH_WindowManager_UnlockCursor(int32_t windowId);
 
+/**
+ * @brief Get the default density from a density information object.
+ *
+ * @param densityInfo Density information object returned by callback or OH_WindowManager_GetDensityInfoCopy.
+ * @param defaultDensity This parameter is the return value of the function, indicating the default density.
+ * @return Returns the status code of the execution.
+ *         {@link OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} Parameter error. Possible cause:
+ *             1. Invalid parameter range.
+ * @since 26.0.0
+ */
 int32_t OH_WindowManager_DensityInfo_GetDefaultDensity(
     const OH_WindowManager_DensityInfo* densityInfo, float* defaultDensity);
 
