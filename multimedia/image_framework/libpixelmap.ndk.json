@@ -180,6 +180,10 @@
         "name": "OH_PixelmapNative_Flip"
     },
     {
+        "first_introduced": "26.0.0",
+        "name": "OH_PixelmapNative_ApplyCrop"
+    },
+    {
         "first_introduced": "12",
         "name": "OH_PixelmapNative_Crop"
     },
