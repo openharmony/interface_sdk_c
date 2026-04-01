@@ -870,12 +870,13 @@ Image_ErrorCode OH_PixelmapNative_GetImageInfo(OH_PixelmapNative *pixelmap, OH_P
  *     The valid range is (0.0, 1.0] where 1.0 is fully opaque and becoming more transparent as it approaches 0.0.
  * @return Function result code:
  *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
  *     {@link IMAGE_PIXELMAP_RELEASED} The PixelMap has been released.
  *     {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation because the PixelMap is locked.
  *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter.
  *         Possible causes: 1. The rate is out of range. 2. The parameter is null.
  *     {@link IMAGE_UNSUPPORTED_DATA_FORMAT} Unsupported data format. Possible cause: Alpha type is not supported.
- *     {@link IMAGE_UNKNOWN_ERROR} Internal unknown error. Please check the logs for detailed information.
  * @since 26.0.0
  */
 Image_ErrorCode OH_PixelmapNative_SetOpacity(OH_PixelmapNative *pixelmap, float value);
@@ -903,12 +904,13 @@ Image_ErrorCode OH_PixelmapNative_Opacity(OH_PixelmapNative *pixelmap, float rat
  * @param scaleY The scale ratio of height.
  * @return Function result code:
  *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
  *     {@link IMAGE_PIXELMAP_RELEASED} The PixelMap has been released.
  *     {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation because the PixelMap is locked.
  *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter. Possible cause: The parameter is null.
  *     {@link IMAGE_ALLOC_FAILED} Failed to allocate memory.
  *         Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
- *     {@link IMAGE_UNKNOWN_ERROR} Internal unknown error. Please check the logs for detailed information.
  * @since 26.0.0
  */
 Image_ErrorCode OH_PixelmapNative_ApplyScale(OH_PixelmapNative *pixelmap, float scaleX, float scaleY);
@@ -938,12 +940,13 @@ Image_ErrorCode OH_PixelmapNative_Scale(OH_PixelmapNative *pixelmap, float scale
  * @param level The anti-aliasing algorithm to be used.
  * @return Function result code:
  *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
  *     {@link IMAGE_PIXELMAP_RELEASED} The PixelMap has been released.
  *     {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation because the PixelMap is locked.
  *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter. Possible cause: The parameter is null.
  *     {@link IMAGE_ALLOC_FAILED} Failed to allocate memory.
  *         Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
- *     {@link IMAGE_UNKNOWN_ERROR} Internal unknown error. Please check the logs for detailed information.
  * @since 26.0.0
  */
 Image_ErrorCode OH_PixelmapNative_ApplyScaleWithAntiAliasing(OH_PixelmapNative *pixelmap, float scaleX, float scaleY,
@@ -1011,12 +1014,13 @@ Image_ErrorCode OH_PixelmapNative_CreateScaledPixelMapWithAntiAliasing(OH_Pixelm
  * @param y The distance in pixels to move in the vertical direction.
  * @return Function result code:
  *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
  *     {@link IMAGE_PIXELMAP_RELEASED} The PixelMap has been released.
  *     {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation because the PixelMap is locked.
  *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter. Possible cause: The parameter is null.
  *     {@link IMAGE_ALLOC_FAILED} Failed to allocate memory.
  *         Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
- *     {@link IMAGE_UNKNOWN_ERROR} Internal unknown error. Please check the logs for detailed information.
  * @since 26.0.0
  */
 Image_ErrorCode OH_PixelmapNative_ApplyTranslate(OH_PixelmapNative *pixelmap, float x, float y);
@@ -1097,12 +1101,13 @@ Image_ErrorCode OH_PixelmapNative_CreateCroppedAndScaledPixelMap(OH_PixelmapNati
  * @param angle The rotation angle in degrees.
  * @return Function result code:
  *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
  *     {@link IMAGE_PIXELMAP_RELEASED} The PixelMap has been released.
  *     {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation because the PixelMap is locked.
  *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter. Possible cause: The parameter is null.
  *     {@link IMAGE_ALLOC_FAILED} Failed to allocate memory.
  *         Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
- *     {@link IMAGE_UNKNOWN_ERROR} Internal unknown error. Please check the logs for detailed information.
  * @since 26.0.0
  */
 Image_ErrorCode OH_PixelmapNative_ApplyRotate(OH_PixelmapNative *pixelmap, float angle);
@@ -1130,11 +1135,12 @@ Image_ErrorCode OH_PixelmapNative_Rotate(OH_PixelmapNative *pixelmap, float angl
  * @param shouldFlipVertically Whether to flip vertically.
  * @return Function result code:
  *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
  *     {@link IMAGE_PIXELMAP_RELEASED} The PixelMap has been released.
  *     {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation because the PixelMap is locked.
  *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter. Possible cause: The parameter is null.
  *     {@link IMAGE_ALLOC_FAILED} Failed to allocate memory. Possible cause: The system is out of memory.
- *     {@link IMAGE_UNKNOWN_ERROR} Internal unknown error. Please check the logs for detailed information.
  * @since 26.0.0
  */
 Image_ErrorCode OH_PixelmapNative_ApplyFlip(OH_PixelmapNative *pixelmap, bool shouldFlipHorizontally,
@@ -1164,13 +1170,14 @@ Image_ErrorCode OH_PixelmapNative_Flip(OH_PixelmapNative *pixelmap, bool shouldF
  * @param region Pointer of the region to crop.
  * @return Function result code:
  *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
  *     {@link IMAGE_PIXELMAP_RELEASED} The PixelMap has been released.
  *     {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation because the PixelMap is locked.
  *     {@link IMAGE_INVALID_REGION} The specified region is invalid or out of range.
  *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter. Possible cause: Any parameter is null.
  *     {@link IMAGE_ALLOC_FAILED} Failed to allocate memory.
- *                                Possible causes: 1. Failed to process pixel data. 2. The system is out of memory. 
- *     {@link IMAGE_UNKNOWN_ERROR} Internal unknown error. Please check the logs for detailed information.
+ *         Possible causes: 1. Failed to process pixel data. 2. The system is out of memory.
  * @since 26.0.0
  */
 Image_ErrorCode OH_PixelmapNative_ApplyCrop(OH_PixelmapNative *pixelmap, Image_Region *region);
@@ -1227,11 +1234,12 @@ Image_ErrorCode OH_PixelmapNative_Destroy(OH_PixelmapNative **pixelmap);
  *     if false, converts from premultiplied to unpremultiplied alpha.
  * @return Function result code:
  *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
  *     {@link IMAGE_PIXELMAP_RELEASED} Either PixelMap has been released.
  *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter.
  *         Possible causes: 1. Either PixelMap does not meet the requirements. 2. Any parameter is null.
  *     {@link IMAGE_UNSUPPORTED_DATA_FORMAT} Unsupported pixel format for either PixelMap.
- *     {@link IMAGE_UNKNOWN_ERROR} Internal unknown error. Please check the logs for detailed information.
  * @since 26.0.0
  */
 Image_ErrorCode OH_PixelmapNative_ConvertAlphaType(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative *dstPixelmap,

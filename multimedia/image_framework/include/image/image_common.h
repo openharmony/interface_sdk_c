@@ -194,11 +194,6 @@ typedef enum {
      * @since 26.0.0
      */
     IMAGE_PIXELMAP_RELEASED = 7600105,
-    /**
-     * @error PixelMap has been passed to another thread.
-     * @since 26.0.0
-     */
-    IMAGE_PIXELMAP_CROSS_THREAD = 7600106,
     /** @error DMA memory does not exist */
     IMAGE_DMA_NOT_EXIST = 7600173,
     /** @error DMA operation failed */
