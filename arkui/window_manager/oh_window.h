@@ -558,7 +558,7 @@ int32_t OH_WindowManager_GetDensityInfoCopy(int32_t windowId,
  *             1. Invalid parameter range.
  * @since 26.0.0
  */
-int32_t OH_WindowManager_RegisterDensityInfoChangeCallback(int32_t windowId, 
+int32_t OH_WindowManager_RegisterDensityInfoChangeCallback(int32_t windowId,
     OH_WindowManager_DensityInfoCallback callback);
 
 /**
@@ -579,7 +579,7 @@ int32_t OH_WindowManager_RegisterDensityInfoChangeCallback(int32_t windowId,
  *             1. Invalid parameter range.
  * @since 26.0.0
  */
-int32_t OH_WindowManager_UnregisterDensityInfoChangeCallback(int32_t windowId, 
+int32_t OH_WindowManager_UnregisterDensityInfoChangeCallback(int32_t windowId,
     OH_WindowManager_DensityInfoCallback callback);
 
 /**
