@@ -142,6 +142,16 @@ typedef enum {
     * YCRCB_P010 format
     */
     PIXEL_FORMAT_YCRCB_P010 = 12,
+    /**
+     * ALPHA_U8 format
+     * @since 26.0.0
+     */
+    PIXEL_FORMAT_ALPHA_U8 = 15,
+    /**
+     * ALPHA_F16 format
+     * @since 26.0.0
+     */
+    PIXEL_FORMAT_ALPHA_F16 = 16,
 } PIXEL_FORMAT;
 
 /**
@@ -1032,7 +1042,26 @@ Image_ErrorCode OH_PixelmapNative_Flip(OH_PixelmapNative *pixelmap, bool shouldF
     bool shouldFlipVertically);
 
 /**
+ * @brief Crops the PixelMap.
+ *
+ * @param pixelmap Pointer of the PixelMap to be cropped.
+ * @param region Pointer of the region to crop.
+ * @return Function result code:
+ *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_PIXELMAP_RELEASED} The PixelMap has been released.
+ *     {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation because the PixelMap is locked.
+ *     {@link IMAGE_INVALID_REGION} Invalid region.
+ *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter. Possible cause: Any parameter is null.
+ *     {@link IMAGE_ALLOC_FAILED} Failed to allocate memory.
+ *                                Possible causes: 1. Failed to process pixel data. 2. The system is out of memory. 
+ *     {@link IMAGE_UNKNOWN_ERROR} Internal unknown error. Please check the logs for detailed information.
+ * @since 26.0.0
+ */
+Image_ErrorCode OH_PixelmapNative_ApplyCrop(OH_PixelmapNative *pixelmap, Image_Region *region);
+
+/**
  * @brief Crops this image based on the input size.
+ *     It is recommended to use {@link OH_PixelmapNative_ApplyCrop}.
  *
  * @param pixelmap The Pixelmap pointer will be operated.
  * @param region Area size, read according to area.

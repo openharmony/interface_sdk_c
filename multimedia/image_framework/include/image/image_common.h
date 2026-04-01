@@ -189,6 +189,16 @@ typedef enum {
      * @since 23
      */
     IMAGE_GET_IMAGE_DATA_FAILED = 7600104,
+    /**
+     * @error PixelMap has been released.
+     * @since 26.0.0
+     */
+    IMAGE_PIXELMAP_RELEASED = 7600105,
+    /**
+     * @error PixelMap has been passed to another thread.
+     * @since 26.0.0
+     */
+    IMAGE_PIXELMAP_CROSS_THREAD = 7600106,
     /** @error DMA memory does not exist */
     IMAGE_DMA_NOT_EXIST = 7600173,
     /** @error DMA operation failed */
@@ -212,7 +222,7 @@ typedef enum {
      */
     IMAGE_INVALID_PARAMETER = 7600206,
     /**
-     * @error Unsupported data format
+     * @error Unsupported data format.
      * @since 22
      */
     IMAGE_UNSUPPORTED_DATA_FORMAT = 7600207,
@@ -235,6 +245,11 @@ typedef enum {
      * @since 22
      */
     IMAGE_CREATE_PIXELMAP_FAILED = 7600305,
+    /**
+     * @error Data conversion failed.
+     * @since 26.0.0
+     */
+    IMAGE_DATA_CONVERSION_FAILED = 7600306,
     /**
      * @error unsupported allocator mode, e.g., use share memory to create a HDR image as only
      * DMA supported hdr metadata.
