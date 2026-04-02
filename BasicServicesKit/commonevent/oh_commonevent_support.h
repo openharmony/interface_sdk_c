@@ -604,7 +604,8 @@ static const char* const COMMON_EVENT_VOLUME_ENCRYPTED = "usual.event.VOLUME_ENC
 
 /**
  * @brief This common event indicates that specific volumes on the device have had their encryption policy set.
- * This is a protected common event that can only be sent by system. To subscribe to this protected common event, your application
+ * This is a protected common event that can only be sent by system. To subscribe to this protected common event,
+   your application
  * must have the ohos.permission.QUERY_VOLUME_ENCRYPTION_STATUS permission.
  *
  * @since 26.0.0
