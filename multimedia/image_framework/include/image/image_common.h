@@ -217,7 +217,7 @@ typedef enum {
      */
     IMAGE_INVALID_PARAMETER = 7600206,
     /**
-     * @error Unsupported data format.
+     * @error Unsupported data format
      * @since 22
      */
     IMAGE_UNSUPPORTED_DATA_FORMAT = 7600207,
