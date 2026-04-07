@@ -64,11 +64,11 @@
     "name": "OH_AVRecorder_SetWillMuteWhenInterrupted"
   },
   {
-    "first_introduced": "26",
+    "first_introduced": "26.0.0",
     "name": "OH_AVRecorder_GetAudioCapturerMaxAmplitude"
   },
   {
-    "first_introduced": "26",
+    "first_introduced": "26.0.0",
     "name": "OH_AVRecorder_SetMetadata"
   }
 ]
