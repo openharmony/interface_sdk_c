@@ -62,7 +62,7 @@ typedef struct OH_AudioDeviceEnhanceManager OH_AudioDeviceEnhanceManager;
  *
  * This handle is used as the first parameter when calling enhanced audio device management functions.
  * The functional APIs of this manager are only available on specific devices.
- * Your application can first call {@link OH_AudioDeviceEnhanceManager_IsSupported} to check
+ * Your application can first call {@link OH_AudioDeviceEnhanceManager_IsEnhancedRoutingSupported} to check
  * if the system supports them before using.
  *
  * @param audioDeviceEnhanceManager Indicates the pointer to the {@link OH_AudioDeviceEnhanceManager}
@@ -121,8 +121,7 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_IsEnhancedRoutingSupported(
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM}  if audioDeviceEnhanceManager is NULL,
  *     deviceDescriptor is invalid, or the specified device has gone offline,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio service error occurs, such as the service died,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the system does not support this function.
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio service error occurs, such as the service died.
  * @since 26.0.0
  */
 OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDevice(
@@ -150,8 +149,7 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDevice(
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if audioDeviceEnhanceManager is NULL,
  *     deviceDescriptor is invalid, or the specified input device has gone offline,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio service error occurs, such as the service died,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the system does not support this function.
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio service error occurs, such as the service died.
  * @since 26.0.0
  */
 OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectInputDevice(
@@ -177,8 +175,7 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectInputDevice(
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if audioDeviceEnhanceManager is NULL, renderer is NULL,
  *     deviceDescriptor is invalid, or the specified output device has gone offline,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio service error occurs, such as the service died,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the system does not support this function.
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio service error occurs, such as the service died.
  * @since 26.0.0
  */
 OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDeviceForAudioRenderer(
@@ -205,8 +202,7 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDeviceForAudioRen
  * @return {@link AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds,
  *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if audioDeviceEnhanceManager is NULL, capturer is NULL,
  *     deviceDescriptor is invalid, or the specified input device has gone offline,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio service error occurs, such as the service died,
- *     or {@link AUDIOCOMMON_RESULT_ERROR_UNSUPPORTED} if the system does not support this function.
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio service error occurs, such as the service died.
  * @since 26.0.0
  */
 OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectInputDeviceForAudioCapturer(
