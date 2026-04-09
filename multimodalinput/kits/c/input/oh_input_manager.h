@@ -613,8 +613,8 @@ int32_t OH_Input_GetKeySwitch(const struct Input_KeyState* keyState);
  * since API 20, it is recommended to use OH_Input_RequestInjection
  * to request authorization before using the interface,
  * and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
- * When the authorization status is AUTHORIZED, use the interface.
- * 自 API version 26.0.0 起，拥有 ohos.permission.CONTROL_DEVICE 权限的调用方也可以直接使用本接口。
+ * When the authorization status is AUTHORIZED, use the interface. Starting from API version 26.0.0,
+ * callers that hold the ohos.permission.CONTROL_DEVICE permission can also use this interface directly.
  *
  * @permission ohos.permission.CONTROL_DEVICE
  * @param keyEvent - the key event to be injected.
@@ -835,8 +835,8 @@ Input_Result OH_Input_DispatchToNextHandler(int32_t eventId);
  * since API 20, it is recommended to use OH_Input_RequestInjection
  * to request authorization before using the interface,
  * and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
- * When the authorization status is AUTHORIZED, use the interface.
- * 自 API version 26.0.0 起，拥有 ohos.permission.CONTROL_DEVICE 权限的调用方也可以直接使用本接口。
+ * When the authorization status is AUTHORIZED, use the interface. Starting from API version 26.0.0,
+ * callers that hold the ohos.permission.CONTROL_DEVICE permission can also use this interface directly.
  *
  * @permission ohos.permission.CONTROL_DEVICE
  * @param mouseEvent - the mouse event to be injected.
@@ -868,8 +868,8 @@ int32_t OH_Input_InjectMouseEvent(const struct Input_MouseEvent* mouseEvent);
  * since API 20, it is recommended to use OH_Input_RequestInjection
  * to request authorization before using the interface,
  * and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
- * When the authorization status is AUTHORIZED, use the interface.
- * 自 API version 26.0.0 起，拥有 ohos.permission.CONTROL_DEVICE 权限的调用方也可以直接使用本接口。
+ * When the authorization status is AUTHORIZED, use the interface. Starting from API version 26.0.0,
+ * callers that hold the ohos.permission.CONTROL_DEVICE permission can also use this interface directly.
  *
  * @permission ohos.permission.CONTROL_DEVICE
  * @param mouseEvent - the mouse event to be injected, set up effective globalX globalY.
@@ -1136,8 +1136,8 @@ int32_t OH_Input_GetMouseEventGlobalY(const struct Input_MouseEvent* mouseEvent)
  * since API 20, it is recommended to use OH_Input_RequestInjection
  * to request authorization before using the interface,
  * and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
- * When the authorization status is AUTHORIZED, use the interface.
- * 自 API version 26.0.0 起，拥有 ohos.permission.CONTROL_DEVICE 权限的调用方也可以直接使用本接口。
+ * When the authorization status is AUTHORIZED, use the interface. Starting from API version 26.0.0,
+ * callers that hold the ohos.permission.CONTROL_DEVICE permission can also use this interface directly.
  *
  * @permission ohos.permission.CONTROL_DEVICE
  * @param touchEvent - the touch event to be injected.
@@ -1168,8 +1168,8 @@ int32_t OH_Input_InjectTouchEvent(const struct Input_TouchEvent* touchEvent);
  * since API 20, it is recommended to use OH_Input_RequestInjection
  * to request authorization before using the interface,
  * and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
- * When the authorization status is AUTHORIZED, use the interface.
- * 自 API version 26.0.0 起，拥有 ohos.permission.CONTROL_DEVICE 权限的调用方也可以直接使用本接口。
+ * When the authorization status is AUTHORIZED, use the interface. Starting from API version 26.0.0,
+ * callers that hold the ohos.permission.CONTROL_DEVICE permission can also use this interface directly.
  *
  * @permission ohos.permission.CONTROL_DEVICE
  * @param touchEvent - the touch event to be injected, set up effective globalX globalY.
@@ -1496,9 +1496,9 @@ void OH_Input_CancelInjection();
  * @since 20
  */
 /**
- * @brief Requests for injection authorization.
- * 自 API version 26.0.0 起，申请到 ohos.permission.CONTROL_DEVICE 权限后，
- * 无需调用本接口进行注入授权。本接口行为与 ohos.permission.CONTROL_DEVICE 权限无关。
+ * @brief Requests for injection authorization. Starting from API version 26.0.0, once the
+ * ohos.permission.CONTROL_DEVICE permission is granted, injection authorization is no longer required.
+ * The behavior of this interface is independent of the ohos.permission.CONTROL_DEVICE permission.
  *
  * @param callback - callback used to return the result.
  * @return OH_Input_RequestInjection function result code.
@@ -1526,8 +1526,9 @@ Input_Result OH_Input_RequestInjection(Input_InjectAuthorizeCallback callback);
  * @since 20
  */
 /**
- * @brief Queries the injection authorization status.
- * 自 API version 26.0.0 起，本接口返回的仅为弹窗授权状态，不表示调用方是否因持有 ohos.permission.CONTROL_DEVICE 权限而具备注入能力。
+ * @brief Queries the injection authorization status. Starting from API version 26.0.0, this interface returns only the
+ * dialog authorization status. It does not indicate whether the caller has injection capability due to holding the
+ * ohos.permission.CONTROL_DEVICE permission.
  *
  * @param status Injection authorization status. For details, see {@Link Input_InjectionStatus}.
  * @return OH_Input_QueryAuthorizedStatus function result code.
