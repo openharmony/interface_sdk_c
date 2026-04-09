@@ -44,7 +44,7 @@ extern "C" {
 #endif
 
 /**
- * @brief Nativebuffer of avscreencapture that from graphics.
+ * @brief Nativebuffer of avscreeencapture that from graphics.
  * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
  *
  * @since 10
@@ -53,7 +53,7 @@ extern "C" {
 typedef struct OH_NativeBuffer OH_NativeBuffer;
 
 /**
- * @brief Initialization of avscreencapture
+ * @brief Initialization of avscreeencapture
  * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
  *
  * @since 10
@@ -256,7 +256,7 @@ typedef struct OH_AudioEncInfo {
 } OH_AudioEncInfo;
 
 /**
- * @brief The audio info of avscreencapture
+ * @brief The audio info of avscreeencapture
  * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
  *
  * @since 10
@@ -285,16 +285,16 @@ typedef struct OH_VideoCaptureInfo {
     int32_t *missionIDs;
     /* Mission ids length, should be set while captureMode = CAPTURE_SPECIFIED_WINDOW */
     int32_t missionIDsLen;
-    /* Video frame width of avscreencapture */
+    /* Video frame width of avscreeencapture */
     int32_t videoFrameWidth;
-    /* Video frame height of avscreencapture */
+    /* Video frame height of avscreeencapture */
     int32_t videoFrameHeight;
-    /* Video source type of avscreencapture */
+    /* Video source type of avscreeencapture */
     OH_VideoSourceType videoSource;
 } OH_VideoCaptureInfo;
 
 /**
- * @brief Video encoder info
+ * @brief Videoc encoder info
  * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
  *
  * @since 10
@@ -457,7 +457,7 @@ typedef struct OH_AVScreenCaptureCallback {
 } OH_AVScreenCaptureCallback;
 
 /**
- * @brief avscreencapture rect info
+ * @brief avscreeencapture rect info
  * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
  *
  * @since 10
