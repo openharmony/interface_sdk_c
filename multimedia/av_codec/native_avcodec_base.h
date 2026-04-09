@@ -1482,6 +1482,15 @@ extern const char *OH_MD_KEY_LONGITUDE;
 extern const char *OH_MD_KEY_ALTITUDE;
 
 /**
+ * @brief Key for getting screen capture rectangular window. Value type is a int32_t array, the array length is 4.
+ * Get the rectangular window in captured screen, represent [top, left, width, height] in the int32_t array,
+ * which can be obtained by calling {@link OH_AVFormat_GetIntBuffer}.
+ *
+ * @since 26.0.0
+ */
+extern const char *OH_MD_KEY_SCREEN_CAPTURE_WINDOW_RECT;
+
+/**
  * @brief Media type.
  *
  * @syscap SystemCapability.Multimedia.Media.CodecBase
