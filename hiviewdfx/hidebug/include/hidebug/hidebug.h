@@ -171,7 +171,7 @@ HiDebug_ErrorCode OH_HiDebug_RequestTrace(OH_HiDebug_RequestTraceConfig *config,
  * @param value Indicates value of graphics memory, in kibibytes.
  * @return Result code
  *         {@link HIDEBUG_SUCCESS} Get graphics memory success.
- *         {@link HIDEBUG_INVALID_ARGUMENT} Invalid argument，value is null.
+ *         {@link HIDEBUG_INVALID_ARGUMENT} Invalid argument, value is null.
  *         {@link HIDEBUG_TRACE_ABNORMAL} Failed to get the application memory due to a remote exception.
  * @since 14
  */
@@ -360,6 +360,32 @@ HiDebug_ErrorCode OH_HiDebug_StartProfiler(OH_HiDebug_ResourceType type, OH_HiDe
  * @since 24
  */
 HiDebug_ErrorCode OH_HiDebug_StopProfiler(void);
+
+/**
+ * @brief Callback triggered for listening. You can use FDs to write memory data in your app so that you can export the
+ *     data using the hidumper command.
+ *
+ * @param fd FD used to write memory data in the app.
+ * @param tag Callback type. You can process the related logic based on the callback type.
+ * @param arg Callback argument. You can pass different arguments based on the value of type.
+ * @return Whether the operation is successful.
+ * @since 26.0.0
+ */
+typedef bool (*OH_HiDebug_MemDumpListener)(int32_t fd, OH_HiDebug_MemListenerType tag, const char* arg);
+
+/**
+ * @brief Registers a listener triggered when the memory watermark of an app is high or the memory information is
+ *     manually exported by hidumper. The third-party app framework or app developer calls back the registered function
+ *     to dump the app's internal memory information to hidumper or upload the information to the OME vendor through
+ *     commercial gray release.
+ * @param name Consumer type ID.
+ * @param listener Callback triggered for listening.
+ * @return Result code.
+ * {@link HIDEBUG_SUCCESS } Operation succeeded.
+ * {@link HIDEBUG_INVALID_ARGUMENT } Invalid argument.
+ * @since 26.0.0
+ */
+HiDebug_ErrorCode OH_HiDebug_RegisterMemDumpListener(const char* name, OH_HiDebug_MemDumpListener listener);
 #ifdef __cplusplus
 }
 #endif // __cplusplus
