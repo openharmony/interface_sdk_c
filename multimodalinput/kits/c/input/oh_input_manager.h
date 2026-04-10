@@ -608,7 +608,7 @@ int32_t OH_Input_GetKeySwitch(const struct Input_KeyState* keyState);
  *         {@link INPUT_PERMISSION_DENIED} Permission verification failed.\n
  *         {@link INPUT_PARAMETER_ERROR} keyCode is less 0, can not process.\n
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 26.0.0
+ * @since 12
  */
 int32_t OH_Input_InjectKeyEvent(const struct Input_KeyEvent* keyEvent);
 
@@ -815,7 +815,7 @@ Input_Result OH_Input_DispatchToNextHandler(int32_t eventId);
  *         {@link INPUT_PERMISSION_DENIED} Permission verification failed.\n
  *         {@link INPUT_PARAMETER_ERROR} Parameter check failed.\n
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 26.0.0
+ * @since 12
  */
 int32_t OH_Input_InjectMouseEvent(const struct Input_MouseEvent* mouseEvent);
 
@@ -833,7 +833,7 @@ int32_t OH_Input_InjectMouseEvent(const struct Input_MouseEvent* mouseEvent);
  *         {@link INPUT_SUCCESS} inject mouseEvent success.\n
  *         {@link INPUT_PERMISSION_DENIED} Permission verification failed.\n
  *         {@link INPUT_PARAMETER_ERROR} Parameter check failed.\n
- * @since 26.0.0
+ * @since 20
  */
 int32_t OH_Input_InjectMouseEventGlobal(const struct Input_MouseEvent* mouseEvent);
 
@@ -1087,7 +1087,7 @@ int32_t OH_Input_GetMouseEventGlobalY(const struct Input_MouseEvent* mouseEvent)
  *         {@link INPUT_SUCCESS} inject touchEvent success.\n
  *         {@link INPUT_PARAMETER_ERROR} Parameter check failed.\n
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @since 26.0.0
+ * @since 12
  */
 int32_t OH_Input_InjectTouchEvent(const struct Input_TouchEvent* touchEvent);
 
@@ -1105,7 +1105,7 @@ int32_t OH_Input_InjectTouchEvent(const struct Input_TouchEvent* touchEvent);
  *         {@link INPUT_SUCCESS} inject touchEvent success.\n
  *         {@link INPUT_PARAMETER_ERROR} Parameter check failed.\n
  *         {@link INPUT_PERMISSION_DENIED} Permission verification failed.\n
- * @since 26.0.0
+ * @since 20
  */
 int32_t OH_Input_InjectTouchEventGlobal(const struct Input_TouchEvent* touchEvent);
 
@@ -1423,7 +1423,7 @@ void OH_Input_CancelInjection();
  *         {@link INPUT_INJECTION_OPERATION_FREQUENT} Too many operations.\n
  *         {@link INPUT_INJECTION_AUTHORIZED} Authorized.\n
  *         {@link INPUT_INJECTION_AUTHORIZED_OTHERS} Authorized to other applications.\n
- * @since 26.0.0
+ * @since 20
  */
 
 Input_Result OH_Input_RequestInjection(Input_InjectAuthorizeCallback callback);
@@ -1438,7 +1438,7 @@ Input_Result OH_Input_RequestInjection(Input_InjectAuthorizeCallback callback);
  *         {@link INPUT_SUCCESS} Success.\n
  *         {@link INPUT_PARAMETER_ERROR} The status is NULL\n
  *         {@link INPUT_SERVICE_EXCEPTION} Service error.\n
- * @since 26.0.0
+ * @since 20
  */
 
 Input_Result OH_Input_QueryAuthorizedStatus(Input_InjectionStatus* status);
