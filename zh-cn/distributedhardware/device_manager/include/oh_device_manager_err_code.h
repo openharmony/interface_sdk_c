@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2026 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,7 +25,7 @@
  * @file oh_device_manager_err_code.h
  *
  * @brief 声明设备管理模块错误码信息。
- * 
+ *
  * @kit DistributedServiceKit
  * @library libdevicemanager_ndk.so
  * @syscap SystemCapability.DistributedHardware.DeviceManager
@@ -43,7 +43,7 @@ extern "C" {
 
 /**
  * @brief 分布式设备管理错误码信息。
- * 
+ *
  * @since 20
  */
 
