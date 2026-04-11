@@ -287,7 +287,7 @@ typedef struct CloudDisk_ChangeData {
 /**
  * @brief A struct that encapsulates the file change result under the sync root path. It includes the next change
  * sequence number, end flag, and an array of change data items.
- * 
+ *
  * @since 21
  */
 typedef struct CloudDisk_ChangesResult {
@@ -321,7 +321,7 @@ typedef struct CloudDisk_ChangesResult {
 /**
  * @brief A struct that encapsulates the list of files that failed to synchronize. It includes the file path
  * information and the specific failure cause.
- * 
+ *
  * @since 21
  */
 typedef struct CloudDisk_FailedList {
@@ -422,7 +422,7 @@ typedef struct CloudDisk_DisplayNameInfo {
 
 /**
  * @brief A struct that encapsulates the sync root property information.
- * 
+ *
  * @since 21
  */
 typedef struct CloudDisk_SyncFolder {
@@ -488,7 +488,7 @@ CloudDisk_ErrorCode OH_CloudDisk_GetSyncFolderChanges(const CloudDisk_SyncFolder
 
 /**
  * @brief Sets the file sync state in the sync root path.
- * 
+ *
  * @param syncFolderPath Sync root path. For details, see {@link CloudDisk_PathInfo}.
  * @param fileSyncStates The array of {@link CloudDisk_FileSyncState} specifying the file paths and their target sync
  *     states.
@@ -513,7 +513,7 @@ CloudDisk_ErrorCode OH_CloudDisk_SetFileSyncStates(const CloudDisk_SyncFolderPat
  * @param paths The array of file paths to query.
  * @param bufferLength Length of the sync state array. The value range is [1, 100].
  * @param resultLists Double pointer to the file sync result. For details, see {@link CloudDisk_ResultList}.
- * @param resultCount Pointer to the number of files that fail to be synchronized.
+ * @param resultCount Number of elements in the query result array.
  * @return Returns {@link CLOUD_DISK_OK} if the API is called successfully; returns {@link CloudDisk_ErrorCode}
  *     otherwise.
  * @since 21
@@ -526,7 +526,7 @@ CloudDisk_ErrorCode OH_CloudDisk_GetFileSyncStates(const CloudDisk_SyncFolderPat
 
 /**
  * @brief Registers a sync root.
- * 
+ *
  * @param syncFolder Sync root path to be registered. For details, see {@link CloudDisk_SyncFolder}.
  * @return Returns {@link CLOUD_DISK_OK} if the API is called successfully; returns {@link CloudDisk_ErrorCode}
  *     otherwise.
