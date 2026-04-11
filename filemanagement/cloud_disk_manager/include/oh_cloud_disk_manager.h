@@ -47,7 +47,7 @@ extern "C" {
 
 /**
  * @brief Enumerates the file sync states.
- * 
+ *
  * @since 21
  *
  */
@@ -136,7 +136,7 @@ typedef enum CloudDisk_OperationType {
 
 /**
  * @brief Enumerates the file sync failure causes.
- * 
+ *
  * @since 21
  */
 typedef enum CloudDisk_ErrorReason {
@@ -174,7 +174,7 @@ typedef enum CloudDisk_ErrorReason {
 
 /**
  * @brief A struct that encapsulates the file path information.
- * 
+ *
  * @since 21
  */
 typedef struct CloudDisk_PathInfo {
@@ -206,7 +206,7 @@ typedef CloudDisk_PathInfo CloudDisk_SyncFolderPath;
 
 /**
  * @brief A struct that encapsulates the file sync state.
- * 
+ *
  * @since 21
  */
 typedef struct CloudDisk_FileSyncState {
@@ -228,7 +228,7 @@ typedef struct CloudDisk_FileSyncState {
  * @brief A struct that encapsulates the event data generated when a single file under the sync root path is changed.
  * It includes the file's unique ID, the parent directory's unique ID, relative path, change type, file size, and
  * timestamp.
- * 
+ *
  * @since 21
  */
 typedef struct CloudDisk_ChangeData {
@@ -342,7 +342,7 @@ typedef struct CloudDisk_FailedList {
 /**
  * @brief A struct that encapsulates the file sync result. It includes the absolute path of the file, sync result, and
  * sync state or failure cause.
- * 
+ *
  * @since 21
  */
 typedef struct CloudDisk_ResultList {
@@ -376,7 +376,7 @@ typedef struct CloudDisk_ResultList {
 
 /**
  * @brief Enumerates the sync root path states.
- * 
+ *
  * @since 21
  */
 typedef enum CloudDisk_SyncFolderState {
@@ -396,7 +396,7 @@ typedef enum CloudDisk_SyncFolderState {
 
 /**
  * @brief A struct that encapsulates the display name of the sync root path.
- * 
+ *
  * @since 21
  */
 typedef struct CloudDisk_DisplayNameInfo {
@@ -448,7 +448,7 @@ typedef struct CloudDisk_SyncFolder {
 
 /**
  * @brief Registers a callback to obtain file changes in the sync root path.
- * 
+ *
  * @param syncFolderPath Sync root path. For details, see {@link CloudDisk_PathInfo}.
  * @param callback Registered callback.
  * @return Returns {@link CLOUD_DISK_OK} if the API is called successfully; returns {@link CloudDisk_ErrorCode}
@@ -462,7 +462,7 @@ CloudDisk_ErrorCode OH_CloudDisk_RegisterSyncFolderChanges(const CloudDisk_SyncF
 
 /**
  * @brief Unregisters the callback for file changes in the sync root path.
- * 
+ *
  * @param syncFolderPath Sync root path. For details, see {@link CloudDisk_PathInfo}.
  * @return Returns {@link CLOUD_DISK_OK} if the API is called successfully; returns {@link CloudDisk_ErrorCode}
  *     otherwise.
@@ -472,7 +472,7 @@ CloudDisk_ErrorCode OH_CloudDisk_UnregisterSyncFolderChanges(const CloudDisk_Syn
 
 /**
  * @brief Obtains the change history in the sync root path.
- * 
+ *
  * @param syncFolderPath Sync root path. For details, see {@link CloudDisk_PathInfo}.
  * @param startUsn Start change sequence number. The value range is [0, 2^64 – 1].
  * @param count Number of file changes. The value range is [1, 100].
