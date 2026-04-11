@@ -22,7 +22,7 @@
  * @version 1.0
  */
 /**
- * @file oh_cloud_disk_manager.h
+ * @file cloud_disk_manager.h
  *
  * @brief This file defines the APIs for the cloud disk management module.
  * 
@@ -92,7 +92,7 @@ typedef enum CloudDisk_SyncState {
 
 /**
  * @brief Enumerates the file change types.
- * 
+ *
  * @since 21
  */
 typedef enum CloudDisk_OperationType {
@@ -366,7 +366,8 @@ typedef struct CloudDisk_ResultList {
      */
     CloudDisk_SyncState syncState;
     /**
-     * @brief Reason why the file sync state fails to be obtained. It takes effect only when **isSuccess** is set to **false**.
+     * @brief Reason why the file sync state fails to be obtained.
+     * It takes effect only when **isSuccess** is set to **false**.
      *
      * @since 21
      */
