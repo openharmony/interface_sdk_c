@@ -41,7 +41,7 @@ extern "C" {
 
 /**
  * @brief Enumerates the error codes of the cloud disk management module.
- * 
+ *
  * @since 21
  */
 typedef enum CloudDisk_ErrorCode {
