@@ -45,7 +45,7 @@ extern "C" {
 /**
   * @brief 获取本地设备显示名。
   * 设备显示名称涉及用户的隐私数据，需要应用提供相关隐私声明，声明设备显示名的用途。
-  * 
+  *
   * @permission ohos.permission.READ_LOCAL_DEVICE_NAME
   * @param localDeviceName 表示本地设备显示名字符串的地址指针。使用后需要手动释放空间资源。
   *     应用具备 ohos.permission.READ_LOCAL_DEVICE_NAME 权限，返回设备显示名称；否则返回设备默认名称。
