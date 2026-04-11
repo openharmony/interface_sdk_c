@@ -508,7 +508,7 @@ CloudDisk_ErrorCode OH_CloudDisk_SetFileSyncStates(const CloudDisk_SyncFolderPat
 
 /**
  * @brief Obtains the file sync state in the sync root path.
- * 
+ *
  * @param syncFolderPath Sync root path. For details, see {@link CloudDisk_PathInfo}.
  * @param paths The array of file paths to query.
  * @param bufferLength Length of the sync state array. The value range is [1, 100].
