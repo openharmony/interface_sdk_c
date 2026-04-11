@@ -536,7 +536,7 @@ CloudDisk_ErrorCode OH_CloudDisk_RegisterSyncFolder(const CloudDisk_SyncFolder *
 
 /**
  * @brief Unregisters the sync root.
- * 
+ *
  * @param syncFolderPath Sync root path. For details, see {@link CloudDisk_PathInfo}.
  * @return Returns {@link CLOUD_DISK_OK} if the API is called successfully; returns {@link CloudDisk_ErrorCode}
  *     otherwise.
@@ -546,7 +546,7 @@ CloudDisk_ErrorCode OH_CloudDisk_UnregisterSyncFolder(const CloudDisk_SyncFolder
 
 /**
  * @brief Activates the sync root.
- * 
+ *
  * @param syncFolderPath Sync root path. For details, see {@link CloudDisk_PathInfo}.
  * @return Returns {@link CLOUD_DISK_OK} if the API is called successfully; returns {@link CloudDisk_ErrorCode}
  *     otherwise.
@@ -556,7 +556,7 @@ CloudDisk_ErrorCode OH_CloudDisk_ActiveSyncFolder(const CloudDisk_SyncFolderPath
 
 /**
  * @brief Deactivates the sync root.
- * 
+ *
  * @param syncFolderPath Sync root path. For details, see {@link CloudDisk_PathInfo}.
  * @return Returns {@link CLOUD_DISK_OK} if the API is called successfully; returns {@link CloudDisk_ErrorCode}
  *     otherwise.
@@ -566,7 +566,7 @@ CloudDisk_ErrorCode OH_CloudDisk_DeactiveSyncFolder(const CloudDisk_SyncFolderPa
 
 /**
  * @brief Obtains all sync roots.
- * 
+ *
  * @param syncFolders Double pointer to the sync root path array {@link CloudDisk_SyncFolder}.
  * @param count Pointer to the number of sync roots registered by the current cloud disk.
  * @return Returns {@link CLOUD_DISK_OK} if the API is called successfully; returns {@link CloudDisk_ErrorCode}
@@ -577,7 +577,7 @@ CloudDisk_ErrorCode OH_CloudDisk_GetSyncFolders(CloudDisk_SyncFolder **syncFolde
 
 /**
  * @brief Updates the sync root alias.
- * 
+ *
  * @param syncFolderPath Sync root path. For details, see {@link CloudDisk_PathInfo}.
  * @param customAlias Indicates the user-defined alias.
  * @param customAliasLength Length of the custom alias. Value range: [0, 255].
