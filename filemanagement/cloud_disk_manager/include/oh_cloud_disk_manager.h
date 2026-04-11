@@ -513,7 +513,7 @@ CloudDisk_ErrorCode OH_CloudDisk_SetFileSyncStates(const CloudDisk_SyncFolderPat
  * @param paths The array of file paths to query.
  * @param bufferLength Length of the sync state array. The value range is [1, 100].
  * @param resultLists Double pointer to the file sync result. For details, see {@link CloudDisk_ResultList}.
- * @param resultCount Number of elements in the query result array.
+ * @param resultCount resultCount Pointer to the number of files that fail to be synchronized.
  * @return Returns {@link CLOUD_DISK_OK} if the API is called successfully; returns {@link CloudDisk_ErrorCode}
  *     otherwise.
  * @since 21
