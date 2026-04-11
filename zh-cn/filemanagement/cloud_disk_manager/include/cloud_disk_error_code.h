@@ -24,7 +24,7 @@
  * @file oh_cloud_disk_error_code.h
  *
  * @brief 提供云盘管理模块的错误码定义。
- * 
+ *
  * @library libohclouddiskmanager.so
  * @kit CoreFileKit
  * @syscap SystemCapability.FileManagement.CloudDiskManager
