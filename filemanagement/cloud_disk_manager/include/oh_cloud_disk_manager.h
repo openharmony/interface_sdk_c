@@ -22,7 +22,7 @@
  * @version 1.0
  */
 /**
- * @file cloud_disk_manager.h
+ * @file oh_cloud_disk_manager.h
  *
  * @brief This file defines the APIs for the cloud disk management module.
  * 
