@@ -25,7 +25,7 @@
  * @file oh_cloud_disk_manager.h
  *
  * @brief This file defines the APIs for the cloud disk management module.
- * 
+ *
  * @library libohclouddiskmanager.so
  * @kit CoreFileKit
  * @syscap SystemCapability.FileManagement.CloudDiskManager
