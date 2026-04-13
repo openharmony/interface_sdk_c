@@ -14,16 +14,6 @@
  */
 
 /**
- * @addtogroup NativeColorSpaceManager
- * @{
- *
- * @brief Provides the native colorSpaceManager capability.
- *
- * @since 13
- * @version 1.0
- */
-
-/**
  * @file native_color_space_manager.h
  *
  * @brief This file declares the functions for creating and using a color space.
@@ -35,16 +25,38 @@
  * @version 1.0
  */
 
+/**
+ * @addtogroup NativeColorSpaceManager
+ * @{
+ *
+ * @brief Provides the native colorSpaceManager capability.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
+ * @since 13
+ * @version 1.0
+ */
+/**
+ * @addtogroup NativeColorSpaceManager
+ * @{
+ *
+ * @brief Provides the native colorSpaceManager capability.
+ *
+ * @since 13
+ * @version 1.0
+ */
 #ifndef C_INCLUDE_NATIVE_COLOR_SPACE_MANAGER_H_
 #define C_INCLUDE_NATIVE_COLOR_SPACE_MANAGER_H_
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
- * @brief Provides the declaration of an **OH_NativeColorSpaceManager** struct.
- * 
+ * @brief 提供OH_NativeColorSpaceManager结构体声明。
+ *
  * @since 13
  */
 typedef struct OH_NativeColorSpaceManager OH_NativeColorSpaceManager;
@@ -54,7 +66,14 @@ typedef struct OH_NativeColorSpaceManager OH_NativeColorSpaceManager;
  *
  * @since 13
  */
-typedef enum {
+} ColorSpaceName;
+
+/**
+ * @brief Describes the color space primaries.
+ * 
+ * @since 13
+ */
+typedef struct {
     /**
      * Unknown color space.
      */
@@ -69,6 +88,8 @@ typedef enum {
     DCI_P3 = 2,
     /**
      * Color space based on SMPTE RP 431-2-2007 and IEC 61966-2.1:1999.
+     */
+    DISPLAY_P3 = 3,
      */
     DISPLAY_P3 = 3,
     /**
@@ -188,51 +209,8 @@ typedef enum {
      * Custom color space.
      */
     CUSTOM = 5,
-} ColorSpaceName;
-
-/**
- * @brief Describes the color space primaries.
- * 
- * @since 13
- */
-typedef struct {
-    /**
-     * X-coordinate of the red color.
-     */
-    float rX;
-    /**
-     * Y-coordinate of the red color.
-     */
-    float rY;
-    /**
-     * X-coordinate of the green color.
-     */
-    float gX;
-    /**
-     * Y-coordinate of the green color.
-     */
-    float gY;
-    /**
-     * X-coordinate of the blue color.
-     */
-    float bX;
-    /**
-     * Y-coordinate of the blue color.
-     */
-    float bY;
-    /**
-     * X-coordinate of the white color.
-     */
-    float wX;
-    /**
-     * Y-coordinate of the white color.
-     */
-    float wY;
 } ColorSpacePrimaries;
 
-/**
- * @brief This struct describes a white point array. Each white point indicates the coordinates of white in the active
- * color space.
  * 
  * @since 13
  */
@@ -242,28 +220,25 @@ typedef struct {
 } WhitePointArray;
 
 /**
- * @brief Creates an **OH_NativeColorSpaceManager** instance based on a color space name.
- * A new **OH_NativeColorSpaceManager** instance is created each time this function is called.
- * 
- * @param colorSpaceName Color space name of the created {@link OH_NativeColorSpaceManager} instance.
- * @return Returns a pointer to the {@link OH_NativeColorSpaceManager} instance. If the memory is insufficient, the **
- * OH_NativeColorSpaceManager** instance fails to be created.
+ * @brief 通过colorSpaceName创建OH_NativeColorSpaceManager实例。
+ * 每次调用此函数时，都会创建一个新的OH_NativeColorSpaceManager实例。
+ *
+ * @param colorSpaceName 表示创建{@link OH_NativeColorSpaceManager}的色彩空间名称。
+ * @return 返回一个指向{@link OH_NativeColorSpaceManager}实例的指针。内存不足时，会导致创建OH_NativeColorSpaceManager实例失败。
  * @since 13
  * @version 1.0
  */
 OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromName(ColorSpaceName colorSpaceName);
 
 /**
- * @brief Creates an **OH_NativeColorSpaceManager** instance based on the color primaries and gamma value.
- * A new **OH_NativeColorSpaceManager** instance is created each time this function is called.
- * 
- * @param primaries Primary color of the created {@link OH_NativeColorSpaceManager} instance.
- * @param gamma Gamma value of the created {@link OH_NativeColorSpaceManager} instance. The gamma value is a floating
- * point number used to correct the brightness range.
- * Generally, the gamma value is positive. A negative value results in increased brightness in low-light areas and
- * decreased brightness in high-light areas. The value **0** indicates a linear color space.
- * @return Returns a pointer to the {@link OH_NativeColorSpaceManager} instance.
- * If the memory is insufficient, the **OH_NativeColorSpaceManager** instance fails to be created.
+ * @brief 通过原色和伽马值创建OH_NativeColorSpaceManager实例。
+ * 每次调用此函数时，都会创建一个新的OH_NativeColorSpaceManager实例。
+ *
+ * @param primaries 表示创建{@link OH_NativeColorSpaceManager}的色彩原色。
+ * @param gamma 表示创建{@link OH_NativeColorSpaceManager}的伽马值，伽马值为一个浮点数，用于校正亮度范围。
+ * 伽马值通常为正值，负值会使弱光区域更亮，强光区域变暗，伽马值为0表示线性色彩空间。
+ * @return 返回一个指向{@link OH_NativeColorSpaceManager}实例的指针。
+ * 内存不足时，会导致创建OH_NativeColorSpaceManager实例失败。
  * @since 13
  * @version 1.0
  */
@@ -271,20 +246,19 @@ OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromPrimariesAndGam
     ColorSpacePrimaries primaries, float gamma);
 
 /**
- * @brief Destroys an **OH_NativeColorSpaceManager** instance.
- * 
- * @param nativeColorSpaceManager Pointer to an **OH_NativeColorSpaceManager** instance.
+ * @brief 销毁OH_NativeColorSpaceManager实例。
+ *
+ * @param nativeColorSpaceManager 表示指向OH_NativeColorSpaceManager实例的指针。
  * @since 13
  * @version 1.0
  */
 void OH_NativeColorSpaceManager_Destroy(OH_NativeColorSpaceManager* nativeColorSpaceManager);
 
 /**
- * @brief Obtains the color space name.
- * 
- * @param nativeColorSpaceManager Pointer to an **OH_NativeColorSpaceManager** instance.
- * @return Returns the color space name, which is defined in {@link ColorSpaceName}. The return value **0** means that
- * the function call fails.
+ * @brief 获取色彩空间名称。
+ *
+ * @param nativeColorSpaceManager 表示指向OH_NativeColorSpaceManager实例的指针。
+ * @return 返回色彩空间枚举{@link ColorSpaceName}对应的值。其中，当返回值为0时，表示接口操作失败。
  * @since 13
  * @version 1.0
  */
@@ -292,10 +266,10 @@ int OH_NativeColorSpaceManager_GetColorSpaceName(
     OH_NativeColorSpaceManager* nativeColorSpaceManager);
 
 /**
- * @brief Obtains the white points.
- * 
- * @param nativeColorSpaceManager Pointer to an **OH_NativeColorSpaceManager** instance.
- * @return Returns a float array of white points. The value **<0.0, 0.0>** means that the function call fails.
+ * @brief 获取白点。
+ *
+ * @param nativeColorSpaceManager 表示指向OH_NativeColorSpaceManager实例的指针。
+ * @return 返回值为float数组，返回值为<0.0, 0.0>表示接口操作失败，其余返回值表示操作成功。
  * @since 13
  * @version 1.0
  */
@@ -303,14 +277,21 @@ WhitePointArray OH_NativeColorSpaceManager_GetWhitePoint(
     OH_NativeColorSpaceManager* nativeColorSpaceManager);
 
 /**
- * @brief Obtains the gamma value.
- * 
- * @param nativeColorSpaceManager Pointer to an **OH_NativeColorSpaceManager** instance.
- * @return Returns a float value. The value **0.0** means that the function call fails.
+ * @brief 获取伽马值。
+ *
+ * @param nativeColorSpaceManager 表示指向OH_NativeColorSpaceManager实例的指针。
+ * @return 返回值为float类型，返回值为0.0表示接口操作失败，其余返回值表示操作成功。
  * @since 13
  * @version 1.0
  */
 float OH_NativeColorSpaceManager_GetGamma(OH_NativeColorSpaceManager* nativeColorSpaceManager);
+
+    float wX;
+    /**
+     * Y-coordinate of the white point.
+     */
+    float wY;
+} ColorSpacePrimaries;
 
 #ifdef __cplusplus
 }
