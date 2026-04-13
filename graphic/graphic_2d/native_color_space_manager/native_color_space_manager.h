@@ -27,7 +27,7 @@
  * @file native_color_space_manager.h
  *
  * @brief This file declares the functions for creating and using a color space.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_color_space_manager.so
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
@@ -192,7 +192,7 @@ typedef enum {
 
 /**
  * @brief Describes the color space primaries.
- * 
+ *
  * @since 13
  */
 typedef struct {
@@ -221,11 +221,11 @@ typedef struct {
      */
     float bY;
     /**
-     * X-coordinate of the white color.
+     * X-coordinate of the white point.
      */
     float wX;
     /**
-     * Y-coordinate of the white color.
+     * Y-coordinate of the white point.
      */
     float wY;
 } ColorSpacePrimaries;
@@ -233,7 +233,7 @@ typedef struct {
 /**
  * @brief This struct describes a white point array. Each white point indicates the coordinates of white in the active
  * color space.
- * 
+ *
  * @since 13
  */
 typedef struct {
@@ -244,7 +244,7 @@ typedef struct {
 /**
  * @brief Creates an **OH_NativeColorSpaceManager** instance based on a color space name.
  * A new **OH_NativeColorSpaceManager** instance is created each time this function is called.
- * 
+ *
  * @param colorSpaceName Color space name of the created {@link OH_NativeColorSpaceManager} instance.
  * @return Returns a pointer to the {@link OH_NativeColorSpaceManager} instance. If the memory is insufficient, the **
  * OH_NativeColorSpaceManager** instance fails to be created.
@@ -256,7 +256,7 @@ OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromName(ColorSpace
 /**
  * @brief Creates an **OH_NativeColorSpaceManager** instance based on the color primaries and gamma value.
  * A new **OH_NativeColorSpaceManager** instance is created each time this function is called.
- * 
+ *
  * @param primaries Primary color of the created {@link OH_NativeColorSpaceManager} instance.
  * @param gamma Gamma value of the created {@link OH_NativeColorSpaceManager} instance. The gamma value is a floating
  * point number used to correct the brightness range.
@@ -272,7 +272,7 @@ OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromPrimariesAndGam
 
 /**
  * @brief Destroys an **OH_NativeColorSpaceManager** instance.
- * 
+ *
  * @param nativeColorSpaceManager Pointer to an **OH_NativeColorSpaceManager** instance.
  * @since 13
  * @version 1.0
@@ -281,7 +281,7 @@ void OH_NativeColorSpaceManager_Destroy(OH_NativeColorSpaceManager* nativeColorS
 
 /**
  * @brief Obtains the color space name.
- * 
+ *
  * @param nativeColorSpaceManager Pointer to an **OH_NativeColorSpaceManager** instance.
  * @return Returns the color space name, which is defined in {@link ColorSpaceName}. The return value **0** means that
  * the function call fails.
@@ -293,7 +293,7 @@ int OH_NativeColorSpaceManager_GetColorSpaceName(
 
 /**
  * @brief Obtains the white points.
- * 
+ *
  * @param nativeColorSpaceManager Pointer to an **OH_NativeColorSpaceManager** instance.
  * @return Returns a float array of white points. The value **<0.0, 0.0>** means that the function call fails.
  * @since 13
@@ -304,7 +304,7 @@ WhitePointArray OH_NativeColorSpaceManager_GetWhitePoint(
 
 /**
  * @brief Obtains the gamma value.
- * 
+ *
  * @param nativeColorSpaceManager Pointer to an **OH_NativeColorSpaceManager** instance.
  * @return Returns a float value. The value **0.0** means that the function call fails.
  * @since 13
