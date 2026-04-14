@@ -25,7 +25,7 @@
  * @file cm_native_type.h
  *
  * @brief Provides the enums, structs, macros, and error codes used by **CertManager** APIs.
- * 
+ *
  * @library libohcert_manager.so
  * @kit DeviceCertificateKit
  * @syscap SystemCapability.Security.CertificateManager
@@ -45,12 +45,12 @@ extern "C" {
 
 #define OH_CM_MAX_LEN_CERTIFICATE_CHAIN   24588
 #define OH_CM_MAX_LEN_URI              256
-#define OH_CM_MAX_LEN_CERT_ALIAS       129 
-#define OH_CM_MAX_LEN_TYPE_NAME       1025 
+#define OH_CM_MAX_LEN_CERT_ALIAS       129
+#define OH_CM_MAX_LEN_TYPE_NAME       1025
 
 /**
  * @brief Enumerates error codes.
- * 
+ *
  * @since 22
  */
 typedef enum {
@@ -106,7 +106,7 @@ typedef enum {
 
 /**
  * @brief Enumerates the certificate credential purposes.
- * 
+ *
  * @since 22
  */
 typedef enum {
@@ -130,7 +130,7 @@ typedef enum {
 
 /**
  * @brief Defines a struct for a binary large object (BLOB).
- * 
+ *
  * @since 22
  */
 typedef struct {
@@ -139,14 +139,14 @@ typedef struct {
      */
     uint32_t size;
     /**
-     * Pointer to the memory in which the data is stored. 
+     * Pointer to the memory in which the data is stored.
      */
     uint8_t *data;
 } OH_CM_Blob;
 
 /**
  * @brief Defines a struct for the certificate credential details.
- * 
+ *
  * @since 22
  */
 typedef struct {
@@ -163,7 +163,7 @@ typedef struct {
      */
     char alias[OH_CM_MAX_LEN_CERT_ALIAS];
     /**
-     * Indicates the uri of Credential. 
+     * Indicates the uri of Credential.
      */
     char keyUri[OH_CM_MAX_LEN_URI];
     /**
@@ -186,7 +186,7 @@ typedef struct {
 
 /**
  * @brief Defines a struct for the certificate credential detail list.
- * 
+ *
  * @since 22
  */
 typedef struct {
@@ -195,14 +195,14 @@ typedef struct {
      */
     uint32_t credentialCount;
     /**
-     * Indicates the credential data. 
+     * Indicates the credential data.
      */
     OH_CM_Credential *credential;
 } OH_CM_CredentialDetailList;
 
 /**
  * @brief Defines a struct for the USB certificate credential information.
- * 
+ *
  * @since 22
  */
 typedef struct {
@@ -211,8 +211,6 @@ typedef struct {
      */
     OH_CM_CertificatePurpose certPurpose;
 } OH_CM_UkeyInfo;
-
-
 
 #ifdef __cplusplus
 }
