@@ -1055,6 +1055,19 @@ extern const char *OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_SIZE;
  */
 extern const char *OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_REFERENCE_MODE;
 /**
+ * @brief Key for the temporal layer ID within a Group of Pictures (GOP), the value type is int32_t.
+ * It is specific to video encoders and is available only when temporal level sacle is enabled.
+ * To retrieve the value associated with this key:
+ * 1. Obtain the encoded stream information (AVBuffer) via
+ *  {@link OH_AVCodecOnNewOutputBuffer} or {@link OH_VideoEncoder_GetOutputBuffer}.
+ * 2. Retrieve the parameter information (AVFormat) from the buffer
+ *  using {@link OH_AVBuffer_GetParameter}.
+ * 3. Use {@link OH_AVFormat_GetIntValue} with this key to get the corresponding value.
+ *
+ * @since 26.0.0
+ */
+extern const char *OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_LAYER_ID;
+/**
  * @brief Key for describing the count of used long-term reference frames, value type is int32_t, must be within the
  * supported range. To get supported range, you should query whether the capability is supported through the interface
  * {@link OH_AVCapability_GetFeatureProperties} with enum {@link VIDEO_ENCODER_LONG_TERM_REFERENCE}, otherwise, not set
@@ -1489,6 +1502,45 @@ extern const char *OH_MD_KEY_ALTITUDE;
  * @since 26.0.0
  */
 extern const char *OH_MD_KEY_SCREEN_CAPTURE_WINDOW_RECT;
+
+/**
+ * @brief Key for setting the Audio Vivid signal input format.
+ *
+ * Required for Audio Vivid encoder. Specifies the signal format of input data.
+ * The value should be from {@link OH_AudioVividSignalFormat}.
+ *
+ * @since 26.0.0
+ */
+extern const char *OH_MD_KEY_AUDIO_VIVID_SIGNAL_FORMAT;
+
+/**
+ * @brief Key for setting the soundbed channel layout.
+ *
+ * Configures the channel layout for soundbed. The value should be from {@link OH_AudioChannelLayout}.
+ *
+ * @since 26.0.0
+ */
+extern const char *OH_MD_KEY_AUDIO_SOUNDBED_LAYOUT;
+
+/**
+ * @brief Key for setting the soundbed bitrate in bits per second.
+ *
+ * Configures the bitrate for soundbed channels. The actual bitrate may be adjusted by the encoder
+ * based on codec capabilities and constraints.
+ *
+ * @since 26.0.0
+ */
+extern const char *OH_MD_KEY_AUDIO_SOUNDBED_BITRATE;
+
+/**
+ * @brief Key for setting the audio object bitrate in bits per second.
+ *
+ * Configures the bitrate for audio objects. The actual bitrate may be adjusted by the encoder
+ * based on codec capabilities and constraints.
+ *
+ * @since 26.0.0
+ */
+extern const char *OH_MD_KEY_AUDIO_OBJECT_BITRATE;
 
 /**
  * @brief Media type.
@@ -2256,7 +2308,11 @@ typedef enum OH_BitrateMode {
     /** Stable Quality RateControl.
      * @since 20
      */
-    BITRATE_MODE_SQR = 3
+    BITRATE_MODE_SQR = 3,
+    /** CBR for High Quality.
+     * @since 26.0.0
+     */
+    BITRATE_MODE_CBR_HIGH_QUALITY = 4
 } OH_BitrateMode;
 
 #ifdef __cplusplus
