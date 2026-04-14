@@ -110,18 +110,6 @@ typedef struct ta_caller_info {
 TEE_Result tee_ext_get_caller_info(caller_info *caller_info_data, uint32_t length);
 
 /**
- * @brief Get user ID of current CA.
- *
- * @param user_id Indicates the user ID to be returned.
- *
- * @return Returns <b>TEE_SUCCESS</b> if the operation is successful.
- * @return Returns other information otherwise.
- *
- * @since 20
- */
-TEE_Result tee_ext_get_caller_userid(uint32_t *user_id);
-
-/**
  * @brief Adds information about a caller that can invoke this TA.
  * This API applies to the client applications (CAs) in the native CA and HAP format.
  *
