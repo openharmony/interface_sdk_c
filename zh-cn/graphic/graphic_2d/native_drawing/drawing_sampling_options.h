@@ -45,52 +45,51 @@ extern "C" {
 #endif
 
 /**
- * @brief Defines an enum for the filter modes.
+ * @brief 过滤模式枚举。
  * 
  * @since 12
  * @version 1.0
  */
 typedef enum {
     /**
-     * Nearest filter mode.
+     * 邻近过滤模式。
      */
     FILTER_MODE_NEAREST,
     /**
-     * Linear filter mode.
+     * 线性过滤模式。
      */
     FILTER_MODE_LINEAR,
 } OH_Drawing_FilterMode;
 
 /**
- * @brief Defines an enum for the mipmap modes.
+ * @brief 多级渐远纹理模式枚举。
  * 
  * @since 12
  * @version 1.0
  */
 typedef enum {
     /**
-     * Mipmap level ignored.
+     * 忽略多级渐远纹理级别。
      */
     MIPMAP_MODE_NONE,
     /**
-     * Nearest sampling from two adjacent mipmap levels.
+     * 邻近多级渐远级别采样。
      */
     MIPMAP_MODE_NEAREST,
     /**
-     * Linear interpolation sampling between two adjacent mipmap levels.
+     * 两个邻近多级渐远纹理之间，线性插值采样。
      */
     MIPMAP_MODE_LINEAR,
 } OH_Drawing_MipmapMode;
 
 /**
- * @brief Creates an **OH_Drawing_SamplingOptions** object.
- * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
- * If **mipmapMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
- * returned.
+ * @brief 创建一个采样选项对象。
+ * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
+ * mipmapMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
  * 
- * @param filterMode Filter sampling mode.
- * @param mipmapMode Mipmap mode.
- * @return Returns a pointer to the created {@link OH_Drawing_SamplingOptions} object.
+ * @param filterMode 过滤采样模式{@link OH_Drawing_FilterMode}。
+ * @param mipmapMode 多级渐远纹理采样模式{@link OH_Drawing_MipmapMode}。
+ * @return 函数会返回一个指针，指针指向创建的采样选项对象{@link OH_Drawing_SamplingOptions}。
  * @since 12
  * @version 1.0
  */
@@ -98,20 +97,20 @@ OH_Drawing_SamplingOptions* OH_Drawing_SamplingOptionsCreate(OH_Drawing_FilterMo
     OH_Drawing_MipmapMode mipmapMode);
 
 /**
- * @brief Creates a copy of an {@link OH_Drawing_SamplingOptions} object.
+ * @brief 创建一个采样选项对象副本{@link OH_Drawing_SamplingOptions}，用于拷贝一个已有采样选项对象。
  * 
- * @param samplingOptions Pointer to the {@link OH_Drawing_SamplingOptions} object.
- * @return Returns a pointer to the created {@link OH_Drawing_SamplingOptions} object copy. If NULL is returned, the
- * creation fails. The possible failure cause is that no memory is available or **samplingOptions** is NULL.
+ * @param samplingOptions 指向采样选项对象{@link OH_Drawing_SamplingOptions}的指针。
+ * @return 函数会返回一个指针，指针指向创建的采样选项对象副本{@link OH_Drawing_SamplingOptions}。如果对象返回NULL，表示创建失败；可能的原因是可用内存为空，
+ * 或者是samplingOptions为NULL。
  * @since 20
  * @version 1.0
  */
 OH_Drawing_SamplingOptions* OH_Drawing_SamplingOptionsCopy(OH_Drawing_SamplingOptions* samplingOptions);
 
 /**
- * @brief Destroys an **OH_Drawing_SamplingOptions** object and reclaims the memory occupied by the object.
+ * @brief 销毁采样选项对象并回收该对象占有内存。
  * 
- * @param samplingOptions Pointer to the {@link OH_Drawing_SamplingOptions} object.
+ * @param samplingOptions 指向采样选项对象{@link OH_Drawing_SamplingOptions}的指针。
  * @since 12
  * @version 1.0
  */
