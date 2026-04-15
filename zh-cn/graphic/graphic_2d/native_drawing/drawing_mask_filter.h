@@ -44,48 +44,46 @@ extern "C" {
 #endif
 
 /**
- * @brief Defines an enum for the blur types.
+ * @brief 蒙版滤波器模糊操作类型的枚举。
  * 
  * @since 11
  * @version 1.0
  */
 typedef enum {
     /**
-     * Blurs both inside and outside the original border.
+     * 内外模糊。
      */
     NORMAL,
     /**
-     * Draws solid inside the border, and blurs outside.
+     * 内部实体，外部模糊。
      */
     SOLID,
     /**
-     * Draws nothing inside the border, and blurs outside.
+     * 内部空白，外部模糊。
      */
     OUTER,
     /**
-     * Blurs inside the border, and draws nothing outside.
+     * 内部模糊，外部空白。
      */
     INNER,
 } OH_Drawing_BlurType;
 
 /**
- * @brief Creates an **OH_Drawing_MaskFilter** object with a blur type.
+ * @brief 创建具有模糊效果的蒙版滤波器。
  *
- * @param blurType Blur type.
- * @param sigma Standard deviation of the Gaussian blur to apply. The value must be greater than 0.
- * @param respectCTM Whether the blur standard deviation is modified by the current transformation matrix (CTM). The
- * default value is **true**. **true**: The blur standard deviation is affected by the CTM. **false**: The blur
- * standard deviation is fixed and not affected by the CTM.
- * @return Returns the pointer to the **OH_Drawing_MaskFilter** object created.
+ * @param blurType 表示模糊类型。
+ * @param sigma 表示要应用的高斯模糊的标准偏差。必须大于0。
+ * @param respectCTM 表示模糊标准差值被CTM（当前变换矩阵）修改，默认为真。true表示模糊标准差值受CTM影响，false表示模糊标准差值固定，不受CTM影响。
+ * @return 返回创建的蒙版滤波器对象的指针。
  * @since 11
  * @version 1.0
  */
 OH_Drawing_MaskFilter* OH_Drawing_MaskFilterCreateBlur(OH_Drawing_BlurType blurType, float sigma, bool respectCTM);
 
 /**
- * @brief Destroys an **OH_Drawing_MaskFilter** object and reclaims the memory occupied by the object.
+ * @brief 销毁蒙版滤波器对象，并收回该对象占用的内存。
  *
- * @param maskFilter Pointer to an **OH_Drawing_MaskFilter** object.
+ * @param maskFilter 表示指向蒙版滤波器对象的指针。
  * @since 11
  * @version 1.0
  */

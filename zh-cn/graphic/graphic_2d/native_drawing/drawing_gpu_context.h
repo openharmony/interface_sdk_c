@@ -44,10 +44,10 @@ extern "C" {
 #endif
 
 /**
- * @brief Creates an **OH_Drawing_GpuContext** object that uses OpenGL as the backend interface.
+ * @brief 用于创建一个使用OpenGL作为后端接口的图形处理器上下文对象。
  *
- * @param gpuContextOptions GPU context options, which is {@link OH_Drawing_GpuContextOptions}.
- * @return Returns the pointer to the {@link OH_Drawing_GpuContext} object created.
+ * @param gpuContextOptions 图形处理器上下文选项{@link OH_Drawing_GpuContextOptions}。
+ * @return 返回一个指针，指针指向创建的图形处理器上下文对象{@link OH_Drawing_GpuContext}。
  * @since 12
  * @version 1.0
  * @deprecated since 18
@@ -56,18 +56,18 @@ extern "C" {
 OH_Drawing_GpuContext* OH_Drawing_GpuContextCreateFromGL(OH_Drawing_GpuContextOptions gpuContextOptions);
 
 /**
- * @brief Creates an **OH_Drawing_GpuContext** object, for which the backend type depends on the device.
+ * @brief 用于创建一个图形处理器上下文对象, 使用的后端类型取决于运行设备。
  *
- * @return Returns the pointer to the {@link OH_Drawing_GpuContext} object created.
+ * @return 返回一个指针，指针指向创建的图形处理器上下文对象{@link OH_Drawing_GpuContext}。
  * @since 16
  * @version 1.0
  */
 OH_Drawing_GpuContext* OH_Drawing_GpuContextCreate(void);
 
 /**
- * @brief Destroys an **OH_Drawing_GpuContext** object and reclaims the memory occupied by the object.
+ * @brief 用于销毁图形处理器上下文对象并回收该对象占用的内存。
  *
- * @param gpuContext Pointer to an {@link OH_Drawing_GpuContext} object.
+ * @param gpuContext 指向图形处理器上下文对象的指针{@link OH_Drawing_GpuContext}。
  * @since 12
  * @version 1.0
  */

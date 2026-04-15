@@ -44,27 +44,27 @@ extern "C" {
 #endif
 
 /**
- * @brief Creates an sRGB color space.
+ * @brief 创建一个标准颜色空间。
  *
- * @return Returns a pointer to the {@link OH_Drawing_ColorSpace} object created.
+ * @return 函数返回一个指针，指针指向创建的颜色空间对象{@link OH_Drawing_ColorSpace}。
  * @since 12
  * @version 1.0
  */
 OH_Drawing_ColorSpace* OH_Drawing_ColorSpaceCreateSrgb(void);
 
 /**
- * @brief Creates an sRGB linear (Gamma 1.0) color space.
+ * @brief 创建一个Gamma 1.0空间上的颜色空间。
  *
- * @return Returns a pointer to the {@link OH_Drawing_ColorSpace} object created.
+ * @return 函数返回一个指针，指针指向创建的颜色空间对象{@link OH_Drawing_ColorSpace}。
  * @since 12
  * @version 1.0
  */
 OH_Drawing_ColorSpace* OH_Drawing_ColorSpaceCreateSrgbLinear(void);
 
 /**
- * @brief Destroys an **OH_Drawing_ColorSpace** object and reclaims the memory occupied by the object.
+ * @brief 销毁颜色空间对象，并回收该对象占用的内存。
  *
- * @param colorSpace Pointer to an {@link OH_Drawing_ColorSpace} object.
+ * @param colorSpace 指向颜色空间对象{@link OH_Drawing_ColorSpace}的指针。
  * @since 12
  * @version 1.0
  */
