@@ -44,24 +44,23 @@ extern "C" {
 #endif
 
 /**
- * @brief Creates an **OH_Drawing_MemoryStream** object.
- * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
- * If **data** is NULL or **length** is **0**, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+ * @brief 创建一个内存流对象。
+ * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
+ * data为NULL或者length等于0时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
  * 
- * @return Returns the pointer to the {@link OH_Drawing_MemoryStream} object created.
- * @param data Pointer to the data.
- * @param length Length of the data.
- * @param copyData Whether to copy data. The value **true** means that the **OH_Drawing_MemoryStream** object copies
- * the data, and **false** means that the **OH_Drawing_MemoryStream** object directly uses the data without copying.
+ * @return 函数会返回一个指针，指针指向创建的内存流对象{@link OH_Drawing_MemoryStream}。
+ * @param data 数据段。
+ * @param length 数据段长度。
+ * @param copyData 是否拷贝数据。true表示内存流对象会拷贝一份数据段数据，false表示内存流对象直接使用数据段数据，不拷贝。
  * @since 12
  * @version 1.0
  */
 OH_Drawing_MemoryStream* OH_Drawing_MemoryStreamCreate(const void* data, size_t length, bool copyData);
 
 /**
- * @brief Destroys an **OH_Drawing_MemoryStream** object and reclaims the memory occupied by the object.
+ * @brief 销毁内存流对象并回收该对象占用的内存。
  * 
- * @param memoryStream Pointer to an {@link OH_Drawing_MemoryStream} object.
+ * @param memoryStream 指向内存流对象{@link OH_Drawing_MemoryStream}的指针。
  * @since 12
  * @version 1.0
  */
