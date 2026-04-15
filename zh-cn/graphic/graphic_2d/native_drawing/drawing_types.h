@@ -46,8 +46,7 @@ extern "C" {
 #endif
 
 /**
- * @brief Defines a struct for a rectangular canvas, on which various shapes, images, and texts can be drawn by using
- * the brush and pen.
+ * @brief 定义为一块矩形的画布，可以结合画笔和画刷在上面绘制各种形状、图片和文字。
  *
  * @since 8
  * @version 1.0
@@ -55,7 +54,7 @@ extern "C" {
 typedef struct OH_Drawing_Canvas OH_Drawing_Canvas;
 
 /**
- * @brief Defines a struct for a pen, which is used to describe the style and color to outline a shape.
+ * @brief 定义为画笔，画笔用于描述绘制图形轮廓的样式和颜色。
  *
  * @since 8
  * @version 1.0
@@ -63,7 +62,7 @@ typedef struct OH_Drawing_Canvas OH_Drawing_Canvas;
 typedef struct OH_Drawing_Pen OH_Drawing_Pen;
 
 /**
- * @brief Defines a struct for a region, which represents a closed area on the canvas for more accurate graphic control.
+ * @brief 定义一个区域，用于表示画布上的封闭区域，实现更精确的图形控制。
  *
  * @since 12
  * @version 1.0
@@ -71,7 +70,7 @@ typedef struct OH_Drawing_Pen OH_Drawing_Pen;
 typedef struct OH_Drawing_Region OH_Drawing_Region;
 
 /**
- * @brief Defines a struct for a brush, which is used to describe the style and color to fill in a shape.
+ * @brief 定义为画刷，画刷用于描述填充图形的样式和颜色。
  *
  * @since 8
  * @version 1.0
@@ -79,7 +78,7 @@ typedef struct OH_Drawing_Region OH_Drawing_Region;
 typedef struct OH_Drawing_Brush OH_Drawing_Brush;
 
 /**
- * @brief Defines a struct for a path, which is used to customize various shapes.
+ * @brief 定义为路径，路径用于自定义各种形状。
  *
  * @since 8
  * @version 1.0
@@ -87,8 +86,7 @@ typedef struct OH_Drawing_Brush OH_Drawing_Brush;
 typedef struct OH_Drawing_Path OH_Drawing_Path;
 
 /**
- * @brief This struct defines a path operation iterator that enables path operation instructions to be read via
- * iterator traversal.
+ * @brief 定义为路径操作迭代器，可通过遍历迭代器读取path的操作指令。
  *
  * @since 23
  * @version 1.0
@@ -96,14 +94,14 @@ typedef struct OH_Drawing_Path OH_Drawing_Path;
 typedef struct OH_Drawing_PathIterator OH_Drawing_PathIterator;
 
 /**
- * @brief This struct defines a rectangle grid, which is used to divide an image by rectangle grid.
+ * @brief 定义为矩形网格，用于将图片按照矩形网格进行划分。
  *
  * @since 23
  */
 typedef struct OH_Drawing_Lattice OH_Drawing_Lattice;
 
 /**
- * @brief Defines a struct for a bitmap, which is a memory area that contains the pixel data of a shape.
+ * @brief 定义为位图，位图是一块内存，内存中包含了描述一张图片的像素数据。
  *
  * @since 8
  * @version 1.0
@@ -111,7 +109,7 @@ typedef struct OH_Drawing_Lattice OH_Drawing_Lattice;
 typedef struct OH_Drawing_Bitmap OH_Drawing_Bitmap;
 
 /**
- * @brief Defines a struct for a coordinate point.
+ * @brief 定义一个点，用于描述坐标点。
  *
  * @since 11
  * @version 1.0
@@ -119,7 +117,7 @@ typedef struct OH_Drawing_Bitmap OH_Drawing_Bitmap;
 typedef struct OH_Drawing_Point OH_Drawing_Point;
 
 /**
- * @brief Defines a struct for a pixel map, which is used to wrap the real pixel map supported by the image framework.
+ * @brief 定义像素图，用于包装图像框架支持的真实像素图。
  *
  * @since 12
  * @version 1.0
@@ -127,7 +125,7 @@ typedef struct OH_Drawing_Point OH_Drawing_Point;
 typedef struct OH_Drawing_PixelMap OH_Drawing_PixelMap;
 
 /**
- * @brief Defines a struct for a color space, which is used to describe the color information.
+ * @brief 定义色彩空间，用于解释颜色信息。
  *
  * @since 12
  * @version 1.0
@@ -135,8 +133,8 @@ typedef struct OH_Drawing_PixelMap OH_Drawing_PixelMap;
 typedef struct OH_Drawing_ColorSpace OH_Drawing_ColorSpace;
 
 /**
- * @brief **OH_Drawing_Point2D** defines a two-dimensional coordinate point.<br>**OH_Drawing_Corner_Radii** defines
- * rounded corner radii, consisting of an x-axis radius and a y-axis radius.
+ * @brief OH_Drawing_Point2D: 定义一个二维的坐标点。
+ * OH_Drawing_Corner_Radii: 定义一个圆角半径，该圆角半径由x轴方向和y轴方向上的半径组成。
  *
  * @since 12
  * @version 1.0
@@ -155,7 +153,7 @@ typedef struct {
 typedef OH_Drawing_Point2D OH_Drawing_Corner_Radii;
 
 /**
- * @brief This struct describes a three-dimensional coordinate point.
+ * @brief 定义一个三维的坐标点。
  *
  * @since 12
  * @version 1.0
@@ -167,7 +165,7 @@ typedef struct {
 } OH_Drawing_Point3D;
 
 /**
- * @brief Defines a struct for a path effect that affects the stroke.
+ * @brief 定义一个路径效果，用于影响描边路径。
  *
  * @since 12
  * @version 1.0
@@ -175,7 +173,7 @@ typedef struct {
 typedef struct OH_Drawing_PathEffect OH_Drawing_PathEffect;
 
 /**
- * @brief Defines a struct for a rectangle.
+ * @brief 用于描述矩形。
  *
  * @since 11
  * @version 1.0
@@ -183,7 +181,7 @@ typedef struct OH_Drawing_PathEffect OH_Drawing_PathEffect;
 typedef struct OH_Drawing_Rect OH_Drawing_Rect;
 
 /**
- * @brief Defines a struct for a rounded rectangle.
+ * @brief 用于描述圆角矩形。
  *
  * @since 11
  * @version 1.0
@@ -191,7 +189,7 @@ typedef struct OH_Drawing_Rect OH_Drawing_Rect;
 typedef struct OH_Drawing_RoundRect OH_Drawing_RoundRect;
 
 /**
- * @brief Defines a struct for a matrix, which is used to describe coordinate transformation.
+ * @brief 定义一个矩阵，用于描述坐标变换。
  *
  * @since 11
  * @version 1.0
@@ -199,7 +197,7 @@ typedef struct OH_Drawing_RoundRect OH_Drawing_RoundRect;
 typedef struct OH_Drawing_Matrix OH_Drawing_Matrix;
 
 /**
- * @brief Defines a struct for a shader effect, which is used to describe the source color of the drawn content.
+ * @brief 定义一个着色器，用于描述绘制内容的源颜色。
  *
  * @since 11
  * @version 1.0
@@ -207,7 +205,7 @@ typedef struct OH_Drawing_Matrix OH_Drawing_Matrix;
 typedef struct OH_Drawing_ShaderEffect OH_Drawing_ShaderEffect;
 
 /**
- * @brief Defines a struct for a shadow, which is used to describe the shadow layer of the drawn content.
+ * @brief 定义一个阴影层，用于描述绘制内容的阴影层。
  *
  * @since 12
  * @version 1.0
@@ -215,7 +213,7 @@ typedef struct OH_Drawing_ShaderEffect OH_Drawing_ShaderEffect;
 typedef struct OH_Drawing_ShadowLayer OH_Drawing_ShadowLayer;
 
 /**
- * @brief Defines a struct for a filter, which consists of a color filter, mask filter, and image filter.
+ * @brief 定义一个滤波器，用于存储颜色滤波器，蒙版滤波器和图像滤波器。
  *
  * @since 11
  * @version 1.0
@@ -223,7 +221,7 @@ typedef struct OH_Drawing_ShadowLayer OH_Drawing_ShadowLayer;
 typedef struct OH_Drawing_Filter OH_Drawing_Filter;
 
 /**
- * @brief Defines a struct for a mask filter.
+ * @brief 定义蒙版滤波器。
  *
  * @since 11
  * @version 1.0
@@ -231,7 +229,7 @@ typedef struct OH_Drawing_Filter OH_Drawing_Filter;
 typedef struct OH_Drawing_MaskFilter OH_Drawing_MaskFilter;
 
 /**
- * @brief Defines a struct for a color filter, which is used to convert a color into a new one.
+ * @brief 定义颜色滤波器，传入一个颜色并返回一个新的颜色。
  *
  * @since 11
  * @version 1.0
@@ -239,7 +237,7 @@ typedef struct OH_Drawing_MaskFilter OH_Drawing_MaskFilter;
 typedef struct OH_Drawing_ColorFilter OH_Drawing_ColorFilter;
 
 /**
- * @brief Defines a struct for a font.
+ * @brief 用于描述字体。
  *
  * @since 11
  * @version 1.0
@@ -247,8 +245,7 @@ typedef struct OH_Drawing_ColorFilter OH_Drawing_ColorFilter;
 typedef struct OH_Drawing_Font OH_Drawing_Font;
 
 /**
- * @brief Defines a struct for font features, which are typesetting rules within a font that determine how glyphs look,
- * such as ligatures, alternates, and superscripts/subscripts.
+ * @brief 用于描述字体特征容器。字体特征是字体内置的排版规则，控制字形显示。例如：连字、替代字形、上下标等。
  *
  * @since 20
  * @version 1.0
@@ -256,7 +253,7 @@ typedef struct OH_Drawing_Font OH_Drawing_Font;
 typedef struct OH_Drawing_FontFeatures OH_Drawing_FontFeatures;
 
 /**
- * @brief Defines a struct for a memory stream.
+ * @brief 用于描述内存流。
  *
  * @since 12
  * @version 1.0
@@ -264,7 +261,7 @@ typedef struct OH_Drawing_FontFeatures OH_Drawing_FontFeatures;
 typedef struct OH_Drawing_MemoryStream OH_Drawing_MemoryStream;
 
 /**
- * @brief Defines a struct for font arguments.
+ * @brief 用于描述字型参数。
  *
  * @since 13
  * @version 1.0
@@ -272,7 +269,7 @@ typedef struct OH_Drawing_MemoryStream OH_Drawing_MemoryStream;
 typedef struct OH_Drawing_FontArguments OH_Drawing_FontArguments;
 
 /**
- * @brief Defines a struct for a typeface.
+ * @brief 用于描述字形。
  *
  * @since 11
  * @version 1.0
@@ -280,8 +277,7 @@ typedef struct OH_Drawing_FontArguments OH_Drawing_FontArguments;
 typedef struct OH_Drawing_Typeface OH_Drawing_Typeface;
 
 /**
- * @brief Defines a struct for a text blob, an immutable container that holds multiple texts. Each text blob consists
- * of glyphs and position.
+ * @brief 定义一个文本对象，表示将多个文本组合到一个不可变的容器中。每个文本行由字形和位置组成。
  *
  * @since 11
  * @version 1.0
@@ -289,7 +285,7 @@ typedef struct OH_Drawing_Typeface OH_Drawing_Typeface;
 typedef struct OH_Drawing_TextBlob OH_Drawing_TextBlob;
 
 /**
- * @brief Defines a struct for an image that describes a two-dimensional pixel array.
+ * @brief 定义一个用于描述绘制二维像素数组的图片。
  *
  * @since 12
  * @version 1.0
@@ -297,7 +293,7 @@ typedef struct OH_Drawing_TextBlob OH_Drawing_TextBlob;
 typedef struct OH_Drawing_Image OH_Drawing_Image;
 
 /**
- * @brief Defines a struct for an image filter, which is used to operate all color bits that make up image pixels.
+ * @brief 定义图像滤波器, 用于对构成图像像素的所有颜色位进行操作。
  *
  * @since 12
  * @version 1.0
@@ -305,7 +301,7 @@ typedef struct OH_Drawing_Image OH_Drawing_Image;
 typedef struct OH_Drawing_ImageFilter OH_Drawing_ImageFilter;
 
 /**
- * @brief Defines a struct for sampling options, which describe the sampling methods for images and bitmaps.
+ * @brief 定义一个采样选项，用于描述图片、位图等图像的采样方法。
  *
  * @since 12
  * @version 1.0
@@ -313,7 +309,7 @@ typedef struct OH_Drawing_ImageFilter OH_Drawing_ImageFilter;
 typedef struct OH_Drawing_SamplingOptions OH_Drawing_SamplingOptions;
 
 /**
- * @brief Defines a struct for a text blob builder, which is used to build a text blob.
+ * @brief 定义文本构建器，用于构建文本。
  *
  * @since 11
  * @version 1.0
@@ -321,7 +317,7 @@ typedef struct OH_Drawing_SamplingOptions OH_Drawing_SamplingOptions;
 typedef struct OH_Drawing_TextBlobBuilder OH_Drawing_TextBlobBuilder;
 
 /**
- * @brief Defines a struct for the GPU context, which is used to describe the GPU backend context.
+ * @brief 定义图形处理器上下文，用于描述图形处理器后端上下文。
  *
  * @since 12
  * @version 1.0
@@ -329,7 +325,7 @@ typedef struct OH_Drawing_TextBlobBuilder OH_Drawing_TextBlobBuilder;
 typedef struct OH_Drawing_GpuContext OH_Drawing_GpuContext;
 
 /**
- * @brief Defines a struct for a surface, which is used to manage the content drawn on the canvas.
+ * @brief 定义surface，用于管理画布绘制的内容。
  *
  * @since 12
  * @version 1.0
@@ -337,48 +333,44 @@ typedef struct OH_Drawing_GpuContext OH_Drawing_GpuContext;
 typedef struct OH_Drawing_Surface OH_Drawing_Surface;
 
 /**
- * @brief Defines an enum for the storage formats of bitmap pixels.
+ * @brief 用于描述位图像素的存储格式。
  *
  * @since 8
  * @version 1.0
  */
 typedef enum {
     /**
-     * Unknown format.
+     * 未知格式。
      *
      * @since 8
      */
     COLOR_FORMAT_UNKNOWN,
     /**
-     * Each pixel is represented by 8 bits, which together indicate alpha.
+     * 每个像素用一个8位的量表示，8个比特位表示透明度。
      *
      * @since 8
      */
     COLOR_FORMAT_ALPHA_8,
     /**
-     * Each pixel is represented by 16 bits. From the most significant bit to the least significant bit, the first 5
-     * bits indicate red, the subsequent 6 bits indicate green, and the last 5 bits indicate blue.
+     * 每个像素用一个16位的量表示，高位到低位依次是5个比特位表示红，6个比特位表示绿，5个比特位表示蓝。
      *
      * @since 8
      */
     COLOR_FORMAT_RGB_565,
     /**
-     * Each pixel is represented by 16 bits. From the most significant bit to the least significant bit, every 4 bits
-     * indicate alpha, red, green, and blue, respectively.
+     * 每个像素用一个16位的量表示，高位到低位依次是4个比特位表示透明度，4个比特位表示红，4个比特位表示绿，4个比特位表示蓝。
      *
      * @since 8
      */
     COLOR_FORMAT_ARGB_4444,
     /**
-     * Each pixel is represented by 32 bits. From the most significant bit to the least significant bit, every 8 bits
-     * indicate alpha, red, green, and blue, respectively.
+     * 每个像素用一个32位的量表示，高位到低位依次是8个比特位表示透明度，8个比特位表示红，8个比特位表示绿，8个比特位表示蓝。
      *
      * @since 8
      */
     COLOR_FORMAT_RGBA_8888,
     /**
-     * Each pixel is represented by 32 bits. From the most significant bit to the least significant bit, every 8 bits
-     * indicate blue, green, red, and alpha, respectively.
+     * 每个像素用一个32位的量表示，高位到低位依次是8个比特位表示蓝，8个比特位表示绿，8个比特位表示红，8个比特位表示透明度。
      *
      * @since 8
      */
@@ -386,32 +378,32 @@ typedef enum {
 } OH_Drawing_ColorFormat;
 
 /**
- * @brief Defines an enum for the alpha formats of bitmap pixels.
+ * @brief 用于描述位图像素的透明度分量。
  *
  * @since 8
  * @version 1.0
  */
 typedef enum {
     /**
-     * Unknown format.
+     * 未知格式。
      *
      * @since 8
      */
     ALPHA_FORMAT_UNKNOWN,
     /**
-     * The bitmap does not have the alpha component.
+     * 位图无透明度。
      *
      * @since 8
      */
     ALPHA_FORMAT_OPAQUE,
     /**
-     * The color component of each pixel is premultiplied by the alpha component.
+     * 每个像素的颜色组件由透明度分量预先乘以。
      *
      * @since 8
      */
     ALPHA_FORMAT_PREMUL,
     /**
-     * The color component of each pixel is not premultiplied by the alpha component.
+     * 每个像素的颜色组件未由透明度分量预先乘以。
      *
      * @since 8
      */
@@ -419,41 +411,36 @@ typedef enum {
 } OH_Drawing_AlphaFormat;
 
 /**
- * @brief Defines an enum for blend modes. In blend mode, each operation generates a new color from two colors (source
- * color and destination color).
- * These operations are the same for the red, green, and blue color channels (the alpha channel follows a different
- * rule).
- * For simplicity, the following description uses the alpha channel as an example rather than naming each channel
- * individually. For brevity, the following abbreviations are used:
- * **s**: source.
- * **d**: destination.
- * **sa**: source alpha.
- * **da**: destination alpha.
- * The following abbreviations are used in the calculation result:
- * **r**: The calculation methods of the four channels are the same.
- * **ra**: used when only the alpha channel is manipulated.
- * **rc**: used when the other three color channels are manipulated.
+ * @brief 混合模式枚举。混合模式的操作会为两种颜色（源色、目标色）生成一种新的颜色。
+ * 这些操作在红、绿、蓝3个颜色通道上是相同的（透明度有另外的处理规则）。
+ * 对于这些，我们使用透明度通道作为示例，而不是单独命名每个通道。为简洁起见，我们使用以下缩写：
+ * s  : source，源的缩写。
+ * d  : destination，目标的缩写。
+ * sa : source alpha，源透明度的缩写。
+ * da : destination alpha，目标透明度的缩写。
+ * 计算结果用如下缩写表示：
+ * r  : 如果4个通道的计算方式相同，用r表示。
+ * ra : 如果只操作透明度通道，用ra表示。
+ * rc : 如果操作3个颜色通道，用rc表示。
  *
  * @since 11
  * @version 1.0
  */
 typedef enum {
     /**
-     * Clear mode. r = 0.
+     * 清除模式，r = 0。
      *
      * @since 11
      */
     BLEND_MODE_CLEAR,
     /**
-     * r = s (The four channels of **result** are equal to the four channels of **source**, that is, the result is
-     * equal to the source.)
+     * r = s（result的4个通道，都等于source的4个通道，即结果等于源。）
      *
      * @since 11
      */
     BLEND_MODE_SRC,
     /**
-     * r = d (The four channels of **result** are equal to the four channels of **destination**, that is, the result is
-     * equal to the destination.)
+     * r = d（result的4个通道，都等于destination的4个通道，即结果等于目标。）
      *
      * @since 11
      */
@@ -525,91 +512,91 @@ typedef enum {
      */
     BLEND_MODE_MODULATE,
     /**
-     * Screen mode. r = s + d - s * d.
+     * 滤色模式，r = s + d - s * d。
      *
      * @since 11
      */
     BLEND_MODE_SCREEN,
     /**
-     * Overlay mode.
+     * 叠加模式。
      *
      * @since 11
      */
     BLEND_MODE_OVERLAY,
     /**
-     * Darken mode. rc = s + d - max(s * da, d * sa), ra = s + (1 - sa) * d.
+     * 变暗模式，rc = s + d - max(s * da, d * sa), ra = s + (1 - sa) * d。
      *
      * @since 11
      */
     BLEND_MODE_DARKEN,
     /**
-     * Lighten mode. rc = rc = s + d - min(s * da, d * sa), ra = s + (1 - sa) * d.
+     * 变亮模式，rc = s + d - min(s * da, d * sa), ra = s + (1 - sa) * d。
      *
      * @since 11
      */
     BLEND_MODE_LIGHTEN,
     /**
-     * Color dodge mode.
+     * 颜色减淡模式。
      *
      * @since 11
      */
     BLEND_MODE_COLOR_DODGE,
     /**
-     * Color burn mode.
+     * 颜色加深模式。
      *
      * @since 11
      */
     BLEND_MODE_COLOR_BURN,
     /**
-     * Hard light mode.
+     * 强光模式。
      *
      * @since 11
      */
     BLEND_MODE_HARD_LIGHT,
     /**
-     * Soft light mode.
+     * 柔光模式。
      *
      * @since 11
      */
     BLEND_MODE_SOFT_LIGHT,
     /**
-     * Difference mode. rc = s + d - 2 * (min(s * da, d * sa)), ra = s + (1 - sa) * d.
+     * 差值模式，rc = s + d - 2 * (min(s * da, d * sa)), ra = s + (1 - sa) * d。
      *
      * @since 11
      */
     BLEND_MODE_DIFFERENCE,
     /**
-     * Exclusion mode. rc = s + d - two(s * d), ra = s + (1 - sa) * d.
+     * 排除模式，rc = s + d - two(s * d), ra = s + (1 - sa) * d。
      *
      * @since 11
      */
     BLEND_MODE_EXCLUSION,
     /**
-     * Multiply mode. r = s * (1 - da) + d * (1 - sa) + s * d.
+     * 正片叠底，r = s * (1 - da) + d * (1 - sa) + s * d。
      *
      * @since 11
      */
     BLEND_MODE_MULTIPLY,
     /**
-     * Hue mode.
+     * 色相模式。
      *
      * @since 11
      */
     BLEND_MODE_HUE,
     /**
-     * Saturation mode.
+     * 饱和度模式。
      *
      * @since 11
      */
     BLEND_MODE_SATURATION,
     /**
-     * Color mode.
+     * 颜色模式。
      *
      * @since 11
      */
     BLEND_MODE_COLOR,
     /**
-     * Luminosity mode.
+     * 亮度模式。
      *
      * @since 11
      */
@@ -617,32 +604,32 @@ typedef enum {
 } OH_Drawing_BlendMode;
 
 /**
- * @brief Defines an enum for the text encoding types.
+ * @brief 文本编码类型枚举。
  *
  * @since 12
  * @version 1.0
  */
 typedef enum {
     /**
-     * One byte used to indicate UTF-8 or ASCII characters.
+     * 单字节，表示UTF-8或ASCII。
      *
      * @since 12
      */
     TEXT_ENCODING_UTF8,
     /**
-     * Two bytes used to indicate most Unicode characters.
+     * 双字节，表示大部分Unicode。
      *
      * @since 12
      */
     TEXT_ENCODING_UTF16,
     /**
-     * Four bytes used to indicate all Unicode characters.
+     * 四字节，表示所有Unicode。
      *
      * @since 12
      */
     TEXT_ENCODING_UTF32,
     /**
-     * Two bytes used to indicate the glyph index.
+     * 双字节，表示字形索引。
      *
      * @since 12
      */
@@ -650,7 +637,7 @@ typedef enum {
 } OH_Drawing_TextEncoding;
 
 /**
- * @brief Defines a struct for the font manager, which is used for font management.
+ * @brief 定义字体管理类, 用于字体管理。
  *
  * @since 12
  * @version 1.0
@@ -658,7 +645,7 @@ typedef enum {
 typedef struct OH_Drawing_FontMgr OH_Drawing_FontMgr;
 
 /**
- * @brief Defines a struct for a font style set, which is used for font style family matching.
+ * @brief 定义字体样式集, 用于字体样式族匹配。
  *
  * @since 12
  * @version 1.0
@@ -666,7 +653,7 @@ typedef struct OH_Drawing_FontMgr OH_Drawing_FontMgr;
 typedef struct OH_Drawing_FontStyleSet OH_Drawing_FontStyleSet;
 
 /**
- * @brief Defines the recording command tool, which is used to generate recording commands.
+ * @brief 定义指令录制工具，用于生成录制指令。
  *
  * @since 13
  * @version 1.0
@@ -674,7 +661,7 @@ typedef struct OH_Drawing_FontStyleSet OH_Drawing_FontStyleSet;
 typedef struct OH_Drawing_RecordCmdUtils OH_Drawing_RecordCmdUtils;
 
 /**
- * @brief Defines the recording command class, which is used to store the set of recording commands.
+ * @brief 定义录制指令类, 用于存储录制指令的集合。
  *
  * @since 13
  * @version 1.0
@@ -682,7 +669,7 @@ typedef struct OH_Drawing_RecordCmdUtils OH_Drawing_RecordCmdUtils;
 typedef struct OH_Drawing_RecordCmd OH_Drawing_RecordCmd;
 
 /**
- * @brief Defines a struct for an array object, which is used to store multiple objects of the same type.
+ * @brief 定义数组对象, 用于存储多个同类型对象。
  *
  * @since 14
  * @version 1.0
