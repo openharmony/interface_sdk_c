@@ -20,7 +20,6 @@
  * @brief The VideoDecoder module provides interfaces for video decoding.
  *
  * @since 9
- * @version 1.0
  */
  /**
  * @file native_avcodec_videodecoder.h
