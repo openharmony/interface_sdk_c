@@ -13,8 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
+ * @addtogroup VideoDecoder
+ * @{
+ *
+ * @brief The VideoDecoder module provides interfaces for video decoding.
+ *
+ * @since 9
+ * @version 1.0
+ */
+ /**
  * @file native_avcodec_videodecoder.h
  *
  * @brief The file declares the native APIs used for video decoding.
@@ -25,26 +33,6 @@
  * @since 9
  */
 
-/**
- * @addtogroup VideoDecoder
- * @{
- *
- * @brief The VideoDecoder module provides interfaces for video decoding.
- *
- * @syscap SystemCapability.Multimedia.Media.VideoDecoder
- * @since 9
- * @version 1.0
- */
-
-/**
- * @addtogroup VideoDecoder
- * @{
- *
- * @brief The VideoDecoder module provides interfaces for video decoding.
- *
- * @since 9
- * @version 1.0
- */
 #ifndef NATIVE_AVCODEC_VIDEODECODER_H
 #define NATIVE_AVCODEC_VIDEODECODER_H
 #include <stdint.h>

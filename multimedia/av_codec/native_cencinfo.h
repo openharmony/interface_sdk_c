@@ -13,16 +13,6 @@
  * limitations under the License.
  */
 /**
- * @file native_cencinfo.h
- *
- * @brief The file declares the native APIs used to set decryption parameters.
- * 
- * @kit AVCodecKit
- * @library libnative_media_avcencinfo.so
- * @syscap SystemCapability.Multimedia.Media.Spliter
- * @since 12
- */
-/**
  * @addtogroup Multimedia_Drm
  * @{
  *
@@ -34,6 +24,16 @@
  * provided by the DRM can be invoked for decryption. The decryption parameter
  * structure defines the transmission format of decryption parameters.
  *
+ * @since 12
+ */
+ /**
+ * @file native_cencinfo.h
+ *
+ * @brief The file declares the native APIs used to set decryption parameters.
+ * 
+ * @kit AVCodecKit
+ * @library libnative_media_avcencinfo.so
+ * @syscap SystemCapability.Multimedia.Media.Spliter
  * @since 12
  */
 

@@ -12,7 +12,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/**
+ * @addtogroup VideoEncoder
+ * @{
+ *
+ * @brief The VideoEncoder module provides interfaces for video encoding.
+ *
+ * @since 9
+ */
 /**
  * @file native_avcodec_videoencoder.h
  *
@@ -21,24 +28,6 @@
  * @kit AVCodecKit
  * @library libnative_media_venc.so
  * @syscap SystemCapability.Multimedia.Media.VideoEncoder
- * @since 9
- */
-
-/**
- * @addtogroup VideoEncoder
- * @{
- *
- * @brief The VideoEncoder module provides interfaces for video encoding.
- *
- * @syscap SystemCapability.Multimedia.Media.VideoEncoder
- * @since 9
- */
-/**
- * @addtogroup VideoEncoder
- * @{
- *
- * @brief The VideoEncoder module provides interfaces for video encoding.
- *
  * @since 9
  */
 

@@ -12,7 +12,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/**
+ * @addtogroup AVDemuxer
+ * @{
+ *
+ * @brief The AVDemuxer module provides an interface for extracting samples from media file streams.
+ *
+ * @since 10
+ */
 /**
  * @file native_avdemuxer.h
  *
@@ -21,24 +28,6 @@
  * @kit AVCodecKit
  * @library libnative_media_avdemuxer.so
  * @syscap SystemCapability.Multimedia.Media.Spliter
- * @since 10
- */
-
-/**
- * @addtogroup AVDemuxer
- * @{
- *
- * @brief The AVDemuxer module provides an interface for extracting samples from media file streams.
- *
- * @syscap SystemCapability.Multimedia.Media.Spliter
- * @since 10
- */
-/**
- * @addtogroup AVDemuxer
- * @{
- *
- * @brief The AVDemuxer module provides an interface for extracting samples from media file streams.
- *
  * @since 10
  */
 
