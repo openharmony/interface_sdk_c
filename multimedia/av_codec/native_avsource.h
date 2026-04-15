@@ -12,7 +12,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/**
+ * @addtogroup AVSource
+ * @{
+ *
+ * @brief The AVSource module provides functions for constructing media resource object functionality.
+ *
+ * @since 10
+ */
 /**
  * @file native_avsource.h
  *
@@ -21,24 +28,6 @@
  * @kit AVCodecKit
  * @library libnative_media_avsource.so
  * @syscap SystemCapability.Multimedia.Media.Spliter
- * @since 10
- */
-
-/**
- * @addtogroup AVSource
- * @{
- *
- * @brief The AVSource module provides functions for constructing media resource object functionality.
- *
- * @syscap SystemCapability.Multimedia.Media.Spliter
- * @since 10
- */
-/**
- * @addtogroup AVSource
- * @{
- *
- * @brief The AVSource module provides functions for constructing media resource object functionality.
- *
  * @since 10
  */
 
