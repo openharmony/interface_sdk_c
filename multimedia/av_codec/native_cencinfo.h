@@ -63,6 +63,28 @@ typedef struct OH_AVBuffer OH_AVBuffer;
 typedef struct OH_AVCencInfo OH_AVCencInfo;
 
 /**
+ * @brief The length of the key ID is 16 bytes.
+ * 
+ * @since 12
+ * @version 1.0
+ */
+#define DRM_KEY_ID_SIZE 16
+/**
+ * @brief The length of the Initialization Vector (IV) is 16 bytes.
+ * 
+ * @since 12
+ * @version 1.0
+ */
+#define DRM_KEY_IV_SIZE 16
+/**
+ * @brief The maximum number of subsamples is 64.
+ * 
+ * @since 12
+ * @version 1.0
+ */
+#define DRM_KEY_MAX_SUB_SAMPLE_NUM 64
+
+/**
  * @brief Enumerates the DRM CENC algorithm types.
  * 
  * @since 12
@@ -217,27 +239,6 @@ OH_AVErrCode OH_AVCencInfo_SetMode(OH_AVCencInfo *cencInfo, enum DrmCencInfoMode
  * @version 1.0
  */
 OH_AVErrCode OH_AVCencInfo_SetAVBuffer(OH_AVCencInfo *cencInfo, OH_AVBuffer *buffer);
-/**
- * @brief The length of the key ID is 16 bytes.
- * 
- * @since 12
- * @version 1.0
- */
-#define DRM_KEY_ID_SIZE 16
-/**
- * @brief The length of the Initialization Vector (IV) is 16 bytes.
- * 
- * @since 12
- * @version 1.0
- */
-#define DRM_KEY_IV_SIZE 16
-/**
- * @brief The maximum number of subsamples is 64.
- * 
- * @since 12
- * @version 1.0
- */
-#define DRM_KEY_MAX_SUB_SAMPLE_NUM 64
 
 #ifdef __cplusplus
 }
