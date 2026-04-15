@@ -44,24 +44,24 @@ extern "C" {
 #endif
 
 /**
- * @brief Creates an **OH_Drawing_ShadowLayer** object.
- * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
- * If **blurRadius** is less than or equal to 0, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
+ * @brief 创建一个阴影层对象。
+ * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
+ * blurRadius小于等于0时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
  * 
- * @param blurRadius Radius of the shadow layer. The value must be greater than 0.
- * @param x Offset on the X axis.
- * @param y Offset on the Y axis.
- * @param color Color of the shadow.
- * @return Returns the pointer to the **OH_Drawing_ShadowLayer** object created.
+ * @param blurRadius 表示阴影的半径，必须大于零。
+ * @param x 表示x轴上的偏移点。
+ * @param y 表示y轴上的偏移点。
+ * @param color 表示阴影的颜色。
+ * @return 返回创建的阴影层对象的指针。
  * @since 12
  * @version 1.0
  */
 OH_Drawing_ShadowLayer* OH_Drawing_ShadowLayerCreate(float blurRadius, float x, float y, uint32_t color);
 
 /**
- * @brief Destroys an **OH_Drawing_ShadowLayer** object and reclaims the memory occupied by the object.
+ * @brief 销毁阴影层对象，并收回该对象占用的内存。
  * 
- * @param shadowLayer Pointer to the shadow layer.
+ * @param shadowLayer 表示指向阴影层对象的指针。
  * @since 12
  * @version 1.0
  */
