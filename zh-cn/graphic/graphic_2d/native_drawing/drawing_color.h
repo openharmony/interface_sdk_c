@@ -44,13 +44,13 @@ extern "C" {
 #endif
 
 /**
- * @brief Converts four variables (alpha, red, green, and blue) into a 32-bit (ARGB) variable that describes a color.
+ * @brief 用于将4个变量（分别描述透明度、红色、绿色和蓝色）转化为一个描述颜色的32位（ARGB）变量。
  *
- * @param alpha Alpha, which is a variable ranging from 0x00 to 0xFF.
- * @param red Read, which is a variable ranging from 0x00 to 0xFF.
- * @param green Green, which is a variable ranging from 0x00 to 0xFF.
- * @param blue Blue, which is a variable ranging from 0x00 to 0xFF.
- * @return Returns a 32-bit (ARGB) variable that describes the color.
+ * @param alpha 描述透明度的变量, 变量范围是0x00~0xFF。
+ * @param red 描述红色的变量, 变量范围是0x00~0xFF。
+ * @param green 描述绿色的变量, 变量范围是0x00~0xFF。
+ * @param blue 描述蓝色的变量, 变量范围是0x00~0xFF。
+ * @return 函数返回一个描述颜色的32位（ARGB）变量。
  * @since 8
  * @version 1.0
  */
