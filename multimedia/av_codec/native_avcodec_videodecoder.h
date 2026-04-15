@@ -464,10 +464,10 @@ OH_AVErrCode OH_VideoDecoder_FreeOutputBuffer(OH_AVCodec *codec, uint32_t index)
  * @return {@link AV_ERR_OK}: The operation is successful.
  *     <br>{@link AV_ERR_NO_MEMORY}: The decoder instance has been destroyed.
  *     <br>{@link AV_ERR_INVALID_VAL}: the decoder is nullptr or invalid.
- *     <br>{@link AV_ERR_UNKNOWN}�� unknown error.
- *     <br>{@link AV_ERR_INVALID_STATE}�� The function is called in an incorrect state.
- *     <br>{@link AV_ERR_OPERATE_NOT_PERMIT}�� not permitted in asynchronous mode.
- *     <br>{@link AV_ERR_TRY_AGAIN_LATER}�� query failed, recommended retry after delay.
+ *     <br>{@link AV_ERR_UNKNOWN}: unknown error.
+ *     <br>{@link AV_ERR_INVALID_STATE}: The function is called in an incorrect state.
+ *     <br>{@link AV_ERR_OPERATE_NOT_PERMIT}: not permitted in asynchronous mode.
+ *     <br>{@link AV_ERR_TRY_AGAIN_LATER}: query failed, recommended retry after delay.
  * @since 20
  */
 OH_AVErrCode OH_VideoDecoder_QueryInputBuffer(struct OH_AVCodec *codec, uint32_t *index, int64_t timeoutUs);
