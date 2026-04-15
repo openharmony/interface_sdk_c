@@ -48,14 +48,14 @@ extern "C" {
 #endif
 
 /**
- * @brief The struct describes a native object for the media memory interface.
+ * @brief 为媒体内存接口定义native层对象。
  * 
  * @since 12
  * @version 1.0
  */
 typedef struct OH_AVBuffer OH_AVBuffer;
 /**
- * @brief The struct describes the audio/video Common Encryption Scheme (CENC) information.
+ * @brief AVCencInfo结构。
  * 
  * @since 12
  * @version 1.0
@@ -63,40 +63,40 @@ typedef struct OH_AVBuffer OH_AVBuffer;
 typedef struct OH_AVCencInfo OH_AVCencInfo;
 
 /**
- * @brief Enumerates the DRM CENC algorithm types.
+ * @brief Drm CENC算法类型。
  * 
  * @since 12
  * @version 1.0
  */
 typedef enum DrmCencAlgorithm {
     /**
-     * Unencrypted.
+     * 不加密算法。
      */
     DRM_ALG_CENC_UNENCRYPTED = 0x0,
     /**
-     * Aes ctr.
+     * AES CTR算法。
      */
     DRM_ALG_CENC_AES_CTR = 0x1,
     /**
-     * Aes wv.
+     * AES WV算法。
      */
     DRM_ALG_CENC_AES_WV = 0x2,
     /**
-     * Aes cbc.
+     * AES CBC算法。
      */
     DRM_ALG_CENC_AES_CBC = 0x3,
     /**
-     * Sm4 cbc.
+     * SM4 CBC算法。
      */
     DRM_ALG_CENC_SM4_CBC = 0x4,
     /**
-     * Sm4 ctr.
+     * SM4 CTR算法。
      */
     DRM_ALG_CENC_SM4_CTR = 0x5
 } DrmCencAlgorithm;
 
 /**
- * @brief Enumerates the modes for setting the key ID, IV, and subsample in the CENC information.
+ * @brief 枚举类型，表示cencInfo中keyId/iv/subsample信息是否设置。
  * 
  * @since 12
  * @version 1.0
@@ -122,53 +122,50 @@ typedef struct DrmSubsample {
 } DrmSubsample;
 
 /**
- * @brief Creates an OH_AVCencInfo instance for setting the CENC information.
+ * @brief 创建用于设置cencInfo的OH_AVCencInfo实例。
  *
- * @return Pointer to the OH_AVCencInfo instance created. If the operation fails, nullptr is returned.
- *     <br>The possible causes of an operation failure are as follows: The application address space is full, or the data in
- *     the object fails to be initialized.
+ * @return 返回新创建的OH_AVCencInfo对象。如果返回nullptr，则表示创建对象失败。
+ *     <br>可能失败的原因：应用程序地址空间已满，或者对象中的数据初始化失败。
  * @since 12
  * @version 1.0
  */
 OH_AVCencInfo *OH_AVCencInfo_Create();
 
 /**
- * @brief Destroys an OH_AVCencInfo instance and clears internal resources.
+ * @brief 销毁OH_AVCencInfo实例并释放内部资源。
  *
- * An instance can be destroyed only once. Do not use the instance until it is created again. You are advised to set
- * the instance pointer to nullptr once the instance is destroyed.
+ * 同一个实例只能销毁一次。在再次创建实例之前，不应使用该实例。建议在实例销毁成功后立即将实例指针设置为nullptr。
  *
- * @param cencInfo Pointer to an OH_AVCencInfo instance.
- * @return {@link AV_ERR_OK}: The operation is successful.
- *     <br>{@link AV_ERR_INVALID_VAL}: The value of **cencInfo** is null.
+ * @param cencInfo 指向OH_AVCencInfo实例的指针。
+ * @return AV_ERR_OK：执行成功。
+ *     <br>AV_ERR_INVALID_VAL：cencInfo为空。
  * @since 12
  * @version 1.0
  */
 OH_AVErrCode OH_AVCencInfo_Destroy(OH_AVCencInfo *cencInfo);
 
 /**
- * @brief Sets an encryption algorithm of the CENC information.
+ * @brief 设置cencInfo加密算法。
  *
- * @param cencInfo Pointer to an OH_AVCencInfo instance.
- * @param algo Encryption algorithm.
- * @return {@link AV_ERR_OK}: The operation is successful.
- *     <br>{@link AV_ERR_INVALID_VAL}: The value of **cencInfo** is null.
+ * @param cencInfo 指向OH_AVCencInfo实例的指针。
+ * @param algo 加密算法模式。
+ * @return AV_ERR_OK：执行成功。
+ *     <br>AV_ERR_INVALID_VAL：cencInfo为空。
  * @since 12
  * @version 1.0
  */
 OH_AVErrCode OH_AVCencInfo_SetAlgorithm(OH_AVCencInfo *cencInfo, enum DrmCencAlgorithm algo);
 
 /**
- * @brief Sets the key ID and IV in the CENC information.
+ * @brief 设置cencInfo的keyId和iv。
  *
- * @param cencInfo Pointer to an OH_AVCencInfo instance.
- * @param keyId Pointer to the key ID.
- * @param keyIdLen Length of the key ID.
- * @param iv Pointer to the IV.
- * @param ivLen Length of the IV.
- * @return {@link AV_ERR_OK}: The operation is successful.
- *     <br>{@link AV_ERR_INVALID_VAL}: The value of **cencInfo**, **keyId**, or **iv** is null, **keyIdLen** is not equal to **
- *     DRM_KEY_ID_SIZE**, **ivLen** is not equal to **DRM_KEY_IV_SIZE**, the key ID or IV fails to be copied.
+ * @param cencInfo 指向OH_AVCencInfo实例的指针。
+ * @param keyId Key标识。
+ * @param keyIdLen Key标识长度。
+ * @param iv 初始化向量。
+ * @param ivLen 初始化向量长度。
+ * @return AV_ERR_OK：执行成功。
+ *     <br>AV_ERR_INVALID_VAL：cencInfo为空、keyId为空、keyIdLen != DRM_KEY_ID_SIZE、iv是空、ivLen != DRM_KEY_IV_SIZE、keyId拷贝失败，或者iv拷贝失败。
  * @since 12
  * @version 1.0
  */
@@ -176,17 +173,16 @@ OH_AVErrCode OH_AVCencInfo_SetKeyIdAndIv(OH_AVCencInfo *cencInfo, uint8_t *keyId
     uint32_t keyIdLen, uint8_t *iv, uint32_t ivLen);
 
 /**
- * @brief Sets the subsample information in the CENC information.
+ * @brief 设置cencInfo的subsamples信息。
  *
- * @param cencInfo Pointer to an OH_AVCencInfo instance.
- * @param encryptedBlockCount Number of encrypted blocks.
- * @param skippedBlockCount Number of non-encrypted blocks.
- * @param firstEncryptedOffset Offset of the first encrypted payload.
- * @param subsampleCount Number of subsamples.
- * @param subsamples Pointer to the subsamples.
- * @return {@link AV_ERR_OK}: The operation is successful.
- *     <br>{@link AV_ERR_INVALID_VAL}: The value of **cencInfo** is null, **subsampleCount** is greater than **
- *     DRM_KEY_MAX_SUB_SAMPLE_NUM**, or **subsamples** is null.
+ * @param cencInfo 指向OH_AVCencInfo实例的指针。
+ * @param encryptedBlockCount 加密块的数量。
+ * @param skippedBlockCount 不加密块的数量。
+ * @param firstEncryptedOffset 第一个加密有效负载的偏移量。
+ * @param subsampleCount Subsample数量。
+ * @param subsamples Subsample内容集。
+ * @return AV_ERR_OK：执行成功。
+ *     <br>AV_ERR_INVALID_VAL：cencInfo为空、subsampleCount > DRM_KEY_MAX_SUB_SAMPLE_NUM，或者subsamples为空。
  * @since 12
  * @version 1.0
  */
@@ -194,25 +190,24 @@ OH_AVErrCode OH_AVCencInfo_SetSubsampleInfo(OH_AVCencInfo *cencInfo, uint32_t en
     uint32_t skippedBlockCount, uint32_t firstEncryptedOffset, uint32_t subsampleCount, DrmSubsample *subsamples);
 
 /**
- * @brief Sets the CENC information mode.
+ * @brief 设置cencInfo的模式。
  *
- * @param cencInfo Pointer to an OH_AVCencInfo instance.
- * @param mode CENC information mode, indicating whether the key ID, IV, and subsample are set.
- * @return {@link AV_ERR_OK}: The operation is successful.
- *     <br>{@link AV_ERR_INVALID_VAL}: The value of **cencInfo** is null.
+ * @param cencInfo 指向OH_AVCencInfo实例的指针。
+ * @param mode cencInfo模式，指示是否设置了keyId/iv/subsample。
+ * @return AV_ERR_OK：执行成功。
+ *     <br>AV_ERR_INVALID_VAL：cencInfo为空。
  * @since 12
  * @version 1.0
  */
 OH_AVErrCode OH_AVCencInfo_SetMode(OH_AVCencInfo *cencInfo, enum DrmCencInfoMode mode);
 
 /**
- * @brief Sets the CENC information to an AVBuffer.
+ * @brief 将cencInfo设置到AVBuffer。
  *
- * @param cencInfo Pointer to an OH_AVCencInfo instance.
- * @param buffer Pointer to the frame buffer that carries data.
- * @return {@link AV_ERR_OK}: The operation is successful.
- *     <br>{@link AV_ERR_INVALID_VAL}: The value of **cencInfo**, **buffer**, **buffer->buffer_**, 
- *     or **buffer->buffer_->meta_** is null.
+ * @param cencInfo 指向OH_AVCencInfo实例的指针。
+ * @param buffer 携带数据的帧buffer。
+ * @return AV_ERR_OK：执行成功。
+ *     <br>AV_ERR_INVALID_VAL：cencInfo为空、buffer为空、buffer->buffer_为空，或者buffer->buffer_->meta_为空。
  * @since 12
  * @version 1.0
  */
