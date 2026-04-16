@@ -24,7 +24,7 @@
  * @file native_avdemuxer.h
  *
  * @brief Declare the interface for parsing audio and video media data.
- * 
+ *
  * @kit AVCodecKit
  * @library libnative_media_avdemuxer.so
  * @syscap SystemCapability.Multimedia.Media.Spliter
@@ -44,13 +44,13 @@ extern "C" {
 
 /**
  * @brief The struct describes a native object for the OH_AVDemuxer interface.
- * 
+ *
  * @since 10
  */
 typedef struct OH_AVDemuxer OH_AVDemuxer;
 /**
  * @brief The struct describes a native object for the DRM_MediaKeySystemInfo interface.
- * 
+ *
  * @since 11
  */
 typedef struct DRM_MediaKeySystemInfo DRM_MediaKeySystemInfo;
@@ -60,7 +60,7 @@ typedef struct DRM_MediaKeySystemInfo DRM_MediaKeySystemInfo;
  * callback function applies to the scenario where a single demuxer instance is used.
  *
  * You need to call {@link OH_AVDemuxer_SetMediaKeySystemInfoCallback} to set the callback function as a callback.
- * 
+ *
  * @deprecated since 14
  * @useinstead Demuxer_MediaKeySystemInfoCallback
  * @since 11
@@ -68,12 +68,13 @@ typedef struct DRM_MediaKeySystemInfo DRM_MediaKeySystemInfo;
 typedef void (*DRM_MediaKeySystemInfoCallback)(DRM_MediaKeySystemInfo *mediaKeySystemInfo);
 
 /**
- * @brief Defines a pointer to the callback function for {@link DRM_MediaKeySystemInfo}. A demuxer instance is returned.
+ * @brief Defines a pointer to the callback function for {@link DRM_MediaKeySystemInfo}.
+ * A demuxer instance is returned.
  * This callback function applies to the scenario where multiple demuxer instances are used.
  *
  * You need to call {@link OH_AVDemuxer_SetDemuxerMediaKeySystemInfoCallback} to set the callback function as a
  * callback. This callback function is recommended.
- * 
+ *
  * @param demuxer Player OH_AVDemuxer.
  * @param mediaKeySystemInfo DRM information.
  * @since 12
@@ -215,7 +216,8 @@ OH_AVErrCode OH_AVDemuxer_ReadSampleBuffer(OH_AVDemuxer *demuxer, uint32_t track
  *     <br>3. The seek operation cannot be performed on the resource.
  *     <br>{@link AV_ERR_UNKNOWN}:
  *     <br>1. The seek operation fails.
- *     <br>2. **OH_AVSeekMode** is set to **SEEK_MODE_NEXT_SYNC** and there is no I-frame following the specified position.
+ *     <br>2. **OH_AVSeekMode** is set to **SEEK_MODE_NEXT_SYNC** and there is no I-frame
+ *     following the specified position.
  * @since 10
  */
 OH_AVErrCode OH_AVDemuxer_SeekToTime(OH_AVDemuxer *demuxer, int64_t millisecond, OH_AVSeekMode mode);
@@ -249,7 +251,7 @@ OH_AVErrCode OH_AVDemuxer_SetDemuxerMediaKeySystemInfoCallback(OH_AVDemuxer *dem
     Demuxer_MediaKeySystemInfoCallback callback);
 
 /**
- * @brief Obtains the media key system information. The media key system information can be obtained only after 
+ * @brief Obtains the media key system information. The media key system information can be obtained only after
  * {@link Demuxer_MediaKeySystemInfoCallback} or {@link DRM_MediaKeySystemInfoCallback} is successfully invoked.
  *
  * @param demuxer Pointer to an OH_AVDemuxer instance.
