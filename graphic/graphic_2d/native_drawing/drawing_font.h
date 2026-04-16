@@ -241,7 +241,7 @@ float OH_Drawing_FontGetTextSize(const OH_Drawing_Font* font);
  * @param text Pointer to the start address of the storage.
  * @param byteLength Text length, in bytes.
  * @param encoding Text encoding type {@link OH_Drawing_TextEncoding}.
- * @return Returns the number of characters represented by the text (non?negative integer) on success;
+ * @return Returns the number of characters represented by the text (non-negative integer) on success;
  * @since 12
  * @version 1.0
  */
