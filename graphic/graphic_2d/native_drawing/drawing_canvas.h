@@ -28,7 +28,7 @@
  * @brief This file declares the functions related to the canvas in the drawing module.
  * By default, the canvas has a black brush with anti-aliasing enabled and without any other style. This brush takes
  * effect only when no brush or pen is proactively set in the canvas.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -49,7 +49,7 @@ extern "C" {
 
 /**
  * @brief Enumerates the constraint types of the source rectangle.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -162,8 +162,8 @@ void OH_Drawing_CanvasAttachBrush(OH_Drawing_Canvas* canvas, const OH_Drawing_Br
 void OH_Drawing_CanvasDetachBrush(OH_Drawing_Canvas* canvas);
 
 /**
- * @brief Saves the current canvas status (canvas matrix) to the top of the stack. This function works with {@link OH_Drawing_CanvasRestore}
- * .
+ * @brief Saves the current canvas status (canvas matrix) to the top of the stack. This function works with
+ * {@link OH_Drawing_CanvasRestore}.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  *
@@ -174,8 +174,9 @@ void OH_Drawing_CanvasDetachBrush(OH_Drawing_Canvas* canvas);
 void OH_Drawing_CanvasSave(OH_Drawing_Canvas* canvas);
 
 /**
- * @brief Saves the matrix and cropping region, and allocates a bitmap for subsequent drawing. If you call {@link OH_Drawing_CanvasRestore}
- * , changes made to the matrix and clipping region are discarded, and the bitmap is drawn.
+ * @brief Saves the matrix and cropping region, and allocates a bitmap for subsequent drawing. If you call
+ * {@link OH_Drawing_CanvasRestore}, changes made to the matrix and clipping region are discarded,
+ * and the bitmap is drawn.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **canvas** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  *
@@ -257,7 +258,7 @@ void OH_Drawing_CanvasDrawPath(OH_Drawing_Canvas* canvas, const OH_Drawing_Path*
 /**
  * @brief Draws a PixelMap based on a mesh, where mesh vertices are evenly distributed across the PixelMap. (This API
  * works with brushes but not pens.)
- * 
+ *
  * @param cCanvas Pointer to the {@link OH_Drawing_Canvas} object.
  * @param pixelMap Pointer to the {@link OH_Drawing_PixelMap} object.
  * @param meshWidth Number of columns in the mesh. The value is an integer greater than 0.
@@ -368,7 +369,7 @@ void OH_Drawing_CanvasDrawRegion(OH_Drawing_Canvas* canvas, const OH_Drawing_Reg
 /**
  * @brief Enumerates the modes of drawing multiple points. The modes include discrete points, line segments, and open
  * polygons.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -543,8 +544,9 @@ OH_Drawing_ErrorCode OH_Drawing_CanvasDrawArcWithCenter(OH_Drawing_Canvas* canva
     float startAngle, float sweepAngle, bool useCenter);
 
 /**
- * @brief Draws a rounded rectangle. This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}
- * . If either **canvas** or **roundRect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
+ * @brief Draws a rounded rectangle. This API may return an error code. For details, call
+ * {@link OH_Drawing_ErrorCodeGet}. If either **canvas** or **roundRect** is NULL,
+ * **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  *
  * @param canvas Pointer to an **OH_Drawing_Canvas** object.
  * @param roundRect Pointer to an **OH_Drawing_RoundRect** object.
@@ -628,7 +630,7 @@ void OH_Drawing_CanvasDrawTextBlob(OH_Drawing_Canvas* canvas, const OH_Drawing_T
 
 /**
  * @brief Enumerates the canvas clipping modes.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -836,7 +838,7 @@ void OH_Drawing_CanvasConcatMatrix(OH_Drawing_Canvas* canvas, OH_Drawing_Matrix*
 
 /**
  * @brief Enumerates the shadow flags.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -939,8 +941,8 @@ OH_Drawing_ErrorCode OH_Drawing_CanvasResetClip(OH_Drawing_Canvas* canvas);
  * @param dst Pointer to the {@link OH_Drawing_Rect} object.
  * @param samplingOptions Pointer to the {@link OH_Drawing_SamplingOptions} object. A null pointer means that the
  * default sampling options are used.
- * @param srcRectConstraint Constraint type. For details about the available options, see {@link OH_Drawing_SrcRectConstraint}
- * .
+ * @param srcRectConstraint Constraint type. For details about the available options, see
+ * {@link OH_Drawing_SrcRectConstraint}.
  * @since 12
  * @version 1.0
  */
@@ -966,7 +968,7 @@ void OH_Drawing_CanvasDrawImageRect(OH_Drawing_Canvas* canvas, OH_Drawing_Image*
 
 /**
  * @brief Enumerates the modes of interpreting the geometry of a given vertex.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -997,8 +999,8 @@ typedef enum {
  * OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
  *
  * @param canvas Pointer to an **OH_Drawing_Canvas** object.
- * @param vertexMmode Mode for drawing vertices. For details about the available options, see {@link OH_Drawing_VertexMode}
- * .
+ * @param vertexMmode Mode for drawing vertices. For details about the available options, see
+ * {@link OH_Drawing_VertexMode}.
  * @param vertexCount Number of elements in the vertex array. The value must be greater than or equal to 3.
  * @param positions Pointer to the array that holds the position of every vertex. The array cannot be null and its
  * length must be equal to the value of **vertexCount**.

@@ -26,7 +26,7 @@
  * @file drawing_shadow_layer.h
  *
  * @brief This file declares the functions related to the shadow in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -47,7 +47,7 @@ extern "C" {
  * @brief Creates an **OH_Drawing_ShadowLayer** object.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **blurRadius** is less than or equal to 0, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
- * 
+ *
  * @param blurRadius Radius of the shadow layer. The value must be greater than 0.
  * @param x Offset on the X axis.
  * @param y Offset on the Y axis.
@@ -60,7 +60,7 @@ OH_Drawing_ShadowLayer* OH_Drawing_ShadowLayerCreate(float blurRadius, float x, 
 
 /**
  * @brief Destroys an **OH_Drawing_ShadowLayer** object and reclaims the memory occupied by the object.
- * 
+ *
  * @param shadowLayer Pointer to the shadow layer.
  * @since 12
  * @version 1.0

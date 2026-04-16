@@ -46,7 +46,7 @@ extern "C" {
 
 /**
  * @brief This struct describes the pixel format of a bitmap, including the color type and alpha type.
- *  
+ *
  * @since 8
  * @version 1.0
  */

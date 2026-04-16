@@ -26,7 +26,7 @@
  * @file drawing_shader_effect.h
  *
  * @brief This file declares the functions related to the shader effect in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -45,7 +45,7 @@ extern "C" {
 
 /**
  * @brief 着色器效果平铺模式的枚举。
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -70,7 +70,7 @@ typedef enum {
 
 /**
  * @brief 创建具有单一颜色的着色器。
- * 
+ *
  * @param color 表示着色器的ARGB格式颜色，该参数为32位无符号整数。
  * @return 函数会返回一个指针，指针指向创建的着色器对象{@link OH_Drawing_ShaderEffect}。如果对象返回NULL，表示创建失败；可能的原因是可用内存为空。
  * @since 12
@@ -83,7 +83,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateColorShader(const uint32_t
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * startPt、endPt、colors任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * tileMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param startPt 表示渐变的起点。
  * @param endPt 表示渐变的终点。
  * @param colors 表示在两个点之间分布的颜色。
@@ -103,7 +103,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateLinearGradient(const OH_Dr
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * startPt、endPt、colors任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * tileMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param startPt 表示渐变的起点。
  * @param endPt 表示渐变的终点。
  * @param colors 表示在两个点之间分布的颜色。
@@ -126,7 +126,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateLinearGradientWithLocalMat
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * centerPt、colors任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * tileMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param centerPt 表示渐变的圆心。
  * @param radius 表示渐变的半径，需为非负数。
  * @param colors 表示在径向上分布的颜色。
@@ -146,7 +146,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateRadialGradient(const OH_Dr
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * centerPt、colors任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * tileMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param centerPt 表示渐变的圆心。
  * @param radius 表示渐变的半径。
  * @param colors 表示在径向上分布的颜色。
@@ -166,7 +166,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateRadialGradientWithLocalMat
 /**
  * @brief 创建着色器，在给定中心的情况下结合矩阵变换生成扇形渐变。
  * 颜色从0°到360°渐变被称为扇形渐变。
- * 
+ *
  * @param centerPt 表示渐变的圆心。
  * @param colors 表示在两个点之间分布的颜色。
  * @param pos 表示colors中每个对应颜色的相对位置，数组长度需和colors保持一致。如果pos为NULL，颜色均匀分布在0°和360°之间。
@@ -188,7 +188,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateSweepGradientWithLocalMatr
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * centerPt、colors任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * tileMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param centerPt 表示渐变的圆心。
  * @param colors 表示在两个点之间分布的颜色。
  * @param pos 表示colors中每个对应颜色的相对位置，数组长度需和colors保持一致。如果pos为NULL，颜色均匀分布在0°和360°之间。
@@ -207,7 +207,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateSweepGradient(const OH_Dra
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * image、samplingOptions任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * tileX、tileY任意一个不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param image 指向图片对象{@link OH_Drawing_Image}的指针。
  * @param tileX 水平方向着色器效果平铺模式类型，支持可选的具体模式可见{@link OH_Drawing_TileMode}枚举。
  * @param tileY 垂直方向着色器效果平铺模式类型，支持可选的具体模式可见{@link OH_Drawing_TileMode}枚举。
@@ -224,7 +224,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateImageShader(OH_Drawing_Ima
 
 /**
  * @brief 创建像素图着色器。
- * 
+ *
  * @param pixelMap 指向像素图{@link OH_Drawing_PixelMap}的指针。
  * @param tileX 水平方向着色器效果平铺模式类型，支持可选的具体模式可见{@link OH_Drawing_TileMode}枚举。
  * @param tileY 垂直方向着色器效果平铺模式类型，支持可选的具体模式可见{@link OH_Drawing_TileMode}枚举。
@@ -243,7 +243,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreatePixelMapShader(OH_Drawing_
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * startPt、endPt、colors任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * tileMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param startPt 表示渐变的起点圆心。
  * @param startRadius 表示渐变的起点半径，需为非负数。
  * @param endPt 表示渐变的终点圆心。
@@ -264,7 +264,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateTwoPointConicalGradient(co
 
 /**
  * @brief 按照指定的混合模式对两个着色器进行叠加，生成一个新的着色器。
- * 
+ *
  * @param dst 在混合模式中作为目标色的着色器。
  * @param src 在混合模式中作为源色的着色器。
  * @param mode 混合模式{@link OH_Drawing_BlendMode}。
@@ -278,7 +278,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateCompose(OH_Drawing_ShaderE
 
 /**
  * @brief 销毁着色器对象，并收回该对象占用的内存。
- * 
+ *
  * @param shaderEffect 表示指向着色器对象的指针。
  * @since 11
  * @version 1.0

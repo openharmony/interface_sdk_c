@@ -297,8 +297,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontMeasureSingleCharacter(
  *
  * @param font 指向字型对象{@link OH_Drawing_Font}的指针。
  * @param str 待测量的单个字符。可以传入字符串，但只会以UTF-8编码解析并测量字符串中的首个字符。
- * @param fontFeatures 指向字体特征容器对象{@link
- * OH_Drawing_FontFeatures}的指针。容器中未加入任何字体特征时使用TTF(TrueType Font)文件中预设的字体特征。
+ * @param fontFeatures 指向字体特征容器对象{@link OH_Drawing_FontFeatures}的指针。容器中未加入任何字体特征时
+ * 使用TTF(TrueType Font)文件中预设的字体特征。
  * @param textWidth 用于存储得到的字符宽度，作为出参使用。
  * @return 函数返回执行结果。
  * 返回OH_DRAWING_SUCCESS，表示执行成功。
@@ -735,8 +735,8 @@ OH_Drawing_ErrorCode OH_Drawing_FontGetPathForGlyph(const OH_Drawing_Font* font,
  * @param font 指示字型对象{@link OH_Drawing_Font}的指针。
  * @param text 指示要获取轮廓路径的文本字符串。
  * @param byteLength 指示要获取对应文本路径的字节长度，如果此字节长度大于text字符串的字节长度，会发生未定义行为。
- * @param encoding 指示文本编码格式，支持 UTF-8、UTF-16、UTF-32，以及字形索引，具体类型格式可见{@link
- * OH_Drawing_TextEncoding}。
+ * @param encoding 指示文本编码格式，支持 UTF-8、UTF-16、UTF-32，以及字形索引，具体类型格式可见
+ * {@link OH_Drawing_TextEncoding}。
  * @param x 指示文本在绘图区域内以原点为起始位置的X坐标。
  * @param y 指示文本在绘图区域内以原点为起始位置的Y坐标。
  * @param path 返回获取到的文字轮廓路径对象，作为出参使用。

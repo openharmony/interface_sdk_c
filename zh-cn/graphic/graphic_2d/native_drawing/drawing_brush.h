@@ -46,7 +46,7 @@ extern "C" {
 
 /**
  * @brief 提供OH_NativeColorSpaceManager结构体声明。
- * 
+ *
  * @since 20
  */
 typedef struct OH_NativeColorSpaceManager OH_NativeColorSpaceManager;

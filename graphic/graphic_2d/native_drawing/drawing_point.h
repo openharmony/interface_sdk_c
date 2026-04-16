@@ -26,7 +26,7 @@
  * @file drawing_point.h
  *
  * @brief This file declares the functions related to the coordinate point in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -46,7 +46,7 @@ extern "C" {
 
 /**
  * @brief Creates an **OH_Drawing_Point** object.
- * 
+ *
  * @param x X coordinate of the point.
  * @param y Y coordinate of the point.
  * @return Returns the pointer to the **OH_Drawing_Point** object created.
@@ -57,7 +57,7 @@ OH_Drawing_Point* OH_Drawing_PointCreate(float x, float y);
 
 /**
  * @brief Obtains the X coordinate of a point.
- * 
+ *
  * @param point Pointer to an {@link OH_Drawing_Point} object.
  * @param x Pointer to the X coordinate.
  * @return Returns one of the following result codes:
@@ -70,7 +70,7 @@ OH_Drawing_ErrorCode OH_Drawing_PointGetX(const OH_Drawing_Point* point, float* 
 
 /**
  * @brief Obtains the Y coordinate of a point.
- * 
+ *
  * @param point Pointer to an {@link OH_Drawing_Point} object.
  * @param y Pointer to the Y coordinate.
  * @return Returns one of the following result codes:
@@ -83,7 +83,7 @@ OH_Drawing_ErrorCode OH_Drawing_PointGetY(const OH_Drawing_Point* point, float* 
 
 /**
  * @brief Sets the X and Y coordinates of a point.
- * 
+ *
  * @param point Pointer to an {@link OH_Drawing_Point} object.
  * @param x Pointer to the X coordinate.
  * @param y Pointer to the Y coordinate.
@@ -121,7 +121,7 @@ OH_Drawing_ErrorCode OH_Drawing_PointOffset(OH_Drawing_Point* point, float dx, f
 
 /**
  * @brief Destroys an **OH_Drawing_Point** object and reclaims the memory occupied by the object.
- * 
+ *
  * @param point Pointer to an **OH_Drawing_Point** object.
  * @since 11
  * @version 1.0

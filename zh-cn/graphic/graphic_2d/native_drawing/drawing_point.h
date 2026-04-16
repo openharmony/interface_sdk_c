@@ -26,7 +26,7 @@
  * @file drawing_point.h
  *
  * @brief This file declares the functions related to the coordinate point in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -46,7 +46,7 @@ extern "C" {
 
 /**
  * @brief 用于创建一个坐标点对象。
- * 
+ *
  * @param x X轴坐标。
  * @param y Y轴坐标。
  * @return 函数会返回一个指针，指针指向创建的坐标点对象。
@@ -57,7 +57,7 @@ OH_Drawing_Point* OH_Drawing_PointCreate(float x, float y);
 
 /**
  * @brief 用于获取点的x轴坐标。
- * 
+ *
  * @param point 指向坐标点对象{@link OH_Drawing_Point}的指针。
  * @param x 表示点的x轴坐标。
  * @return 函数返回执行错误码。
@@ -70,7 +70,7 @@ OH_Drawing_ErrorCode OH_Drawing_PointGetX(const OH_Drawing_Point* point, float* 
 
 /**
  * @brief 用于获取点的y轴坐标。
- * 
+ *
  * @param point 指向坐标点对象{@link OH_Drawing_Point}的指针。
  * @param y 表示点的y轴坐标。
  * @return 函数返回执行错误码。
@@ -83,7 +83,7 @@ OH_Drawing_ErrorCode OH_Drawing_PointGetY(const OH_Drawing_Point* point, float* 
 
 /**
  * @brief 用于设置点的x轴和y轴坐标。
- * 
+ *
  * @param point 指向坐标点对象{@link OH_Drawing_Point}的指针。
  * @param x 表示点的x轴坐标。
  * @param y 表示点的y轴坐标。
@@ -121,7 +121,7 @@ OH_Drawing_ErrorCode OH_Drawing_PointOffset(OH_Drawing_Point* point, float dx, f
 
 /**
  * @brief 用于销毁坐标点对象并回收该对象占有的内存。
- * 
+ *
  * @param point 指向坐标点对象的指针。
  * @since 11
  * @version 1.0

@@ -27,7 +27,7 @@
  *
  * @brief This file declares the functions related to the region in the drawing module, including creating a region,
  * setting the boundary, and destroying a region.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -47,7 +47,7 @@ extern "C" {
 
 /**
  * @brief 区域操作类型枚举。
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -80,7 +80,7 @@ typedef enum {
 
 /**
  * @brief 用于创建一个区域对象，实现更精确的图形控制。
- * 
+ *
  * @return 函数会返回一个指针，指针指向创建的区域对象{@link OH_Drawing_Region}。
  * @since 12
  * @version 1.0
@@ -89,7 +89,7 @@ OH_Drawing_Region* OH_Drawing_RegionCreate(void);
 
 /**
  * @brief 用于创建一个区域对象的拷贝。
- * 
+ *
  * @param region 指向用于拷贝的区域对象{@link OH_Drawing_Region}的指针。
  * @return 函数会返回一个指针，指针指向创建的新区域对象。
  * @since 20
@@ -101,7 +101,7 @@ OH_Drawing_Region* OH_Drawing_RegionCopy(const OH_Drawing_Region* region);
  * @brief 判断区域是否包含指定坐标点。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * region为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param region 指向区域对象{@link OH_Drawing_Region}的指针。
  * @param x 表示指定坐标点的x轴坐标。
  * @param y 表示指定坐标点的y轴坐标。
@@ -116,7 +116,7 @@ bool OH_Drawing_RegionContains(OH_Drawing_Region* region, int32_t x, int32_t y);
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * region、dst任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * op不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param region 指向区域对象{@link OH_Drawing_Region}的指针，操作完成后的区域结果将会保存在此区域对象中。
  * @param other 指向区域对象{@link OH_Drawing_Region}的指针。
  * @param op 区域操作枚举类型，支持可选的具体模式可见{@link OH_Drawing_RegionOpMode}枚举。
@@ -130,7 +130,7 @@ bool OH_Drawing_RegionOp(OH_Drawing_Region* region, const OH_Drawing_Region* oth
  * @brief 用于尝试给区域对象设置矩形边界。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * region、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param region 指向区域对象{@link OH_Drawing_Region}的指针。
  * @param rect 指向矩形对象的指针。
  * @return 返回区域对象设置矩形边界是否成功的结果。true表示设置矩形边界成功，false表示设置矩形边界失败。
@@ -143,7 +143,7 @@ bool OH_Drawing_RegionSetRect(OH_Drawing_Region* region, const OH_Drawing_Rect* 
  * @brief 给区域对象设置为指定区域内路径表示的范围。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * region、path、clip任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param region 指向区域对象{@link OH_Drawing_Region}的指针。
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param clip 指向区域对象{@link OH_Drawing_Region}的指针。
@@ -155,7 +155,7 @@ bool OH_Drawing_RegionSetPath(OH_Drawing_Region* region, const OH_Drawing_Path* 
 
 /**
  * @brief 用于销毁区域对象并回收该对象占有的内存。
- * 
+ *
  * @param region 指向区域对象{@link OH_Drawing_Region}的指针。
  * @since 12
  * @version 1.0
@@ -164,7 +164,7 @@ void OH_Drawing_RegionDestroy(OH_Drawing_Region* region);
 
 /**
  * @brief 设置当前区域为空。
- * 
+ *
  * @param region 指向区域对象{@link OH_Drawing_Region}的指针。
  * @return 函数返回执行错误码。
  * 返回OH_DRAWING_SUCCESS，表示执行成功。
@@ -176,7 +176,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionEmpty(OH_Drawing_Region* region);
 
 /**
  * @brief 设置路径为区域的边界。如果区域为空，则路径也将为空。
- * 
+ *
  * @param region 指向区域对象{@link OH_Drawing_Region}的指针。
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。作为出参使用。
  * @return 函数返回执行结果。
@@ -188,7 +188,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionGetBoundaryPath(const OH_Drawing_Region* r
 
 /**
  * @brief 获取包含该区域的最小边界矩形。
- * 
+ *
  * @param region 指向区域对象{@link OH_Drawing_Region}的指针。
  * @param rect 指向矩形对象{@link OH_Drawing_Rect}的指针。作为出参使用。
  * @return 函数返回执行结果。
@@ -200,7 +200,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionGetBounds(const OH_Drawing_Region* region,
 
 /**
  * @brief 检查该区域是否包含多个（两个及两个以上）矩形。
- * 
+ *
  * @param region 指向区域对象{@link OH_Drawing_Region}的指针。
  * @param isComplex 表示该区域是否包含多个矩形。作为出参使用。true表示该区域包含多个矩形，false表示该区域不包含多个矩形。
  * @return 函数返回执行结果。
@@ -212,7 +212,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionIsComplex(const OH_Drawing_Region* region,
 
 /**
  * @brief 检查该区域是否为空。
- * 
+ *
  * @param region 指向区域对象{@link OH_Drawing_Region}的指针。
  * @param isEmpty 表示该区域是否为空。作为出参使用。true表示该区域为空，false表示该区域不为空。
  * @return 函数返回执行结果。
@@ -224,7 +224,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionIsEmpty(const OH_Drawing_Region* region, b
 
 /**
  * @brief 检查该区域是否等同于一个矩形。
- * 
+ *
  * @param region 指向区域对象{@link OH_Drawing_Region}的指针。
  * @param isRect 表示该区域是否等同于一个矩形。作为出参使用。true表示该区域等同于一个矩形，false表示该区域不等同于一个矩形。
  * @return 函数返回执行结果。
@@ -236,7 +236,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionIsRect(const OH_Drawing_Region* region, bo
 
 /**
  * @brief 检查该区域是否等同于单个矩形并且包含指定的矩形。
- * 
+ *
  * @param region 指向区域对象{@link OH_Drawing_Region}的指针。
  * @param left 表示指定矩形左上角的x轴坐标。
  * @param top 表示指定矩形左上角的y轴坐标。
@@ -254,7 +254,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionQuickContains(const OH_Drawing_Region* reg
 
 /**
  * @brief 检查当前区域是否为空或是否与指定矩形不相交。
- * 
+ *
  * @param region 指向区域对象{@link OH_Drawing_Region}的指针。
  * @param left 表示指定矩形左上角的x轴坐标。
  * @param top 表示指定矩形左上角的y轴坐标。
@@ -272,7 +272,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionQuickReject(const OH_Drawing_Region* regio
 
 /**
  * @brief 将当前区域在x轴和y轴上按指定距离平移。如果当前区域为空，则不执行任何操作。
- * 
+ *
  * @param region 指向区域对象{@link OH_Drawing_Region}的指针。
  * @param dx 表示在x轴上要平移的距离，单位为像素px。
  * @param dy 表示在y轴上要平移的距离，单位为像素px。

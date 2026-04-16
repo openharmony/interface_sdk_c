@@ -26,7 +26,7 @@
  * @file drawing_round_rect.h
  *
  * @brief This file declares the functions related to the rounded rectangle in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -46,7 +46,7 @@ extern "C" {
 
 /**
  * @brief Defines an enum for the corner positions of a rounded rectangle.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -70,10 +70,11 @@ typedef enum {
 } OH_Drawing_CornerPos;
 
 /**
- * @brief Creates an **OH_Drawing_RoundRect** object. This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}
+ * @brief Creates an **OH_Drawing_RoundRect** object. This API may return an error code. For details, call
+ * {@link OH_Drawing_ErrorCodeGet}
  * .
  * If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param rect Pointer to an **OH_Drawing_Rect** object.
  * @param xRad Radius of the rounded corner on the X axis. A negative number is invalid.
  * @param yRad Radius of the rounded corner on the Y axis. A negative number is invalid.
@@ -85,7 +86,7 @@ OH_Drawing_RoundRect* OH_Drawing_RoundRectCreate(const OH_Drawing_Rect* rect, fl
 
 /**
  * @brief Creates a copy of a rounded rectangle.
- * 
+ *
  * @param roundRect Pointer to an {@link OH_Drawing_RoundRect} object.
  * @return Returns the pointer to the new **OH_Drawing_RoundRect** object created.
  * @since 20
@@ -97,7 +98,7 @@ OH_Drawing_RoundRect* OH_Drawing_RoundRectCopy(const OH_Drawing_RoundRect* round
  * @brief Sets the radii of the specified rounded corner in this rounded rectangle.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **roundRect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param roundRect Pointer to an **OH_Drawing_RoundRect** object.
  * @param pos Position of the rounded corner. For details about the available options, see {@link OH_Drawing_CornerPos}.
  * @param radii OH_Drawing_Corner_Radii struct, including the radii on the X axis and Y axis. A radius less than or
@@ -112,7 +113,7 @@ void OH_Drawing_RoundRectSetCorner(OH_Drawing_RoundRect* roundRect,
  * @brief Obtains the radii of the specified rounded corner in a rounded rectangle.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **roundRect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param roundRect Pointer to an **OH_Drawing_RoundRect** object.
  * @param pos Position of the rounded corner. For details about the available options, see {@link OH_Drawing_CornerPos}.
  * @return Returns an OH_Drawing_Corner_Radii struct, including the radii on the X axis and Y axis.
@@ -123,7 +124,7 @@ OH_Drawing_Corner_Radii OH_Drawing_RoundRectGetCorner(OH_Drawing_RoundRect* roun
 
 /**
  * @brief Destroys an **OH_Drawing_RoundRect** object and reclaims the memory occupied by the object.
- * 
+ *
  * @param roundRect Pointer to an **OH_Drawing_RoundRect** object.
  * @since 11
  * @version 1.0
@@ -132,7 +133,7 @@ void OH_Drawing_RoundRectDestroy(OH_Drawing_RoundRect* roundRect);
 
 /**
  * @brief Translates a rounded rectangle by an offset along the X axis and Y axis.
- * 
+ *
  * @param roundRect Pointer to an {@link OH_Drawing_Point2D} object.
  * @param dx X offset.
  * @param dy Y offset.

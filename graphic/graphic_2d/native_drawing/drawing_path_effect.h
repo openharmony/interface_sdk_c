@@ -26,7 +26,7 @@
  * @file drawing_path_effect.h
  *
  * @brief This file declares the functions related to the path effect in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -45,7 +45,7 @@ extern "C" {
 
 /**
  * @brief Enumerates the drawing styles for path effects.
- * 
+ *
  * @since 18
  * @version 1.0
  */
@@ -66,7 +66,7 @@ typedef enum {
 
 /**
  * @brief Creates a path effect by sequentially applying the inner effect and then the outer effect.
- * 
+ *
  * @param outer Pointer to an outer effect, which is an {@link OH_Drawing_PathEffect} object.
  * @param inner Pointer to an inner effect, which is an {@link OH_Drawing_PathEffect} object.
  * @return Returns a pointer to the created {@link OH_Drawing_PathEffect} object.
@@ -80,7 +80,7 @@ OH_Drawing_PathEffect* OH_Drawing_CreateComposePathEffect(OH_Drawing_PathEffect*
 /**
  * @brief Creates a path effect that transforms the sharp angle between line segments into a rounded corner with the
  * specified radius.
- * 
+ *
  * @param radius Radius of the rounded corner. The value is valid only when it is greater than 0.
  * @return Returns a pointer to the created {@link OH_Drawing_PathEffect} object.
  * If a null pointer is returned, the creation fails. The possible failure cause is that **radius** is less than or
@@ -94,7 +94,7 @@ OH_Drawing_PathEffect* OH_Drawing_CreateCornerPathEffect(float radius);
  * @brief Creates a dashed path effect. The dashed line effect is determined by a group of "on" and "off" intervals.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **intervals** is NULL or **count** is less than or equal to 0, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param intervals Pointer to the start address of the dashed line interval array. In the array, an even entry
  * indicates an "on" interval and an odd entry indicates an "off" interval. The unit is px.
  * @param count Number of entries in the dashed line interval array. The value must be an even number greater than 0.
@@ -107,7 +107,7 @@ OH_Drawing_PathEffect* OH_Drawing_CreateDashPathEffect(float* intervals, int cou
 
 /**
  * @brief Creates a path effect that segments the path and scatters the segments in an irregular pattern along the path.
- * 
+ *
  * @param segLength Distance along the path at which each segment is fragmented. An effect is created when it is
  * greater than 0.
  * @param deviation Maximum amount by which the end points of the segments can be randomly displaced during rendering.
@@ -119,7 +119,7 @@ OH_Drawing_PathEffect* OH_Drawing_CreateDiscretePathEffect(float segLength, floa
 
 /**
  * @brief Creates a dashed path effect.
- * 
+ *
  * @param path Pointer to an {@link OH_Drawing_Path} object.
  * @param advance Length of each dashed line segment.
  * @param phase Offset of the pattern within the dash segment length.
@@ -135,7 +135,7 @@ OH_Drawing_PathEffect* OH_Drawing_CreatePathDashEffect(const OH_Drawing_Path* pa
 
 /**
  * @brief Creates an overlay path effect based on two distinct path effects that take effect separately.
- * 
+ *
  * @param firstPathEffect Pointer to an {@link OH_Drawing_PathEffect} object.
  * @param secondPathEffect Pointer to an {@link OH_Drawing_PathEffect} object.
  * @return Returns a pointer to the created {@link OH_Drawing_PathEffect} object.
@@ -149,7 +149,7 @@ OH_Drawing_PathEffect* OH_Drawing_CreateSumPathEffect(OH_Drawing_PathEffect* fir
 
 /**
  * @brief Destroys an **OH_Drawing_PathEffect** object and reclaims the memory occupied by the object.
- * 
+ *
  * @param pathEffect Pointer to an {@link OH_Drawing_PathEffect} object.
  * @since 12
  * @version 1.0

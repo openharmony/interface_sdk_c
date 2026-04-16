@@ -26,7 +26,7 @@
  * @file drawing_image_filter.h
  *
  * @brief This file declares the functions related to the image filter in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing

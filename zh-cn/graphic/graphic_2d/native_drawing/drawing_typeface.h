@@ -28,7 +28,7 @@
  * @brief This file declares the functions related to the typeface in the drawing module.
  * Different platforms have their own default typefaces. You can also parse the .ttf file to obtain the typefaces
  * specified by the third party, such as SimSun and SimHei.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -48,7 +48,7 @@ extern "C" {
 
 /**
  * @brief 用于创建一个默认的字形对象。
- * 
+ *
  * @return 返回一个指针，指针指向创建的字形对象。
  * @since 11
  * @version 1.0
@@ -59,7 +59,7 @@ OH_Drawing_Typeface* OH_Drawing_TypefaceCreateDefault(void);
  * @brief 通过文件创建一个字形对象。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向文件路径的指针。
  * @param index 文件索引。
  * @return 函数返回一个指针，指针指向创建的字形对象{@link OH_Drawing_Typeface}。
@@ -72,7 +72,7 @@ OH_Drawing_Typeface* OH_Drawing_TypefaceCreateFromFile(const char* path, int ind
  * @brief 从指定文件路径创建带有字型参数的字体对象。
  * 如果字体对象不支持字型参数中描述的可变维度，此函数将会创建默认字型参数的字体对象。
  * 在这种情况下，此函数将提供与{@link OH_Drawing_TypefaceCreateFromFile}相同的功能。
- * 
+ *
  * @param path 指向字体对象所在文件路径的指针。
  * @param fontArguments 指向字型参数对象{@link OH_Drawing_FontArguments}的指针。
  * @return 函数返回一个指针，指针指向创建的字体对象{@link OH_Drawing_Typeface}。
@@ -85,7 +85,7 @@ OH_Drawing_Typeface* OH_Drawing_TypefaceCreateFromFileWithArguments(const char* 
 
 /**
  * @brief 通过已存在的字体对象创建带有字型参数的字体对象。
- * 
+ *
  * @param current 指向字体对象{@link OH_Drawing_Typeface}的指针。
  * @param fontArguments 指向字型参数对象{@link OH_Drawing_FontArguments}的指针。
  * @return 函数返回一个指针，指针指向创建的字体对象{@link OH_Drawing_Typeface}。
@@ -100,7 +100,7 @@ OH_Drawing_Typeface* OH_Drawing_TypefaceCreateFromCurrent(const OH_Drawing_Typef
  * @brief 通过内存流创建一个字形对象。如果内存流是无效的字体文件，返回空指针。内存流传入后，所有权转移，开发者不能再释放它。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * memoryStream为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param memoryStream 指向内存流对象{@link OH_Drawing_MemoryStream}的指针。
  * @param index 内存流索引。
  * @return 返回一个指针，指针指向创建的字形对象{@link OH_Drawing_Typeface}。
@@ -111,7 +111,7 @@ OH_Drawing_Typeface* OH_Drawing_TypefaceCreateFromStream(OH_Drawing_MemoryStream
 
 /**
  * @brief 用于销毁字形对象并回收该对象占有的内存。
- * 
+ *
  * @param typeface 指向字形对象的指针。
  * @since 11
  * @version 1.0
@@ -120,7 +120,7 @@ void OH_Drawing_TypefaceDestroy(OH_Drawing_Typeface* typeface);
 
 /**
  * @brief 用于创建一个字型参数对象。字型参数用于创建带有自定义属性的字体对象。
- * 
+ *
  * @return 返回一个指针，指针指向创建的字型参数对象。
  * @since 13
  * @version 1.0
@@ -129,7 +129,7 @@ OH_Drawing_FontArguments* OH_Drawing_FontArgumentsCreate(void);
 
 /**
  * @brief 给字型参数对象添加可变维度。
- * 
+ *
  * @param fontArguments 指向字型参数对象{@link OH_Drawing_FontArguments}的指针。
  * @param axis 字型参数对象可变维度的标签，必须为4个ASCII字符。具体可支持的标签取决于加载的字体文件，如'wght'即为字重标签。
  * @param value 可变维度标签对应的取值。
@@ -144,7 +144,7 @@ OH_Drawing_ErrorCode OH_Drawing_FontArgumentsAddVariation(OH_Drawing_FontArgumen
 
 /**
  * @brief 用于销毁一个字型参数对象。
- * 
+ *
  * @param fontArguments 指向字型参数对象{@link OH_Drawing_FontArguments}的指针。
  * @return 函数返回执行错误码。
  * 返回OH_DRAWING_SUCCESS，表示执行成功。
@@ -156,7 +156,7 @@ OH_Drawing_ErrorCode OH_Drawing_FontArgumentsDestroy(OH_Drawing_FontArguments* f
 
 /**
  * @brief 检查字形是否为粗体。
- * 
+ *
  * @param typeface 指向字形对象{@link OH_Drawing_Typeface}的指针。
  * @param isBold 表示字形是否为粗体。作为出参使用。true表示该字形是粗体，false表示该字形不是粗体。
  * @return 函数返回执行结果。
@@ -169,7 +169,7 @@ OH_Drawing_ErrorCode OH_Drawing_TypefaceIsBold(const OH_Drawing_Typeface* typefa
 
 /**
  * @brief 检查字形是否为斜体。
- * 
+ *
  * @param typeface 指向字形对象{@link OH_Drawing_Typeface}的指针。
  * @param isItalic 表示字形是否为斜体。作为出参使用。true表示该字形是斜体，false表示该字形不是斜体。
  * @return 函数返回执行结果。

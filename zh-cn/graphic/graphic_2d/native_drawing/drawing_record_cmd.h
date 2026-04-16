@@ -26,7 +26,7 @@
  * @file drawing_record_cmd.h
  *
  * @brief This file declares the functions related to a recording command object.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -46,7 +46,7 @@ extern "C" {
 
 /**
  * @brief 创建一个录制指令工具对象。
- * 
+ *
  * @return 返回用于录制指令的工具对象。
  * @since 13
  * @version 1.0
@@ -55,7 +55,7 @@ OH_Drawing_RecordCmdUtils* OH_Drawing_RecordCmdUtilsCreate(void);
 
 /**
  * @brief 销毁一个录制指令工具对象，并回收该对象占用的内存。
- * 
+ *
  * @param recordCmdUtils 指向录制指令工具对象{@link OH_Drawing_RecordCmdUtils}的指针。
  * @return 函数返回执行错误码。
  * 返回OH_DRAWING_SUCCESS，表示执行成功。
@@ -68,7 +68,7 @@ OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsDestroy(OH_Drawing_RecordCmdUtils*
 /**
  * @brief 开始录制。此接口需要与{@link OH_Drawing_RecordCmdUtilsFinishRecording}接口成对使用。
  * 指令录制工具生成录制类型的画布对象，可调用drawing的绘制接口，记录接下来所有的绘制指令。
- * 
+ *
  * @param recordCmdUtils 指向录制工具对象{@link OH_Drawing_RecordCmdUtils}的指针。
  * @param width 画布的宽度。
  * @param height 画布的高度。
@@ -88,9 +88,10 @@ OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsBeginRecording(OH_Drawing_RecordCm
 /**
  * @brief 结束录制。在调用此接口前，需要先调用{@link OH_Drawing_RecordCmdUtilsBeginRecording}接口。
  * 指令录制工具结束录制指令，将录制类型画布对象记录的绘制指令存入生成的录制指令对象。
- * 
+ *
  * @param recordCmdUtils 指向录制指令工具对象{@link OH_Drawing_RecordCmdUtils}的指针。
- * @param recordCmd 指向录制指令对象{@link OH_Drawing_RecordCmd}的二级指针，作为出参，开发者调用{@link OH_Drawing_CanvasDrawRecordCmd}接口绘制该对象。需要调用{@link OH_Drawing_RecordCmdDestroy}
+ * @param recordCmd 指向录制指令对象 {@link OH_Drawing_RecordCmd} 的二级指针，作为出参，开发者调用 {@link OH_Drawing_CanvasDrawRecordCmd}
+ * 接口绘制该对象。需要调用 {@link OH_Drawing_RecordCmdDestroy}
  * 接口释放。
  * @return 函数返回执行错误码。
  * 返回OH_DRAWING_SUCCESS，表示执行成功。
@@ -104,7 +105,7 @@ OH_Drawing_ErrorCode OH_Drawing_RecordCmdUtilsFinishRecording(OH_Drawing_RecordC
 
 /**
  * @brief 销毁录制指令对象，并回收该对象占用的内存。
- * 
+ *
  * @param recordCmd 指向对象{@link OH_Drawing_RecordCmd}的指针。
  * @return 函数返回执行错误码。
  * 返回OH_DRAWING_SUCCESS，表示执行成功。

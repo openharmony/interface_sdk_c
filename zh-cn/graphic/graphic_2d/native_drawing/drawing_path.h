@@ -18,7 +18,7 @@
  * @{
  *
  * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
- * 
+ *
  *
  * @since 8
  * @version 1.0
@@ -27,7 +27,7 @@
  * @file drawing_path.h
  *
  * @brief This file declares the functions related to the path in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -48,7 +48,7 @@ extern "C" {
 
 /**
  * @brief 添加闭合轮廓方向枚举。
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -65,7 +65,7 @@ typedef enum {
 
 /**
  * @brief 定义路径的填充类型枚举。
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -91,7 +91,7 @@ typedef enum {
 
 /**
  * @brief 用于指定路径添加模式的枚举类型。
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -108,7 +108,7 @@ typedef enum {
 
 /**
  * @brief 路径操作类型枚举。
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -137,7 +137,7 @@ typedef enum {
 
 /**
  * @brief 路径测量获取相应矩阵信息维度枚举。
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -158,7 +158,7 @@ typedef enum {
 
 /**
  * @brief 用于创建一个路径对象。
- * 
+ *
  * @return 函数会返回一个指针，指针指向创建的路径对象。
  * @since 8
  * @version 1.0
@@ -169,7 +169,7 @@ OH_Drawing_Path* OH_Drawing_PathCreate(void);
  * @brief 创建一个路径对象副本{@link OH_Drawing_Path}，用于拷贝一个已有路径对象。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @return 函数返回一个指针，指针指向创建的路径对象副本{@link OH_Drawing_Path}。
  * @since 12
@@ -179,7 +179,7 @@ OH_Drawing_Path* OH_Drawing_PathCopy(OH_Drawing_Path* path);
 
 /**
  * @brief 用于销毁路径对象并回收该对象占有的内存。
- * 
+ *
  * @param path 指向路径对象的指针。
  * @since 8
  * @version 1.0
@@ -188,7 +188,7 @@ void OH_Drawing_PathDestroy(OH_Drawing_Path* path);
 
 /**
  * @brief 将一个路径对象设置成当前的路径对象。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param other 用于设置的路径对象{@link OH_Drawing_Path}的指针。
  * @return 函数返回执行结果。
@@ -201,7 +201,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathSetPath(OH_Drawing_Path* path, OH_Drawing_Pa
 
 /**
  * @brief 判断一个路径对象是否为空。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param isEmpty 表示路径对象是否为空。true表示路径对象为空，false表示路径对象不为空。作为出参使用。
  * @return 函数返回执行结果。
@@ -214,7 +214,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIsEmpty(OH_Drawing_Path* path, bool* isEmpty
 
 /**
  * @brief 判断路径对象是否构成一个矩形。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param rect 指向矩形对象{@link OH_Drawing_Rect}的指针，作为出参使用，可以为空。
  * @param isRect 表示路径是否构成矩形。true表示构成矩形，false表示不构成矩形。作为出参使用。
@@ -230,7 +230,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIsRect(OH_Drawing_Path* path, OH_Drawing_Rec
  * @brief 用于设置自定义路径的起始点位置。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象的指针。
  * @param x 起始点的横坐标。
  * @param y 起始点的纵坐标。
@@ -243,7 +243,7 @@ void OH_Drawing_PathMoveTo(OH_Drawing_Path* path, float x, float y);
  * @brief 用于添加一条从路径的最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的线段。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象的指针。
  * @param x 目标点的横坐标。
  * @param y 目标点的纵坐标。
@@ -258,7 +258,7 @@ void OH_Drawing_PathLineTo(OH_Drawing_Path* path, float x, float y);
  * 从起始角度扫描截取的椭圆周长一部分即为绘制的弧线。若路径有内容则会默认添加一条从路径的最后点位置到弧线起始点位置的线段。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象的指针。
  * @param x1 包围椭圆的矩形左上角点位置的横坐标。
  * @param y1 包围椭圆的矩形左上角点位置的纵坐标。
@@ -276,7 +276,7 @@ void OH_Drawing_PathArcTo(OH_Drawing_Path* path,
  * @brief 用于添加一条从路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的二阶贝塞尔曲线。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象的指针。
  * @param ctrlX 控制点位置的横坐标。
  * @param ctrlY 控制点位置的纵坐标。
@@ -291,7 +291,7 @@ void OH_Drawing_PathQuadTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, floa
  * @brief 在当前路径上添加一条路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的圆锥曲线段，其控制点为 (ctrlX, ctrlY)，结束点为 (endX, endY)。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param ctrlX 控制点位置的横坐标。
  * @param ctrlY 控制点位置的纵坐标。
@@ -309,7 +309,7 @@ void OH_Drawing_PathConicTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, flo
  * @brief 用于添加一条从路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的三阶贝塞尔圆滑曲线。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象的指针。
  * @param ctrlX1 第一个控制点位置的横坐标。
  * @param ctrlY1 第一个控制点位置的纵坐标。
@@ -327,7 +327,7 @@ void OH_Drawing_PathCubicTo(
  * @brief 用于设置一个相对于当前路径终点（若路径没有内容则默认为 (0, 0)）的路径起始点位置。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param x 相对于当前路径终点的x轴偏移量，正数往x轴正方向偏移，负数往x轴负方向偏移。
  * @param y 相对于当前路径终点的y轴偏移量，正数往y轴正方向偏移，负数往y轴负方向偏移。
@@ -340,7 +340,7 @@ void OH_Drawing_PathRMoveTo(OH_Drawing_Path* path, float x, float y);
  * @brief 使用相对位置在当前路径上添加一条当前路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的线段。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param x 相对于当前路径终点的x轴偏移量，用于指定目标点的横坐标。
  * @param y 相对于当前路径终点的y轴偏移量，用于指定目标点的纵坐标。
@@ -353,7 +353,7 @@ void OH_Drawing_PathRLineTo(OH_Drawing_Path* path, float x, float y);
  * @brief 使用相对位置在当前路径上添加一条当前路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的二阶贝塞尔曲线。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param ctrlX 相对于路径终点的x轴偏移量，用于指定控制点的横坐标。
  * @param ctrlY 相对于路径终点的y轴偏移量，用于指定控制点的纵坐标。
@@ -368,7 +368,7 @@ void OH_Drawing_PathRQuadTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, flo
  * @brief 使用相对位置在当前路径上添加一条路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的圆锥曲线段。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param ctrlX 相对于路径终点的x轴偏移量，用于指定控制点的横坐标。
  * @param ctrlY 相对于路径终点的y轴偏移量，用于指定控制点的纵坐标。
@@ -386,7 +386,7 @@ void OH_Drawing_PathRConicTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, fl
  * @brief 使用相对位置在当前路径上添加一条当前路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的三阶贝塞尔圆滑曲线。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param ctrlX1 相对于路径终点的x轴偏移量，用于指定第一个控制点的横坐标。
  * @param ctrlY1 相对于路径终点的y轴偏移量，用于指定第一个控制点的纵坐标。
@@ -405,7 +405,7 @@ void OH_Drawing_PathRCubicTo(OH_Drawing_Path* path, float ctrlX1, float ctrlY1, 
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * pathDirection不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param left 矩形左上角的x轴坐标。
  * @param top 矩形左上角的y轴坐标。
@@ -423,7 +423,7 @@ void OH_Drawing_PathAddRect(OH_Drawing_Path* path, float left, float top, float 
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * pathDirection不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param rect 指向矩形对象{@link OH_Drawing_Rect}的指针。
  * @param pathDirection Indicates the path direction.
@@ -439,7 +439,7 @@ void OH_Drawing_PathAddRectWithInitialCorner(OH_Drawing_Path* path, const OH_Dra
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、roundRect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * pathDirection不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param roundRect 指向圆角矩形对象{@link OH_Drawing_RoundRect}的指针。
  * @param pathDirection 路径方向{@link OH_Drawing_PathDirection}。
@@ -454,7 +454,7 @@ void OH_Drawing_PathAddRoundRect(OH_Drawing_Path* path,
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * pathDirection不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param rect 指向矩形对象{@link OH_Drawing_Rect}的指针。
  * @param start 表示椭圆初始点的索引。
@@ -470,7 +470,7 @@ void OH_Drawing_PathAddOvalWithInitialPoint(OH_Drawing_Path* path, const OH_Draw
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * pathDirection不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param rect 指向矩形对象{@link OH_Drawing_Rect}的指针。
  * @param pathDirection 路径方向{@link OH_Drawing_PathDirection}。
@@ -484,7 +484,7 @@ void OH_Drawing_PathAddOval(OH_Drawing_Path* path,
  * @brief 将圆弧添加到路径中，作为新轮廓的起点。从起始角度到扫描角度添加弧，添加的弧是矩形内切椭圆的一部分，如果扫描角度<= -360°，或>= 360°，并且起始角度对90取模接近于0，则添加椭圆而不是弧。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param rect 指向矩形对象{@link OH_Drawing_Rect}的指针。
  * @param startAngle 弧的起始角度，单位为度。
@@ -498,7 +498,7 @@ void OH_Drawing_PathAddArc(OH_Drawing_Path* path, const OH_Drawing_Rect* rect, f
  * @brief 将源路径矩阵变换后，添加到当前路径中。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、src任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向当前路径对象{@link OH_Drawing_Path}的指针。
  * @param src 指向源路径对象{@link OH_Drawing_Path}的指针。
  * @param matrix 指向矩阵对象{@link OH_Drawing_Matrix}的指针，为NULL时表示单位矩阵。
@@ -512,7 +512,7 @@ void OH_Drawing_PathAddPath(OH_Drawing_Path* path, const OH_Drawing_Path* src, c
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、src任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * pathAddMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param path 指向当前路径对象{@link OH_Drawing_Path}的指针。
  * @param src 指向源路径对象{@link OH_Drawing_Path}的指针。
  * @param matrix 指向矩阵对象{@link OH_Drawing_Matrix}的指针，为NULL表示单位矩阵。
@@ -528,7 +528,7 @@ void OH_Drawing_PathAddPathWithMatrixAndMode(OH_Drawing_Path* path, const OH_Dra
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、src任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * pathAddMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param path 指向当前路径对象{@link OH_Drawing_Path}的指针。
  * @param src 指向源路径对象{@link OH_Drawing_Path}的指针。
  * @param pathAddMode 路径添加模式{@link OH_Drawing_PathAddMode}。
@@ -543,7 +543,7 @@ void OH_Drawing_PathAddPathWithMode(OH_Drawing_Path* path,
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、src任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * pathAddMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param path 指向当前路径对象{@link OH_Drawing_Path}的指针。
  * @param src 指向源路径对象{@link OH_Drawing_Path}的指针。
  * @param dx 添加到目标路径横坐标的偏移量。
@@ -559,7 +559,7 @@ void OH_Drawing_PathAddPathWithOffsetAndMode(OH_Drawing_Path* path, const OH_Dra
  * @brief 向路径添加多边形。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、points任意一个为NULL或者count等于0时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向当前路径对象{@link OH_Drawing_Path}的指针。
  * @param points 表示多边形的顶点坐标数组。
  * @param count 表示多边形顶点坐标数组的大小。
@@ -575,7 +575,7 @@ void OH_Drawing_PathAddPolygon(OH_Drawing_Path* path, const OH_Drawing_Point2D* 
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * radius小于等于0时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE；
  * pathDirection不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param x 表示圆心的x轴坐标。
  * @param y 表示圆心的y轴坐标。
@@ -591,7 +591,7 @@ void OH_Drawing_PathAddCircle(OH_Drawing_Path* path,
  * @brief 解析SVG字符串表示的路径。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、str任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param str 表示SVG字符串。
  * @return 函数返回解析SVG字符串是否成功。true表示成功，false表示不成功。
@@ -652,7 +652,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathGetConicWeightData(
  * @brief 判断指定坐标点是否被路径包含，判定是否被路径包含的规则参考{@link OH_Drawing_PathFillType}。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param x x轴上坐标点。
  * @param y y轴上坐标点。
@@ -666,7 +666,7 @@ bool OH_Drawing_PathContains(OH_Drawing_Path* path, float x, float y);
  * @brief 对路径进行矩阵变换。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、matrix任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param matrix 指向矩阵对象{@link OH_Drawing_Matrix}的指针。
  * @since 12
@@ -678,7 +678,7 @@ void OH_Drawing_PathTransform(OH_Drawing_Path* path, const OH_Drawing_Matrix* ma
  * @brief 对路径进行矩阵变换。用转换后的路径替换目标路径，如果目标路径为NULL，则替换源路径。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * src、matrix任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param src 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param matrix 指向矩阵对象{@link OH_Drawing_Matrix}的指针。
  * @param dst 指向目标路径对象{@link OH_Drawing_Path}的指针。
@@ -694,7 +694,7 @@ void OH_Drawing_PathTransformWithPerspectiveClip(OH_Drawing_Path* src, const OH_
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * pathFillType不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param pathFillType 路径填充规则{@link OH_Drawing_PathFillType}。
  * @since 12
@@ -704,7 +704,7 @@ void OH_Drawing_PathSetFillType(OH_Drawing_Path* path, OH_Drawing_PathFillType p
 
 /**
  * @brief 获取路径的填充类型。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param pathFillType 指向路径填充规则{@link OH_Drawing_PathFillType}的指针。
  * @return 函数返回执行结果。
@@ -719,7 +719,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathGetFillType(OH_Drawing_Path* path, OH_Drawin
  * @brief 获取当前路径的长度。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param forceClosed 表示是否按照闭合路径测量。true表示测量时路径会被强制视为已闭合，false表示会根据路径的实际闭合状态测量。
  * @return 函数返回当前路径的长度。
@@ -732,7 +732,7 @@ float OH_Drawing_PathGetLength(OH_Drawing_Path* path, bool forceClosed);
  * @brief 获取包含路径的最小边界框。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param rect 指向矩形对象{@link OH_Drawing_Rect}的指针。
  * @since 12
@@ -744,7 +744,7 @@ void OH_Drawing_PathGetBounds(OH_Drawing_Path* path, OH_Drawing_Rect* rect);
  * @brief 用于闭合路径，会添加一条从路径起点位置到最后点位置的线段。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @since 8
  * @version 1.0
@@ -755,7 +755,7 @@ void OH_Drawing_PathClose(OH_Drawing_Path* path);
  * @brief 将路径中的所有点沿着x轴和y轴方向偏移一定距离，并将结果存储到目标路径对象中。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向当前路径对象{@link OH_Drawing_Path}的指针。
  * @param dst 指向目标路径对象{@link OH_Drawing_Path}的指针，为NULL时会将结果存储到当前路径对象中。
  * @param dx x轴方向的偏移量。
@@ -769,7 +769,7 @@ void OH_Drawing_PathOffset(OH_Drawing_Path* path, OH_Drawing_Path* dst, float dx
  * @brief 用于重置自定义路径数据。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象的指针。
  * @since 8
  * @version 1.0
@@ -780,7 +780,7 @@ void OH_Drawing_PathReset(OH_Drawing_Path* path);
  * @brief 获取路径是否闭合。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param forceClosed 表示是否按照闭合路径测量，true表示测量时路径会被强制视为已闭合，false表示会根据路径的实际闭合状态测量。
  * @return 返回路径是否闭合。true表示路径的测量结果为已闭合，false表示路径的测量结果为未闭合。
@@ -793,7 +793,7 @@ bool OH_Drawing_PathIsClosed(OH_Drawing_Path* path, bool forceClosed);
  * @brief 获取距路径起始点指定距离的坐标点和切线值。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、position、tangent任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param forceClosed 表示是否按照闭合路径测量，true表示测量时路径会被强制视为已闭合，false表示会根据路径的实际闭合状态测量。
  * @param distance 表示距离起始点的距离，小于0时会被视为0处理，大于路径长度时会被视为路径长度处理。
@@ -808,7 +808,7 @@ bool OH_Drawing_PathGetPositionTangent(OH_Drawing_Path* path, bool forceClosed,
 
 /**
  * @brief 截取路径的片段并追加到目标路径上。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param forceClosed 表示是否按照闭合路径测量，true表示测量时路径会被强制视为已闭合，false表示会根据路径的实际闭合状态测量。
  * @param start 表示与路径起始点的距离，距离路径起始点start距离的位置即为截取路径片段的起始点，小于0时会被视作0，大于等于stop时会截取失败。
@@ -830,7 +830,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathGetSegment(OH_Drawing_Path* path, bool force
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、srcPath任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * op不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针，操作完成后的路径结果将会保存在此路径对象中。
  * @param other 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param op 路径操作枚举类型，支持可选的具体模式可见{@link OH_Drawing_PathOpMode}枚举。
@@ -845,7 +845,7 @@ bool OH_Drawing_PathOp(OH_Drawing_Path* path, const OH_Drawing_Path* other, OH_D
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * path、matrix任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * flag不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param forceClosed 表示是否按照闭合路径测量，true表示测量时路径会被强制视为已闭合，false表示会根据路径的实际闭合状态测量。
  * @param distance 表示距离起始点的距离，小于0时会被视为0处理，大于路径长度时会被视为路径长度处理。
@@ -860,7 +860,7 @@ bool OH_Drawing_PathGetMatrix(OH_Drawing_Path* path, bool forceClosed,
 
 /**
  * @brief 将当前路径转化为由连续直线段构成的近似路径。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param acceptableError 表示路径上每条线段的可接受误差，不能小于0。
  * 1.当acceptableError为0时，曲线路径被极度细分，会严重影响性能和内存消耗，不建议设置误差值为0。
@@ -885,7 +885,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathApproximate(OH_Drawing_Path* path, float acc
 /**
  * @brief 按照给定权重在当前路径与另一条路径之间进行插值，并将结果存储到目标路径对象中。
  * 两条路径点数相同即可插值成功，目标路径按照当前路径的结构进行创建。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param other 指向用于插值的另一条路径对象{@link OH_Drawing_Path}的指针。
  * @param weight 表示插值权重，范围为[0, 1]。
@@ -904,7 +904,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathInterpolate(OH_Drawing_Path* path, OH_Drawin
 /**
  * @brief 检查当前路径与另一条路径（other）在结构和操作顺序上是否完全一致，以确定两条路径是否兼容插值。
  * 若路径中包含圆锥曲线（Conic）操作，则对应操作的权重值也必须一致，才能视为兼容插值。
- * 
+ *
  * @param path 指向另一条路径对象{@link OH_Drawing_Path}的指针。
  * @param other 指向另一条路径对象{@link OH_Drawing_Path}的指针。
  * @param result 表示当前路径与另一条路径是否兼容插值。作为出参使用。
@@ -931,7 +931,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathGetLastPoint(OH_Drawing_Path* path, OH_Drawi
 
 /**
  * @brief 检查路径的填充类型是否是取反类型。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param isInverse 表示填充类型是否是取反类型。作为出参使用。true表示填充类型是取反类型，false表示填充类型不是取反类型。
  * @return 函数返回执行结果。
@@ -944,7 +944,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIsInverseFillType(const OH_Drawing_Path* pat
 
 /**
  * @brief 切换路径的填充类型为取反类型。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @return 函数返回执行结果。
  * 返回OH_DRAWING_SUCCESS，表示执行成功。

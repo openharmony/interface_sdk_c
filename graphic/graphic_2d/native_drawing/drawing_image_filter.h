@@ -26,7 +26,7 @@
  * @file drawing_image_filter.h
  *
  * @brief This file declares the functions related to the image filter in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -48,7 +48,8 @@ extern "C" {
  *
  * @param sigmaX Standard deviation of the Gaussian blur to apply along the X axis. The value must be greater than 0.
  * @param sigmaY Standard deviation of the Gaussian blur to apply along the Y axis. The value must be greater than 0.
- * @param tileMode Tile mode of the shader effect. For details about the available options, see {@link OH_Drawing_TileMode}
+ * @param tileMode Tile mode of the shader effect. For details about the available options, see
+ * {@link OH_Drawing_TileMode}
  * .
  * @param imageFilter Pointer to the filter to which the image filter will be applied. If NULL is passed in, the image
  * filter is directly applied to the original image.
@@ -66,7 +67,8 @@ OH_Drawing_ImageFilter* OH_Drawing_ImageFilterCreateBlur(float sigmaX, float sig
  *
  * @param sigmaX Standard deviation of the Gaussian blur to apply along the X axis. The value must be greater than 0.0.
  * @param sigmaY Standard deviation of the Gaussian blur to apply along the Y axis. The value must be greater than 0.0.
- * @param tileMode Tile mode of the shader effect. For details about the available options, see {@link OH_Drawing_TileMode}
+ * @param tileMode Tile mode of the shader effect. For details about the available options, see
+ * {@link OH_Drawing_TileMode}
  * .
  * @param input Pointer to the filter to which the image filter will be applied. If NULL is passed in, the image filter
  * is directly applied to the original image.

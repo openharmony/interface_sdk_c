@@ -27,7 +27,7 @@
  *
  * @brief This file declares the functions related to sampling in the drawing module. It is used for image or texture
  * sampling.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -46,7 +46,7 @@ extern "C" {
 
 /**
  * @brief 过滤模式枚举。
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -63,7 +63,7 @@ typedef enum {
 
 /**
  * @brief 多级渐远纹理模式枚举。
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -86,7 +86,7 @@ typedef enum {
  * @brief 创建一个采样选项对象。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * mipmapMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param filterMode 过滤采样模式{@link OH_Drawing_FilterMode}。
  * @param mipmapMode 多级渐远纹理采样模式{@link OH_Drawing_MipmapMode}。
  * @return 函数会返回一个指针，指针指向创建的采样选项对象{@link OH_Drawing_SamplingOptions}。
@@ -98,7 +98,7 @@ OH_Drawing_SamplingOptions* OH_Drawing_SamplingOptionsCreate(OH_Drawing_FilterMo
 
 /**
  * @brief 创建一个采样选项对象副本{@link OH_Drawing_SamplingOptions}，用于拷贝一个已有采样选项对象。
- * 
+ *
  * @param samplingOptions 指向采样选项对象{@link OH_Drawing_SamplingOptions}的指针。
  * @return 函数会返回一个指针，指针指向创建的采样选项对象副本{@link OH_Drawing_SamplingOptions}。如果对象返回NULL，表示创建失败；可能的原因是可用内存为空，
  * 或者是samplingOptions为NULL。
@@ -109,7 +109,7 @@ OH_Drawing_SamplingOptions* OH_Drawing_SamplingOptionsCopy(OH_Drawing_SamplingOp
 
 /**
  * @brief 销毁采样选项对象并回收该对象占有内存。
- * 
+ *
  * @param samplingOptions 指向采样选项对象{@link OH_Drawing_SamplingOptions}的指针。
  * @since 12
  * @version 1.0
