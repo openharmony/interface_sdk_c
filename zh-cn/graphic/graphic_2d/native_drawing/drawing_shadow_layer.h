@@ -26,7 +26,7 @@
  * @file drawing_shadow_layer.h
  *
  * @brief This file declares the functions related to the shadow in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -47,7 +47,7 @@ extern "C" {
  * @brief 创建一个阴影层对象。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * blurRadius小于等于0时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param blurRadius 表示阴影的半径，必须大于零。
  * @param x 表示x轴上的偏移点。
  * @param y 表示y轴上的偏移点。
@@ -60,7 +60,7 @@ OH_Drawing_ShadowLayer* OH_Drawing_ShadowLayerCreate(float blurRadius, float x, 
 
 /**
  * @brief 销毁阴影层对象，并收回该对象占用的内存。
- * 
+ *
  * @param shadowLayer 表示指向阴影层对象的指针。
  * @since 12
  * @version 1.0

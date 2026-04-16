@@ -28,7 +28,7 @@
  * @brief This file declares the functions related to the typeface in the drawing module.
  * Different platforms have their own default typefaces. You can also parse the .ttf file to obtain the typefaces
  * specified by the third party, such as SimSun and SimHei.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -48,7 +48,7 @@ extern "C" {
 
 /**
  * @brief Creates a default **OH_Drawing_Typeface** object.
- * 
+ *
  * @return Returns the pointer to the **OH_Drawing_Typeface** object created.
  * @since 11
  * @version 1.0
@@ -59,7 +59,7 @@ OH_Drawing_Typeface* OH_Drawing_TypefaceCreateDefault(void);
  * @brief Creates an **OH_Drawing_Typeface** object through a file.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the file path.
  * @param index File index.
  * @return Returns a pointer to the created {@link OH_Drawing_Typeface} object.
@@ -73,7 +73,7 @@ OH_Drawing_Typeface* OH_Drawing_TypefaceCreateFromFile(const char* path, int ind
  * If the **OH_Drawing_Typeface** object does not support the variation described in the font arguments, this function
  * creates an **OH_Drawing_Typeface** object with the default font arguments.
  * In this case, this function provides the same capability as {@link OH_Drawing_TypefaceCreateFromFile}.
- * 
+ *
  * @param path Pointer to the file path.
  * @param fontArguments Pointer to an {@link OH_Drawing_FontArguments} object.
  * @return Returns a pointer to the created {@link OH_Drawing_Typeface} object.
@@ -88,7 +88,7 @@ OH_Drawing_Typeface* OH_Drawing_TypefaceCreateFromFileWithArguments(const char* 
 /**
  * @brief Creates an **OH_Drawing_Typeface** object with font arguments based on an existing **OH_Drawing_Typeface**
  * object.
- * 
+ *
  * @param current Pointer to the {@link OH_Drawing_Typeface} object.
  * @param fontArguments Pointer to an {@link OH_Drawing_FontArguments} object.
  * @return Returns a pointer to the created {@link OH_Drawing_Typeface} object.
@@ -107,7 +107,7 @@ OH_Drawing_Typeface* OH_Drawing_TypefaceCreateFromCurrent(const OH_Drawing_Typef
  * release it.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **memoryStream** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param memoryStream Pointer to an {@link OH_Drawing_MemoryStream} object.
  * @param index Index of the memory stream.
  * @return Returns a pointer to the created {@link OH_Drawing_Typeface} object.
@@ -118,7 +118,7 @@ OH_Drawing_Typeface* OH_Drawing_TypefaceCreateFromStream(OH_Drawing_MemoryStream
 
 /**
  * @brief Destroys an **OH_Drawing_Typeface** object and reclaims the memory occupied by the object.
- * 
+ *
  * @param typeface Pointer to an **OH_Drawing_Typeface** object.
  * @since 11
  * @version 1.0
@@ -128,7 +128,7 @@ void OH_Drawing_TypefaceDestroy(OH_Drawing_Typeface* typeface);
 /**
  * @brief Creates an **OH_Drawing_FontArguments** object. The font arguments are used to create an **
  * OH_Drawing_Typeface** object with custom attributes.
- * 
+ *
  * @return Returns the pointer to the **OH_Drawing_FontArguments** object created.
  * @since 13
  * @version 1.0
@@ -137,7 +137,7 @@ OH_Drawing_FontArguments* OH_Drawing_FontArgumentsCreate(void);
 
 /**
  * @brief Adds a variation to an **OH_Drawing_FontArguments** object.
- * 
+ *
  * @param fontArguments Pointer to an {@link OH_Drawing_FontArguments} object.
  * @param axis Pointer to the label of the variation. The value must contain four ASCII characters. The supported
  * labels depend on the loaded font file. For example, **'wght'** is the font weight label.
@@ -154,7 +154,7 @@ OH_Drawing_ErrorCode OH_Drawing_FontArgumentsAddVariation(OH_Drawing_FontArgumen
 
 /**
  * @brief Destroys an **OH_Drawing_FontArguments** object.
- * 
+ *
  * @param fontArguments Pointer to an {@link OH_Drawing_FontArguments} object.
  * @return Returns one of the following result codes:
  * **OH_DRAWING_SUCCESS** if the operation is successful.
@@ -166,7 +166,7 @@ OH_Drawing_ErrorCode OH_Drawing_FontArgumentsDestroy(OH_Drawing_FontArguments* f
 
 /**
  * @brief Checks whether the typeface is bold.
- * 
+ *
  * @param typeface Pointer to the {@link OH_Drawing_Typeface} object.
  * @param isBold Whether the typeface is bold. It is used as an output parameter. **true** if the typeface is bold; **
  * false** otherwise.
@@ -180,7 +180,7 @@ OH_Drawing_ErrorCode OH_Drawing_TypefaceIsBold(const OH_Drawing_Typeface* typefa
 
 /**
  * @brief Checks whether the typeface is italic.
- * 
+ *
  * @param typeface Pointer to the {@link OH_Drawing_Typeface} object.
  * @param isItalic Whether the typeface is italic. It is used as an output parameter. **true** if the typeface is
  * italic; **false** otherwise.

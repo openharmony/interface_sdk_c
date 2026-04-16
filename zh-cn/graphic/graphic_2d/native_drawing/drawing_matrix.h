@@ -26,7 +26,7 @@
  * @file drawing_matrix.h
  *
  * @brief This file declares the functions related to the matrix in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -125,7 +125,7 @@ void OH_Drawing_MatrixSetMatrix(OH_Drawing_Matrix* matrix, float scaleX, float s
 
 /**
  * @brief 矩阵缩放方式枚举。
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -288,7 +288,7 @@ OH_Drawing_ErrorCode OH_Drawing_MatrixGetAll(OH_Drawing_Matrix* matrix, float va
 
 /**
  * @brief 对矩阵a左乘矩阵b。
- * 
+ *
  * @param a 指向矩阵对象{@link OH_Drawing_Matrix}的指针。
  * @param b 指向矩阵对象{@link OH_Drawing_Matrix}的指针。
  * @return 返回错误码。
@@ -441,7 +441,7 @@ bool OH_Drawing_MatrixIsIdentity(OH_Drawing_Matrix* matrix);
 
 /**
  * @brief 判断当前矩阵是否为仿射矩阵。仿射矩阵是一种包括平移、旋转或缩放等变换的矩阵。
- * 
+ *
  * @param matrix 指向矩阵对象{@link OH_Drawing_Matrix}的指针。
  * @param isAffine 表示当前矩阵是否为仿射矩阵。作为出参使用。true表示当前矩阵是仿射矩阵，false表示当前矩阵不是仿射矩阵。
  * @return 函数返回执行结果。
@@ -453,7 +453,7 @@ OH_Drawing_ErrorCode OH_Drawing_MatrixIsAffine(const OH_Drawing_Matrix* matrix, 
 
 /**
  * @brief 将当前矩阵左乘一个以(px, py)为中心按(kx, ky)倾斜构造的矩阵。
- * 
+ *
  * @param matrix 指向矩阵对象{@link OH_Drawing_Matrix}的指针。
  * @param kx 表示x轴上的倾斜量。
  * @param ky 表示y轴上的倾斜量。
@@ -468,7 +468,7 @@ OH_Drawing_ErrorCode OH_Drawing_MatrixPreSkew(OH_Drawing_Matrix* matrix, float k
 
 /**
  * @brief 判断矩形经过当前矩阵映射后是否仍保持矩形形状。当矩阵是单位矩阵或仅包含平移、缩放、旋转90度倍数等仿射变换时满足该条件。
- * 
+ *
  * @param matrix 指向矩阵对象{@link OH_Drawing_Matrix}的指针。
  * @param isRectStaysRect 表示经过该矩阵映射后的矩形的形状是否仍为矩形。作为出参使用。
  * true表示映射后的矩形形状是矩形，false表示映射后的矩形形状不是矩形。
@@ -481,7 +481,7 @@ OH_Drawing_ErrorCode OH_Drawing_MatrixRectStaysRect(const OH_Drawing_Matrix* mat
 
 /**
  * @brief 设置矩阵，使其围绕旋转中心 (px, py) 以指定的正弦值和余弦值进行旋转。
- * 
+ *
  * @param matrix 指向矩阵对象{@link OH_Drawing_Matrix}的指针。
  * @param sinValue 表示旋转角度的正弦值。
  * @param cosValue 表示旋转角度的余弦值。

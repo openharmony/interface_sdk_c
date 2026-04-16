@@ -144,9 +144,9 @@ OH_Drawing_ErrorCode OH_Drawing_ErrorCodeGet();
 
 /**
  * @brief 将本模块的错误码重置为OH_DRAWING_SUCCESS。
- * 通过{@link
- * OH_Drawing_ErrorCodeGet}获取的本模块错误码会在不以错误码为返回值的接口执行失败时被置为对应的错误编号，但是不会在执行成功后被重置为OH_DRAWING_SUCCESS。
- * 调用本接口可将错误码重置为OH_DRAWING_SUCCESS，避免多个接口间互相干扰，方便开发者调试。
+ * 通过{@link OH_Drawing_ErrorCodeGet}获取的本模块错误码会在不以错误码为返回值的接口执行失败时被置为
+ * 对应的错误编号，但是不会在执行成功后被重置为OH_DRAWING_SUCCESS。调用本接口可将错误码重置为
+ * OH_DRAWING_SUCCESS，避免多个接口间互相干扰，方便开发者调试。
  *
  * @since 18
  * @version 1.0

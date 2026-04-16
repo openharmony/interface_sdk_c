@@ -26,7 +26,7 @@
  * @file drawing_shader_effect.h
  *
  * @brief This file declares the functions related to the shader effect in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -45,7 +45,7 @@ extern "C" {
 
 /**
  * @brief Defines an enum for the tile modes of the shader effect.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -70,7 +70,7 @@ typedef enum {
 
 /**
  * @brief Creates an **OH_Drawing_ShaderEffect** object with a single color.
- * 
+ *
  * @param color Color in the ARGB format. The value is a 32-bit unsigned integer.
  * @return Returns the pointer to the {@link OH_Drawing_ShaderEffect} object created. If NULL is returned, the creation
  * fails. The possible failure cause is that no memory is available.
@@ -84,14 +84,15 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateColorShader(const uint32_t
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If any of **startPt**, **endPt**, and **colors** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **tileMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
- * 
+ *
  * @param startPt Start point.
  * @param endPt End point.
  * @param colors Colors to distribute between the two points.
  * @param pos Relative position of each color in the color array. The array length must be the same as that of **colors*
  * *. If **pos** is NULL, colors are evenly distributed between the start point and end point.
  * @param size Number of colors and positions (if **pos** is not NULL).
- * @param tileMode Tile mode of the shader effect. For details about the available options, see {@link OH_Drawing_TileMode}
+ * @param tileMode Tile mode of the shader effect. For details about the available options, see
+ * {@link OH_Drawing_TileMode}
  * .
  * @return Returns the pointer to the **OH_Drawing_ShaderEffect** object created.
  * @since 11
@@ -106,14 +107,15 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateLinearGradient(const OH_Dr
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If any of **startPt**, **endPt**, and **colors** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **tileMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
- * 
+ *
  * @param startPt Start point.
  * @param endPt End point.
  * @param colors Colors to distribute between the two points.
  * @param pos Relative position of each color in the color array. The array length must be the same as that of **colors*
  * *. If **pos** is NULL, colors are evenly distributed between the start point and end point.
  * @param size Number of colors and positions (if **pos** is not NULL).
- * @param tileMode Tile mode of the shader effect. For details about the available options, see {@link OH_Drawing_TileMode}
+ * @param tileMode Tile mode of the shader effect. For details about the available options, see
+ * {@link OH_Drawing_TileMode}
  * .
  * @param matrix Matrix applied on the shader effect. If **matrix** is NULL, an identity matrix is applied by default.
  * @return Returns the pointer to the {@link OH_Drawing_ShaderEffect} object created. If NULL is returned, the creation
@@ -133,14 +135,15 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateLinearGradientWithLocalMat
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **centerPt** or **colors** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **tileMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
- * 
+ *
  * @param centerPt Center of the circle.
  * @param radius Radius of the gradient. The value should be a non-negative number.
  * @param colors Colors to distribute in the radial direction.
  * @param pos Relative position of each color in the color array. The array length must be the same as that of **colors*
  * *. If **pos** is NULL, colors are evenly distributed in the radial direction.
  * @param size Number of colors and positions (if **pos** is not NULL).
- * @param tileMode Tile mode of the shader effect. For details about the available options, see {@link OH_Drawing_TileMode}
+ * @param tileMode Tile mode of the shader effect. For details about the available options, see
+ * {@link OH_Drawing_TileMode}
  * .
  * @return Returns the pointer to the **OH_Drawing_ShaderEffect** object created.
  * @since 11
@@ -156,14 +159,15 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateRadialGradient(const OH_Dr
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **centerPt** or **colors** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **tileMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
- * 
+ *
  * @param centerPt Center of the circle.
  * @param radius Radius of the gradient.
  * @param colors Colors to distribute in the radial direction.
  * @param pos Relative position of each color in the color array. The array length must be the same as that of **colors*
  * *. If **pos** is NULL, colors are evenly distributed in the radial direction.
  * @param size Number of colors and positions (if **pos** is not NULL).
- * @param tileMode Tile mode of the shader effect. For details about the available options, see {@link OH_Drawing_TileMode}
+ * @param tileMode Tile mode of the shader effect. For details about the available options, see
+ * {@link OH_Drawing_TileMode}
  * .
  * @param matrix Matrix applied on the shader effect. If **matrix** is NULL, an identity matrix is applied by default.
  * @return Returns the pointer to the {@link OH_Drawing_ShaderEffect} object created. If NULL is returned, the creation
@@ -180,13 +184,14 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateRadialGradientWithLocalMat
  * @brief Creates an **OH_Drawing_ShaderEffect** object that generates a sweep gradient based on the matrix
  * transformation at the given center.
  * A sweep gradient paints a gradient in a sweeping arc ranging from 0° to 360°.
- * 
+ *
  * @param centerPt Center of the circle.
  * @param colors Colors to distribute between the two points.
  * @param pos Relative position of each color in the color array. The array length must be the same as that of **colors*
  * *. If **pos** is NULL, colors are evenly distributed between the start angle (0°) and end angle (360°).
  * @param size Number of colors and positions (if **pos** is not NULL).
- * @param tileMode Tile mode of the shader effect. For details about the available options, see {@link OH_Drawing_TileMode}
+ * @param tileMode Tile mode of the shader effect. For details about the available options, see
+ * {@link OH_Drawing_TileMode}
  * .
  * @param matrix Matrix applied on the shader effect. If **matrix** is NULL, an identity matrix is applied by default.
  * @return Returns the pointer to the {@link OH_Drawing_ShaderEffect} object created.
@@ -207,13 +212,14 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateSweepGradientWithLocalMatr
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **centerPt** or **colors** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **tileMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
- * 
+ *
  * @param centerPt Center of the circle.
  * @param colors Colors to distribute between the two points.
  * @param pos Relative position of each color in the color array. The array length must be the same as that of **colors*
  * *. If **pos** is NULL, colors are evenly distributed between the start angle (0°) and end angle (360°).
  * @param size Number of colors and positions (if **pos** is not NULL).
- * @param tileMode Tile mode of the shader effect. For details about the available options, see {@link OH_Drawing_TileMode}
+ * @param tileMode Tile mode of the shader effect. For details about the available options, see
+ * {@link OH_Drawing_TileMode}
  * .
  * @return Returns the pointer to the {@link OH_Drawing_ShaderEffect} object created.
  * A null pointer is returned if any of the following conditions is met:
@@ -233,11 +239,12 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateSweepGradient(const OH_Dra
  * If either **image** or **samplingOptions** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If either **tileX** or **tileY** is not set to one of the enumerated values, **
  * OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
- * 
+ *
  * @param image Pointer to the {@link OH_Drawing_Image} object.
  * @param tileX Tile mode of the shader effect in the horizontal direction. For details about the available options,
  * see {@link OH_Drawing_TileMode}.
- * @param tileY Tile mode of the shader effect in the vertical direction. For details about the available options, see {@link OH_Drawing_TileMode}
+ * @param tileY Tile mode of the shader effect in the vertical direction. For details about the available options, see
+ * {@link OH_Drawing_TileMode}
  * .
  * @param samplingOptions Pointer to the {@link OH_Drawing_SamplingOptions} object.
  * @param matrix Pointer to the {@link OH_Drawing_Matrix} object. If the pointer array is empty, the identity matrix is
@@ -256,11 +263,12 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateImageShader(OH_Drawing_Ima
 
 /**
  * @brief Creates a PixelMap shader object.
- * 
+ *
  * @param pixelMap Pointer to the {@link OH_Drawing_PixelMap} object.
  * @param tileX Tile mode of the shader effect in the horizontal direction. For details about the available options,
  * see {@link OH_Drawing_TileMode}.
- * @param tileY Tile mode of the shader effect in the vertical direction. For details about the available options, see {@link OH_Drawing_TileMode}
+ * @param tileY Tile mode of the shader effect in the vertical direction. For details about the available options, see
+ * {@link OH_Drawing_TileMode}
  * .
  * @param samplingOptions Pointer to the {@link OH_Drawing_SamplingOptions} object.
  * @param matrix Pointer to the {@link OH_Drawing_Matrix} object. If the pointer array is empty, the identity matrix is
@@ -278,7 +286,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreatePixelMapShader(OH_Drawing_
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If any of **startPt**, **endPt**, and **colors** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **tileMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
- * 
+ *
  * @param startPt Pointer to the center of the start circle.
  * @param startRadius Start radius of the gradient. The value should be a non-negative number.
  * @param endPt Pointer to the center of the end circle.
@@ -287,7 +295,8 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreatePixelMapShader(OH_Drawing_
  * @param pos Relative position of each color in the color array. The array length must be the same as that of **colors*
  * *. If **pos** is NULL, colors are evenly distributed between the two circles.
  * @param size Number of colors and positions (if **pos** is not NULL).
- * @param tileMode Tile mode of the shader effect. For details about the available options, see {@link OH_Drawing_TileMode}
+ * @param tileMode Tile mode of the shader effect. For details about the available options, see
+ * {@link OH_Drawing_TileMode}
  * .
  * @param matrix Matrix applied on the shader effect. If **matrix** is NULL, an identity matrix is applied by default.
  * @return Returns the pointer to the {@link OH_Drawing_ShaderEffect} object created. If the returned pointer is NULL,
@@ -304,7 +313,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateTwoPointConicalGradient(co
 
 /**
  * @brief Creates a shader by blending two existing shaders in a certain way.
- * 
+ *
  * @param dst Shader that serves as the destination color in blend mode.
  * @param src Shader that serves as the source color in blend mode.
  * @param mode Blend mode.
@@ -321,7 +330,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateCompose(OH_Drawing_ShaderE
 
 /**
  * @brief Destroys an **OH_Drawing_ShaderEffect** object and reclaims the memory occupied by the object.
- * 
+ *
  * @param shaderEffect Pointer to an **OH_Drawing_ShaderEffect** object.
  * @since 11
  * @version 1.0

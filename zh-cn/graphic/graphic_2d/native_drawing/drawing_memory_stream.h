@@ -26,7 +26,7 @@
  * @file drawing_memory_stream.h
  *
  * @brief This file declares the functions related to the memory stream in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -47,7 +47,7 @@ extern "C" {
  * @brief 创建一个内存流对象。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * data为NULL或者length等于0时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @return 函数会返回一个指针，指针指向创建的内存流对象{@link OH_Drawing_MemoryStream}。
  * @param data 数据段。
  * @param length 数据段长度。
@@ -59,7 +59,7 @@ OH_Drawing_MemoryStream* OH_Drawing_MemoryStreamCreate(const void* data, size_t 
 
 /**
  * @brief 销毁内存流对象并回收该对象占用的内存。
- * 
+ *
  * @param memoryStream 指向内存流对象{@link OH_Drawing_MemoryStream}的指针。
  * @since 12
  * @version 1.0

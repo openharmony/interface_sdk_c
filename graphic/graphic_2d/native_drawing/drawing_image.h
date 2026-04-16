@@ -26,7 +26,7 @@
  * @file drawing_image.h
  *
  * @brief This file declares the functions related to the image in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -106,7 +106,8 @@ int32_t OH_Drawing_ImageGetHeight(OH_Drawing_Image* image);
  * If either **image** or **imageInfo** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  *
  * @param image Pointer to the {@link OH_Drawing_Image} object.
- * @param imageInfo Pointer to an {@link OH_Drawing_Image_Info} object, which can be created by calling {@link OH_Drawing_Image_Info}
+ * @param imageInfo Pointer to an  {@link OH_Drawing_Image_Info}  object, which can be created by calling
+ * {@link OH_Drawing_Image_Info}
  * .
  * @since 12
  * @version 1.0

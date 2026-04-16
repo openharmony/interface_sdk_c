@@ -26,7 +26,7 @@
  * @file drawing_text_blob.h
  *
  * @brief This file declares the functions related to the text blob in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -45,7 +45,7 @@ extern "C" {
 
 /**
  * @brief Creates an **OH_Drawing_TextBlobBuilder** object.
- * 
+ *
  * @return Returns the pointer to the **OH_Drawing_TextBlobBuilder** object created.
  * @since 11
  * @version 1.0
@@ -58,7 +58,7 @@ OH_Drawing_TextBlobBuilder* OH_Drawing_TextBlobBuilderCreate(void);
  * If either **text** or **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **textEncoding** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
  * returned.
- * 
+ *
  * @param text Pointer to the text.
  * @param byteLength Length of the text, in bytes.
  * @param font Pointer to the {@link OH_Drawing_Font} object.
@@ -78,10 +78,11 @@ OH_Drawing_TextBlob* OH_Drawing_TextBlobCreateFromText(const void* text, size_t 
  * OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **textEncoding** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
  * returned.
- * 
+ *
  * @param text Pointer to the text.
  * @param byteLength Length of the text, in bytes.
- * @param point2D Pointer to the start address of the {@link OH_Drawing_Point2D} array. The number of entries in the array is determined by {@link OH_Drawing_FontCountText}
+ * @param point2D Pointer to the start address of the  {@link OH_Drawing_Point2D}
+ *  array. The number of entries in the array is determined by  {@link OH_Drawing_FontCountText}
  * .
  * @param font Pointer to the {@link OH_Drawing_Font} object.
  * @param textEncoding Text encoding type {@link OH_Drawing_TextEncoding}.
@@ -98,7 +99,7 @@ OH_Drawing_TextBlob* OH_Drawing_TextBlobCreateFromPosText(const void* text, size
  * If either **str** or **font** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **textEncoding** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
  * returned.
- * 
+ *
  * @param str Pointer to a string.
  * @param font Pointer to the {@link OH_Drawing_Font} object.
  * @param textEncoding Text encoding type {@link OH_Drawing_TextEncoding}.
@@ -113,7 +114,7 @@ OH_Drawing_TextBlob* OH_Drawing_TextBlobCreateFromString(const char* str,
  * @brief Obtains the bounds of an **OH_Drawing_TextBlob** object.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **textBlob** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param textBlob Pointer to the {@link OH_Drawing_TextBlob} object.
  * @param rect Pointer to the {@link OH_Drawing_Rect} object. You can call {@link OH_Drawing_Rect} to create a
  * rectangle object.
@@ -126,7 +127,7 @@ void OH_Drawing_TextBlobGetBounds(OH_Drawing_TextBlob* textBlob, OH_Drawing_Rect
  * @brief Obtains the unique identifier of a text blob. The identifier is a non-zero value.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **textBlob** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param textBlob Pointer to the {@link OH_Drawing_TextBlob} object.
  * @return Returns the unique identifier of the text blob.
  * @since 12
@@ -136,7 +137,7 @@ uint32_t OH_Drawing_TextBlobUniqueID(const OH_Drawing_TextBlob* textBlob);
 
 /**
  * @brief This struct describes a run, which provides storage for glyphs and positions.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -165,7 +166,7 @@ typedef struct {
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **textBlobBuilder** or **font** is NULL or **count** is less than or equal to 0, **
  * OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param textBlobBuilder Pointer to an **OH_Drawing_TextBlobBuilder** object.
  * @param font Pointer to an **OH_Drawing_Font** object.
  * @param count Number of text blobs.
@@ -181,7 +182,7 @@ const OH_Drawing_RunBuffer* OH_Drawing_TextBlobBuilderAllocRunPos(OH_Drawing_Tex
  * @brief Makes an **OH_Drawing_TextBlob** object from an **OH_Drawing_TextBlobBuilder**.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **textBlobBuilder** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param textBlobBuilder Pointer to an **OH_Drawing_TextBlobBuilder** object.
  * @return Returns the pointer to the **OH_Drawing_TextBlob** object created.
  * @since 11
@@ -191,7 +192,7 @@ OH_Drawing_TextBlob* OH_Drawing_TextBlobBuilderMake(OH_Drawing_TextBlobBuilder* 
 
 /**
  * @brief Destroys an **OH_Drawing_TextBlob** object and reclaims the memory occupied by the object.
- * 
+ *
  * @param textBlob Pointer to an **OH_Drawing_TextBlob** object.
  * @since 11
  * @version 1.0
@@ -200,7 +201,7 @@ void OH_Drawing_TextBlobDestroy(OH_Drawing_TextBlob* textBlob);
 
 /**
  * @brief Destroys an **OH_Drawing_TextBlobBuilder** object and reclaims the memory occupied by the object.
- * 
+ *
  * @param textBlobBuilder Pointer to an **OH_Drawing_TextBlobBuilder** object.
  * @since 11
  * @version 1.0

@@ -26,7 +26,7 @@
  * @file drawing_mask_filter.h
  *
  * @brief This file declares the functions related to the mask filter in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -45,7 +45,7 @@ extern "C" {
 
 /**
  * @brief 蒙版滤波器模糊操作类型的枚举。
- * 
+ *
  * @since 11
  * @version 1.0
  */

@@ -46,7 +46,7 @@ extern "C" {
 
 /**
  * @brief Provides the declaration of an **OH_NativeColorSpaceManager** struct.
- * 
+ *
  * @since 20
  */
 typedef struct OH_NativeColorSpaceManager OH_NativeColorSpaceManager;
@@ -159,8 +159,8 @@ void OH_Drawing_BrushSetAlpha(OH_Drawing_Brush* brush, uint8_t alpha);
 
 /**
  * @brief Sets a color for this brush. The color will be used by the brush to fill in a shape.
- * The color is in ARGB format represented by floating-point numbers. The color space is specified by {@link OH_NativeColorSpaceManager}
- * .
+ * The color is in ARGB format represented by floating-point numbers. The color space is specified by
+ * {@link OH_NativeColorSpaceManager}.
  * If **colorSpaceManager** is a null pointer, the SRGB (standard red, green, and blue color space based on IEC 61966-2.
  * 1:1999) color space is used as the default value.
  *

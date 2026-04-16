@@ -25,7 +25,7 @@
  * @file drawing_path_iterator.h
  *
  * @brief This file declares the functions related to the path operation iterator object.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -44,7 +44,7 @@ extern "C" {
 
 /**
  * @brief Enumerates the path operation types contained in an iterator. It is used to read path operation instructions.
- * 
+ *
  * @since 23
  */
 typedef enum {
@@ -80,7 +80,7 @@ typedef enum {
 
 /**
  * @brief Creates an **OH_Drawing_PathIterator** object.
- * 
+ *
  * @param path Pointer to an {@link OH_Drawing_Path} object.
  * @param pathIterator Double pointer to an {@link OH_Drawing_PathIterator} object, which serves as an output parameter.
  * @return Execution result.
@@ -92,7 +92,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIteratorCreate(const OH_Drawing_Path* path, 
 
 /**
  * @brief Destroys an **OH_Drawing_PathIterator** object and reclaims the memory occupied by the object.
- * 
+ *
  * @param pathIterator Pointer to an {@link OH_Drawing_PathIterator} object.
  * @return Execution result.
  * **OH_DRAWING_SUCCESS** if the operation is successful.
@@ -103,7 +103,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIteratorDestroy(OH_Drawing_PathIterator* pat
 
 /**
  * @brief Checks whether there is any next operation in the path operation iterator.
- * 
+ *
  * @param pathIterator Pointer to an {@link OH_Drawing_PathIterator} object.
  * @param hasNext Whether there is a next operation in the path operation iterator, which serves as an output parameter.
  * A value of **true** means there is a next operation; **false** means the opposite.
@@ -116,7 +116,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIteratorHasNext(const OH_Drawing_PathIterato
 
 /**
  * @brief Retrieves the next operation in this path and moves the iterator to that operation.
- * 
+ *
  * @param pathIterator Pointer to an {@link OH_Drawing_PathIterator} object.
  * @param points Array of coordinate points.
  * @param count Size of the coordinate point array.
@@ -134,7 +134,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIteratorNext(OH_Drawing_PathIterator* pathIt
 
 /**
  * @brief Retrieves the next operation in this path, without moving the iterator.
- * 
+ *
  * @param pathIterator Pointer to an {@link OH_Drawing_PathIterator} object.
  * @param verb Next operation of the current path, which serves as an output parameter.
  * @return Execution result.

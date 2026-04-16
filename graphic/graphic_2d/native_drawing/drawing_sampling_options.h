@@ -27,7 +27,7 @@
  *
  * @brief This file declares the functions related to sampling in the drawing module. It is used for image or texture
  * sampling.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -46,7 +46,7 @@ extern "C" {
 
 /**
  * @brief Defines an enum for the filter modes.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -63,7 +63,7 @@ typedef enum {
 
 /**
  * @brief Defines an enum for the mipmap modes.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -87,7 +87,7 @@ typedef enum {
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **mipmapMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
  * returned.
- * 
+ *
  * @param filterMode Filter sampling mode.
  * @param mipmapMode Mipmap mode.
  * @return Returns a pointer to the created {@link OH_Drawing_SamplingOptions} object.
@@ -99,7 +99,7 @@ OH_Drawing_SamplingOptions* OH_Drawing_SamplingOptionsCreate(OH_Drawing_FilterMo
 
 /**
  * @brief Creates a copy of an {@link OH_Drawing_SamplingOptions} object.
- * 
+ *
  * @param samplingOptions Pointer to the {@link OH_Drawing_SamplingOptions} object.
  * @return Returns a pointer to the created {@link OH_Drawing_SamplingOptions} object copy. If NULL is returned, the
  * creation fails. The possible failure cause is that no memory is available or **samplingOptions** is NULL.
@@ -110,7 +110,7 @@ OH_Drawing_SamplingOptions* OH_Drawing_SamplingOptionsCopy(OH_Drawing_SamplingOp
 
 /**
  * @brief Destroys an **OH_Drawing_SamplingOptions** object and reclaims the memory occupied by the object.
- * 
+ *
  * @param samplingOptions Pointer to the {@link OH_Drawing_SamplingOptions} object.
  * @since 12
  * @version 1.0

@@ -26,7 +26,7 @@
  * @file drawing_rect.h
  *
  * @brief This file declares the functions related to the rectangle in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -47,7 +47,7 @@ extern "C" {
 /**
  * @brief Creates an **OH_Drawing_Rect** object, without sorting the coordinates passed in. This means that the
  * coordinates of the upper left corner of the rectangle can be greater than those of the lower right corner.
- * 
+ *
  * @param left X coordinate of the upper left corner of the rectangle.
  * @param top Y coordinate of the upper left corner of the rectangle.
  * @param right X coordinate of the lower right corner of the rectangle.
@@ -62,7 +62,7 @@ OH_Drawing_Rect* OH_Drawing_RectCreate(float left, float top, float right, float
  * @brief Checks whether two rectangles intersect and if yes, sets **rect** to the area of intersection.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **rect** or **other** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param rect Pointer to an **OH_Drawing_Rect** object.
  * @param other Pointer to an **OH_Drawing_Rect** object.
  * @return Returns **true** if they intersect (**rect** is set to the intersection area); returns **false** otherwise (*
@@ -76,7 +76,7 @@ bool OH_Drawing_RectIntersect(OH_Drawing_Rect* rect, const OH_Drawing_Rect* othe
  * @brief Obtains the union of two rectangles.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **rect** or **other** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param rect Pointer to an **OH_Drawing_Rect** object.
  * @param other Pointer to an **OH_Drawing_Rect** object.
  * @return Returns **true** if the union is obtained; returns **false** otherwise. The possible failure cause is that
@@ -91,7 +91,7 @@ bool OH_Drawing_RectJoin(OH_Drawing_Rect* rect, const OH_Drawing_Rect* other);
  * @brief Sets the horizontal coordinate of the upper left corner of a rectangle.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param rect Pointer to an **OH_Drawing_Rect** object.
  * @param left X coordinate of the upper left corner of the rectangle.
  * @since 12
@@ -103,7 +103,7 @@ void OH_Drawing_RectSetLeft(OH_Drawing_Rect* rect, float left);
  * @brief Sets the vertical coordinate of the upper left corner of a rectangle.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param rect Pointer to an **OH_Drawing_Rect** object.
  * @param top Y coordinate of the upper left corner of the rectangle.
  * @since 12
@@ -115,7 +115,7 @@ void OH_Drawing_RectSetTop(OH_Drawing_Rect* rect, float top);
  * @brief Sets the horizontal coordinate of the lower right corner of a rectangle.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param rect Pointer to an **OH_Drawing_Rect** object.
  * @param right X coordinate of the lower right corner of the rectangle.
  * @since 12
@@ -127,7 +127,7 @@ void OH_Drawing_RectSetRight(OH_Drawing_Rect* rect, float right);
  * @brief Sets the vertical coordinate of the lower right corner of a rectangle.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param rect Pointer to an **OH_Drawing_Rect** object.
  * @param bottom Y coordinate of the lower right corner of the rectangle.
  * @since 12
@@ -139,7 +139,7 @@ void OH_Drawing_RectSetBottom(OH_Drawing_Rect* rect, float bottom);
  * @brief Obtains the X coordinate of the upper left corner of a rectangle.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param rect Pointer to an **OH_Drawing_Rect** object.
  * @return X coordinate of the upper left corner of the rectangle.
  * @since 12
@@ -151,7 +151,7 @@ float OH_Drawing_RectGetLeft(OH_Drawing_Rect* rect);
  * @brief Obtains the Y coordinate of the upper left corner of a rectangle.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param rect Pointer to an **OH_Drawing_Rect** object.
  * @return Y coordinate of the upper left corner of the rectangle.
  * @since 12
@@ -163,7 +163,7 @@ float OH_Drawing_RectGetTop(OH_Drawing_Rect* rect);
  * @brief Obtains the X coordinate of the lower right corner of a rectangle.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param rect Pointer to an **OH_Drawing_Rect** object.
  * @return X coordinate of the lower right corner of the rectangle.
  * @since 12
@@ -175,7 +175,7 @@ float OH_Drawing_RectGetRight(OH_Drawing_Rect* rect);
  * @brief Obtains the Y coordinate of the lower right corner of a rectangle.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param rect Pointer to an **OH_Drawing_Rect** object.
  * @return Y coordinate of the lower right corner of the rectangle.
  * @since 12
@@ -200,7 +200,7 @@ float OH_Drawing_RectGetHeight(OH_Drawing_Rect* rect);
  * of the rectangle minus the X coordinate of the upper left corner.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param rect Pointer to an **OH_Drawing_Rect** object.
  * @return Returns the weight of the rectangle, in pixels.
  * @since 12
@@ -212,7 +212,7 @@ float OH_Drawing_RectGetWidth(OH_Drawing_Rect* rect);
  * @brief Copies a source rectangle to create a new one.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **src** or **dst** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param src Pointer to a source rectangle, which is an **OH_Drawing_Rect** object.
  * @param dst Pointer to a destination rectangle, which is an **OH_Drawing_Rect** object.
  * @since 12
@@ -222,7 +222,7 @@ void OH_Drawing_RectCopy(OH_Drawing_Rect* src, OH_Drawing_Rect* dst);
 
 /**
  * @brief Destroys an **OH_Drawing_Rect** object and reclaims the memory occupied by the object.
- * 
+ *
  * @param rect Pointer to an **OH_Drawing_Rect** object.
  * @since 11
  * @version 1.0
@@ -230,9 +230,10 @@ void OH_Drawing_RectCopy(OH_Drawing_Rect* src, OH_Drawing_Rect* dst);
 void OH_Drawing_RectDestroy(OH_Drawing_Rect* rect);
 
 /**
- * @brief Creates a rectangle array object to store multiple rectangle objects. Release this pointer by calling {@link OH_Drawing_RectDestroyArray}
+ * @brief Creates a rectangle array object to store multiple rectangle objects. Release this pointer by calling
+ * {@link OH_Drawing_RectDestroyArray}
  * when this object is no longer needed.
- * 
+ *
  * @param size Size of the rectangle array. The value cannot exceed 65536, which is the maximum number of glyph indices.
  * @return Returns the pointer to the {@link OH_Drawing_Array} object created. If the returned object pointer is null,
  * the creation fails.
@@ -244,7 +245,7 @@ OH_Drawing_Array* OH_Drawing_RectCreateArray(size_t size);
 
 /**
  * @brief Obtains the size of an {@link OH_Drawing_Array} object.
- * 
+ *
  * @param rectArray Pointer to an {@link OH_Drawing_Array} object.
  * @param pSize Pointer to the size_t type, which is used as an output parameter to store the size of the rectangle
  * array.
@@ -258,7 +259,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectGetArraySize(OH_Drawing_Array* rectArray, si
 
 /**
  * @brief Obtains the rectangle with the specified index in a rectangle array.
- * 
+ *
  * @param rectArray Pointer to an {@link OH_Drawing_Array} object.
  * @param index Index of the rectangle array.
  * @param rect Double pointer to {@link OH_Drawing_Rect}, which is returned to the caller as an output parameter.
@@ -273,7 +274,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectGetArrayElement(OH_Drawing_Array* rectArray,
 
 /**
  * @brief Destroys an **OH_Drawing_Array** object and reclaims the memory occupied by the object.
- * 
+ *
  * @param rectArray Pointer to an {@link OH_Drawing_Array} object.
  * @return Returns one of the following result codes:
  * **OH_DRAWING_SUCCESS** if the operation is successful.
@@ -285,7 +286,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectDestroyArray(OH_Drawing_Array* rectArray);
 
 /**
  * @brief Checks whether a rectangle completely contains another rectangle.
- * 
+ *
  * @param rect Pointer to the {@link OH_Drawing_Rect} object. This rectangle is used to check whether another rectangle
  * (**other**) is contained.
  * @param other Pointer to the {@link OH_Drawing_Rect} object. This rectangle is used to check whether it is contained
@@ -303,7 +304,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectContains(OH_Drawing_Rect* rect, const OH_Dra
 
 /**
  * @brief Adds a specified value to the bounds of a rectangle.
- * 
+ *
  * @param rect Pointer to the {@link OH_Drawing_Rect} object.
  * @param left Value to be added to the left bound of the rectangle (X coordinate of the upper left corner of the
  * rectangle).
@@ -323,7 +324,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectInset(OH_Drawing_Rect* rect, float left, flo
 
 /**
  * @brief Checks whether a rectangle is empty.
- * 
+ *
  * @param rect Pointer to the {@link OH_Drawing_Rect} object.
  * @param isEmpty Whether a rectangle is empty. It is used as an output parameter. **true** means yes; **false**
  * otherwise.
@@ -336,7 +337,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectIsEmpty(const OH_Drawing_Rect* rect, bool* i
 
 /**
  * @brief Offsets a rectangle along the X axis and Y axis.
- * 
+ *
  * @param rect Pointer to the {@link OH_Drawing_Rect} object.
  * @param dx Offset on the X axis. A positive number indicates an offset towards the positive direction of the X axis,
  * and a negative number indicates an offset towards the negative direction of the X axis.
@@ -351,7 +352,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectOffset(OH_Drawing_Rect* rect, float dx, floa
 
 /**
  * @brief Offsets a rectangle to a specific position while keeping the width and height unchanged.
- * 
+ *
  * @param rect Pointer to the {@link OH_Drawing_Rect} object.
  * @param newLeft X coordinate of the upper left corner of the rectangle after the offset.
  * @param newTop Y coordinate of the upper left corner of the rectangle after the offset.
@@ -365,7 +366,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectOffsetTo(OH_Drawing_Rect* rect, float newLef
 /**
  * @brief Clears a rectangle (by setting the X and Y coordinates of the upper left corner and lower right corner to **0*
  * *).
- * 
+ *
  * @param rect Pointer to the {@link OH_Drawing_Rect} object.
  * @return Execution result.
  * **OH_DRAWING_SUCCESS** if the operation is successful.
@@ -376,7 +377,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectSetEmpty(OH_Drawing_Rect* rect);
 
 /**
  * @brief Sorts the coordinates of a rectangle based on the actual position.
- * 
+ *
  * @param rect Pointer to the {@link OH_Drawing_Rect} object.
  * @return Execution result.
  * **OH_DRAWING_SUCCESS** if the operation is successful.
@@ -387,7 +388,7 @@ OH_Drawing_ErrorCode OH_Drawing_RectSort(OH_Drawing_Rect* rect);
 
 /**
  * @brief Sets the current rectangle to the union of this rectangle and another rectangle.
- * 
+ *
  * @param rect Pointer to this {@link OH_Drawing_Rect} object.
  * @param other Pointer to another {@link OH_Drawing_Rect} object.
  * @return Execution result.

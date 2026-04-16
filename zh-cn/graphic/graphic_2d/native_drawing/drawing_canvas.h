@@ -28,7 +28,7 @@
  * @brief This file declares the functions related to the canvas in the drawing module.
  * By default, the canvas has a black brush with anti-aliasing enabled and without any other style. This brush takes
  * effect only when no brush or pen is proactively set in the canvas.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -49,7 +49,7 @@ extern "C" {
 
 /**
  * @brief 源矩形区域约束类型枚举。
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -240,7 +240,7 @@ void OH_Drawing_CanvasDrawPath(OH_Drawing_Canvas* canvas, const OH_Drawing_Path*
 
 /**
  * @brief 在网格上绘制像素图，网格均匀分布在像素图上。（只支持brush，使用pen没有绘制效果。）
- * 
+ *
  * @param cCanvas 指向画布对象{@link OH_Drawing_Canvas}的指针。
  * @param pixelMap 指向像素图{@link OH_Drawing_PixelMap}的指针。
  * @param meshWidth 网格的列数，取值为大于0的整数。
@@ -341,7 +341,7 @@ void OH_Drawing_CanvasDrawRegion(OH_Drawing_Canvas* canvas, const OH_Drawing_Reg
 
 /**
  * @brief 绘制多个点的方式枚举，方式分为离散点、直线或开放多边形。
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -580,7 +580,7 @@ void OH_Drawing_CanvasDrawTextBlob(OH_Drawing_Canvas* canvas, const OH_Drawing_T
 
 /**
  * @brief 画布裁剪方式的枚举集合。
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -777,7 +777,7 @@ void OH_Drawing_CanvasConcatMatrix(OH_Drawing_Canvas* canvas, OH_Drawing_Matrix*
 
 /**
  * @brief 阴影标志枚举。
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -902,7 +902,7 @@ void OH_Drawing_CanvasDrawImageRect(OH_Drawing_Canvas* canvas, OH_Drawing_Image*
 
 /**
  * @brief 用于指定如何解释给定顶点的几何形状的枚举类型。
- * 
+ *
  * @since 12
  * @version 1.0
  */

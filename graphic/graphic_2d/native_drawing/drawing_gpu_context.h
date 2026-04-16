@@ -26,7 +26,7 @@
  * @file drawing_gpu_context.h
  *
  * @brief This file declares the functions related to the GPU context in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -45,7 +45,7 @@ extern "C" {
 
 /**
  * @brief This struct describes the options about the GPU context.
- *  
+ *
  * @since 12
  * @version 1.0
  * @deprecated since 18

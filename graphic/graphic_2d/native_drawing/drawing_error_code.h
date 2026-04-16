@@ -144,10 +144,11 @@ OH_Drawing_ErrorCode OH_Drawing_ErrorCodeGet();
 
 /**
  * @brief Resets the error code of this module to **OH_DRAWING_SUCCESS**.
- * When a function that does not return an error code fails, the error code obtained through {@link
- * OH_Drawing_ErrorCodeGet} is reset to the corresponding error number. However, it is not reset to
- * **OH_DRAWING_SUCCESS** for a successful operation. By calling this function, you can manually reset the error code to
- * **OH_DRAWING_SUCCESS**, avoiding interference between different functions and simplifying the debugging process.
+ * When a function that does not return an error code fails, the error code obtained through
+ * {@link OH_Drawing_ErrorCodeGet} is reset to the corresponding error number. However, it is not reset to
+ * **OH_DRAWING_SUCCESS** for a successful operation. By calling this function, you can manually reset the
+ * error code to **OH_DRAWING_SUCCESS**, avoiding interference between different functions and simplifying the
+ * debugging process.
  *
  * @since 18
  * @version 1.0

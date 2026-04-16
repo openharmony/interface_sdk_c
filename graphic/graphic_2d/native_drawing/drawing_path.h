@@ -18,7 +18,7 @@
  * @{
  *
  * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
- * 
+ *
  *
  * @since 8
  * @version 1.0
@@ -27,7 +27,7 @@
  * @file drawing_path.h
  *
  * @brief This file declares the functions related to the path in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -48,7 +48,7 @@ extern "C" {
 
 /**
  * @brief Enumerates the directions of a closed contour.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -65,7 +65,7 @@ typedef enum {
 
 /**
  * @brief Enumerates the fill types of a path.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -96,7 +96,7 @@ typedef enum {
 
 /**
  * @brief Enumerates the path adding modes.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -113,7 +113,7 @@ typedef enum {
 
 /**
  * @brief Enumerates the operation modes available for a path.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -142,7 +142,7 @@ typedef enum {
 
 /**
  * @brief Enumerates the types of matrix information obtained during path measurement.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -163,7 +163,7 @@ typedef enum {
 
 /**
  * @brief Creates an **OH_Drawing_Path** object.
- * 
+ *
  * @return Returns the pointer to the **OH_Drawing_Path** object created.
  * @since 8
  * @version 1.0
@@ -174,7 +174,7 @@ OH_Drawing_Path* OH_Drawing_PathCreate(void);
  * @brief Creates a copy of the {@link OH_Drawing_Path} object.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @return Pointer to the copy of the {@link OH_Drawing_Path} object.
  * @since 12
@@ -184,7 +184,7 @@ OH_Drawing_Path* OH_Drawing_PathCopy(OH_Drawing_Path* path);
 
 /**
  * @brief Destroys an **OH_Drawing_Path** object and reclaims the memory occupied by the object.
- * 
+ *
  * @param path Pointer to an **OH_Drawing_Path** object.
  * @since 8
  * @version 1.0
@@ -193,7 +193,7 @@ void OH_Drawing_PathDestroy(OH_Drawing_Path* path);
 
 /**
  * @brief Sets a path object as the current path object.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param other Pointer to the {@link OH_Drawing_Path} object to be set.
  * @return Execution result.
@@ -206,7 +206,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathSetPath(OH_Drawing_Path* path, OH_Drawing_Pa
 
 /**
  * @brief Checks whether a path object is empty.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param isEmpty Whether the path object is empty. **true** means empty; **false** otherwise. It as an output
  * parameter.
@@ -220,7 +220,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIsEmpty(OH_Drawing_Path* path, bool* isEmpty
 
 /**
  * @brief Checks whether a path object forms a rectangle.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param rect Pointer to the {@link OH_Drawing_Rect} object, which is used as an output parameter and can be null.
  * @param isRect Whether a path forms a rectangle. **true** means yes; **false** otherwise. It as an output parameter.
@@ -236,7 +236,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIsRect(OH_Drawing_Path* path, OH_Drawing_Rec
  * @brief Sets the start point of this path.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to an **OH_Drawing_Path** object.
  * @param x X coordinate of the start point.
  * @param y Y coordinate of the start point.
@@ -250,7 +250,7 @@ void OH_Drawing_PathMoveTo(OH_Drawing_Path* path, float x, float y);
  * point (0, 0) is used.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to an **OH_Drawing_Path** object.
  * @param x X coordinate of the target point.
  * @param y Y coordinate of the target point.
@@ -267,7 +267,7 @@ void OH_Drawing_PathLineTo(OH_Drawing_Path* path, float x, float y);
  * segment from the last point of the path to the start point of the arc is also added.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to an **OH_Drawing_Path** object.
  * @param x1 X coordinate of the upper left corner of the rectangle.
  * @param y1 Y coordinate of the upper left corner of the rectangle.
@@ -288,7 +288,7 @@ void OH_Drawing_PathArcTo(OH_Drawing_Path* path,
  * start point (0, 0) is used.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to an **OH_Drawing_Path** object.
  * @param ctrlX X coordinate of the control point.
  * @param ctrlY Y coordinate of the control point.
@@ -304,7 +304,7 @@ void OH_Drawing_PathQuadTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, floa
  * 0, 0) is used.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param ctrlX X coordinate of the control point.
  * @param ctrlY Y coordinate of the control point.
@@ -325,7 +325,7 @@ void OH_Drawing_PathConicTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, flo
  * start point (0, 0) is used.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to an **OH_Drawing_Path** object.
  * @param ctrlX1 X coordinate of the first control point.
  * @param ctrlY1 Y coordinate of the first control point.
@@ -344,7 +344,7 @@ void OH_Drawing_PathCubicTo(
  * used.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param x X-axis offset relative to the end point of a path. A positive number indicates an offset in the positive
  * direction of the X axis, and a negative number indicates an offset in the negative direction of the X axis.
@@ -360,7 +360,7 @@ void OH_Drawing_PathRMoveTo(OH_Drawing_Path* path, float x, float y);
  * empty, the start point (0, 0) is used.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param x X offset relative to the last point, which is used to specify the X coordinate of the target point.
  * @param y Y offset relative to the last point, which is used to specify the X coordinate of the target point.
@@ -374,7 +374,7 @@ void OH_Drawing_PathRLineTo(OH_Drawing_Path* path, float x, float y);
  * path is empty, the start point (0, 0) is used.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param ctrlX X offset relative to the last point, which is used to specify the X coordinate of the control point.
  * @param ctrlY Y offset relative to the last point, which is used to specify the Y coordinate of the control point.
@@ -390,7 +390,7 @@ void OH_Drawing_PathRQuadTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, flo
  * the start point (0, 0) is used.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param ctrlX X offset relative to the last point, which is used to specify the X coordinate of the control point.
  * @param ctrlY Y offset relative to the last point, which is used to specify the Y coordinate of the control point.
@@ -411,7 +411,7 @@ void OH_Drawing_PathRConicTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, fl
  * is empty, the start point (0, 0) is used.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param ctrlX1 X offset relative to the last point, which is used to specify the X coordinate of the first control
  * point.
@@ -436,7 +436,7 @@ void OH_Drawing_PathRCubicTo(OH_Drawing_Path* path, float ctrlX1, float ctrlY1, 
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **pathDirection** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
  * returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param left X coordinate of the upper left corner of the rectangle.
  * @param top Y coordinate of the upper left corner of the rectangle.
@@ -455,7 +455,7 @@ void OH_Drawing_PathAddRect(OH_Drawing_Path* path, float left, float top, float 
  * If either **path** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **pathDirection** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
  * returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param rect Pointer to the {@link OH_Drawing_Rect} object.
  * @param pathDirection Indicates the path direction.
@@ -477,7 +477,7 @@ void OH_Drawing_PathAddRectWithInitialCorner(OH_Drawing_Path* path, const OH_Dra
  * If either **path** or **roundRect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **pathDirection** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
  * returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param roundRect Pointer to the {@link OH_Drawing_RoundRect} object.
  * @param pathDirection {@link OH_Drawing_PathDirection} object.
@@ -494,7 +494,7 @@ void OH_Drawing_PathAddRoundRect(OH_Drawing_Path* path,
  * If either **path** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **pathDirection** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
  * returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param rect Pointer to the {@link OH_Drawing_Rect} object.
  * @param start Start point of the oval.
@@ -511,7 +511,7 @@ void OH_Drawing_PathAddOvalWithInitialPoint(OH_Drawing_Path* path, const OH_Draw
  * If either **path** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **pathDirection** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
  * returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param rect Pointer to the {@link OH_Drawing_Rect} object.
  * @param pathDirection {@link OH_Drawing_PathDirection} object.
@@ -528,7 +528,7 @@ void OH_Drawing_PathAddOval(OH_Drawing_Path* path,
  * ellipse is added.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **path** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param rect Pointer to the {@link OH_Drawing_Rect} object.
  * @param startAngle Start angle of the arc, in degrees.
@@ -544,7 +544,7 @@ void OH_Drawing_PathAddArc(OH_Drawing_Path* path, const OH_Drawing_Rect* rect, f
  * @brief Transforms the points in a **src** path by a matrix and adds the new one to the current path.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **path** or **src** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the existing {@link OH_Drawing_Path} object.
  * @param src Pointer to the source {@link OH_Drawing_Path} object.
  * @param matrix Pointer to the {@link OH_Drawing_Matrix} object. A null pointer means an identity matrix.
@@ -560,7 +560,7 @@ void OH_Drawing_PathAddPath(OH_Drawing_Path* path, const OH_Drawing_Path* src, c
  * If either **path** or **src** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **pathAddMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
  * returned.
- * 
+ *
  * @param path Pointer to the existing {@link OH_Drawing_Path} object.
  * @param src Pointer to the source {@link OH_Drawing_Path} object.
  * @param matrix Pointer to the {@link OH_Drawing_Matrix} object. A null pointer means an identity matrix.
@@ -577,7 +577,7 @@ void OH_Drawing_PathAddPathWithMatrixAndMode(OH_Drawing_Path* path, const OH_Dra
  * If either **path** or **src** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **pathAddMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
  * returned.
- * 
+ *
  * @param path Pointer to the existing {@link OH_Drawing_Path} object.
  * @param src Pointer to the source {@link OH_Drawing_Path} object.
  * @param pathAddMode {@link OH_Drawing_PathAddMode} object.
@@ -594,7 +594,7 @@ void OH_Drawing_PathAddPathWithMode(OH_Drawing_Path* path,
  * If either **path** or **src** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **pathAddMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
  * returned.
- * 
+ *
  * @param path Pointer to the existing {@link OH_Drawing_Path} object.
  * @param src Pointer to the source {@link OH_Drawing_Path} object.
  * @param dx X offset.
@@ -610,7 +610,7 @@ void OH_Drawing_PathAddPathWithOffsetAndMode(OH_Drawing_Path* path, const OH_Dra
  * @brief Adds a polygon to a path.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **path** or **points** is NULL or **count** is **0**, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the existing {@link OH_Drawing_Path} object.
  * @param points Pointer to an array that holds the vertex coordinates of the polygon.
  * @param count Size of the array.
@@ -628,7 +628,7 @@ void OH_Drawing_PathAddPolygon(OH_Drawing_Path* path, const OH_Drawing_Point2D* 
  * If **radius** is less than or equal to 0, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
  * If **pathDirection** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
  * returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param x X coordinate of the circle center.
  * @param y Y coordinate of the circle center.
@@ -644,7 +644,7 @@ void OH_Drawing_PathAddCircle(OH_Drawing_Path* path,
  * @brief Parses the path represented by an SVG string.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **path** or **str** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param str Pointer to the SVG string.
  * @return Returns whether the SVG string is successfully parsed. **true** means successful; **false** otherwise.
@@ -712,7 +712,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathGetConicWeightData(
  * @brief Checks whether a coordinate point is included in this path. For details, see {@link OH_Drawing_PathFillType}.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param x Coordinate point on the X axis.
  * @param y Coordinate point on the Y axis.
@@ -726,7 +726,7 @@ bool OH_Drawing_PathContains(OH_Drawing_Path* path, float x, float y);
  * @brief Transforms the points in a path by matrix.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **path** or **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param matrix Pointer to the {@link OH_Drawing_Matrix} object.
  * @since 12
@@ -739,7 +739,7 @@ void OH_Drawing_PathTransform(OH_Drawing_Path* path, const OH_Drawing_Matrix* ma
  * NULL, the **src** path is replaced.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **src** or **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param src Pointer to the {@link OH_Drawing_Path} object.
  * @param matrix Pointer to the {@link OH_Drawing_Matrix} object.
  * @param dst Pointer to the target {@link OH_Drawing_Path} object.
@@ -757,7 +757,7 @@ void OH_Drawing_PathTransformWithPerspectiveClip(OH_Drawing_Path* src, const OH_
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **pathFillType** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is
  * returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param pathFillType {@link OH_Drawing_PathFillType} object.
  * @since 12
@@ -767,7 +767,7 @@ void OH_Drawing_PathSetFillType(OH_Drawing_Path* path, OH_Drawing_PathFillType p
 
 /**
  * @brief Obtains the fill type of a path.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param pathFillType Pointer to the {@link OH_Drawing_PathFillType} object.
  * @return Execution result.
@@ -782,7 +782,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathGetFillType(OH_Drawing_Path* path, OH_Drawin
  * @brief Obtains the length of a path.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param forceClosed Whether the path is measured as a closed path. **true** means that the path is forcibly
  * considered as a closed path; **false** means that the path is measured depending on whether it is a closed path.
@@ -796,7 +796,7 @@ float OH_Drawing_PathGetLength(OH_Drawing_Path* path, bool forceClosed);
  * @brief Obtains the minimum bounds that enclose a path.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **path** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param rect Pointer to the {@link OH_Drawing_Rect} object.
  * @since 12
@@ -808,7 +808,7 @@ void OH_Drawing_PathGetBounds(OH_Drawing_Path* path, OH_Drawing_Rect* rect);
  * @brief Draws a line segment from the current point to the start point of this path.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @since 8
  * @version 1.0
@@ -819,7 +819,7 @@ void OH_Drawing_PathClose(OH_Drawing_Path* path);
  * @brief Translates a path by an offset along the X axis and Y axis and adds the new one to the **dst** path.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the existing {@link OH_Drawing_Path} object.
  * @param dst Pointer to a destination path, which is an {@link OH_Drawing_Path} object. If NULL is passed in, the
  * result is stored in the current path.
@@ -834,7 +834,7 @@ void OH_Drawing_PathOffset(OH_Drawing_Path* path, OH_Drawing_Path* dst, float dx
  * @brief Resets the path data.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to an **OH_Drawing_Path** object.
  * @since 8
  * @version 1.0
@@ -845,7 +845,7 @@ void OH_Drawing_PathReset(OH_Drawing_Path* path);
  * @brief Checks whether a path is closed.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **path** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param forceClosed Whether the path is measured as a closed path. The value **true** means that the path is
  * considered closed during measurement, and **false** means that the path is measured based on the actual closed
@@ -860,7 +860,7 @@ bool OH_Drawing_PathIsClosed(OH_Drawing_Path* path, bool forceClosed);
  * @brief Obtains the coordinates and tangent at a distance from the start point of this path.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If any of **path**, **position**, or **tangent** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param forceClosed Whether the path is measured as a closed path. The value **true** means that the path is
  * considered closed during measurement, and **false** means that the path is measured based on the actual closed
@@ -879,7 +879,7 @@ bool OH_Drawing_PathGetPositionTangent(OH_Drawing_Path* path, bool forceClosed,
 
 /**
  * @brief Extracts a segment of a path and appends it to a destination path.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param forceClosed Whether the path is measured as a closed path. The value **true** means that the path is
  * considered closed during measurement, and **false** means that the path is measured based on the actual closed
@@ -909,7 +909,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathGetSegment(OH_Drawing_Path* path, bool force
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **path** or **srcPath** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **op** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
- * 
+ *
  * @param path Pointer to an {@link OH_Drawing_Path} object, in which the resulting path is saved.
  * @param other Pointer to the {@link OH_Drawing_Path} object.
  * @param op Operation mode of the path. For details about the available options, see {@link OH_Drawing_PathOpMode}.
@@ -924,7 +924,7 @@ bool OH_Drawing_PathOp(OH_Drawing_Path* path, const OH_Drawing_Path* other, OH_D
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **path** or **matrix** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **flag** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param forceClosed Whether the path is measured as a closed path. The value **true** means that the path is
  * considered closed during measurement, and **false** means that the path is measured based on the actual closed
@@ -932,7 +932,8 @@ bool OH_Drawing_PathOp(OH_Drawing_Path* path, const OH_Drawing_Path* other, OH_D
  * @param distance Distance from the start point. If the distance is less than 0, it is considered as 0. If the
  * distance is greater than the path length, it is considered as the path length.
  * @param matrix Pointer to the transformation matrix.
- * @param flag Type of the matrix information. For details about the available options, see {@link OH_Drawing_PathMeasureMatrixFlags}
+ * @param flag Type of the matrix information. For details about the available options, see
+ * {@link OH_Drawing_PathMeasureMatrixFlags}
  * .
  * @return Returns **true** if the transformation matrix is obtained successfully; returns **false** otherwise. The
  * possible failure cause is that **path** is NULL or the path length is 0.
@@ -944,7 +945,7 @@ bool OH_Drawing_PathGetMatrix(OH_Drawing_Path* path, bool forceClosed,
 
 /**
  * @brief Converts the existing path into an approximate path consisting of consecutive line segments.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param acceptableError Acceptable error of each line segment on the path. The value cannot be less than 0.
  * 1. Avoid setting **acceptableError** to **0** as it heavily divides the curve path, significantly impacting
@@ -975,7 +976,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathApproximate(OH_Drawing_Path* path, float acc
  * the target path object.
  * Interpolation is achievable if the two paths have the same number of points. The target path is created based on the
  * structure of the existing path.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param other Pointer to the {@link OH_Drawing_Path} object of the other path used for interpolation.
  * @param weight Interpolation weight. The value range is [0, 1].
@@ -997,7 +998,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathInterpolate(OH_Drawing_Path* path, OH_Drawin
  * @brief Checks whether the existing path and another path (**other**) are compatible for interpolation in terms of
  * structure and operation sequence.
  * If the paths contain conic operations, the weight values of the operations must be the same.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param other Pointer to the {@link OH_Drawing_Path} object.
  * @param result Checks whether a path is compatible with another path. It is used as an output parameter.
@@ -1024,7 +1025,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathGetLastPoint(OH_Drawing_Path* path, OH_Drawi
 
 /**
  * @brief Checks whether the fill type of the path is the inverse type.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param isInverse Whether the fill type is the inverse type. It is used as an output parameter. **true** if the fill
  * type is the inverse type; **false** otherwise.
@@ -1038,7 +1039,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIsInverseFillType(const OH_Drawing_Path* pat
 
 /**
  * @brief Toggles the fill type of the path to the inverse type.
- * 
+ *
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @return Execution result.
  * **OH_DRAWING_SUCCESS** if the operation is successful.

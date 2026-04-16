@@ -26,7 +26,7 @@
  * @file drawing_memory_stream.h
  *
  * @brief This file declares the functions related to the memory stream in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -47,7 +47,7 @@ extern "C" {
  * @brief Creates an **OH_Drawing_MemoryStream** object.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **data** is NULL or **length** is **0**, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @return Returns the pointer to the {@link OH_Drawing_MemoryStream} object created.
  * @param data Pointer to the data.
  * @param length Length of the data.
@@ -60,7 +60,7 @@ OH_Drawing_MemoryStream* OH_Drawing_MemoryStreamCreate(const void* data, size_t 
 
 /**
  * @brief Destroys an **OH_Drawing_MemoryStream** object and reclaims the memory occupied by the object.
- * 
+ *
  * @param memoryStream Pointer to an {@link OH_Drawing_MemoryStream} object.
  * @since 12
  * @version 1.0

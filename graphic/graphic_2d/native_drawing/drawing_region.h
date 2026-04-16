@@ -27,7 +27,7 @@
  *
  * @brief This file declares the functions related to the region in the drawing module, including creating a region,
  * setting the boundary, and destroying a region.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -47,7 +47,7 @@ extern "C" {
 
 /**
  * @brief Enumerates the operation modes available for a region.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -80,7 +80,7 @@ typedef enum {
 
 /**
  * @brief Creates an **OH_Drawing_Region** object for more accurate graphical control.
- * 
+ *
  * @return Returns the pointer to the {@link OH_Drawing_Region} object created.
  * @since 12
  * @version 1.0
@@ -89,7 +89,7 @@ OH_Drawing_Region* OH_Drawing_RegionCreate(void);
 
 /**
  * @brief Creates a copy of a region object.
- * 
+ *
  * @param region Pointer to the {@link OH_Drawing_Region} object to be copied.
  * @return Returns the pointer to the **OH_Drawing_Region** object created.
  * @since 20
@@ -101,7 +101,7 @@ OH_Drawing_Region* OH_Drawing_RegionCopy(const OH_Drawing_Region* region);
  * @brief Checks whether a region contains the specified point.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **region** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param region Pointer to the {@link OH_Drawing_Region} object.
  * @param x X coordinate of the point.
  * @param y Y coordinate of the point.
@@ -116,7 +116,7 @@ bool OH_Drawing_RegionContains(OH_Drawing_Region* region, int32_t x, int32_t y);
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **region** or **dst** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **op** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
- * 
+ *
  * @param region Pointer to an {@link OH_Drawing_Region} object, in which the resulting region is saved.
  * @param other Pointer to the {@link OH_Drawing_Region} object.
  * @param op Operation mode of the region. For details about the available options, see {@link OH_Drawing_RegionOpMode}.
@@ -130,7 +130,7 @@ bool OH_Drawing_RegionOp(OH_Drawing_Region* region, const OH_Drawing_Region* oth
  * @brief Sets the boundary for an **OH_Drawing_Region** object.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **region** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param region Pointer to the {@link OH_Drawing_Region} object.
  * @param rect Pointer to an **OH_Drawing_Rect** object.
  * @return Returns **true** if the setting is successful; returns **false** otherwise.
@@ -143,7 +143,7 @@ bool OH_Drawing_RegionSetRect(OH_Drawing_Region* region, const OH_Drawing_Rect* 
  * @brief Sets a region to the area described by the path.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If **region**, **path**, or **clip** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
- * 
+ *
  * @param region Pointer to the {@link OH_Drawing_Region} object.
  * @param path Pointer to the {@link OH_Drawing_Path} object.
  * @param clip Pointer to the {@link OH_Drawing_Region} object.
@@ -155,7 +155,7 @@ bool OH_Drawing_RegionSetPath(OH_Drawing_Region* region, const OH_Drawing_Path* 
 
 /**
  * @brief Destroys an **OH_Drawing_Region** object and reclaims the memory occupied by the object.
- * 
+ *
  * @param region Pointer to the {@link OH_Drawing_Region} object.
  * @since 12
  * @version 1.0
@@ -164,7 +164,7 @@ void OH_Drawing_RegionDestroy(OH_Drawing_Region* region);
 
 /**
  * @brief Sets the existing region to empty.
- * 
+ *
  * @param region Pointer to the {@link OH_Drawing_Region} object.
  * @return Returns one of the following result codes:
  * **OH_DRAWING_SUCCESS** if the operation is successful.
@@ -176,7 +176,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionEmpty(OH_Drawing_Region* region);
 
 /**
  * @brief Sets the path as the boundary of the region. If the region is empty, the path is also empty.
- * 
+ *
  * @param region Pointer to the {@link OH_Drawing_Region} object.
  * @param path Pointer to the {@link OH_Drawing_Path} object. It is used as an output parameter.
  * @return Execution result.
@@ -188,7 +188,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionGetBoundaryPath(const OH_Drawing_Region* r
 
 /**
  * @brief Obtains the smallest bounding rectangle that contains the region.
- * 
+ *
  * @param region Pointer to the {@link OH_Drawing_Region} object.
  * @param rect Pointer to the {@link OH_Drawing_Rect} object. It is used as an output parameter.
  * @return Execution result.
@@ -200,7 +200,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionGetBounds(const OH_Drawing_Region* region,
 
 /**
  * @brief Checks whether the region contains two or more rectangles.
- * 
+ *
  * @param region Pointer to the {@link OH_Drawing_Region} object.
  * @param isComplex Whether this region contains multiple rectangles. It is used as an output parameter. **true** means
  * yes; **false** otherwise.
@@ -213,7 +213,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionIsComplex(const OH_Drawing_Region* region,
 
 /**
  * @brief Checks whether the region is empty.
- * 
+ *
  * @param region Pointer to the {@link OH_Drawing_Region} object.
  * @param isEmpty Whether the region is empty. It is used as an output parameter. **true** means yes; **false**
  * otherwise.
@@ -226,7 +226,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionIsEmpty(const OH_Drawing_Region* region, b
 
 /**
  * @brief Checks whether the region the same as a rectangle.
- * 
+ *
  * @param region Pointer to the {@link OH_Drawing_Region} object.
  * @param isRect Whether the region the same as a rectangle. It is used as an output parameter. **true** means yes; **
  * false** otherwise.
@@ -239,7 +239,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionIsRect(const OH_Drawing_Region* region, bo
 
 /**
  * @brief Checks whether the region is the same as a single rectangle and contains the specified rectangle.
- * 
+ *
  * @param region Pointer to the {@link OH_Drawing_Region} object.
  * @param left X coordinate of the upper left corner of the specified rectangle.
  * @param top Y coordinate of the upper left corner of the specified rectangle.
@@ -259,7 +259,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionQuickContains(const OH_Drawing_Region* reg
 
 /**
  * @brief Checks whether the region is empty or does not intersect the specified rectangle.
- * 
+ *
  * @param region Pointer to the {@link OH_Drawing_Region} object.
  * @param left X coordinate of the upper left corner of the specified rectangle.
  * @param top Y coordinate of the upper left corner of the specified rectangle.
@@ -279,7 +279,7 @@ OH_Drawing_ErrorCode OH_Drawing_RegionQuickReject(const OH_Drawing_Region* regio
 /**
  * @brief Translates the region by a specified distance on the X and Y axes. If the region is empty, no operation is
  * performed.
- * 
+ *
  * @param region Pointer to the {@link OH_Drawing_Region} object.
  * @param dx Distance to be translated on the X axis, in pixels.
  * @param dy Distance to be translated on the Y axis, in pixels.

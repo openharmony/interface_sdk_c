@@ -26,7 +26,7 @@
  * @file drawing_text_blob.h
  *
  * @brief This file declares the functions related to the text blob in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -45,7 +45,7 @@ extern "C" {
 
 /**
  * @brief 用于创建一个文本构造器对象。
- * 
+ *
  * @return 函数会返回一个指针，指针指向创建的文本构造器对象。
  * @since 11
  * @version 1.0
@@ -57,7 +57,7 @@ OH_Drawing_TextBlobBuilder* OH_Drawing_TextBlobBuilderCreate(void);
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * text、font任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * textEncoding不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param text 指向文本的指针。
  * @param byteLength 文本的字节长度。
  * @param font 指向字体对象{@link OH_Drawing_Font}的指针。
@@ -74,7 +74,7 @@ OH_Drawing_TextBlob* OH_Drawing_TextBlobCreateFromText(const void* text, size_t 
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * text、point2D、font任意一个为NULL或byteLength等于0时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * textEncoding不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param text 指向文本的指针。
  * @param byteLength 文本的字节长度。
  * @param point2D 二维点{@link OH_Drawing_Point2D}数组首地址，数组个数由{@link OH_Drawing_FontCountText}计算结果决定。
@@ -92,7 +92,7 @@ OH_Drawing_TextBlob* OH_Drawing_TextBlobCreateFromPosText(const void* text, size
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * str、font任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；
  * textEncoding不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。
- * 
+ *
  * @param str 指向字符串的指针。
  * @param font 指向字体对象{@link OH_Drawing_Font}的指针。
  * @param textEncoding 文本编码类型{@link OH_Drawing_TextEncoding}。
@@ -107,7 +107,7 @@ OH_Drawing_TextBlob* OH_Drawing_TextBlobCreateFromString(const char* str,
  * @brief 获取文本对象的边界范围。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * textBlob、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param textBlob 指向文本对象{@link OH_Drawing_TextBlob}的指针。
  * @param rect 指向矩形对象{@link OH_Drawing_Rect}的指针，开发者可调用{@link OH_Drawing_Rect}接口创建。
  * @since 12
@@ -119,7 +119,7 @@ void OH_Drawing_TextBlobGetBounds(OH_Drawing_TextBlob* textBlob, OH_Drawing_Rect
  * @brief 获取文本的标识符，该标识符是唯一的非零值。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * textBlob为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param textBlob 指向文本对象{@link OH_Drawing_TextBlob}的指针。
  * @return 返回文本对象的标识符。
  * @since 12
@@ -129,7 +129,7 @@ uint32_t OH_Drawing_TextBlobUniqueID(const OH_Drawing_TextBlob* textBlob);
 
 /**
  * @brief This struct describes a run, which provides storage for glyphs and positions.
- * 
+ *
  * @since 11
  * @version 1.0
  */
@@ -156,7 +156,7 @@ typedef struct {
  * @brief 申请一块内存，用于存储文字和位置信息。返回的指针无需调用者管理，当调用{@link OH_Drawing_TextBlobBuilderMake}后禁止使用。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * textBlobBuilder、font任意一个为NULL或者count小于等于0时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param textBlobBuilder 指向文本构造器对象的指针。
  * @param font 指向字体对象的指针。
  * @param count 文字的数量。
@@ -172,7 +172,7 @@ const OH_Drawing_RunBuffer* OH_Drawing_TextBlobBuilderAllocRunPos(OH_Drawing_Tex
  * @brief 用于从文本构造器中创建文本对象。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * textBlobBuilder为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param textBlobBuilder 指向文本构造器对象的指针。
  * @return 返回一个指针，指针指向创建的文本对象。
  * @since 11
@@ -182,7 +182,7 @@ OH_Drawing_TextBlob* OH_Drawing_TextBlobBuilderMake(OH_Drawing_TextBlobBuilder* 
 
 /**
  * @brief 用于销毁文本对象并回收该对象占有的内存。
- * 
+ *
  * @param textBlob 指向文本对象的指针。
  * @since 11
  * @version 1.0
@@ -191,7 +191,7 @@ void OH_Drawing_TextBlobDestroy(OH_Drawing_TextBlob* textBlob);
 
 /**
  * @brief 用于销毁文本构造器对象并回收该对象占有的内存。
- * 
+ *
  * @param textBlobBuilder 指向文本构造器对象的指针。
  * @since 11
  * @version 1.0

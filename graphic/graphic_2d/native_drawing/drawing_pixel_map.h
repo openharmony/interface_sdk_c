@@ -26,7 +26,7 @@
  * @file drawing_pixel_map.h
  *
  * @brief This file declares the functions related to the pixel map in the drawing module.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -45,7 +45,7 @@ extern "C" {
 
 /**
  * @brief Defines a pixel map defined by the image framework.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -53,7 +53,7 @@ typedef struct NativePixelMap_ NativePixelMap_;
 
 /**
  * @brief Defines a pixel map defined by the image framework.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -61,7 +61,7 @@ typedef struct OH_PixelmapNative OH_PixelmapNative;
 
 /**
  * @brief Obtains the pixel map defined by this module from a pixel map defined by the image framework.
- * 
+ *
  * @param nativePixelMap Pointer to a {@link NativePixelMap_} object, which is the pixel map defined by the image
  * framework.
  * @return Returns the pointer to an {@link OH_Drawing_PixelMap} object, which is the pixel map defined by this module.
@@ -73,7 +73,7 @@ OH_Drawing_PixelMap* OH_Drawing_PixelMapGetFromNativePixelMap(NativePixelMap_* n
 
 /**
  * @brief Obtains the pixel map defined by this module from a pixel map defined by the image framework.
- * 
+ *
  * @param pixelmapNative Pointer to a {@link OH_PixelmapNative} object, which is the pixel map defined by the image
  * framework.
  * @return Returns the pointer to an {@link OH_Drawing_PixelMap} object, which is the pixel map defined by this module.
@@ -85,9 +85,10 @@ OH_Drawing_PixelMap* OH_Drawing_PixelMapGetFromOhPixelMapNative(OH_PixelmapNativ
 
 /**
  * @brief Removes the relationship between a pixel map defined by this module and a pixel map defined by the image
- * framework. The relationship is established by calling {@link OH_Drawing_PixelMapGetFromNativePixelMap} or {@link OH_Drawing_PixelMapGetFromOhPixelMapNative}
+ * framework. The relationship is established by calling  {@link OH_Drawing_PixelMapGetFromNativePixelMap}  or
+ * {@link OH_Drawing_PixelMapGetFromOhPixelMapNative}
  * .
- * 
+ *
  * @param pixelMap Pointer to an {@link OH_Drawing_PixelMap} object.
  * @since 12
  * @version 1.0

@@ -25,7 +25,7 @@
  * @file drawing_path_iterator.h
  *
  * @brief This file declares the functions related to the path operation iterator object.
- * 
+ *
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
@@ -44,7 +44,7 @@ extern "C" {
 
 /**
  * @brief 迭代器包含的路径操作类型枚举，可用于读取路径的操作指令。
- * 
+ *
  * @since 23
  */
 typedef enum {
@@ -80,7 +80,7 @@ typedef enum {
 
 /**
  * @brief 创建路径操作迭代器对象。
- * 
+ *
  * @param path 指向路径对象{@link OH_Drawing_Path}的指针。
  * @param pathIterator 指向路径操作迭代器对象{@link OH_Drawing_PathIterator}的二级指针，作为出参使用。
  * @return 函数返回执行结果。
@@ -92,7 +92,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIteratorCreate(const OH_Drawing_Path* path, 
 
 /**
  * @brief 销毁路径操作迭代器对象并回收该对象占有的内存。
- * 
+ *
  * @param pathIterator 指向路径操作迭代器对象{@link OH_Drawing_PathIterator}的指针。
  * @return 函数返回执行结果。
  * 返回OH_DRAWING_SUCCESS，表示执行成功。
@@ -103,7 +103,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIteratorDestroy(OH_Drawing_PathIterator* pat
 
 /**
  * @brief 判断路径操作迭代器中是否还有下一个操作。
- * 
+ *
  * @param pathIterator 指向路径操作迭代器对象{@link OH_Drawing_PathIterator}的指针。
  * @param hasNext 表示路径操作迭代器中是否还有下一个操作。作为出参使用。true表示还有下一个操作，false表示没有下一个操作。
  * @return 函数返回执行结果。
@@ -115,7 +115,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIteratorHasNext(const OH_Drawing_PathIterato
 
 /**
  * @brief 返回当前路径的下一个操作，并将迭代器置于该操作。
- * 
+ *
  * @param pathIterator 指向路径操作迭代器对象{@link OH_Drawing_PathIterator}的指针。
  * @param points 表示坐标点数组。
  * @param count 表示坐标点数组的大小。
@@ -132,7 +132,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIteratorNext(OH_Drawing_PathIterator* pathIt
 
 /**
  * @brief 返回当前路径的下一个操作，迭代器保持在原操作。
- * 
+ *
  * @param pathIterator 指向路径操作迭代器对象{@link OH_Drawing_PathIterator}的指针。
  * @param verb 表示当前路径的下一个操作。作为出参使用。
  * @return 函数返回执行结果。

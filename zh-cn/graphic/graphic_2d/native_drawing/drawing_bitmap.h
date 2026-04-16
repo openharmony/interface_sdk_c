@@ -46,7 +46,7 @@ extern "C" {
 
 /**
  * @brief This struct describes the pixel format of a bitmap, including the color type and alpha type.
- *  
+ *
  * @since 8
  * @version 1.0
  */
@@ -63,7 +63,7 @@ typedef struct {
 
 /**
  * @brief 用于创建一个位图对象。
- * 
+ *
  * @return 函数会返回一个指针，指针指向创建的位图对象。
  * @since 8
  * @version 1.0
@@ -72,7 +72,7 @@ OH_Drawing_Bitmap* OH_Drawing_BitmapCreate(void);
 
 /**
  * @brief 用于销毁位图对象并回收该对象占有内存。
- * 
+ *
  * @param bitmap 指向位图对象的指针。
  * @since 8
  * @version 1.0
@@ -83,7 +83,7 @@ void OH_Drawing_BitmapDestroy(OH_Drawing_Bitmap* bitmap);
  * @brief 用于创建一个位图对象，并将位图像素存储内存地址设置为开发者申请内存的地址。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * imageInfo、pixels任意一个为NULL或者rowBytes等于0时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param imageInfo 指向图片信息对象{@link OH_Drawing_Image_Info}的指针。
  * @param pixels 指向像素存储的内存首地址，内存由开发者申请，保证有效性。
  * @param rowBytes 每行像素的大小，小于等于0时无效。
@@ -97,7 +97,7 @@ OH_Drawing_Bitmap* OH_Drawing_BitmapCreateFromPixels(OH_Drawing_Image_Info* imag
  * @brief 用于初始化位图对象的宽度和高度，并且为该位图设置像素格式。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * bitmap、bitmapFormat任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param bitmap 指向位图对象的指针。
  * @param width 位图要初始化设置的宽度。
  * @param height 位图要初始化设置的高度。
@@ -112,7 +112,7 @@ void OH_Drawing_BitmapBuild(OH_Drawing_Bitmap* bitmap,
  * @brief 用于获取指定位图的宽度。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param bitmap 指向位图对象的指针。
  * @return 函数返回位图的宽度。
  * @since 8
@@ -124,7 +124,7 @@ uint32_t OH_Drawing_BitmapGetWidth(OH_Drawing_Bitmap* bitmap);
  * @brief 用于获取指定位图的高度。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param bitmap 指向位图对象的指针。
  * @return 函数返回位图的高度。
  * @since 8
@@ -136,7 +136,7 @@ uint32_t OH_Drawing_BitmapGetHeight(OH_Drawing_Bitmap* bitmap);
  * @brief 用于获取指定位图的像素存储格式。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param bitmap 指向位图对象的指针。
  * @return 函数返回位图的像素存储格式，支持格式参考{@link OH_Drawing_ColorFormat}。
  * @since 12
@@ -148,7 +148,7 @@ OH_Drawing_ColorFormat OH_Drawing_BitmapGetColorFormat(OH_Drawing_Bitmap* bitmap
  * @brief 用于获取指定位图的像素透明度分量。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param bitmap 指向位图对象的指针。
  * @return 函数返回位图的像素透明度分量，支持格式参考{@link OH_Drawing_AlphaFormat}。
  * @since 12
@@ -160,7 +160,7 @@ OH_Drawing_AlphaFormat OH_Drawing_BitmapGetAlphaFormat(OH_Drawing_Bitmap* bitmap
  * @brief 用于获取指定位图的像素地址，可以通过像素地址获取到位图的像素数据。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param bitmap 指向位图对象的指针。
  * @return 函数返回位图的像素地址。
  * @since 8
@@ -172,7 +172,7 @@ void* OH_Drawing_BitmapGetPixels(OH_Drawing_Bitmap* bitmap);
  * @brief 用于获取指定位图的信息。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * bitmap、imageInfo任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param bitmap 指向位图对象{@link OH_Drawing_Bitmap}的指针。
  * @param imageInfo 指向图片信息对象{@link OH_Drawing_Image_Info}的指针。
  * @since 12
@@ -184,7 +184,7 @@ void OH_Drawing_BitmapGetImageInfo(OH_Drawing_Bitmap* bitmap, OH_Drawing_Image_I
  * @brief 将位图中的矩形区域像素数据读取到指定的内存缓冲区中。
  * 本接口会产生错误码，可以通过{@link OH_Drawing_ErrorCodeGet}查看错误码的取值。
  * bitmap、dstInfo、dstPixels任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
- * 
+ *
  * @param bitmap 指向位图对象{@link OH_Drawing_Bitmap}的指针。
  * @param dstInfo 指向图片信息对象{@link OH_Drawing_Image_Info}的指针。
  * @param dstPixels 目标像素存储区域。
