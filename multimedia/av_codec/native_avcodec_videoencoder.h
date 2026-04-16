@@ -181,7 +181,7 @@ OH_AVErrCode OH_VideoEncoder_RegisterParameterCallback(OH_AVCodec *codec,
  * | OH_MD_KEY_PIXEL_FORMAT {@link OH_AVPixelFormat}| AV_ERR_OK | AV_ERR_UNSUPPORT | AV_ERR_OK    |
  * | OH_MD_KEY_FRAME_RATE | AV_ERR_OK | AV_ERR_INVALID_VAL | AV_ERR_OK |
  * | OH_MD_KEY_PROFILE {@link OH_MD_KEY_PROFILE}   | AV_ERR_OK | AV_ERR_INVALID_VAL | AV_ERR_OK |
- * | OH_MD_KEY_I_FRAME_INTERVAL | AV_ERR_OK |  \\       | AV_ERR_OK | 
+ * | OH_MD_KEY_I_FRAME_INTERVAL | AV_ERR_OK |  \\       | AV_ERR_OK |
  *
  * | OH_MD_KEY_<br>BITRATE | OH_MD_KEY_<br>QUALITY| OH_MD_KEY_<br>VIDEO_ENCODER_BITRATE_MODE| Return Value|Description |
  * | :-------- | :---------| :---------- | ---- | ---------- |
@@ -228,7 +228,7 @@ OH_AVErrCode OH_VideoEncoder_Configure(OH_AVCodec *codec, OH_AVFormat *format);
 OH_AVErrCode OH_VideoEncoder_Prepare(OH_AVCodec *codec);
 
 /**
- * @brief Starts a video encoder. This function should be called after a successful call of 
+ * @brief Starts a video encoder. This function should be called after a successful call of
  * {@link OH_VideoEncoder_Prepare}. After being started, the encoder starts to report the registered event.
  *
  * In surface mode, when there is a correct input on the surface, **OnNewOutputBuffer** is triggered each time a frame

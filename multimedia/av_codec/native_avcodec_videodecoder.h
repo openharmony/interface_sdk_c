@@ -196,7 +196,7 @@ OH_AVErrCode OH_VideoDecoder_Prepare(OH_AVCodec *codec);
 
 /**
  * @brief Starts a video decoder. This function should be called after a successful call of
- * {@link OH_VideoDecoder_Prepare}. 
+ * {@link OH_VideoDecoder_Prepare}.
  * After being started, the decoder starts to report the registered event.
  *
  * @param codec Pointer to a video decoder instance.
@@ -295,7 +295,7 @@ OH_AVErrCode OH_VideoDecoder_SetParameter(OH_AVCodec *codec, OH_AVFormat *format
  * @brief Pushes the input buffer filled with data to a video decoder.
  *
  * The input callback reports the available input buffer and the index. For details,
- * see {@link OH_AVCodecOnNeedInputData}. 
+ * see {@link OH_AVCodecOnNeedInputData}.
  * After being pushed to the decoder, a buffer is not accessible until the buffer with the same index is reported
  * again through the input callback. In addition, some decoders require the input of codec-specific data, such as PPS/
  * SPS data in H.264 format, to initialize the decoding process.
