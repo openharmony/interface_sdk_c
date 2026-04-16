@@ -133,7 +133,7 @@ OH_AVErrCode OH_AVDemuxer_SelectTrackByID(OH_AVDemuxer *demuxer, uint32_t trackI
  * @brief Deselects a track. The demuxer no longer reads sample data from a track after it is deselected.
  *
  * You can deselect multiple tracks by calling this API multiple times, with a different track index passed in each
- * time. 
+ * time.
  * If the same track is deselected multiple times,
  * {@link AV_ERR_OK} is returned and the API call takes effect only once.
  *
