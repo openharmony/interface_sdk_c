@@ -24,7 +24,7 @@
  * @file native_avsource.h
  *
  * @brief The file declares the APIs for parsing audio and video media data.
- * 
+ *
  * @kit AVCodecKit
  * @library libnative_media_avsource.so
  * @syscap SystemCapability.Multimedia.Media.Spliter
@@ -45,13 +45,13 @@ extern "C" {
 
 /**
  * @brief The struct describes a native object for the media resource interface.
- * 
+ *
  * @since 10
  */
 typedef struct OH_AVSource OH_AVSource;
 
 /**
- * @brief Creates an OH_AVSource instance with a user-defined data source. You can release the instance by calling 
+ * @brief Creates an OH_AVSource instance with a user-defined data source. You can release the instance by calling
  * {@link OH_AVSource_Destroy}.
  *
  * The lifecycle of **dataSource** must be the same as that of the returned OH_AVSource * pointer.
@@ -70,7 +70,7 @@ typedef struct OH_AVSource OH_AVSource;
 OH_AVSource *OH_AVSource_CreateWithDataSource(OH_AVDataSource *dataSource);
 
 /**
- * @brief Creates an OH_AVSource instance with a user-defined data source. You can release the instance by calling 
+ * @brief Creates an OH_AVSource instance with a user-defined data source. You can release the instance by calling
  * {@link OH_AVSource_Destroy}.
  *
  * User-defined data can be passed to its callback functions through the **userData** parameter.
@@ -92,8 +92,8 @@ OH_AVSource *OH_AVSource_CreateWithDataSource(OH_AVDataSource *dataSource);
 OH_AVSource *OH_AVSource_CreateWithDataSourceExt(OH_AVDataSourceExt *dataSource, void *userData);
 
 /**
- * @brief Creates an OH_AVSource instance based on a URI. You can release the instance by calling 
- * {@link OH_AVSource_Destroy}. This function supports only HTTP progressive streaming media, 
+ * @brief Creates an OH_AVSource instance based on a URI. You can release the instance by calling
+ * {@link OH_AVSource_Destroy}. This function supports only HTTP progressive streaming media,
  * but not HLS/DASH streaming media. For HLS/DASH streaming media playback, use the AVPlayer for development.
  *
  * @param uri URI of the media resource.
@@ -108,7 +108,7 @@ OH_AVSource *OH_AVSource_CreateWithDataSourceExt(OH_AVDataSourceExt *dataSource,
 OH_AVSource *OH_AVSource_CreateWithURI(char *uri);
 
 /**
- * @brief Creates an OH_AVSource instance based on an FD. You can release the instance by calling 
+ * @brief Creates an OH_AVSource instance based on an FD. You can release the instance by calling
  * {@link OH_AVSource_Destroy}.
  *
  * If **offset** is not the start position of the file or **size** is not the file size, undefined errors such as
@@ -131,9 +131,8 @@ OH_AVSource *OH_AVSource_CreateWithFD(int32_t fd, int64_t offset, int64_t size);
 /**
  * @brief Destroys an OH_AVSource instance and clears internal resources.
  *
- * An instance can be destroyed only once. The destroyed instance cannot be used until it is re-created. 
+ * An instance can be destroyed only once. The destroyed instance cannot be used until it is re-created.
  * You are advised to set the pointer to NULL after the instance is destroyed.
-
  *
  * @param source Pointer to an OH_AVSource instance.
  * @return {@link AV_ERR_OK}: The operation is successful.

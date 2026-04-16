@@ -30,7 +30,7 @@
  * @file native_cencinfo.h
  *
  * @brief The file declares the native APIs used to set decryption parameters.
- * 
+ *
  * @kit AVCodecKit
  * @library libnative_media_avcencinfo.so
  * @syscap SystemCapability.Multimedia.Media.Spliter
@@ -49,14 +49,14 @@ extern "C" {
 
 /**
  * @brief The struct describes a native object for the media memory interface.
- * 
+ *
  * @since 12
  * @version 1.0
  */
 typedef struct OH_AVBuffer OH_AVBuffer;
 /**
  * @brief The struct describes the audio/video Common Encryption Scheme (CENC) information.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -64,21 +64,21 @@ typedef struct OH_AVCencInfo OH_AVCencInfo;
 
 /**
  * @brief The length of the key ID is 16 bytes.
- * 
+ *
  * @since 12
  * @version 1.0
  */
 #define DRM_KEY_ID_SIZE 16
 /**
  * @brief The length of the Initialization Vector (IV) is 16 bytes.
- * 
+ *
  * @since 12
  * @version 1.0
  */
 #define DRM_KEY_IV_SIZE 16
 /**
  * @brief The maximum number of subsamples is 64.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -86,7 +86,7 @@ typedef struct OH_AVCencInfo OH_AVCencInfo;
 
 /**
  * @brief Enumerates the DRM CENC algorithm types.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -119,7 +119,7 @@ typedef enum DrmCencAlgorithm {
 
 /**
  * @brief Enumerates the modes for setting the key ID, IV, and subsample in the CENC information.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -132,7 +132,7 @@ typedef enum DrmCencInfoMode {
 
 /**
  * @brief The struct describes the subsample type.
- * 
+ *
  * @since 12
  * @version 1.0
  */
@@ -147,8 +147,8 @@ typedef struct DrmSubsample {
  * @brief Creates an OH_AVCencInfo instance for setting the CENC information.
  *
  * @return Pointer to the OH_AVCencInfo instance created. If the operation fails, nullptr is returned.
- *     <br>The possible causes of an operation failure are as follows: The application address space is full, or the data in
- *     the object fails to be initialized.
+ *     <br>The possible causes of an operation failure are as follows: The application address space is full,
+ *     or the data in the object fails to be initialized.
  * @since 12
  * @version 1.0
  */
@@ -189,8 +189,9 @@ OH_AVErrCode OH_AVCencInfo_SetAlgorithm(OH_AVCencInfo *cencInfo, enum DrmCencAlg
  * @param iv Pointer to the IV.
  * @param ivLen Length of the IV.
  * @return {@link AV_ERR_OK}: The operation is successful.
- *     <br>{@link AV_ERR_INVALID_VAL}: The value of **cencInfo**, **keyId**, or **iv** is null, **keyIdLen** is not equal to **
- *     DRM_KEY_ID_SIZE**, **ivLen** is not equal to **DRM_KEY_IV_SIZE**, the key ID or IV fails to be copied.
+ *     <br>{@link AV_ERR_INVALID_VAL}: The value of **cencInfo**, **keyId**, or **iv** is null,
+ *     **keyIdLen** is not equal to **DRM_KEY_ID_SIZE**, **ivLen** is not equal to **DRM_KEY_IV_SIZE**,
+ *     the key ID or IV fails to be copied.
  * @since 12
  * @version 1.0
  */
@@ -207,8 +208,8 @@ OH_AVErrCode OH_AVCencInfo_SetKeyIdAndIv(OH_AVCencInfo *cencInfo, uint8_t *keyId
  * @param subsampleCount Number of subsamples.
  * @param subsamples Pointer to the subsamples.
  * @return {@link AV_ERR_OK}: The operation is successful.
- *     <br>{@link AV_ERR_INVALID_VAL}: The value of **cencInfo** is null, **subsampleCount** is greater than **
- *     DRM_KEY_MAX_SUB_SAMPLE_NUM**, or **subsamples** is null.
+ *     <br>{@link AV_ERR_INVALID_VAL}: The value of **cencInfo** is null, **subsampleCount** is greater than
+ *     **DRM_KEY_MAX_SUB_SAMPLE_NUM**, or **subsamples** is null.
  * @since 12
  * @version 1.0
  */
@@ -233,7 +234,7 @@ OH_AVErrCode OH_AVCencInfo_SetMode(OH_AVCencInfo *cencInfo, enum DrmCencInfoMode
  * @param cencInfo Pointer to an OH_AVCencInfo instance.
  * @param buffer Pointer to the frame buffer that carries data.
  * @return {@link AV_ERR_OK}: The operation is successful.
- *     <br>{@link AV_ERR_INVALID_VAL}: The value of **cencInfo**, **buffer**, **buffer->buffer_**, 
+ *     <br>{@link AV_ERR_INVALID_VAL}: The value of **cencInfo**, **buffer**, **buffer->buffer_**,
  *     or **buffer->buffer_->meta_** is null.
  * @since 12
  * @version 1.0
