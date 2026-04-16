@@ -72,9 +72,9 @@ typedef enum {
 typedef enum {
     /**
      * For any point within the drawing area, a ray is cast in an arbitrary direction. The count starts at 0 for all
-     * intersections between this ray and the path.<br>Each clockwise intersection¡ªwhere the path crosses the ray from
-     * left to right¡ªresults in the count being incremented by 1, while each counterclockwise intersection¡ªwhere the
-     * path crosses the ray from right to left¡ªcauses the count to be decremented by 1. A point is deemed inside the
+     * intersections between this ray and the path.<br>Each clockwise intersection—where the path crosses the ray from
+     * left to right—results in the count being incremented by 1, while each counterclockwise intersection—where the
+     * path crosses the ray from right to left—causes the count to be decremented by 1. A point is deemed inside the
      * path and needs to be colored if the final count is non-zero; if the count is 0, the point remains uncolored.
      */
     PATH_FILL_TYPE_WINDING,
