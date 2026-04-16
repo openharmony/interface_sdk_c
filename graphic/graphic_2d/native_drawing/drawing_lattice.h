@@ -14,6 +14,14 @@
  */
 
 /**
+ * @addtogroup Drawing
+ * @{
+ *
+ * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
+ *
+ * @since 8
+ */
+/**
  * @file drawing_lattice.h
  *
  * @brief This file declares the functions related to the rectangular lattice object.
@@ -24,22 +32,6 @@
  * @since 23
  */
 
-/**
- * @addtogroup Drawing
- * @{
- *
- * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
- *
- * @since 8
- */
-/**
- * @addtogroup Drawing
- * @{
- *
- * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
- *
- * @since 23
- */
 #ifndef C_INCLUDE_DRAWING_LATTICE_H
 #define C_INCLUDE_DRAWING_LATTICE_H
 

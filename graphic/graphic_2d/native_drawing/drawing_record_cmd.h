@@ -14,6 +14,15 @@
  */
 
 /**
+ * @addtogroup Drawing
+ * @{
+ *
+ * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
+ *
+ * @since 13
+ * @version 1.0
+ */
+/**
  * @file drawing_record_cmd.h
  *
  * @brief This file declares the functions related to a recording command object.
@@ -21,15 +30,6 @@
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @since 13
- * @version 1.0
- */
-/**
- * @addtogroup Drawing
- * @{
- *
- * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
- *
  * @since 13
  * @version 1.0
  */

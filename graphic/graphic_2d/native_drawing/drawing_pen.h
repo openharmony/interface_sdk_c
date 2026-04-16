@@ -14,6 +14,16 @@
  */
 
 /**
+ * @addtogroup Drawing
+ * @{
+ *
+ * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
+ *
+ *
+ * @since 8
+ * @version 1.0
+ */
+/**
  * @file drawing_pen.h
  *
  * @brief This file declares functions related to the pen in the drawing module.
@@ -21,16 +31,6 @@
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @since 8
- * @version 1.0
- */
-/**
- * @addtogroup Drawing
- * @{
- *
- * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
- *
- *
  * @since 8
  * @version 1.0
  */

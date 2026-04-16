@@ -14,6 +14,15 @@
  */
 
 /**
+ * @addtogroup Drawing
+ * @{
+ *
+ * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
+ *
+ * @since 11
+ * @version 1.0
+ */
+/**
  * @file drawing_font.h
  *
  * @brief This file declares the functions related to the font in the drawing module.
@@ -21,15 +30,6 @@
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @since 11
- * @version 1.0
- */
-/**
- * @addtogroup Drawing
- * @{
- *
- * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
- *
  * @since 11
  * @version 1.0
  */
@@ -598,6 +598,115 @@ OH_Drawing_FontEdging OH_Drawing_FontGetEdging(const OH_Drawing_Font* font);
 void OH_Drawing_FontDestroy(OH_Drawing_Font* font);
 
 /**
+ * @brief This struct describes the measurement information about a font.
+ *
+ * @since 12
+ * @version 1.0
+ */
+typedef struct OH_Drawing_Font_Metrics {
+    /**
+     * Measurement information that is valid.
+     *
+     * @since 12
+     */
+    uint32_t flags;
+    /**
+     * Maximum distance from the baseline to the highest coordinate of a character.
+     *
+     * @since 12
+     */
+    float top;
+    /**
+     * Recommended distance from the baseline to the highest coordinate of a character.
+     *
+     * @since 12
+     */
+    float ascent;
+    /**
+     * Recommended distance from the baseline to the lowest coordinate of a character.
+     *
+     * @since 12
+     */
+    float descent;
+    /**
+     * Maximum distance from the baseline to the lowest coordinate of a character.
+     *
+     * @since 12
+     */
+    float bottom;
+    /**
+     * Gap between rows.
+     *
+     * @since 12
+     */
+    float leading;
+    /**
+     * Average character width, or zero if unknown.
+     *
+     * @since 12
+     */
+    float avgCharWidth;
+    /**
+     * Maximum character width, or zero if unknown.
+     *
+     * @since 12
+     */
+    float maxCharWidth;
+    /**
+     * Maximum distance to the leftmost of the font bounding box. Generally, the value is a negative value. Variable
+     * fonts are not recommended.
+     *
+     * @since 12
+     */
+    float xMin;
+    /**
+     * Maximum distance to the rightmost of the font bounding box. Generally, the value is a negative value. Variable
+     * fonts are not recommended.
+     *
+     * @since 12
+     */
+    float xMax;
+    /**
+     * Height of a lowercase letter, or zero if unknown. Generally, the value is a negative value.
+     *
+     * @since 12
+     */
+    float xHeight;
+    /**
+     * Height of an uppercase letter, or zero if unknown. Generally, the value is a negative value.
+     *
+     * @since 12
+     */
+    float capHeight;
+    /**
+     * @brief Thickness of the underline.
+     *
+     * @since 12
+     */
+    float underlineThickness;
+    /**
+     * Position of the underline, that is, vertical distance from the baseline to the top of the underline. Generally,
+     * the value is a positive value.
+     *
+     * @since 12
+     */
+    float underlinePosition;
+    /**
+     * Thickness of the strikethrough.
+     *
+     * @since 12
+     */
+    float strikeoutThickness;
+    /**
+     * Position of the strikethrough, that is, vertical distance from the baseline to the bottom of the strikethrough.
+     * Generally, the value is a negative value.
+     *
+     * @since 12
+     */
+    float strikeoutPosition;
+} OH_Drawing_Font_Metrics;
+
+/**
  * @brief Obtains the measurement information about a font.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **font** or **fontMetrics** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
@@ -726,115 +835,6 @@ OH_Drawing_ErrorCode OH_Drawing_FontSetThemeFontFollowed(OH_Drawing_Font* font, 
  * @since 15
  */
 OH_Drawing_ErrorCode OH_Drawing_FontIsThemeFontFollowed(const OH_Drawing_Font* font, bool* followed);
-
-/**
- * @brief This struct describes the measurement information about a font.
- *
- * @since 12
- * @version 1.0
- */
-typedef struct OH_Drawing_Font_Metrics {
-    /**
-     * Measurement information that is valid.
-     *
-     * @since 12
-     */
-    uint32_t flags;
-    /**
-     * Maximum distance from the baseline to the highest coordinate of a character.
-     *
-     * @since 12
-     */
-    float top;
-    /**
-     * Recommended distance from the baseline to the highest coordinate of a character.
-     *
-     * @since 12
-     */
-    float ascent;
-    /**
-     * Recommended distance from the baseline to the lowest coordinate of a character.
-     *
-     * @since 12
-     */
-    float descent;
-    /**
-     * Maximum distance from the baseline to the lowest coordinate of a character.
-     *
-     * @since 12
-     */
-    float bottom;
-    /**
-     * Gap between rows.
-     *
-     * @since 12
-     */
-    float leading;
-    /**
-     * Average character width, or zero if unknown.
-     *
-     * @since 12
-     */
-    float avgCharWidth;
-    /**
-     * Maximum character width, or zero if unknown.
-     *
-     * @since 12
-     */
-    float maxCharWidth;
-    /**
-     * Maximum distance to the leftmost of the font bounding box. Generally, the value is a negative value. Variable
-     * fonts are not recommended.
-     *
-     * @since 12
-     */
-    float xMin;
-    /**
-     * Maximum distance to the rightmost of the font bounding box. Generally, the value is a negative value. Variable
-     * fonts are not recommended.
-     *
-     * @since 12
-     */
-    float xMax;
-    /**
-     * Height of a lowercase letter, or zero if unknown. Generally, the value is a negative value.
-     *
-     * @since 12
-     */
-    float xHeight;
-    /**
-     * Height of an uppercase letter, or zero if unknown. Generally, the value is a negative value.
-     *
-     * @since 12
-     */
-    float capHeight;
-    /**
-     * @brief Thickness of the underline.
-     *
-     * @since 12
-     */
-    float underlineThickness;
-    /**
-     * Position of the underline, that is, vertical distance from the baseline to the top of the underline. Generally,
-     * the value is a positive value.
-     *
-     * @since 12
-     */
-    float underlinePosition;
-    /**
-     * Thickness of the strikethrough.
-     *
-     * @since 12
-     */
-    float strikeoutThickness;
-    /**
-     * Position of the strikethrough, that is, vertical distance from the baseline to the bottom of the strikethrough.
-     * Generally, the value is a negative value.
-     *
-     * @since 12
-     */
-    float strikeoutPosition;
-} OH_Drawing_Font_Metrics;
 
 #ifdef __cplusplus
 }

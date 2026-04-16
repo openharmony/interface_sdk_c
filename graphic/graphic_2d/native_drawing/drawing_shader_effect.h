@@ -14,6 +14,15 @@
  */
 
 /**
+ * @addtogroup Drawing
+ * @{
+ *
+ * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
+ *
+ * @since 11
+ * @version 1.0
+ */
+/**
  * @file drawing_shader_effect.h
  *
  * @brief This file declares the functions related to the shader effect in the drawing module.
@@ -21,15 +30,6 @@
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @since 11
- * @version 1.0
- */
-/**
- * @addtogroup Drawing
- * @{
- *
- * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
- *
  * @since 11
  * @version 1.0
  */
@@ -179,12 +179,12 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateRadialGradientWithLocalMat
 /**
  * @brief Creates an **OH_Drawing_ShaderEffect** object that generates a sweep gradient based on the matrix
  * transformation at the given center.
- * A sweep gradient paints a gradient in a sweeping arc ranging from 0▲ to 360▲.
+ * A sweep gradient paints a gradient in a sweeping arc ranging from 0째 to 360째.
  * 
  * @param centerPt Center of the circle.
  * @param colors Colors to distribute between the two points.
  * @param pos Relative position of each color in the color array. The array length must be the same as that of **colors*
- * *. If **pos** is NULL, colors are evenly distributed between the start angle (0▲) and end angle (360▲).
+ * *. If **pos** is NULL, colors are evenly distributed between the start angle (0째) and end angle (360째).
  * @param size Number of colors and positions (if **pos** is not NULL).
  * @param tileMode Tile mode of the shader effect. For details about the available options, see {@link OH_Drawing_TileMode}
  * .
@@ -203,7 +203,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateSweepGradientWithLocalMatr
 
 /**
  * @brief Creates an **OH_Drawing_ShaderEffect** object that generates a sweep gradient based on the center.
- * A sweep gradient paints a gradient in a sweeping arc ranging from 0▲ to 360▲.
+ * A sweep gradient paints a gradient in a sweeping arc ranging from 0째 to 360째.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **centerPt** or **colors** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.
  * If **tileMode** is not set to one of the enumerated values, **OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE** is returned.
@@ -211,7 +211,7 @@ OH_Drawing_ShaderEffect* OH_Drawing_ShaderEffectCreateSweepGradientWithLocalMatr
  * @param centerPt Center of the circle.
  * @param colors Colors to distribute between the two points.
  * @param pos Relative position of each color in the color array. The array length must be the same as that of **colors*
- * *. If **pos** is NULL, colors are evenly distributed between the start angle (0▲) and end angle (360▲).
+ * *. If **pos** is NULL, colors are evenly distributed between the start angle (0째) and end angle (360째).
  * @param size Number of colors and positions (if **pos** is not NULL).
  * @param tileMode Tile mode of the shader effect. For details about the available options, see {@link OH_Drawing_TileMode}
  * .

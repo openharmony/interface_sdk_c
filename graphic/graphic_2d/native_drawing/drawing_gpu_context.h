@@ -14,6 +14,15 @@
  */
 
 /**
+ * @addtogroup Drawing
+ * @{
+ *
+ * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
+ *
+ * @since 8
+ * @version 1.0
+ */
+/**
  * @file drawing_gpu_context.h
  *
  * @brief This file declares the functions related to the GPU context in the drawing module.
@@ -22,15 +31,6 @@
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @since 12
- * @version 1.0
- */
-/**
- * @addtogroup Drawing
- * @{
- *
- * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
- *
- * @since 8
  * @version 1.0
  */
 
@@ -42,6 +42,21 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+/**
+ * @brief This struct describes the options about the GPU context.
+ *  
+ * @since 12
+ * @version 1.0
+ * @deprecated since 18
+ */
+typedef struct {
+    /**
+     * Whether to allow path mask textures to be cached. The value **true** means to allow the path mask textures to be
+     * cached, and **false** means the opposite.
+     */
+    bool allowPathMaskCaching;
+} OH_Drawing_GpuContextOptions;
 
 /**
  * @brief Creates an **OH_Drawing_GpuContext** object that uses OpenGL as the backend interface.
@@ -72,21 +87,6 @@ OH_Drawing_GpuContext* OH_Drawing_GpuContextCreate(void);
  * @version 1.0
  */
 void OH_Drawing_GpuContextDestroy(OH_Drawing_GpuContext* gpuContext);
-
-/**
- * @brief This struct describes the options about the GPU context.
- *  
- * @since 12
- * @version 1.0
- * @deprecated since 18
- */
-typedef struct {
-    /**
-     * Whether to allow path mask textures to be cached. The value **true** means to allow the path mask textures to be
-     * cached, and **false** means the opposite.
-     */
-    bool allowPathMaskCaching;
-} OH_Drawing_GpuContextOptions;
 
 #ifdef __cplusplus
 }
