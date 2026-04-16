@@ -14,6 +14,15 @@
  */
 
 /**
+ * @addtogroup Drawing
+ * @{
+ *
+ * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
+ *
+ * @since 11
+ * @version 1.0
+ */
+/**
  * @file drawing_text_blob.h
  *
  * @brief This file declares the functions related to the text blob in the drawing module.
@@ -21,15 +30,6 @@
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @since 11
- * @version 1.0
- */
-/**
- * @addtogroup Drawing
- * @{
- *
- * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
- *
  * @since 11
  * @version 1.0
  */
@@ -135,6 +135,31 @@ void OH_Drawing_TextBlobGetBounds(OH_Drawing_TextBlob* textBlob, OH_Drawing_Rect
 uint32_t OH_Drawing_TextBlobUniqueID(const OH_Drawing_TextBlob* textBlob);
 
 /**
+ * @brief This struct describes a run, which provides storage for glyphs and positions.
+ * 
+ * @since 11
+ * @version 1.0
+ */
+typedef struct {
+    /**
+     * Storage for glyph indexes in the run.
+     */
+    uint16_t* glyphs;
+    /**
+     * Storage for glyph positions in the run.
+     */
+    float* pos;
+    /**
+     * Storage for UTF-8 encoded text units in the run.
+     */
+    char* utf8text;
+    /**
+     * Storage for glyph clusters (index of the UTF-8 encoded text unit) in the run.
+     */
+    uint32_t* clusters;
+} OH_Drawing_RunBuffer;
+
+/**
  * @brief Allocates a run to store glyphs and positions. The pointer returned does not need to be managed by the caller.
  * It can no longer be used after {@link OH_Drawing_TextBlobBuilderMake} is called.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
@@ -181,31 +206,6 @@ void OH_Drawing_TextBlobDestroy(OH_Drawing_TextBlob* textBlob);
  * @version 1.0
  */
 void OH_Drawing_TextBlobBuilderDestroy(OH_Drawing_TextBlobBuilder* textBlobBuilder);
-
-/**
- * @brief This struct describes a run, which provides storage for glyphs and positions.
- * 
- * @since 11
- * @version 1.0
- */
-typedef struct {
-    /**
-     * Storage for glyph indexes in the run.
-     */
-    uint16_t* glyphs;
-    /**
-     * Storage for glyph positions in the run.
-     */
-    float* pos;
-    /**
-     * Storage for UTF-8 encoded text units in the run.
-     */
-    char* utf8text;
-    /**
-     * Storage for glyph clusters (index of the UTF-8 encoded text unit) in the run.
-     */
-    uint32_t* clusters;
-} OH_Drawing_RunBuffer;
 
 #ifdef __cplusplus
 }

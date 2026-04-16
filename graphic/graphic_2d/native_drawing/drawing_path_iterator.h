@@ -12,6 +12,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ * @addtogroup Drawing
+ * @{
+ *
+ * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
+ *
+ * @since 8
+ */
 /**
  * @file drawing_path_iterator.h
  *
@@ -22,14 +31,7 @@
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
  * @since 23
  */
-/**
- * @addtogroup Drawing
- * @{
- *
- * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
- *
- * @since 8
- */
+
 #ifndef C_INCLUDE_DRAWING_PATH_ITERATOR_H
 #define C_INCLUDE_DRAWING_PATH_ITERATOR_H
 
@@ -118,7 +120,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathIteratorHasNext(const OH_Drawing_PathIterato
  * @param pathIterator Pointer to an {@link OH_Drawing_PathIterator} object.
  * @param points Array of coordinate points.
  * @param count Size of the coordinate point array.
- * @param offset Offset of the write position relative to the start point in the array. The value range is [0, count ¨C
+ * @param offset Offset of the write position relative to the start point in the array. The value range is [0, count Â¨C
  * 4].
  * @param verb Next operation of the current path, which serves as an output parameter.
  * @return Execution result.

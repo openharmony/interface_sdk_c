@@ -14,6 +14,16 @@
  */
 
 /**
+ * @addtogroup Drawing
+ * @{
+ *
+ * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
+ * 
+ *
+ * @since 8
+ * @version 1.0
+ */
+/**
  * @file drawing_path.h
  *
  * @brief This file declares the functions related to the path in the drawing module.
@@ -21,16 +31,6 @@
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @since 8
- * @version 1.0
- */
-/**
- * @addtogroup Drawing
- * @{
- *
- * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
- * 
- *
  * @since 8
  * @version 1.0
  */
@@ -72,9 +72,9 @@ typedef enum {
 typedef enum {
     /**
      * For any point within the drawing area, a ray is cast in an arbitrary direction. The count starts at 0 for all
-     * intersections between this ray and the path.<br>Each clockwise intersection¡ªwhere the path crosses the ray from
-     * left to right¡ªresults in the count being incremented by 1, while each counterclockwise intersection¡ªwhere the
-     * path crosses the ray from right to left¡ªcauses the count to be decremented by 1. A point is deemed inside the
+     * intersections between this ray and the path.<br>Each clockwise intersectionÂ¡Âªwhere the path crosses the ray from
+     * left to rightÂ¡Âªresults in the count being incremented by 1, while each counterclockwise intersectionÂ¡Âªwhere the
+     * path crosses the ray from right to leftÂ¡Âªcauses the count to be decremented by 1. A point is deemed inside the
      * path and needs to be colored if the final count is non-zero; if the count is 0, the point remains uncolored.
      */
     PATH_FILL_TYPE_WINDING,
@@ -273,7 +273,7 @@ void OH_Drawing_PathLineTo(OH_Drawing_Path* path, float x, float y);
  * @param y1 Y coordinate of the upper left corner of the rectangle.
  * @param x2 X coordinate of the lower right corner of the rectangle.
  * @param y2 Y coordinate of the lower right corner of the rectangle.
- * @param startDeg Start angle. The start direction (0¡ã) of the angle is the positive direction of the X axis.
+ * @param startDeg Start angle. The start direction (0Â°) of the angle is the positive direction of the X axis.
  * @param sweepDeg Angle to sweep, in degrees. A positive number indicates a clockwise sweep, and a negative value
  * indicates a counterclockwise swipe. The actual swipe degree is the modulo operation result of the input parameter by
  * 360.
@@ -523,8 +523,8 @@ void OH_Drawing_PathAddOval(OH_Drawing_Path* path,
 
 /**
  * @brief Adds an arc to a path as the start of a new contour. The arc added is part of the inscribed ellipse of the
- * rectangle, from the start angle through the sweep angle. If the sweep angle is less than or equal to -360¡ã, or if
- * the sweep angle is greater than or equal to 360¡ã, and start angle modulo 90 is nearly zero, an oval instead of an
+ * rectangle, from the start angle through the sweep angle. If the sweep angle is less than or equal to -360Â°, or if
+ * the sweep angle is greater than or equal to 360Â°, and start angle modulo 90 is nearly zero, an oval instead of an
  * ellipse is added.
  * This API may return an error code. For details, call {@link OH_Drawing_ErrorCodeGet}.
  * If either **path** or **rect** is NULL, **OH_DRAWING_ERROR_INVALID_PARAMETER** is returned.

@@ -14,6 +14,15 @@
  */
 
 /**
+ * @addtogroup Drawing
+ * @{
+ *
+ * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
+ *
+ * @since 8
+ * @version 1.0
+ */
+/**
  * @file drawing_bitmap.h
  *
  * @brief This file declares the functions related to the bitmap in the drawing module.
@@ -21,15 +30,6 @@
  * @kit ArkGraphics2D
  * @library libnative_drawing.so
  * @syscap SystemCapability.Graphic.Graphic2D.NativeDrawing
- * @since 8
- * @version 1.0
- */
-/**
- * @addtogroup Drawing
- * @{
- *
- * @brief Provides functions such as 2D graphics rendering, text drawing, and image display.
- *
  * @since 8
  * @version 1.0
  */
@@ -43,6 +43,23 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+/**
+ * @brief This struct describes the pixel format of a bitmap, including the color type and alpha type.
+ *  
+ * @since 8
+ * @version 1.0
+ */
+typedef struct {
+    /**
+     * Storage format of bitmap pixels.
+     */
+    OH_Drawing_ColorFormat colorFormat;
+    /**
+     * Alpha format of bitmap pixels.
+     */
+    OH_Drawing_AlphaFormat alphaFormat;
+} OH_Drawing_BitmapFormat;
 
 /**
  * @brief Creates an **OH_Drawing_Bitmap** object.
@@ -199,22 +216,6 @@ bool OH_Drawing_BitmapReadPixels(OH_Drawing_Bitmap* bitmap, const OH_Drawing_Ima
  * @since 26.0.0
  */
 OH_Drawing_ErrorCode OH_Drawing_BitmapGetRowBytes(OH_Drawing_Bitmap* bitmap, uint32_t* bytes);
-/**
- * @brief This struct describes the pixel format of a bitmap, including the color type and alpha type.
- *  
- * @since 8
- * @version 1.0
- */
-typedef struct {
-    /**
-     * Storage format of bitmap pixels.
-     */
-    OH_Drawing_ColorFormat colorFormat;
-    /**
-     * Alpha format of bitmap pixels.
-     */
-    OH_Drawing_AlphaFormat alphaFormat;
-} OH_Drawing_BitmapFormat;
 
 #ifdef __cplusplus
 }
