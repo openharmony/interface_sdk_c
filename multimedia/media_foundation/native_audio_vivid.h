@@ -114,7 +114,7 @@ typedef struct OH_CartesianPosition {
 typedef struct OH_PolarPosition {
     /**
      * Indicates the azimuth angle of the object's location when the polar coordinate system is used.
-     * Value range is [-180.0, 180.0], where 0.0 is front, 90.0 is right, -90.0 is left.
+     * Value range is [-180.0, 180.0], where 0.0 is front, 90.0 is left, -90.0 is right, -180.0 or 180.0 is back.
      * @since 26.0.0
      */
     float azimuth;
