@@ -661,7 +661,7 @@ bool OH_Drawing_PathBuildFromSvgString(OH_Drawing_Path* path, const char* str);
  * @param strSize Indicates the SVG string memory size in bytes.
  * @return Returns the error code.
  *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
- *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if path or strSize is nullptr.
+ *         Returns {@link OH_DRAWING_ERROR_INCORRECT_PARAMETER} if path or strSize is nullptr.
  * @since 26.0.0
  */
 OH_Drawing_ErrorCode OH_Drawing_PathConvertToSvgString(const OH_Drawing_Path* path, char* str, size_t* strSize);
@@ -674,7 +674,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathConvertToSvgString(const OH_Drawing_Path* pa
  * @param count Indicates the size of point array.
  * @return Returns the error code.
  *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
- *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if path or count is nullptr.
+ *         Returns {@link OH_DRAWING_ERROR_INCORRECT_PARAMETER} if path or count is nullptr.
  * @since 26.0.0
  */
 OH_Drawing_ErrorCode OH_Drawing_PathGetPointData(
@@ -688,7 +688,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathGetPointData(
  * @param count Indicates the size of verb array.
  * @return Returns the error code.
  *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
- *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if path or count is nullptr.
+ *         Returns {@link OH_DRAWING_ERROR_INCORRECT_PARAMETER} if path or count is nullptr.
  * @since 26.0.0
  */
 OH_Drawing_ErrorCode OH_Drawing_PathGetVerbData(const OH_Drawing_Path* path, OH_Drawing_PathIteratorVerb* verbs,
@@ -702,7 +702,7 @@ OH_Drawing_ErrorCode OH_Drawing_PathGetVerbData(const OH_Drawing_Path* path, OH_
  * @param count Indicates the size of conic weight array.
  * @return Returns the error code.
  *         Returns {@link OH_DRAWING_SUCCESS} if the operation is successful.
- *         Returns {@link OH_DRAWING_ERROR_INVALID_PARAMETER} if path or count is nullptr.
+ *         Returns {@link OH_DRAWING_ERROR_INCORRECT_PARAMETER} if path or count is nullptr.
  * @since 26.0.0
  */
 OH_Drawing_ErrorCode OH_Drawing_PathGetConicWeightData(
