@@ -1503,6 +1503,7 @@ extern const char *OH_MD_KEY_ALTITUDE;
  */
 extern const char *OH_MD_KEY_SCREEN_CAPTURE_WINDOW_RECT;
 
+
 /**
  * @brief Key for setting the Audio Vivid signal input format.
  *
