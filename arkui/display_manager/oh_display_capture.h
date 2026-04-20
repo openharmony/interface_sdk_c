@@ -50,6 +50,8 @@ extern "C" {
  * @brief Capture a screen pixelmap of the specified display.
  *
  * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE
+ * - API version 22+：ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CUSTOM_SCREEN_RECORDING
+ * - API version 14-21：ohos.permission.CUSTOM_SCREEN_CAPTURE
  * @param displayId The ID of the display to be captured.
  * @param pixelMap The output pixel map of the captured display.
  * @return { @link DISPLAY_MANAGER_OK } If the operation is successful.
