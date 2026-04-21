@@ -133,8 +133,8 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDevice(
  * Your application can register a callback via
  * {@link OH_AudioDeviceEnhanceManager_RegisterCurrentInputDeviceChangeCallback} to listen for changes to the actual
  * input device. The selection becomes invalid when the application exits or the selected device goes offline.
- * After the application restarts or the device comes back online, you must re-issue the selection for it to take effect.
- * If the system does not support this function, a default input device will be selected automatically.
+ * After the application restarts or the device comes back online, you must re-issue the selection for it to
+ * take effect. If the system does not support this function, a default input device will be selected automatically.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
