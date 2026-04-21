@@ -19,26 +19,22 @@
  *
  * @brief Provide the definition of the C interface for the audio module.
  *
- * @syscap SystemCapability.Multimedia.Audio.Core
- *
  * @since 26.0.0
- * @version 1.0
  */
 
 /**
- * @file native_audio_routing_enhance_manager.h
+ * @file native_audio_device_enhance_manager.h
  *
  * @brief Declares audio device enhancement manager related interfaces.
  *
  * The interfaces in this file are used for obtaining the OH_AudioDeviceEnhanceManager handle,
- * switching the input or output devices of your application itself,
+ * selecting the input or output devices of your application itself,
  * as well as other enhanced functions related to audio devices or routing.
  *
  * @library libohaudio.so
  * @syscap SystemCapability.Multimedia.Audio.Core
  * @kit AudioKit
  * @since 26.0.0
- * @version 1.0
  */
 
 #ifndef NATIVE_AUDIO_DEVICE_ENHANCE_MANAGER_H
