@@ -48,21 +48,132 @@
 extern "C" {
 #endif
 
+/**
+ * @brief The byte length of the AEAD authentication label.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define OH_HUKS_AE_TAG_LEN 16
+
+/**
+ * @brief The number of bits in each byte.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define OH_HUKS_BITS_PER_BYTE 8
+
+/**
+ * @brief Maximum byte length of the key.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define OH_HUKS_MAX_KEY_SIZE 2048
+
+/**
+ * @brief The byte length of the AEAD nonce.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define OH_HUKS_AE_NONCE_LEN 12
+
+/**
+ * @brief Maximum byte length of the key alias.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define OH_HUKS_MAX_KEY_ALIAS_LEN 64
+
+/**
+ * @brief Maximum byte length of the process name.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define OH_HUKS_MAX_PROCESS_NAME_LEN 50
+
+/**
+ * @brief The maximum byte length of random number.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define OH_HUKS_MAX_RANDOM_LEN 1024
+
+/**
+ * @brief The minimum byte length of the signature result.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define OH_HUKS_SIGNATURE_MIN_SIZE 64
+
+/**
+ * @brief Maximum byte size of exported data.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define OH_HUKS_MAX_OUT_BLOB_SIZE (5 * 1024 * 1024)
+
+/**
+ * @brief The maximum number of bytes for the encryption key to be imported.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define OH_HUKS_WRAPPED_FORMAT_MAX_SIZE (1024 * 1024)
+
+/**
+ * @brief The maximum number of data blocks for importing the encryption key data.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define OH_HUKS_IMPORT_WRAPPED_KEY_TOTAL_BLOBS 10
+
+/**
+ * @brief The byte length of challenge value during access control.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define TOKEN_CHALLENGE_LEN 32
+
+/**
+ * @brief The byte length of SHA256 signature.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define SHA256_SIGN_LEN 32
+
+/**
+ * @brief The byte length of challenge value during access control.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define TOKEN_SIZE 32
+
+/**
+ * @brief Maximum user authentication timeout.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define MAX_AUTH_TIMEOUT_SECOND 60
+
+/**
+ * @brief Version of secure signed data.
+ *
+ * @since 9
+ * @version 1.0
+ */
 #define SECURE_SIGN_VERSION 0x01000001
 
 /**
@@ -318,6 +429,12 @@ enum OH_Huks_AlgSuite {
      *  |   key_material_size_len     (4 Byte) |  key_material_size  |   key_mat_enc_length (4 Byte) | key_mat_enc_data
      */
     OH_HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING = 2,
+    /**
+     * @brief Use SM2 and then use SM4-ECB-NoPadding to encrypt the key
+     * 
+     * @since 23
+     */
+    OH_HUKS_UNWRAP_SUITE_SM2_SM4_ECB_NOPADDING = 5,
 };
 
 /**
@@ -458,11 +575,60 @@ enum  OH_Huks_ErrCode {
      */
     OH_HUKS_ERR_CODE_KEY_ALREADY_EXIST = 12000017,
     /**
-     * The input parameter is invalid..
+     * The input parameter is invalid.
      *
      * @since 20
      */
-    OH_HUKS_ERR_CODE_INVALID_ARGUMENT = 12000018
+    OH_HUKS_ERR_CODE_INVALID_ARGUMENT = 12000018,
+
+    /**
+     * The item already exists.
+     *
+     * @since 22
+     */
+    OH_HUKS_ERR_CODE_ITEM_EXISTS = 12000019,
+
+    /**
+     * An error occurred in the external module.
+     *
+     * @since 22
+     */
+    OH_HUKS_ERR_CODE_EXTERNAL_MODULE = 12000020,
+
+    /**
+     * The Ukey PIN is locked.
+     *
+     * @since 22
+     */
+    OH_HUKS_ERR_CODE_PIN_LOCKED = 12000021,
+
+    /**
+     * The Ukey PIN is incorrect.
+     *
+     * @since 22
+     */
+    OH_HUKS_ERR_CODE_PIN_INCORRECT = 12000022,
+
+    /**
+     * The Ukey PIN is not authenticated.
+     *
+     * @since 22
+     */
+    OH_HUKS_ERR_CODE_PIN_NO_AUTH = 12000023,
+
+    /**
+     * The device or resource is busy.
+     *
+     * @since 22
+     */
+    OH_HUKS_ERR_CODE_BUSY = 12000024,
+
+    /**
+     * The resource exceeds the limit.
+     *
+     * @since 22
+     */
+    OH_HUKS_ERR_CODE_EXCEED_LIMIT = 12000025,
 };
 
 /**
@@ -502,7 +668,7 @@ enum OH_Huks_UserAuthType {
     OH_HUKS_USER_AUTH_TYPE_PIN = 1 << 2,
     /**
      * Enum for tui pin auth type.
-     * 
+     *
      * @since 20
      */
     OH_HUKS_USER_AUTH_TYPE_TUI_PIN = 1 << 5,
@@ -623,6 +789,25 @@ enum OH_Huks_SecureSignType {
     OH_HUKS_SECURE_SIGN_WITH_AUTHINFO = 1,
 };
 
+/**
+ * @brief Enumerates the types of keys.
+ *
+ * @since 22
+ */
+typedef enum OH_Huks_KeyClassType {
+    /**
+     * @brief The default type specifics the key is stored in huks.
+     *
+     * @since 22
+     */
+    OH_HUKS_KEY_CLASS_DEFAULT = 0,
+    /**
+     * @brief The key is stored in external crypto provider.
+     *
+     * @since 22
+     */
+    OH_HUKS_KEY_CLASS_EXTENSION = 1,
+} OH_Huks_KeyClassType;
 /**
  * Enum for key wrap type.
  *
@@ -758,6 +943,24 @@ enum OH_Huks_Tag {
      * @since 20
      */
     OH_HUKS_TAG_KEY_OVERRIDE = OH_HUKS_TAG_TYPE_BOOL | 520,
+    /**
+     * @brief The tag indicates the length of AEAD for CCM mode.
+     *
+     * @since 22
+     */
+    OH_HUKS_TAG_AE_TAG_LEN = OH_HUKS_TAG_TYPE_UINT | 521,
+    /**
+     * @brief The tag indicates the key class type.
+     *
+     * @since 22
+     */
+    OH_HUKS_TAG_KEY_CLASS = OH_HUKS_TAG_TYPE_UINT | 522,
+    /**
+     * @brief The tag indicates a group of shared keys among applications with the same developer ID.
+     *
+     * @since 23
+     */
+    OH_HUKS_TAG_KEY_ACCESS_GROUP = OH_HUKS_TAG_TYPE_BYTES | 523,
     /**
      * 601 to 1000 are reserved for other tags.
      *

@@ -125,7 +125,7 @@ typedef enum {
     OH_NATIVEXCOMPONENT_TOOL_TYPE_FINGER,
     /** Indicates a stylus. */
     OH_NATIVEXCOMPONENT_TOOL_TYPE_PEN,
-    /** Indicates a eraser. */
+    /** Indicates an eraser. */
     OH_NATIVEXCOMPONENT_TOOL_TYPE_RUBBER,
     /** Indicates a brush. */
     OH_NATIVEXCOMPONENT_TOOL_TYPE_BRUSH,
@@ -241,9 +241,9 @@ typedef struct {
     float force;
     /** Timestamp of the current touch event. */
     int64_t timeStamp;
-    /** The angle betweenprojection on plane-X-Y and axis-Z of the current touch event. */
+    /** The angle between projection on plane-X-Y and axis-Z of the current touch event. */
     float titlX;
-    /** The angle betweenprojection on plane-Y-Z and axis-Z of the current touch event. */
+    /** The angle between projection on plane-Y-Z and axis-Z of the current touch event. */
     float titlY;
     /** The sourceTool of the current touch event. */
     OH_NativeXComponent_TouchEvent_SourceTool sourceTool;
@@ -1207,10 +1207,10 @@ int32_t OH_ArkUI_XComponent_Initialize(ArkUI_NodeHandle node);
 int32_t OH_ArkUI_XComponent_Finalize(ArkUI_NodeHandle node);
 
 /**
- * @brief Obtains whether the XComponent node has initalized or not.
+ * @brief Obtains whether the XComponent node has initialized or not.
  *
  * @param node Indicates the pointer to the XComponent node.
- * @param isInitialized Indicates whether the XComponent node has initalized.
+ * @param isInitialized Indicates whether the XComponent node has initialized.
  * @return Returns the status code of the execution.
  *         {@link ARKUI_ERROR_CODE_NO_ERROR} the execution is successful.
  *         {@link ARKUI_ERROR_CODE_PARAM_INVALID} if the node is invalid.
@@ -1308,6 +1308,54 @@ void OH_ArkUI_SurfaceCallback_SetSurfaceShowEvent(
 void OH_ArkUI_SurfaceCallback_SetSurfaceHideEvent(
     OH_ArkUI_SurfaceCallback* callback,
     void (*onSurfaceHide)(OH_ArkUI_SurfaceHolder* surfaceHolder));
+
+/**
+ * @brief Declares the config for Surface held by XComponent.
+ *
+ * @since 22
+ */
+typedef struct ArkUI_XComponentSurfaceConfig ArkUI_XComponentSurfaceConfig;
+
+/**
+ * @brief Create an <b>ArkUI_XComponentSurfaceConfig</b> object.
+ *
+ * @return A pointer to the object of the XComponent's surface config.
+ * @since 22
+ */
+ArkUI_XComponentSurfaceConfig* OH_ArkUI_XComponentSurfaceConfig_Create();
+
+/**
+ * @brief Dispose of an <b>ArkUI_XComponentSurfaceConfig</b> object.
+ *
+ * @param config A pointer to the object of the XComponent's surface config to be destroyed.
+ * @since 22
+ */
+void OH_ArkUI_XComponentSurfaceConfig_Dispose(ArkUI_XComponentSurfaceConfig* config);
+
+/**
+ * @brief Set whether the surface held by XComponent needs to be considered opaque,
+ * even if the surface has translucent pixel.
+ *
+ * @param config A pointer to the object of the XComponent's surface config.
+ * @param isOpaque Indicates whether the surface held by XComponent needs to be considered opaque,
+ *     True means needing to be considered opaque, false otherwise.
+ * @since 22
+ */
+void OH_ArkUI_XComponentSurfaceConfig_SetIsOpaque(ArkUI_XComponentSurfaceConfig* config, bool isOpaque);
+
+/**
+ * @brief Set surface config for this <b>OH_ArkUI_SurfaceHolder</b> instance.
+ *
+ * @param surfaceHolder Indicates the pointer to this <b>OH_ArkUI_SurfaceHolder</b> instance.
+ * @param config Indicates the pointer to the XComponent's surface config.
+ * @return Returns the status code of the execution.
+ *         {@link ARKUI_ERROR_CODE_NO_ERROR} the execution is successful.
+ *         {@link ARKUI_ERROR_CODE_PARAM_INVALID} if a parameter error occurs.
+ * @since 22
+ */
+int32_t OH_ArkUI_SurfaceHolder_SetSurfaceConfig(
+    OH_ArkUI_SurfaceHolder *surfaceHolder,
+    ArkUI_XComponentSurfaceConfig *config);
 #ifdef __cplusplus
 };
 #endif

@@ -104,7 +104,9 @@ EXTERN_C_START
  *
  * @param  options The options for initialize the JavaScript VM.
  * @return Returns JSVM funtions result code.
- *         Returns {@link JSVM_OK } in all cases.\n
+ *         {@link JSVM_OK } if the API succeeded. \n
+ *         {@link JSVM_GENERIC_FAILURE } If the execution fails, it means that the current process has completed
+ *                                       JSVM initialization and there is no need to repeat the execution.\n
  * @since 11
  */
 JSVM_EXTERN JSVM_Status OH_JSVM_Init(const JSVM_InitOptions* options);
@@ -115,7 +117,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_Init(const JSVM_InitOptions* options);
  * @param options The options for create the VM instance.
  * @param result The new VM instance.
  * @return Returns JSVM funtions result code.
- *         {@link JSVM_OK } If the function executed successfully.\n
+ *         Returns {@link JSVM_OK } If the function executed successfully.\n
+ *         Returns {@link JSVM_INVALID_ARG } if the any of the input arguments is NULL. \n
  * @since 11
  */
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateVM(const JSVM_CreateVMOptions* options,
@@ -127,7 +130,9 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateVM(const JSVM_CreateVMOptions* options,
  *
  * @param vm The VM instance to set mircrotasks policy.
  * @param policy Policy for running microtasks.
- * @return Returns JSVM_OK if the API succeeded.
+ * @return Returns JSVM funtions result code.
+ *         Returns {@link JSVM_OK } If the function executed successfully.\n
+ *         Returns {@link JSVM_INVALID_ARG } If `vm` is NULL or `policy` is out of range.\n
  * @since 18
  */
 JSVM_EXTERN JSVM_Status OH_JSVM_SetMicrotaskPolicy(JSVM_VM vm,
@@ -138,7 +143,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_SetMicrotaskPolicy(JSVM_VM vm,
  *
  * @param vm The VM instance to be Destroyed.
  * @return Returns JSVM funtions result code.
- *         {@link JSVM_OK } If the function executed successfully.\n
+ *         Returns {@link JSVM_OK } If the function executed successfully.\n
+ *         Returns {@link JSVM_INVALID_ARG } If `vm` is NULL.\n
  * @since 11
  */
 JSVM_EXTERN JSVM_Status OH_JSVM_DestroyVM(JSVM_VM vm);
@@ -245,7 +251,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateEnv(JSVM_VM vm,
  * @param index The index of the environment in the snapshot.
  * @param result The new environment created.
  * @return Returns JSVM funtions result code.
- *         {@link JSVM_OK } If the function executed successfully.\n
+ *         Returns {@link JSVM_OK } If the function executed successfully.\n
+ *         Returns {@link JSVM_GENERIC_FAILURE } If the snapshot context for `index` could not be created.\n
  * @since 11
  */
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateEnvFromSnapshot(JSVM_VM vm,
@@ -309,7 +316,12 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetVM(JSVM_Env env,
  * @param cacheRejected Whether the code cache rejected by compilation.
  * @param result The compiled script.
  * @return Returns JSVM funtions result code.
- *         {@link JSVM_OK } If the function executed successfully.\n
+ *         Returns {@link JSVM_OK } If the function executed successfully.\n
+ *         Returns {@link JSVM_INVALID_ARG } if the any of the input arguments is NULL. \n
+ *         Returns {@link JSVM_STRING_EXPECTED } If `script` is not a string.\n
+ *         Returns {@link JSVM_GENERIC_FAILURE } If compilation failed (e.g. compiler returned empty).\n
+ *         Returns {@link JSVM_CANNOT_RUN_JS} if an exception occurs. \n
+ *         Returns {@link JSVM_PENDING_EXCEPTION} if an exception occurs. \n
  * @since 11
  */
 JSVM_EXTERN JSVM_Status OH_JSVM_CompileScript(JSVM_Env env,
@@ -333,7 +345,12 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CompileScript(JSVM_Env env,
  * @param origin The information of source code.
  * @param result The compiled script.
  * @return Returns JSVM funtions result code.
- *         {@link JSVM_OK } If the function executed successfully.\n
+ *         Returns {@link JSVM_OK } If the function executed successfully.\n
+ *         Returns {@link JSVM_INVALID_ARG } if the any of the input arguments is NULL. \n
+ *         Returns {@link JSVM_STRING_EXPECTED } If `script` is not a string.\n
+ *         Returns {@link JSVM_GENERIC_FAILURE } If compilation failed.\n
+ *         Returns {@link JSVM_CANNOT_RUN_JS} if an exception occurs. \n
+ *         Returns {@link JSVM_PENDING_EXCEPTION} if an exception occurs. \n
  * @since 12
  */
 JSVM_EXTERN JSVM_Status OH_JSVM_CompileScriptWithOrigin(JSVM_Env env,
@@ -2860,6 +2877,9 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsSet(JSVM_Env env,
  * @return Returns JSVM functions result code
  *         {@link JSVM_OK } if the API succeeded. \n
  *         {@link JSVM_INVALID_ARG } If the input parameter is invalid.\n
+ *         {@link JSVM_STRING_EXPECTED } If there are parameters passed in that are not of type string.\n
+ *         {@link JSVM_GENERIC_FAILURE } If there is an unknown reason causing execution failure.\n
+ *         {@link JSVM_PENDING_EXCEPTION } If a JS exception occurs during the execution process.\n
  * @since 12
  */
 JSVM_EXTERN JSVM_Status OH_JSVM_CompileScriptWithOptions(JSVM_Env env,
@@ -3689,6 +3709,82 @@ JSVM_EXTERN JSVM_Status OH_JSVM_RemoveHandlerForGC(JSVM_VM vm,
                                                    JSVM_CBTriggerTimeForGC triggerTime,
                                                    JSVM_HandlerForGC handler,
                                                    void* userData);
+
+/**
+ * @brief Deserialize JavaScript code cache in thread pool, and release
+ * JSVM_DeserializeResult with OH_JSVM_ReleaseDeserializeResult.
+ *
+ * @param vm The VM instance where background deserialize will be performed.
+ * @param cacheData Code cache data to be deserialized.
+ * @param result The result of background deserialize.
+ * @return Returns JSVM funtions result code.
+ *         {@link JSVM_OK } if the function executed successfully.\n
+ *         {@link JSVM_INVALID_ARG } if any of the pointer arguments is NULL.\n
+ * @since 24
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_BackgroundDeserialize(
+    JSVM_VM vm, JSVM_CodeCache cacheData, JSVM_DeserializeResult* result);
+
+/**
+ * @brief Release deserialize result.
+ *
+ * @param result The background deserialize result to be release.
+ * @return Returns JSVM funtions result code.
+ *         {@link JSVM_OK } if the function executed successfully.\n
+ *         {@link JSVM_INVALID_ARG } if any of the pointer arguments is NULL.\n
+ * @since 24
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_ReleaseDeserializeResult(JSVM_DeserializeResult result);
+
+#ifdef JSVM_EXPERIMENTAL
+/**
+ * @brief Creates a JavaScript ArrayBuffer whose content is initialized from user-provided
+ * external memory. The implementation may either directly reference the external memory
+ * (zero-copy) or copy the data into an internally managed buffer, depending on engine
+ * implementation.
+ *
+ * When zero-copy is used, the ArrayBuffer directly references the external memory. The
+ * caller must NOT free it before the finalize callback is invoked.
+ *
+ * When a copy occurs, the data is copied into engine-managed memory. The copied output
+ * parameter is set to true so the caller knows their memory is no longer
+ * referenced. The resulting ArrayBuffer's data pointer (from OH_JSVM_GetArraybufferInfo)
+ * will differ from externalData.
+ *
+ * @param env The environment that the API is invoked under.
+ * @param externalData Pointer to the source memory block. Must be 8-byte aligned.
+ *                     Can be nullptr only if byteLength is 0.
+ * @param byteLength The length in bytes of the source memory block. Must not exceed the
+ *                   engine's maximum ArrayBuffer size.
+ * @param finalizeCb Optional callback invoked when the ArrayBuffer object created by this
+ *                   API is garbage collected. The callback receives the original externalData
+ *                   pointer, finalizeHint, and a boolean indicating whether the data was copied.
+ *                   When copied is true, the engine does not reference externalData and the
+ *                   caller may free it immediately after this API returns. When copied is
+ *                   false (zero-copy), externalData is still in use and should only be freed
+ *                   in this callback. Can be NULL if no cleanup is needed.
+ * @param finalizeHint Optional hint passed to finalizeCb. Can be NULL.
+ * @param copied Optional output parameter. If non-NULL, set to true when data was copied
+ *               into an internal buffer, or false when zero-copy was used. Pass NULL if
+ *               the caller does not need this information.
+ * @param result A JSVM_Value representing the created JavaScript ArrayBuffer.
+ * @return Returns JSVM funtions result code.
+ *         Returns {@link JSVM_OK } if creation succeeded.\n
+ *         Returns {@link JSVM_INVALID_ARG } if result is null, externalData is null when
+ *         byteLength > 0, externalData is not 8-byte aligned, or byteLength exceeds the
+ *         engine's maximum ArrayBuffer size.\n
+ *
+ * @since 26.0.0
+ */
+JSVM_EXTERN JSVM_Status OH_JSVM_CreateArrayBufferFromExternalMemory(JSVM_Env env,
+                                                                    void* externalData,
+                                                                    size_t byteLength,
+                                                                    JSVM_FinalizeArrayBuffer finalizeCb,
+                                                                    void* finalizeHint,
+                                                                    bool* copied,
+                                                                    JSVM_Value* result);
+#endif // JSVM_EXPERIMENTAL
+
 EXTERN_C_END
 /** @} */
 #endif /* ARK_RUNTIME_JSVM_JSVM_H */

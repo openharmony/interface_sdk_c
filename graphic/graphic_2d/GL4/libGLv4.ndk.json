@@ -1050,5 +1050,2305 @@
     {
         "first_introduced": "20",
         "name": "glUniformMatrix4x3fv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDrawRangeElements"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glTexSubImage3D"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glCompressedTexImage3D"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glCompressedTexImage1D"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glCompressedTexSubImage3D"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetCompressedTexImage"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glPointParameterf"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glPointParameterfv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glPointParameteri"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glPointParameteriv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glIsQuery"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetQueryiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetQueryObjectuiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetBufferPointerv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetVertexAttribdv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib1d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib1dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib1s"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib1sv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib2d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib2dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib2s"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib2sv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib3d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib3dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib3s"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib3sv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4Nbv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4Niv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4Nsv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4Nub"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4Nubv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4Nuiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4Nusv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4bv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4iv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4s"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4sv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4ubv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttrib4usv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glColorMaski"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetBooleani_v"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glEnablei"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDisablei"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glIsEnabledi"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetTransformFeedbackVarying"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glBeginConditionalRender"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glEndConditionalRender"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetVertexAttribIiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetVertexAttribIuiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI1i"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI2i"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI3i"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI4i"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI1ui"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI2ui"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI3ui"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI4ui"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI1iv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI2iv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI3iv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI4iv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI1uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI2uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI3uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI4uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI4bv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI4sv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI4ubv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribI4usv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetUniformuiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glBindFragDataLocation"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetFragDataLocation"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniform2ui"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniform3ui"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniform4ui"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniform1uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniform2uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniform3uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniform4uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glTexParameterIiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glTexParameterIuiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetTexParameterIiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetTexParameterIuiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glClearBufferiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glClearBufferuiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glClearBufferfi"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glFramebufferTexture1D"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glFramebufferTexture3D"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glFramebufferTextureLayer"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetUniformIndices"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetActiveUniformsiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetActiveUniformName"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetUniformBlockIndex"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetActiveUniformBlockiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDrawRangeElementsBaseVertex"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProvokingVertex"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glIsSync"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glWaitSync"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetInteger64v"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetSynciv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetInteger64i_v"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetBufferParameteri64v"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glTexImage3DMultisample"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetMultisamplefv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glSampleMaski"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glBindFragDataLocationIndexed"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetFragDataIndex"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGenSamplers"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDeleteSamplers"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glIsSampler"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glBindSampler"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glSamplerParameteri"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glSamplerParameteriv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glSamplerParameterf"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glSamplerParameterfv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glSamplerParameterIiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glSamplerParameterIuiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetSamplerParameteriv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetSamplerParameterIiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetSamplerParameterfv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetSamplerParameterIuiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glQueryCounter"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetQueryObjecti64v"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetQueryObjectui64v"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribDivisor"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribP1ui"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribP1uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribP2ui"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribP2uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribP3ui"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribP3uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribP4ui"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribP4uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glMinSampleShading"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glBlendEquationi"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glBlendEquationSeparatei"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glBlendFuncSeparatei"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDrawArraysIndirect"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDrawElementsIndirect"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniform1d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniform2d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniform3d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniform4d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniformMatrix2dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniformMatrix2x3dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniformMatrix2x4dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniformMatrix3x2dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniformMatrix3x4dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniformMatrix4x2dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniformMatrix4x3dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetUniformdv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetSubroutineUniformLocation"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetSubroutineIndex"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetActiveSubroutineUniformiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetActiveSubroutineUniformName"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetActiveSubroutineName"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUniformSubroutinesuiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetUniformSubroutineuiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetProgramStageiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glPatchParameterfv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glBindTransformFeedback"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDeleteTransformFeedbacks"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGenTransformFeedbacks"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glIsTransformFeedback"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glPauseTransformFeedback"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glResumeTransformFeedback"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glBeginQueryIndexed"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glEndQueryIndexed"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetQueryIndexediv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glUseProgramStages"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glActiveShaderProgram"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glCreateShaderProgramv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glBindProgramPipeline"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDeleteProgramPipelines"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGenProgramPipelines"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glIsProgramPipeline"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetProgramPipelineiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform1i"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform1iv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform1f"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform1fv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform1d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform1dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform1ui"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform1uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform2i"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform2iv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform2f"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform2fv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform2d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform2dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform2ui"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform2uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform3i"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform3iv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform3f"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform3fv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform3d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform3dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform3ui"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform3uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform4i"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform4iv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform4f"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform4fv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform4d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform4dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform4ui"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniform4uiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix2fv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix3fv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix4fv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix2dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix3dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix4dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix2x3fv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix3x2fv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix2x4fv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix4x2fv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix3x4fv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix4x3fv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix2x3dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix3x2dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix2x4dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix4x2dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix3x4dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glProgramUniformMatrix4x3dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glValidateProgramPipeline"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetProgramPipelineInfoLog"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribL1d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribL2d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribL3d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribL4d"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribL1dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribL2dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribL3dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribL4dv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetVertexAttribLdv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glViewportArrayv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glViewportIndexedf"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glViewportIndexedfv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glScissorArrayv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glScissorIndexed"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glScissorIndexedv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDepthRangeArrayv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDepthRangeIndexed"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetFloati_v"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetDoublei_v"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDrawArraysInstancedBaseInstance"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDrawElementsInstancedBaseInstance"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDrawElementsInstancedBaseVertexBaseInstance"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetInternalformativ"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glTexStorage1D"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glTexStorage2D"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glTexStorage3D"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDispatchCompute"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDispatchComputeIndirect"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glFramebufferParameteri"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetFramebufferParameteriv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetInternalformati64v"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glInvalidateTexSubImage"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glInvalidateTexImage"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glInvalidateBufferData"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glInvalidateFramebuffer"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glInvalidateSubFramebuffer"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glMultiDrawArraysIndirect"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetProgramInterfaceiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetProgramResourceName"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetProgramResourceiv"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetProgramResourceLocation"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetProgramResourceLocationIndex"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glTexBufferRange"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glTexStorage2DMultisample"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glTexStorage3DMultisample"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glTextureView"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribFormat"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexAttribLFormat"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glVertexBindingDivisor"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDebugMessageControl"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glDebugMessageInsert"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetDebugMessageLog"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glObjectLabel"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetObjectLabel"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glObjectPtrLabel"
+    },
+    {
+        "first_introduced": "22",
+        "name": "glGetObjectPtrLabel"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glAlphaFunc"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEdgeFlag"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEdgeFlagv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glClipPlane"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetClipPlane"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEnableClientState"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glDisableClientState"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glPushAttrib"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glPopAttrib"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glPushClientAttrib"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glPopClientAttrib"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRenderMode"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMatrixMode"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glOrtho"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glFrustum"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glPushMatrix"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glPopMatrix"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glLoadIdentity"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glLoadMatrixd"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glLoadMatrixf"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultMatrixd"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultMatrixf"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRotated"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRotatef"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glScaled"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glScalef"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTranslated"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTranslatef"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glIsList"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glDeleteLists"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGenLists"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glNewList"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEndList"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glCallList"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glCallLists"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glListBase"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glBegin"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEnd"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex2d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex2f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex2i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex2s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex3d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex3f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex3i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex3s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex4d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex4f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex4i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex4s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex2dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex2fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex2iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex2sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex3dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex3fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex3iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex3sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex4dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex4fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex4iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertex4sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glNormal3b"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glNormal3d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glNormal3f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glNormal3i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glNormal3s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glNormal3bv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glNormal3dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glNormal3fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glNormal3iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glNormal3sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3b"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3ub"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3ui"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3us"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor4b"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor4d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor4i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor4s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor4ub"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor4ui"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor4us"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3bv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3ubv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3uiv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor3usv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor4bv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor4dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor4fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor4iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor4sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor4ubv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor4uiv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColor4usv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord1d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord1f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord1i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord1s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord2d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord2f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord2i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord2s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord3d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord3f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord3i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord3s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord4d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord4f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord4i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord4s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord1dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord1fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord1iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord1sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord2dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord2fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord2iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord2sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord3dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord3fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord3iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord3sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord4dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord4fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord4iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoord4sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos2d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos2f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos2i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos2s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos3d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos3f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos3i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos3s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos4d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos4f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos4i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos4s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos2dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos2fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos2iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos2sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos3dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos3fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos3iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos3sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos4dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos4fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos4iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRasterPos4sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRectd"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRectf"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRecti"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRects"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRectdv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRectfv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRectiv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glRectsv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glVertexPointer"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glNormalPointer"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColorPointer"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexCoordPointer"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEdgeFlagPointer"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glArrayElement"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glInterleavedArrays"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glLightf"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glLighti"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glLightfv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glLightiv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetLightfv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetLightiv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glLightModelf"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glLightModeli"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glLightModelfv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glLightModeliv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMaterialf"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMateriali"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMaterialfv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMaterialiv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetMaterialfv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetMaterialiv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glColorMaterial"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glPixelZoom"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glPixelTransferf"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glPixelTransferi"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glPixelMapfv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glPixelMapuiv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glPixelMapusv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetPixelMapfv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetPixelMapuiv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetPixelMapusv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glBitmap"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glDrawPixels"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glCopyPixels"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexGend"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexGenf"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexGeni"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexGendv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexGenfv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexGeniv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetTexGendv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetTexGenfv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetTexGeniv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexEnvf"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexEnvi"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexEnvfv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glTexEnviv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetTexEnvfv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetTexEnviv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glPrioritizeTextures"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glAreTexturesResident"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMap1d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMap1f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMap2d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMap2f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetMapdv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetMapfv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glGetMapiv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEvalCoord1d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEvalCoord1f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEvalCoord1dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEvalCoord1fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEvalCoord2d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEvalCoord2f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEvalCoord2dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEvalCoord2fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMapGrid1d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMapGrid1f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMapGrid2d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMapGrid2f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEvalPoint1"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEvalPoint2"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEvalMesh1"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glEvalMesh2"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glFogf"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glFogi"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glFogfv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glFogiv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glFeedbackBuffer"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glPassThrough"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glClientActiveTexture"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord1d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord1dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord1f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord1fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord1i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord1iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord1s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord1sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord2d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord2dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord2f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord2fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord2i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord2iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord2s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord2sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord3d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord3dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord3f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord3fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord3i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord3iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord3s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord3sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord4d"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord4dv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord4f"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord4fv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord4i"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord4iv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord4s"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultiTexCoord4sv"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glLoadTransposeMatrixd"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glLoadTransposeMatrixf"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultTransposeMatrixd"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "glMultTransposeMatrixf"
     }
 ]

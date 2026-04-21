@@ -14,7 +14,7 @@
  */
 
 /**
- * @addtogroup image
+ * @addtogroup Image_NativeModule
  * @{
  *
  * @brief Provides APIs for obtaining pixel map data and information.
@@ -142,6 +142,11 @@ typedef enum {
     * YCRCB_P010 format
     */
     PIXEL_FORMAT_YCRCB_P010 = 12,
+    /**
+     * ALPHA_U8 format
+     * @since 26.0.0
+     */
+    PIXEL_FORMAT_ALPHA_U8 = 15,
 } PIXEL_FORMAT;
 
 /**
@@ -360,7 +365,10 @@ typedef struct OH_Pixelmap_InitializationOptions OH_Pixelmap_InitializationOptio
  * @brief Create a for InitializationOtions struct.
  *
  * @param options The InitializationOtions pointer will be operated.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - Parameter is nullptr or
+ *         create OH_Pixelmap_InitializationOptions object failed.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapInitializationOptions_Create(OH_Pixelmap_InitializationOptions **options);
@@ -370,7 +378,9 @@ Image_ErrorCode OH_PixelmapInitializationOptions_Create(OH_Pixelmap_Initializati
  *
  * @param options The InitializationOtions pointer will be operated.
  * @param width the number of image width.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if options or width is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapInitializationOptions_GetWidth(OH_Pixelmap_InitializationOptions *options,
@@ -381,7 +391,9 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetWidth(OH_Pixelmap_Initializa
  *
  * @param options The InitializationOtions pointer will be operated.
  * @param width the number of image width.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if options is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapInitializationOptions_SetWidth(OH_Pixelmap_InitializationOptions *options,
@@ -392,7 +404,9 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetWidth(OH_Pixelmap_Initializa
  *
  * @param options The InitializationOtions pointer will be operated.
  * @param height the number of image height.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if options or height is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapInitializationOptions_GetHeight(OH_Pixelmap_InitializationOptions *options,
@@ -403,7 +417,9 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetHeight(OH_Pixelmap_Initializ
  *
  * @param options The InitializationOtions pointer will be operated.
  * @param height the number of image height.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if options is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapInitializationOptions_SetHeight(OH_Pixelmap_InitializationOptions *options,
@@ -414,40 +430,48 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetHeight(OH_Pixelmap_Initializ
  *
  * @param options The InitializationOtions pointer will be operated.
  * @param pixelFormat the number of image pixelFormat.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if options or pixelFormat is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapInitializationOptions_GetPixelFormat(OH_Pixelmap_InitializationOptions *options,
     int32_t *pixelFormat);
 
 /**
- * @brief Set pixelFormat number for InitializationOtions struct.
+ * @brief Set pixelFormat number for InitializationOptions struct.
  *
- * @param options The InitializationOtions pointer will be operated.
+ * @param options The InitializationOptions pointer will be operated.
  * @param pixelFormat the number of image pixelFormat.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if options is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapInitializationOptions_SetPixelFormat(OH_Pixelmap_InitializationOptions *options,
     int32_t pixelFormat);
 
 /**
- * @brief Get pixelFormat number for InitializationOtions struct.
+ * @brief Get pixelFormat number for InitializationOptions struct.
  *
- * @param options The InitializationOtions pointer will be operated.
+ * @param options The InitializationOptions pointer will be operated.
  * @param srcpixelFormat the number of image srcpixelFormat.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if options or srcpixelFormat is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapInitializationOptions_GetSrcPixelFormat(OH_Pixelmap_InitializationOptions *options,
     int32_t *srcpixelFormat);
 
 /**
- * @brief Set pixelFormat number for InitializationOtions struct.
+ * @brief Set pixelFormat number for InitializationOptions struct.
  *
- * @param options The InitializationOtions pointer will be operated.
+ * @param options The InitializationOptions pointer will be operated.
  * @param srcpixelFormat the number of image srcpixelFormat.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if options is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapInitializationOptions_SetSrcPixelFormat(OH_Pixelmap_InitializationOptions *options,
@@ -482,9 +506,11 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetRowStride(OH_Pixelmap_Initia
 /**
  * @brief Get alphaType number for InitializationOtions struct.
  *
- * @param options The InitializationOtions pointer will be operated.
+ * @param options The InitializationOptions pointer will be operated.
  * @param alphaType the number of image alphaType.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if options or alphaType is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapInitializationOptions_GetAlphaType(OH_Pixelmap_InitializationOptions *options,
@@ -495,7 +521,9 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetAlphaType(OH_Pixelmap_Initia
  *
  * @param options The InitializationOtions pointer will be operated.
  * @param alphaType the number of image alphaType.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if options is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapInitializationOptions_SetAlphaType(OH_Pixelmap_InitializationOptions *options,
@@ -529,7 +557,9 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetEditable(OH_Pixelmap_Initial
  * @brief delete InitializationOtions pointer.
  *
  * @param options The InitializationOtions pointer will be operated.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if options is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapInitializationOptions_Release(OH_Pixelmap_InitializationOptions *options);
@@ -546,7 +576,10 @@ typedef struct OH_Pixelmap_ImageInfo OH_Pixelmap_ImageInfo;
  * @brief Create imageinfo struct  .
  *
  * @param info The imageinfo pointer will be operated.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - Parameter is nullptr or
+ *         create OH_Pixelmap_ImageInfo object failed.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapImageInfo_Create(OH_Pixelmap_ImageInfo **info);
@@ -556,7 +589,9 @@ Image_ErrorCode OH_PixelmapImageInfo_Create(OH_Pixelmap_ImageInfo **info);
  *
  * @param info The imageinfo pointer will be operated.
  * @param width The number of imageinfo width.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if info or width is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapImageInfo_GetWidth(OH_Pixelmap_ImageInfo *info, uint32_t *width);
@@ -566,7 +601,9 @@ Image_ErrorCode OH_PixelmapImageInfo_GetWidth(OH_Pixelmap_ImageInfo *info, uint3
  *
  * @param info The imageinfo pointer will be operated.
  * @param height The number of imageinfo height.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if info or height is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapImageInfo_GetHeight(OH_Pixelmap_ImageInfo *info, uint32_t *height);
@@ -588,7 +625,9 @@ Image_ErrorCode OH_PixelmapImageInfo_GetAlphaMode(OH_Pixelmap_ImageInfo *info, i
  *
  * @param info The imageinfo pointer will be operated.
  * @param rowStride The number of imageinfo rowStride.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if info or rowStride is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapImageInfo_GetRowStride(OH_Pixelmap_ImageInfo *info, uint32_t *rowStride);
@@ -598,7 +637,9 @@ Image_ErrorCode OH_PixelmapImageInfo_GetRowStride(OH_Pixelmap_ImageInfo *info, u
  *
  * @param info The imageinfo pointer will be operated.
  * @param pixelFormat The number of imageinfo pixelFormat.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if info or pixelFormat is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapImageInfo_GetPixelFormat(OH_Pixelmap_ImageInfo *info, int32_t *pixelFormat);
@@ -608,7 +649,9 @@ Image_ErrorCode OH_PixelmapImageInfo_GetPixelFormat(OH_Pixelmap_ImageInfo *info,
  *
  * @param info The imageinfo pointer will be operated.
  * @param alphaType The number of imageinfo alphaType.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if info or alphaType is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapImageInfo_GetAlphaType(OH_Pixelmap_ImageInfo *info, int32_t *alphaType);
@@ -618,8 +661,9 @@ Image_ErrorCode OH_PixelmapImageInfo_GetAlphaType(OH_Pixelmap_ImageInfo *info, i
  *
  * @param info The imageinfo pointer will be operated. Pointer connot be null.
  * @param isHdr Whether the image has a high dynamic range.
- * @return Returns {@link Image_ErrorCode} IMAGE_SUCCESS - The operation is successful.
- * returns {@link Image_ErrorCode} IMAGE_BAD_PARAMETER - Parameter error.Possible causes:Parameter verification failed.
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if info or isHdr is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapImageInfo_GetDynamicRange(OH_Pixelmap_ImageInfo *info, bool *isHdr);
@@ -628,7 +672,9 @@ Image_ErrorCode OH_PixelmapImageInfo_GetDynamicRange(OH_Pixelmap_ImageInfo *info
  * @brief Delete imageinfo struct pointer.
  *
  * @param info The imageinfo pointer will be operated.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if info is null.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapImageInfo_Release(OH_Pixelmap_ImageInfo *info);
@@ -640,7 +686,10 @@ Image_ErrorCode OH_PixelmapImageInfo_Release(OH_Pixelmap_ImageInfo *info);
  * @param dataLength Color buffer size in BGRA_8888 format.
  * @param options IPixel properties, including the alpha type, size, pixel format, and editable.
  * @param pixelmap Pixelmap pointer for created.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - Possible causes:
+ *         if data or options is null or failed to create pixelmap due to invalid options.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_CreatePixelmap(uint8_t *data, size_t dataLength,
@@ -705,7 +754,14 @@ Image_ErrorCode OH_PixelmapNative_ConvertPixelmapNativeFromNapi(napi_env env, na
  * @param pixelmap The Pixelmap pointer will be operated.
  * @param destination Buffer to which the image pixel map data will be written.
  * @param bufferSize Buffer size to which the image pixel map data will be written.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} if the execution is successful.
+ *         {@link IMAGE_BAD_PARAMETER} Parameter error. Possible causes:
+ *         1.Parameter is nullptr
+ *         2.pixelmap's inner pixelmap is nullptr.
+ *         3.Parameter bufferSize is less than the actual data size.
+ *         {@link IMAGE_UNKNOWN_ERROR} Internal unknown error, e.g.
+ *         memory copy failed or pixelmap's attributes are incorrect.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_ReadPixels(OH_PixelmapNative *pixelmap, uint8_t *destination, size_t *bufferSize);
@@ -716,10 +772,47 @@ Image_ErrorCode OH_PixelmapNative_ReadPixels(OH_PixelmapNative *pixelmap, uint8_
  * @param pixelmap The Pixelmap pointer will be operated.
  * @param source Buffer from which the image data will be read.
  * @param bufferSize Buffer size from which the image data will be read.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} if the execution is successful.
+ *         {@link IMAGE_BAD_PARAMETER} Parameter error. Possible causes:
+ *         1.Parameter is nullptr
+ *         2.pixelmap's inner pixelmap is nullptr.
+ *         3.Parameter bufferSize is less than the actual data size.
+ *         {@link IMAGE_UNSUPPORTED_OPERATION} If the pixelmap is not editable.
+ *         {@link IMAGE_UNKNOWN_ERROR} Internal unknown error, e.g.
+ *         memory copy failed or pixelmap's attributes are incorrect.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_WritePixels(OH_PixelmapNative *pixelmap, uint8_t *source, size_t bufferSize);
+
+/**
+ * @brief Reads data from a certain area of the PixelMap to a buffer. The resulting data will be in BGRA_8888 format.
+ *
+ * @param pixelmap The PixelMap to be read.
+ * @param area Area of the PixelMap to read the data. Data will be read and copied into area->pixels.
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} If the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} If any parameter is invalid, e.g. pixelmap or area is incorrect.
+ *         {@link IMAGE_UNKNOWN_ERROR} Internal unknown error, e.g. unsupported pixel format.
+ * @see OH_PixelmapNative
+ * @since 22
+ */
+Image_ErrorCode OH_PixelmapNative_ReadPixelsFromArea(OH_PixelmapNative *pixelmap, Image_PositionArea *area);
+
+/**
+ * @brief Writes data from a buffer to a certain area of the PixelMap. The source data should be in BGRA_8888 format.
+ *
+ * @param pixelmap The PixelMap to be written.
+ * @param area Area of the PixelMap to write the data.
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} If the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} If any parameter is invalid, e.g. pixelmap or area is incorrect.
+ *         {@link IMAGE_UNSUPPORTED_OPERATION} If the PixelMap is not editable.
+ *         {@link IMAGE_UNKNOWN_ERROR} Internal unknown error, e.g. unsupported pixel format.
+ * @see OH_PixelmapNative
+ * @since 22
+ */
+Image_ErrorCode OH_PixelmapNative_WritePixelsToArea(OH_PixelmapNative *pixelmap, Image_PositionArea *area);
 
 /**
  * @brief Get argb pixel buffer from pixelmap.
@@ -754,34 +847,109 @@ Image_ErrorCode OH_PixelmapNative_ToSdr(OH_PixelmapNative *pixelmap);
  *
  * @param pixelmap The Pixelmap pointer will be operated.
  * @param imageInfo Indicates the pointer to the image information.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - The operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - Parameter error.Possible causes:
+ *         1.pixelmap is nullptr.
+ *         2.pixelmap's inner pixelmap is nullptr.
+ *         3.imageInfo is nullptr.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_GetImageInfo(OH_PixelmapNative *pixelmap, OH_Pixelmap_ImageInfo *imageInfo);
 
 /**
+ * @brief Sets opacity of the PixelMap. Every pixel will be set to the same opacity value.
+ *
+ * @param pixelmap Pointer of the PixelMap to be modified.
+ * @param value The target opacity value to be set.
+ *     The valid range is (0.0, 1.0] where 1.0 is fully opaque and becoming more transparent as it approaches 0.0.
+ * @return Function result code:
+ *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+ *     {@link IMAGE_PIXELMAP_RELEASED} The PixelMap has been released.
+ *     {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation because the PixelMap is locked.
+ *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter.
+ *         Possible causes: 1. The rate is out of range. 2. The parameter is null.
+ *     {@link IMAGE_UNSUPPORTED_DATA_FORMAT} Unsupported data format. Possible cause: Alpha type is not supported.
+ * @since 26.0.0
+ */
+Image_ErrorCode OH_PixelmapNative_SetOpacity(OH_PixelmapNative *pixelmap, float value);
+
+/**
  * @brief Sets an opacity rate for this image pixel map.
+ *     It is recommended to use {@link OH_PixelmapNative_SetOpacity}.
  *
  * @param pixelmap The Pixelmap pointer will be operated.
  * @param rate Opacity rate to set. The value ranges from 0 to 1.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - The operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - Parameter error.Possible causes:
+ *         1.pixelmap is nullptr.
+ *         2.pixelmap's inner pixelmap is nullptr.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_Opacity(OH_PixelmapNative *pixelmap, float rate);
 
 /**
+ * @brief Scales the PixelMap in the horizontal and/or vertical dimensions.
+ *
+ * @param pixelmap Pointer of the PixelMap to be scaled.
+ * @param scaleX The scale ratio of width.
+ * @param scaleY The scale ratio of height.
+ * @return Function result code:
+ *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+ *     {@link IMAGE_PIXELMAP_RELEASED} The PixelMap has been released.
+ *     {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation because the PixelMap is locked.
+ *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter. Possible cause: The parameter is null.
+ *     {@link IMAGE_ALLOC_FAILED} Failed to allocate memory.
+ *         Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+ * @since 26.0.0
+ */
+Image_ErrorCode OH_PixelmapNative_ApplyScale(OH_PixelmapNative *pixelmap, float scaleX, float scaleY);
+
+/**
  * @brief Scales this image based on the input width and height.
+ *     It is recommended to use {@link OH_PixelmapNative_ApplyScale}.
  *
  * @param pixelmap The Pixelmap pointer will be operated.
  * @param scaleX Scaling ratio of the width.
  * @param scaleY Scaling ratio of the height.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - The operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - Parameter error.Possible causes:
+ *         1.pixelmap is nullptr.
+ *         2.pixelmap's inner pixelmap is nullptr.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_Scale(OH_PixelmapNative *pixelmap, float scaleX, float scaleY);
 
 /**
+ * @brief Scales the PixelMap in the horizontal and/or vertical dimensions with anti-aliasing.
+ *
+ * @param pixelmap Pointer of the PixelMap to be scaled.
+ * @param scaleX The scale ratio of width.
+ * @param scaleY The scale ratio of height.
+ * @param level The anti-aliasing algorithm to be used.
+ * @return Function result code:
+ *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+ *     {@link IMAGE_PIXELMAP_RELEASED} The PixelMap has been released.
+ *     {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation because the PixelMap is locked.
+ *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter. Possible cause: The parameter is null.
+ *     {@link IMAGE_ALLOC_FAILED} Failed to allocate memory.
+ *         Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+ * @since 26.0.0
+ */
+Image_ErrorCode OH_PixelmapNative_ApplyScaleWithAntiAliasing(OH_PixelmapNative *pixelmap, float scaleX, float scaleY,
+    OH_PixelmapNative_AntiAliasingLevel level);
+
+/**
  * @brief Scales this image based on the input width and height with anti-aliasing.
+ *     It is recommended to use {@link OH_PixelmapNative_ApplyScaleWithAntiAliasing}.
  *
  * @param pixelmap The Pixelmap pointer will be operated.
  * @param scaleX Scaling ratio of the width.
@@ -834,43 +1002,193 @@ Image_ErrorCode OH_PixelmapNative_CreateScaledPixelMapWithAntiAliasing(OH_Pixelm
     OH_PixelmapNative **dstPixelmap, float scaleX, float scaleY, OH_PixelmapNative_AntiAliasingLevel level);
 
 /**
+ * @brief Repositions the PixelMap in the horizontal and/or vertical directions.
+ *
+ * @param pixelmap Pointer of the PixelMap to be translated.
+ * @param x The distance in pixels to move in the horizontal direction.
+ * @param y The distance in pixels to move in the vertical direction.
+ * @return Function result code:
+ *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+ *     {@link IMAGE_PIXELMAP_RELEASED} The PixelMap has been released.
+ *     {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation because the PixelMap is locked.
+ *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter. Possible cause: The parameter is null.
+ *     {@link IMAGE_ALLOC_FAILED} Failed to allocate memory.
+ *         Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+ * @since 26.0.0
+ */
+Image_ErrorCode OH_PixelmapNative_ApplyTranslate(OH_PixelmapNative *pixelmap, float x, float y);
+
+/**
  * @brief Translates this image based on the input coordinates.
+ *     It is recommended to use {@link OH_PixelmapNative_ApplyTranslate}.
  *
  * @param pixelmap The Pixelmap pointer will be operated.
  * @param x The distance to be translate in the X direction.
  * @param y The distance to be translate in the Y direction.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - The operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - Parameter error.Possible causes:
+ *         1.pixelmap is nullptr.
+ *         2.pixelmap's inner pixelmap is nullptr.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_Translate(OH_PixelmapNative *pixelmap, float x, float y);
 
 /**
+ * @brief Creates a PixelMap with only alpha channel from the source PixelMap.
+ *
+ * @param srcPixelmap The source PixelMap.
+ * @param dstPixelmap The target PixelMap to be created.
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} If the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} If any parameter is invalid, e.g. srcPixelmap or dstPixelmap is incorrect.
+ * @see OH_PixelmapNative
+ * @since 22
+ */
+Image_ErrorCode OH_PixelmapNative_CreateAlphaPixelmap(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative **dstPixelmap);
+
+/**
+ * @brief Clones a PixelMap from the source PixelMap.
+ *
+ * @param srcPixelmap The source PixelMap to be cloned.
+ * @param dstPixelmap The target PixelMap to be created.
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} If the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} If any parameter is invalid, e.g. srcPixelmap or dstPixelmap is incorrect.
+ *         {@link IMAGE_UNSUPPORTED_DATA_FORMAT} If the pixel format is unsupported.
+ *         {@link IMAGE_TOO_LARGE} If the PixelMap size is too large.
+ *         {@link IMAGE_INIT_FAILED} If the PixelMap initialization failed.
+ *         {@link IMAGE_ALLOC_FAILED} If the copying of PixelMap data failed.
+ * @see OH_PixelmapNative
+ * @since 22
+ */
+Image_ErrorCode OH_PixelmapNative_Clone(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative **dstPixelmap);
+
+/**
+ * @brief Creates a cropped and then scaled PixelMap based on the source PixelMap.
+ *
+ * @param srcPixelmap The source PixelMap.
+ * @param region The crop region.
+ * @param scale The scale ratio of width and height.
+ * @param level The anti-aliasing algorithm to be used.
+ * @param dstPixelmap The target PixelMap to be created.
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} If the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} If any parameter is invalid, e.g. srcPixelmap, region, scale, or dstPixelmap is
+ *                                     incorrect.
+ *         {@link IMAGE_UNSUPPORTED_DATA_FORMAT} If the pixel format is unsupported.
+ *         {@link IMAGE_TOO_LARGE} If the PixelMap size is too large.
+ *         {@link IMAGE_INIT_FAILED} If the PixelMap initialization failed.
+ *         {@link IMAGE_ALLOC_FAILED} If the copying of PixelMap data failed.
+ * @see OH_PixelmapNative
+ * @since 22
+ */
+Image_ErrorCode OH_PixelmapNative_CreateCroppedAndScaledPixelMap(OH_PixelmapNative *srcPixelmap, Image_Region *region,
+    Image_Scale *scale, OH_PixelmapNative_AntiAliasingLevel level, OH_PixelmapNative **dstPixelmap);
+
+/**
+ * @brief Rotates the PixelMap.
+ *     Note: YUV format PixelMaps only support rotation angles that are multiples of 90 degrees.
+ *
+ * @param pixelmap Pointer of the PixelMap to be rotated.
+ * @param angle The rotation angle in degrees.
+ * @return Function result code:
+ *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+ *     {@link IMAGE_PIXELMAP_RELEASED} The PixelMap has been released.
+ *     {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation because the PixelMap is locked.
+ *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter. Possible cause: The parameter is null.
+ *     {@link IMAGE_ALLOC_FAILED} Failed to allocate memory.
+ *         Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
+ * @since 26.0.0
+ */
+Image_ErrorCode OH_PixelmapNative_ApplyRotate(OH_PixelmapNative *pixelmap, float angle);
+
+/**
  * @brief Rotates this image based on the input angle.
+ *     It is recommended to use {@link OH_PixelmapNative_ApplyRotate}.
  *
  * @param pixelmap The Pixelmap pointer will be operated.
  * @param angle Angle to rotate.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - The operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - Parameter error.Possible causes:
+ *         1.pixelmap is nullptr.
+ *         2.pixelmap's inner pixelmap is nullptr.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_Rotate(OH_PixelmapNative *pixelmap, float angle);
 
 /**
+ * @brief Flips the PixelMap in the horizontal and/or vertical directions.
+ *
+ * @param pixelmap Pointer of the PixelMap to be flipped.
+ * @param shouldFlipHorizontally Whether to flip horizontally.
+ * @param shouldFlipVertically Whether to flip vertically.
+ * @return Function result code:
+ *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+ *     {@link IMAGE_PIXELMAP_RELEASED} The PixelMap has been released.
+ *     {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation because the PixelMap is locked.
+ *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter. Possible cause: The parameter is null.
+ *     {@link IMAGE_ALLOC_FAILED} Failed to allocate memory. Possible cause: The system is out of memory.
+ * @since 26.0.0
+ */
+Image_ErrorCode OH_PixelmapNative_ApplyFlip(OH_PixelmapNative *pixelmap, bool shouldFlipHorizontally,
+    bool shouldFlipVertically);
+
+/**
  * @brief Flips this image horizontally or vertically, or both.
+ *     It is recommended to use {@link OH_PixelmapNative_ApplyFlip}.
  *
  * @param pixelmap The Pixelmap pointer will be operated.
- * @param shouldFilpHorizontally Whether to flip the image horizontally.
- * @param shouldFilpVertically Whether to flip the image vertically.
- * @return Returns {@link Image_ErrorCode}
+ * @param shouldFlipHorizontally Whether to flip the image horizontally.
+ * @param shouldFlipVertically Whether to flip the image vertically.
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - The operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - Parameter error.Possible causes:
+ *         1.pixelmap is nullptr.
+ *         2.pixelmap's inner pixelmap is nullptr.
  * @since 12
  */
-Image_ErrorCode OH_PixelmapNative_Flip(OH_PixelmapNative *pixelmap, bool shouldFilpHorizontally, bool shouldFilpVertically);
+Image_ErrorCode OH_PixelmapNative_Flip(OH_PixelmapNative *pixelmap, bool shouldFlipHorizontally,
+    bool shouldFlipVertically);
+
+/**
+ * @brief Crops the PixelMap.
+ *
+ * @param pixelmap Pointer of the PixelMap to be cropped.
+ * @param region Pointer of the region to crop.
+ * @return Function result code:
+ *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+ *     {@link IMAGE_PIXELMAP_RELEASED} The PixelMap has been released.
+ *     {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation because the PixelMap is locked.
+ *     {@link IMAGE_INVALID_REGION} The specified region is invalid or out of range.
+ *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter. Possible cause: Any parameter is null.
+ *     {@link IMAGE_ALLOC_FAILED} Failed to allocate memory.
+ *         Possible causes: 1. Failed to process pixel data. 2. The system is out of memory.
+ * @since 26.0.0
+ */
+Image_ErrorCode OH_PixelmapNative_ApplyCrop(OH_PixelmapNative *pixelmap, Image_Region *region);
 
 /**
  * @brief Crops this image based on the input size.
+ *     It is recommended to use {@link OH_PixelmapNative_ApplyCrop}.
  *
  * @param pixelmap The Pixelmap pointer will be operated.
  * @param region Area size, read according to area.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - The operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER}  - Parameter error.Possible causes:
+ *         1.pixelmap is nullptr.
+ *         2.region is nullptr.
+ *         3.pixelmap's inner pixelmap is nullptr.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_Crop(OH_PixelmapNative *pixelmap, Image_Region *region);
@@ -879,7 +1197,12 @@ Image_ErrorCode OH_PixelmapNative_Crop(OH_PixelmapNative *pixelmap, Image_Region
  * @brief Releases an <b>OH_Pixelmap</b> object.
  *
  * @param pixelmap The Pixelmap pointer will be operated.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if either:
+ *         1.Pixelmap is nullptr.
+ *         2.It's inner pixelmap is nullptr.
+ *         3.Pixelmap is not allowed to release.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_Release(OH_PixelmapNative *pixelmap);
@@ -895,12 +1218,40 @@ Image_ErrorCode OH_PixelmapNative_Release(OH_PixelmapNative *pixelmap);
 Image_ErrorCode OH_PixelmapNative_Destroy(OH_PixelmapNative **pixelmap);
 
 /**
+ * @brief Converts the alpha type of the PixelMap to either premultiplied or unpremultiplied.
+ *     The conversion only supports pixel formats that have an alpha channel, except RGBA_F16.
+ *
+ * @param srcPixelmap The source PixelMap containing pixel data to be converted.
+ * @param dstPixelmap An empty destination PixelMap that must have the same properties (width, height,
+ *     pixel format, etc.) as the source PixelMap, except that its alpha type must be opposite to that of
+ *     the source (premultiplied vs. unpremultiplied). The converted pixel data will be written into this PixelMap.
+ * @param toPremul Specifies the conversion direction. If true, converts from unpremultiplied to premultiplied alpha;
+ *     if false, converts from premultiplied to unpremultiplied alpha.
+ * @return Function result code:
+ *     {@link IMAGE_SUCCESS} The operation is successful.
+ *     {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get image data.
+ *         Possible cause: Internal data is corrupted. Please check the logs for detailed information.
+ *     {@link IMAGE_PIXELMAP_RELEASED} Either PixelMap has been released.
+ *     {@link IMAGE_INVALID_PARAMETER} Invalid parameter.
+ *         Possible causes: 1. Either PixelMap does not meet the requirements. 2. Any parameter is null.
+ *     {@link IMAGE_UNSUPPORTED_DATA_FORMAT} Unsupported pixel format for either PixelMap.
+ * @since 26.0.0
+ */
+Image_ErrorCode OH_PixelmapNative_ConvertAlphaType(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative *dstPixelmap,
+    const bool toPremul);
+
+/**
  * @brief Converting images to alpha format
+ *     It is recommended to use {@link OH_PixelmapNative_ConvertAlphaType}.
  *
  * @param srcpixelmap The source pixel map pointer will be operated.
  * @param dstpixelmap The destination pixel map pointer will be operated.
  * @param isPremul Whether it is pre-multiplied, true for prediction, false for non-pre-multiplied.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if either:
+ *         1.srcpixelmap or dstpixelmap is null pointer.
+ *         2.Their inner pixelmap structures are unavailable.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_ConvertAlphaFormat(OH_PixelmapNative* srcpixelmap,
@@ -911,17 +1262,20 @@ Image_ErrorCode OH_PixelmapNative_ConvertAlphaFormat(OH_PixelmapNative* srcpixel
  *
  * @param options IPixel properties, including the alpha type, size, pixel format, and editable.
  * @param pixelmap Pixelmap pointer for created.
- * @return Returns {@link Image_ErrorCode}
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} - if the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} - if options is null or
+ *         failed to create pixelmap due to invalid options.
  * @since 12
  */
 Image_ErrorCode OH_PixelmapNative_CreateEmptyPixelmap(
     OH_Pixelmap_InitializationOptions *options, OH_PixelmapNative **pixelmap);
 
 /**
- * @brief Creates a empty pixelmap based on options {@link OH_Pixelmap_InitializationOptions}, the memory type used by the
- * pixelmap can be specified by allocatorType {@link IMAGE_ALLOCATOR_MODE}. By default, the system selects the memory
- * type based on the image type, image size, platform capability, etc. When processing the pixelmap returned by this
- * interface, please always consider the impact of stride.
+ * @brief Creates a empty pixelmap based on options {@link OH_Pixelmap_InitializationOptions}, the memory type used
+ * by the pixelmap can be specified by allocatorType {@link IMAGE_ALLOCATOR_MODE}. By default,
+ * the system selects the memory type based on the image type, image size, platform capability, etc. When processing
+ * the pixelmap returned by this interface, please always consider the impact of stride.
  *
  * @param options Pixelmap initialization properties including size, pixel format, alpha type, and editable flags.
  * @param allocator Indicate which memory type will be used by the returned pixelmap.
@@ -937,6 +1291,58 @@ Image_ErrorCode OH_PixelmapNative_CreateEmptyPixelmap(
  */
 Image_ErrorCode OH_PixelmapNative_CreateEmptyPixelmapUsingAllocator(
     OH_Pixelmap_InitializationOptions *options, IMAGE_ALLOCATOR_MODE allocator, OH_PixelmapNative **pixelmap);
+
+/**
+ * @brief Creates a PixelMap from a Surface with the Surface ID.
+ *
+ * @param surfaceId The Surface ID.
+ * @param length Length of the Surface ID.
+ * @param pixelmap The PixelMap to be created.
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} If the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} If any parameter is invalid, e.g. surfaceId or pixelmap is incorrect.
+ *         {@link IMAGE_CREATE_PIXELMAP_FAILED} If the PixelMap creation failed.
+ * @see OH_PixelmapNative
+ * @since 22
+ */
+Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromSurface(const char *surfaceId, size_t length,
+    OH_PixelmapNative **pixelmap);
+
+/**
+ * @brief Creates a PixelMap object based on the ID of a Surface with transformation.
+ *
+ * @param surfaceId ID of the Surface.
+ * @param length Length of the Surface ID.
+ * @param transformEnabled Whether to inverse transform the PixelMap to cancel out the transformation from the Surface.
+ *     If true, the PixelMap will be transformed by the same amount from the Surface but in a reversed direction;
+ *     if false, the PixelMap will not be transformed.
+ * @param pixelmap The PixelMap to be created.
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} Operation is successful.
+ *         {@link IMAGE_INVALID_PARAMETER} Invalid parameter, e.g. surfaceId or pixelmap is incorrect.
+ *         {@link IMAGE_UNSUPPORTED_OPERATION} Unsupported operation, e.g. on cross-platform.
+ *         {@link IMAGE_GET_IMAGE_DATA_FAILED} Failed to get the data from Surface.
+ *         {@link IMAGE_CREATE_PIXELMAP_FAILED} Failed to create the PixelMap.
+ * @see OH_PixelmapNative
+ * @since 23
+ */
+Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromSurfaceWithTransformation(const char *surfaceId, size_t length,
+    bool transformEnabled, OH_PixelmapNative **pixelmap);
+
+/**
+ * @brief Creates a PixelMap from a native buffer.
+ *
+ * @param nativeBuffer The native buffer.
+ * @param pixelmap The PixelMap to be created.
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} If the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} If any parameter is invalid, e.g. nativeBuffer or pixelmap is incorrect.
+ *         {@link IMAGE_CREATE_PIXELMAP_FAILED} If the PixelMap creation failed.
+ * @see OH_PixelmapNative
+ * @since 22
+ */
+Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromNativeBuffer(OH_NativeBuffer *nativeBuffer,
+    OH_PixelmapNative **pixelmap);
 
 /**
  * @brief Get metadata.
@@ -1082,6 +1488,32 @@ Image_ErrorCode OH_PixelmapNative_AccessPixels(OH_PixelmapNative *pixelmap, void
  * @since 15
  */
 Image_ErrorCode OH_PixelmapNative_UnaccessPixels(OH_PixelmapNative *pixelmap);
+
+/**
+ * @brief Gets the unique ID of a PixelMap.
+ *
+ * @param pixelmap The PixelMap to retrieve the unique ID.
+ * @param uniqueId The resulting unique ID.
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} If the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} If any parameter is invalid, e.g. pixelmap or uniqueId is incorrect.
+ * @see OH_PixelmapNative
+ * @since 22
+ */
+Image_ErrorCode OH_PixelmapNative_GetUniqueId(OH_PixelmapNative *pixelmap, uint32_t *uniqueId);
+
+/**
+ * @brief Checks whether the PixelMap has been released.
+ *
+ * @param pixelmap The PixelMap to check.
+ * @param released The resulting release status.
+ * @return Function result code:
+ *         {@link IMAGE_SUCCESS} If the operation is successful.
+ *         {@link IMAGE_BAD_PARAMETER} If any parameter is invalid, e.g. pixelmap or released is incorrect.
+ * @see OH_PixelmapNative
+ * @since 22
+ */
+Image_ErrorCode OH_PixelmapNative_IsReleased(OH_PixelmapNative *pixelmap, bool *released);
 
 #ifdef __cplusplus
 };

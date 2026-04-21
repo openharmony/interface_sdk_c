@@ -28,7 +28,7 @@
  * @brief Provides capabilities such as event injection and key status query.
  * @kit InputKit
  * @syscap SystemCapability.MultimodalInput.Input.Core
- * @library liboh_input.so
+ * @library libohinput.so
  * @since 12
  */
 
@@ -39,10 +39,19 @@
 
 #include "oh_axis_type.h"
 #include "oh_key_code.h"
+#include "oh_pointer_style.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+struct OH_PixelmapNative;
+/**
+ * @brief Pixelmap struct
+ *
+ * @since 22
+ */
+typedef struct OH_PixelmapNative OH_PixelmapNative;
 
 /**
  * @brief Enumerated values of key event action.
@@ -250,6 +259,13 @@ typedef struct Input_AxisEvent Input_AxisEvent;
 typedef struct Input_Hotkey Input_Hotkey;
 
 /**
+ * @brief Defines the cursor information.
+ *
+ * @since 22
+ */
+typedef struct Input_CursorInfo Input_CursorInfo;
+
+/**
  * @brief Enumerates error codes.
  *
  * @since 12
@@ -314,7 +330,66 @@ typedef enum Input_Result {
      * @since 20
      */
     INPUT_DEVICE_NO_POINTER = 3900010,
+    /**
+     * @error Invalid windowID
+     * @since 22
+     */
+    INPUT_INVALID_WINDOWID = 26500001,
 } Input_Result;
+
+/**
+ * @brief Input_TouchEventToolType
+ * @since 24
+ */
+typedef enum Input_TouchEventToolType {
+    /**
+    * Finger
+    * @since 24
+    */
+    TOOL_TYPE_FINGER = 0,
+
+    /**
+    * Pen
+    * @since 24
+    */
+    TOOL_TYPE_PEN = 1,
+
+    /**
+    * Rubber
+    * @since 24
+    */
+    TOOL_TYPE_RUBBER = 2,
+
+    /**
+    * Brush
+    * @since 24
+    */
+    TOOL_TYPE_BRUSH = 3,
+
+    /**
+    * Pencil
+    * @since 24
+    */
+    TOOL_TYPE_PENCIL = 4,
+
+    /**
+    * Air brush
+    * @since 24
+    */
+    TOOL_TYPE_AIRBRUSH = 5,
+
+    /**
+    * Mouse
+    * @since 24
+    */
+    TOOL_TYPE_MOUSE = 6,
+
+    /**
+    * lens
+    * @since 24
+    */
+    TOOL_TYPE_LENS = 7,
+} Input_TouchEventToolType;
 
 /**
  * @brief Callback used to return shortcut key events.
@@ -328,6 +403,20 @@ typedef void (*Input_HotkeyCallback)(Input_Hotkey* hotkey);
  * @since 13
  */
 typedef struct Input_DeviceInfo Input_DeviceInfo;
+
+/**
+ * @brief Pixel map resource.
+ *
+ * @since 22
+ */
+typedef struct Input_CustomCursor Input_CustomCursor;
+ 
+/**
+ * @brief Defines the custom cursor configuration.
+ *
+ * @since 22
+ */
+typedef struct Input_CursorConfig Input_CursorConfig;
 
 /**
  * @brief Defines a lifecycle callback for keyEvent. If the callback is triggered, keyEvent will be destroyed.
@@ -509,14 +598,15 @@ int32_t OH_Input_GetKeySwitch(const struct Input_KeyState* keyState);
  * since API 20, it is recommended to use OH_Input_RequestInjection
  * to request authorization before using the interface,
  * and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
- * When the authorization status is AUTHORIZED, use the interface.
+ * When the authorization status is AUTHORIZED, use the interface. Starting from API version 26.0.0,
+ * callers that hold the ohos.permission.CONTROL_DEVICE permission can also use this interface directly.
  *
+ * @permission ohos.permission.CONTROL_DEVICE
  * @param keyEvent - the key event to be injected.
  * @return OH_Input_InjectKeyEvent function result code.
  *         {@link INPUT_SUCCESS} inject keyEvent success.\n
  *         {@link INPUT_PERMISSION_DENIED} Permission verification failed.\n
  *         {@link INPUT_PARAMETER_ERROR} keyCode is less 0, can not process.\n
- * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
 int32_t OH_Input_InjectKeyEvent(const struct Input_KeyEvent* keyEvent);
@@ -714,14 +804,15 @@ Input_Result OH_Input_DispatchToNextHandler(int32_t eventId);
  * since API 20, it is recommended to use OH_Input_RequestInjection
  * to request authorization before using the interface,
  * and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
- * When the authorization status is AUTHORIZED, use the interface.
+ * When the authorization status is AUTHORIZED, use the interface. Starting from API version 26.0.0,
+ * callers that hold the ohos.permission.CONTROL_DEVICE permission can also use this interface directly.
  *
+ * @permission ohos.permission.CONTROL_DEVICE
  * @param mouseEvent - the mouse event to be injected.
  * @return OH_Input_InjectMouseEvent function result code.
  *         {@link INPUT_SUCCESS} inject mouseEvent success.\n
  *         {@link INPUT_PERMISSION_DENIED} Permission verification failed.\n
  *         {@link INPUT_PARAMETER_ERROR} Parameter check failed.\n
- * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
 int32_t OH_Input_InjectMouseEvent(const struct Input_MouseEvent* mouseEvent);
@@ -731,8 +822,10 @@ int32_t OH_Input_InjectMouseEvent(const struct Input_MouseEvent* mouseEvent);
  * since API 20, it is recommended to use OH_Input_RequestInjection
  * to request authorization before using the interface,
  * and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
- * When the authorization status is AUTHORIZED, use the interface.
+ * When the authorization status is AUTHORIZED, use the interface. Starting from API version 26.0.0,
+ * callers that hold the ohos.permission.CONTROL_DEVICE permission can also use this interface directly.
  *
+ * @permission ohos.permission.CONTROL_DEVICE
  * @param mouseEvent - the mouse event to be injected, set up effective globalX globalY.
  * @return OH_Input_InjectMouseEventGlobal function result code.
  *         {@link INPUT_SUCCESS} inject mouseEvent success.\n
@@ -983,13 +1076,14 @@ int32_t OH_Input_GetMouseEventGlobalY(const struct Input_MouseEvent* mouseEvent)
  * since API 20, it is recommended to use OH_Input_RequestInjection
  * to request authorization before using the interface,
  * and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
- * When the authorization status is AUTHORIZED, use the interface.
+ * When the authorization status is AUTHORIZED, use the interface. Starting from API version 26.0.0,
+ * callers that hold the ohos.permission.CONTROL_DEVICE permission can also use this interface directly.
  *
+ * @permission ohos.permission.CONTROL_DEVICE
  * @param touchEvent - the touch event to be injected.
  * @return OH_Input_InjectTouchEvent function result code.
  *         {@link INPUT_SUCCESS} inject touchEvent success.\n
  *         {@link INPUT_PARAMETER_ERROR} Parameter check failed.\n
- * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 12
  */
 int32_t OH_Input_InjectTouchEvent(const struct Input_TouchEvent* touchEvent);
@@ -999,8 +1093,10 @@ int32_t OH_Input_InjectTouchEvent(const struct Input_TouchEvent* touchEvent);
  * since API 20, it is recommended to use OH_Input_RequestInjection
  * to request authorization before using the interface,
  * and then use OH_Input_QueryAuthorizedStatus to query the authorization status.
- * When the authorization status is AUTHORIZED, use the interface.
+ * When the authorization status is AUTHORIZED, use the interface. Starting from API version 26.0.0,
+ * callers that hold the ohos.permission.CONTROL_DEVICE permission can also use this interface directly.
  *
+ * @permission ohos.permission.CONTROL_DEVICE
  * @param touchEvent - the touch event to be injected, set up effective globalX globalY.
  * @return OH_Input_InjectTouchEventGlobal function result code.
  *         {@link INPUT_SUCCESS} inject touchEvent success.\n
@@ -1206,6 +1302,102 @@ void OH_Input_SetTouchEventGlobalY(struct Input_TouchEvent* touchEvent, int32_t 
 int32_t OH_Input_GetTouchEventGlobalY(const struct Input_TouchEvent* touchEvent);
 
 /**
+ * @brief Set the pressure of the touch event.
+ *
+ * @param touchEvent Touch event object.
+ * @param pressure Pressure, the value ranges from 0 to 1.
+* @return OH_Input_SetTouchEventPressure function result code.
+ *         {@link INPUT_SUCCESS} Sets the pressure of the touch event success.\n
+ *         {@link INPUT_PARAMETER_ERROR} The touchEvent is NULL or pressure value not within range.\n
+ * @since 24
+ */
+Input_Result OH_Input_SetTouchEventPressure(struct Input_TouchEvent* touchEvent, double pressure);
+
+/**
+ * @brief Obtains the pressure of a touch event.
+ *
+ * @param touchEvent Touch event object.
+ * @return pressure.
+ * @since 24
+ */
+double OH_Input_GetTouchEventPressure(const struct Input_TouchEvent* touchEvent);
+
+/**
+ * @brief Set the window X coordinate of the touch event.
+ *
+ * @param touchEvent Touch event object.
+ * @param windowX Window X coordinate.
+ * @since 24
+ */
+void OH_Input_SetTouchEventWindowX(struct Input_TouchEvent* touchEvent, int32_t windowX);
+
+/**
+ * @brief Queries the window X coordinate of the touch event.
+ *
+ * @param touchEvent Touch event object.
+ * @return window X coordinate.
+ * @since 24
+ */
+int32_t OH_Input_GetTouchEventWindowX(const struct Input_TouchEvent* touchEvent);
+
+/**
+ * @brief Set the window Y coordinate of the touch event.
+ *
+ * @param touchEvent Touch event object.
+ * @param windowY Window Y coordinate.
+ * @since 24
+ */
+void OH_Input_SetTouchEventWindowY(struct Input_TouchEvent* touchEvent, int32_t windowY);
+
+/**
+ * @brief Queries the window Y coordinate of the touch event.
+ *
+ * @param touchEvent Touch event object.
+ * @return window Y coordinate.
+ * @since 24
+ */
+int32_t OH_Input_GetTouchEventWindowY(const struct Input_TouchEvent* touchEvent);
+
+/**
+ * @brief Set the down time of the touch event.
+ *
+ * @param touchEvent Touch event object.
+ * @param downTime Down time.
+ * @since 24
+ */
+void OH_Input_SetTouchEventDownTime(struct Input_TouchEvent* touchEvent, int64_t downTime);
+
+/**
+ * @brief Obtains the down time of a touch event.
+ *
+ * @param touchEvent Touch event object.
+ * @return down time.
+ * @since 24
+ */
+int64_t OH_Input_GetTouchEventDownTime(const struct Input_TouchEvent* touchEvent);
+
+/**
+ * @brief Set the tool type of the touch event.
+ *
+ * @param touchEvent Touch event object.
+ * @param toolType Tool type. refer to Input_TouchEventToolType for value range.
+ * @return OH_Input_SetTouchEventToolType function result code.
+ *         {@link INPUT_SUCCESS} Sets the toolType success.\n
+ *         {@link INPUT_PARAMETER_ERROR} The touchEvent is NULL or toolType value not within range.\n
+ * @since 24
+ */
+Input_Result OH_Input_SetTouchEventToolType(struct Input_TouchEvent* touchEvent, Input_TouchEventToolType toolType);
+
+/**
+ * @brief Obtains the tool type of a touch event.
+ *
+ * @param touchEvent Touch event object.
+ * @return toolType.
+ * @since 24
+ */
+Input_TouchEventToolType OH_Input_GetTouchEventToolType(const struct Input_TouchEvent* touchEvent);
+
+/**
  * @brief Cancels event injection and revokes authorization.
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -1214,7 +1406,9 @@ int32_t OH_Input_GetTouchEventGlobalY(const struct Input_TouchEvent* touchEvent)
 void OH_Input_CancelInjection();
 
 /**
- * @brief Requests for injection authorization.
+ * @brief Requests for injection authorization. Starting from API version 26.0.0, once the
+ * ohos.permission.CONTROL_DEVICE permission is granted, injection authorization is no longer required.
+ * The behavior of this interface is independent of the ohos.permission.CONTROL_DEVICE permission.
  *
  * @param callback - callback used to return the result.
  * @return OH_Input_RequestInjection function result code.
@@ -1232,7 +1426,9 @@ void OH_Input_CancelInjection();
 Input_Result OH_Input_RequestInjection(Input_InjectAuthorizeCallback callback);
 
 /**
- * @brief Queries the injection authorization status.
+ * @brief Queries the injection authorization status. Starting from API version 26.0.0, this interface returns only the
+ * dialog authorization status. It does not indicate whether the caller has injection capability due to holding the
+ * ohos.permission.CONTROL_DEVICE permission.
  *
  * @param status Injection authorization status. For details, see {@Link Input_InjectionStatus}.
  * @return OH_Input_QueryAuthorizedStatus function result code.
@@ -2180,6 +2376,243 @@ Input_Result OH_Input_QueryMaxTouchPoints(int32_t *count);
  * @since 20
  */
 Input_Result OH_Input_GetPointerLocation(int32_t *displayId, double *displayX, double *displayY);
+
+/**
+ * @brief Creates a cursor info object.
+ *
+ * @return Returns an {@link Input_CursorInfo} cursor object if the operation is successful.
+ *         Otherwise, a null cursor is returned. The possible cause is memory allocation failure.
+ * @since 22
+ */
+struct Input_CursorInfo* OH_Input_CursorInfo_Create();
+
+/**
+ * @brief Destroys a cursor info object.
+ *
+ * @param cursorInfo Cursor info object.
+ * @since 22
+ */
+void OH_Input_CursorInfo_Destroy(Input_CursorInfo** cursorInfo);
+
+/**
+ * @brief Obtains the cursor visibility of the cursorInfo.
+ *
+ * @param cursorInfo Cursor info object.
+ * @param visible Visibility of the cursorInfo.
+ * @return OH_Input_CursorInfo_IsVisible function api result code
+ *         {@link INPUT_SUCCESS} if the operation is successful;
+ *         {@link INPUT_PARAMETER_ERROR} if parameter is a null cursor;
+ * @since 22
+ */
+Input_Result OH_Input_CursorInfo_IsVisible(Input_CursorInfo* cursorInfo, bool* visible);
+
+/**
+ * @brief Obtains the cursor style of the cursorInfo.
+ *
+ * @param cursorInfo Cursor info object.
+ * @param style Cursor style of the cursorInfo.
+ * @return OH_Input_CursorInfo_GetStyle function api result code
+ *         {@link INPUT_SUCCESS} if the operation is successful;
+ *         {@link INPUT_PARAMETER_ERROR} if parameter is a null cursor or the cursor is invisible;
+ * @since 22
+ */
+Input_Result OH_Input_CursorInfo_GetStyle(Input_CursorInfo* cursorInfo, Input_PointerStyle* style);
+
+/**
+ * @brief Obtains the cursor sizeLevel of the cursorInfo.
+ *
+ * @param cursorInfo Cursor info object.
+ * @param sizeLevel Cursor size level of the cursorInfo.
+ * @return OH_Input_CursorInfo_GetSizeLevel function api result code
+ *         {@link INPUT_SUCCESS} if the operation is successful;
+ *         {@link INPUT_PARAMETER_ERROR} if parameter is a null cursor or the cursor is invisible;
+ * @since 22
+ */
+Input_Result OH_Input_CursorInfo_GetSizeLevel(Input_CursorInfo* cursorInfo, int32_t* sizeLevel);
+
+/**
+ * @brief Obtains the cursor color of the cursorInfo represented as a 32-bit ARGB integer.
+ *
+ * @param cursorInfo Cursor info object.
+ * @param color Cursor color of the cursorInfo represented as a 32-bit ARGB integer.
+ * @return OH_Input_CursorInfo_GetColor function api result code
+ *         {@link INPUT_SUCCESS} if the operation is successful;
+ *         {@link INPUT_PARAMETER_ERROR} if parameter is a null cursor or the cursor is invisible;
+ * @since 22
+ */
+Input_Result OH_Input_CursorInfo_GetColor(Input_CursorInfo* cursorInfo, uint32_t* color);
+
+/**
+ * @brief Get cursor info of the mouseEvent.
+ *
+ * @param mouseEvent The received mouseEvent.
+ * @param cursorInfo The object to receive the cursor info.
+ * @return OH_Input_GetMouseEventCursorInfo function api result code
+ *         {@link INPUT_SUCCESS} if the operation is successful;
+ *         {@link INPUT_PARAMETER_ERROR} if parameter is a null cursor;
+ * @since 22
+ */
+Input_Result OH_Input_GetMouseEventCursorInfo(const struct Input_MouseEvent* mouseEvent, Input_CursorInfo* cursorInfo);
+
+/**
+ * @brief Retrieves cursor information. If the pixelmap parameter is specified, and the cursor is user-defined type
+ * currently, the cursor's pixelmap will be returned along with it.
+ *
+ * @param cursorInfo The object to receive the cursor info.
+ * @param pixelmap The object to receive the cursor pixelmap, null value will be ignored.
+ * @return OH_Input_GetCursorInfo function api result code
+ *         {@link INPUT_SUCCESS} if the operation is successful;
+ *         {@link INPUT_PARAMETER_ERROR} if parameter is a null cursor;
+ *         {@link INPUT_SERVICE_EXCEPTION} if the service is exception.
+ * @since 22
+ */
+Input_Result OH_Input_GetCursorInfo(Input_CursorInfo* cursorInfo, OH_PixelmapNative** pixelmap);
+
+/**
+ * @brief Sets the visible status of the mouse pointer.
+ *
+ * @param visible Whether the mouse pointer is visible. The value true indicates that the pointer
+ * @return OH_Input_SetPointerVisible function api result code
+ *         {@link INPUT_SUCCESS} if the operation is successful;
+ *         {@link INPUT_DEVICE_NOT_SUPPORTED} if the device is not supported.
+ *         {@link INPUT_SERVICE_EXCEPTION} if the service is exception.
+ * @since 22
+ */
+Input_Result OH_Input_SetPointerVisible(bool visible);
+
+/**
+ * @brief Obtains the mouse pointer style.
+ *
+ * @param windowId Window ID. The value is an integer greater than or equal to -1.
+ * @param pointerStyle Pointer to the pointerStyle.
+ * @return OH_Input_GetPointerStyle function api result code
+ *         {@link INPUT_SUCCESS} if the operation is successful;
+ *         {@link INPUT_PARAMETER_ERROR} if parameter is a null pointer or window ID is invalid;
+ *         {@link INPUT_SERVICE_EXCEPTION} if the service is exception.
+ * @since 22
+ */
+Input_Result OH_Input_GetPointerStyle(int32_t windowId, int32_t *pointerStyle);
+
+/**
+ * @brief Sets the mouse pointer style.
+ *
+ * @param windowId Window ID. The value is an integer greater than or equal to 0.
+ * @param pointerStyle Pointer style.The value should be a member of the {@link Input_PointerStyle} enumeration.
+ * @return OH_Input_SetPointerStyle function api result code
+ *         {@link INPUT_SUCCESS} if the operation is successful;
+ *         {@link INPUT_PARAMETER_ERROR} if window ID is invalid or pointerStyle is invalid;
+ *         {@link INPUT_SERVICE_EXCEPTION} if the service is exception.
+ * @since 22
+ */
+Input_Result OH_Input_SetPointerStyle(int32_t windowId, int32_t pointerStyle);
+
+/**
+ * @brief Creates a CustomCursor object.
+ *
+ * @param pixelMap Pointer to a {@link OH_PixelmapNative}  object.
+ * @param anchorX Horizontal coordinate of the cursor focus.
+ * @param anchorY Vertical coordinate of the cursor focus.
+ * @return Returns an {@link Input_CustomCursor} pointer object if the operation is successful.
+ * returns a null pointer otherwise.
+ * @since 22
+ */
+Input_CustomCursor* OH_Input_CustomCursor_Create(OH_PixelmapNative* pixelMap, int32_t anchorX, int32_t anchorY);
+
+/**
+ * @brief Destroys a CustomCursor object.
+ *
+ * @param customCursor Pointer to a pointer to an {@link Input_CustomCursor} object.
+ * @since 22
+ */
+void OH_Input_CustomCursor_Destroy(Input_CustomCursor** customCursor);
+
+/**
+ * @brief Obtains the pixelMap of the CustomCursor.
+ *
+ * @param customCursor Pointer to an {@link Input_CustomCursor} object.
+ * @param pixelMap Pointer to a {@link OH_PixelmapNative}  object.
+ * @return OH_Input_CustomCursor_GetPixelMap function result code.
+ *         {@link INPUT_SUCCESS} if the operation is successful;
+ *         {@link INPUT_PARAMETER_ERROR} The customCursor is NULL.
+ * @since 22
+ */
+Input_Result OH_Input_CustomCursor_GetPixelMap(Input_CustomCursor* customCursor, OH_PixelmapNative** pixelMap);
+
+/**
+ * @brief Obtains the anchor of the CustomCursor.
+ *
+ * @param customCursor Pointer to an {@link Input_CustomCursor} object.
+ * @param anchorX Pointer to horizontal coordinate of the cursor focus.
+ * @param anchorY Pointer to vertical coordinate of the cursor focus.
+ * @return OH_Input_CustomCursor_GetAnchor function result code.
+ *         {@link INPUT_SUCCESS} if the operation is successful;
+ *         {@link INPUT_PARAMETER_ERROR} The customCursor is NULL.
+ * @since 22
+ */
+Input_Result OH_Input_CustomCursor_GetAnchor(Input_CustomCursor* customCursor, int32_t* anchorX, int32_t* anchorY);
+
+/**
+ * @brief Creates a CursorConfig object.
+ *
+ * @param followSystem Pointer of the config whether to adjust the cursor size based on system settings
+ * @return Returns an {@link Input_CursorConfig} pointer object if the operation is successful.
+ * returns a null pointer otherwise.
+ * @since 22
+ */
+Input_CursorConfig* OH_Input_CursorConfig_Create(bool followSystem);
+
+/**
+ * @brief Destroys a CursorConfig object.
+ *
+ * @param cursorConfig Pointer to a pointer to an {@link cursorConfig} object.
+ * @since 22
+ */
+void OH_Input_CursorConfig_Destroy(Input_CursorConfig** cursorConfig);
+
+/**
+ * @brief Obtains the followSystem of the cursorConfig.
+ *
+ * @param cursorConfig Pointer to an {@link Input_CursorConfig} object.
+ * @param followSystem Pointer of the config whether to adjust the cursor size based on system settings
+ * @return OH_Input_CursorConfig_IsFollowSystem function result code.
+ *         {@link INPUT_SUCCESS} if the operation is successful;
+ *         {@link INPUT_PARAMETER_ERROR} The cursorOptions or followSystem the is NULL.
+ * @since 22
+ */
+Input_Result OH_Input_CursorConfig_IsFollowSystem(Input_CursorConfig *cursorConfig, bool *followSystem);
+
+/**
+ * @brief Sets the custom cursor style.
+ *
+ * @param windowId Window ID. The value is an integer greater than or equal to 0.
+ * @param customCursor Pointer to an {@link Input_CustomCursor} object.
+ * @param cursorConfig Pointer to an {@link cursorConfig} object.
+ * @return OH_Input_SetCustomCursor function result code.
+ *         {@link INPUT_SUCCESS} if the operation is successful;
+ *         {@link INPUT_PARAMETER_ERROR} if window ID is abnormal or customCursor is invalid;
+ *         {@link INPUT_INVALID_WINDOWID} if window ID is invaild.
+ *         {@link INPUT_DEVICE_NOT_SUPPORTED} Capability not supported.
+ *         {@link INPUT_SERVICE_EXCEPTION} if the service is exception.
+ * @since 22
+ */
+Input_Result OH_Input_SetCustomCursor(int32_t windowId, Input_CustomCursor* customCursor,
+                                      Input_CursorConfig* cursorConfig);
+
+/**
+ * @brief Bind the stylus to the display.
+ *
+ * @permission ohos.permission.INPUT_DEVICE_CONFIGURATOR
+ * @param inputDeviceId Input device id.
+ * @param displayId Display id.
+ * @return OH_Input_BindInputDeviceToDisplay function api result code.
+ *         {@link INPUT_SUCCESS} if the operation is successful.
+ *         {@link INPUT_PERMISSION_DENIED} Permission verification failed.
+ *         {@link INPUT_PARAMETER_ERROR} The input device does not exist or
+ *         the display does not exist or the input device is not a stylus.
+ *         {@link INPUT_SERVICE_EXCEPTION} if the service is exception.
+ * @since 24
+ */
+Input_Result OH_Input_BindInputDeviceToDisplay(int32_t inputDeviceId, int32_t displayId);
 #ifdef __cplusplus
 }
 #endif

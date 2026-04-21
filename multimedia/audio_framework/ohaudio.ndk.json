@@ -248,6 +248,22 @@
         "name": "OH_AudioRoutingManager_ReleaseDevices"
     },
     {
+        "first_introduced": "26.0.0",
+        "name": "OH_AudioRoutingManager_RegisterPreferredOutputDevicesChangeCallback"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "OH_AudioRoutingManager_UnregisterPreferredOutputDevicesChangeCallback"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "OH_AudioRoutingManager_RegisterPreferredInputDevicesChangeCallback"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "OH_AudioRoutingManager_UnregisterPreferredInputDevicesChangeCallback"
+    },
+    {
         "first_introduced": "12",
         "name": "OH_AudioDeviceDescriptor_GetDeviceRole"
     },
@@ -378,6 +394,50 @@
     {
         "first_introduced": "20",
         "name":"OH_AudioSessionManager_UnregisterCurrentOutputDeviceChangeCallback"
+    },
+    {
+        "first_introduced": "21",
+        "name":"OH_AudioSessionManager_GetAvailableDevices"
+    },
+    {
+        "first_introduced": "21",
+        "name":"OH_AudioSessionManager_RegisterAvailableDevicesChangeCallback"
+    },
+    {
+        "first_introduced": "21",
+        "name":"OH_AudioSessionManager_UnregisterAvailableDevicesChangeCallback"
+    },
+    {
+        "first_introduced": "21",
+        "name":"OH_AudioSessionManager_SelectMediaInputDevice"
+    },
+    {
+        "first_introduced": "21",
+        "name":"OH_AudioSessionManager_GetSelectedMediaInputDevice"
+    },
+    {
+        "first_introduced": "21",
+        "name":"OH_AudioSessionManager_SetBluetoothAndNearlinkPreferredRecordCategory"
+    },
+    {
+        "first_introduced": "21",
+        "name":"OH_AudioSessionManager_GetBluetoothAndNearlinkPreferredRecordCategory"
+    },
+    {
+        "first_introduced": "21",
+        "name":"OH_AudioSessionManager_RegisterCurrentInputDeviceChangeCallback"
+    },
+    {
+        "first_introduced": "21",
+        "name":"OH_AudioSessionManager_UnregisterCurrentInputDeviceChangeCallback"
+    },
+    {
+        "first_introduced": "21",
+        "name":"OH_AudioSessionManager_ReleaseDevice"
+    },
+    {
+        "first_introduced": "23",
+        "name":"OH_AudioSessionManager_EnableMuteSuggestionWhenMixWithOthers"
     },
     {
         "first_introduced": "12",
@@ -574,6 +634,54 @@
     {
         "first_introduced": "21",
         "name": "OH_AudioStreamManager_IsIntelligentNoiseReductionEnabledForCurrentDevice"
+    },
+    {
+        "first_introduced":"23",
+        "name": "OH_AudioSessionManager_IsOtherMediaPlaying"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_AudioRenderer_GetLatency"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_AudioCapturer_RequestPlaybackCaptureStart"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_AudioStreamBuilder_SetPlaybackCaptureMode"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_AudioRenderer_SetIndependentAudioSessionStrategy"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_AudioCapturer_SetIndependentAudioSessionStrategy"
+    },
+    {
+        "first_introduced": "24",
+        "name":"OH_AudioSessionManager_SetBehavior"
+    },
+    {
+        "first_introduced": "24",
+        "name":"OH_AudioSessionManager_SetCaptureMuteHint"
+    },
+    {
+        "first_introduced": "24",
+        "name":"OH_AudioCapturer_SetMuteHint"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "OH_AudioStreamManager_IsMultichannelPlaybackSupported"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "OH_AudioStreamManager_IsDirectPlaybackSupported"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "OH_AudioStreamManager_IsOffloadPlaybackSupported"
     },
     {
         "first_introduced": "26.0.0",

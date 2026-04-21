@@ -28,19 +28,17 @@
  * During debugging and fault locating, you can use the unique chain ID to quickly correlate various information related
  * to the service process.
  *
- * @syscap SystemCapability.HiviewDFX.HiTrace
- *
  * @since 10
  */
 
 /**
  * @file trace.h
  *
- * @kit PerformanceAnalysisKit
- *
  * @brief Defines APIs of the HiTraceMeter module for performance trace.
  *
- * @library libhitracechain.so
+ * @kit PerformanceAnalysisKit
+ * @include <hitrace/trace.h>
+ * @library libhitrace_ndk.z.so
  * @syscap SystemCapability.HiviewDFX.HiTrace
  * @since 10
  */
@@ -279,15 +277,11 @@ typedef enum HiTrace_Communication_Mode {
  * @brief Enumerates the HiTrace output levels. The output level threshold system parameter determines
  * the minimum output trace.
  *
- * @atomicservice
- *
  * @since 19
  */
 typedef enum HiTrace_Output_Level {
     /**
      * @brief Output level only for debug usage.
-     *
-     * @atomicservice
      *
      * @since 19
      */
@@ -295,15 +289,11 @@ typedef enum HiTrace_Output_Level {
     /**
      * @brief Output level for log version usage.
      *
-     * @atomicservice
-     *
      * @since 19
      */
     HITRACE_LEVEL_INFO = 1,
     /**
      * @brief Output level for log version usage, with higher priority than HITRACE_LEVEL_INFO.
-     *
-     * @atomicservice
      *
      * @since 19
      */
@@ -311,15 +301,11 @@ typedef enum HiTrace_Output_Level {
     /**
      * @brief Output level for nolog version usage.
      *
-     * @atomicservice
-     *
      * @since 19
      */
     HITRACE_LEVEL_COMMERCIAL = 3,
     /**
      * @brief Output level for range limit.
-     *
-     * @atomicservice
      *
      * @since 19
      */
@@ -366,6 +352,15 @@ typedef struct HiTraceId {
 #error "ERROR: No BIG_LITTLE_ENDIAN defines."
 #endif
 } HiTraceId;
+
+/**
+ * @brief Defines the callback type used in trace status switch event.
+ *     The value of traceStatus indicates the current trace status.
+ *
+ * @param traceStatus The current trace status, true for open, false for close.
+ * @since 22
+ */
+typedef void (*OH_HiTrace_TraceEventListener)(bool traceStatus);
 
 /**
  * @brief Starts tracing of a process.
@@ -726,7 +721,6 @@ void OH_HiTrace_CountTrace(const char *name, int64_t count);
  * @param level Trace output priority level.
  * @param name Name of the synchronous trace task.
  * @param customArgs key=value pair, multiple pairs use comma as separator.
- * @atomicservice
  * @since 19
  */
 void OH_HiTrace_StartTraceEx(HiTrace_Output_Level level, const char* name, const char* customArgs);
@@ -740,7 +734,6 @@ void OH_HiTrace_StartTraceEx(HiTrace_Output_Level level, const char* name, const
  * invocation in the service process.
  *
  * @param level Trace output priority level.
- * @atomicservice
  * @since 19
  */
 void OH_HiTrace_FinishTraceEx(HiTrace_Output_Level level);
@@ -765,7 +758,6 @@ void OH_HiTrace_FinishTraceEx(HiTrace_Output_Level level);
  * @param taskId ID of the asynchronous trace task.
  * @param customCategory Label used to aggregate the asynchronous trace.
  * @param customArgs key=value pair, multiple pairs use comma as separator.
- * @atomicservice
  * @since 19
  */
 void OH_HiTrace_StartAsyncTraceEx(HiTrace_Output_Level level, const char* name, int32_t taskId,
@@ -781,7 +773,6 @@ void OH_HiTrace_StartAsyncTraceEx(HiTrace_Output_Level level, const char* name, 
  * @param level Trace output priority level.
  * @param name Name of the asynchronous trace task.
  * @param taskId ID of the asynchronous trace task.
- * @atomicservice
  * @since 19
  */
 void OH_HiTrace_FinishAsyncTraceEx(HiTrace_Output_Level level, const char* name, int32_t taskId);
@@ -795,7 +786,6 @@ void OH_HiTrace_FinishAsyncTraceEx(HiTrace_Output_Level level, const char* name,
  * @param level Trace output priority level.
  * @param name Name of the integer variable. It does not need to be the same as the real variable name.
  * @param count Integer value. Generally, an integer variable can be passed.
- * @atomicservice
  * @since 19
  */
 void OH_HiTrace_CountTraceEx(HiTrace_Output_Level level, const char* name, int64_t count);
@@ -804,10 +794,40 @@ void OH_HiTrace_CountTraceEx(HiTrace_Output_Level level, const char* name, int64
  * @brief Get the trace output status of the calling process.
  *
  * @return Returns whether the calling process is allowed to output trace.
- * @atomicservice
  * @since 19
  */
 bool OH_HiTrace_IsTraceEnabled(void);
+
+/**
+ * @brief Register trace switch notification callback.
+ *
+ * Register a callback function to execute specific trace-related behavior when trace
+ * status is changed. The current status will be passed as 0 for off or 1 for on as callback function
+ * paramter representing current trace status. The maximum number of registered callback functions is 10.
+ *
+ * @param callback The callback function to be invoked when trace status is changed.
+ * @return The callback registeration status.
+ *     >= 0: Successfully registered and callback index used for unregister.
+ *    -1: Reaches max number of callback functions.
+ *    -2: Invalid parameter.
+ * @since 22
+ */
+int32_t OH_HiTrace_RegisterTraceListener(OH_HiTrace_TraceEventListener callback);
+
+/**
+ * @brief Unregister trace switch notification callback.
+ *
+ * Unregister the callback function registeration for trace switch
+ * notification with provided registered callback function index.
+ *
+ * @param index The callback function index to be unregistered.
+ * @return The callback unregisteration status.
+ *     0: Success.
+ *    -1: Callback function with target index has not been registered.
+ *    -2: Invalid index range.
+ * @since 22
+ */
+int32_t OH_HiTrace_UnregisterTraceListener(int32_t index);
 
 #ifdef __cplusplus
 }

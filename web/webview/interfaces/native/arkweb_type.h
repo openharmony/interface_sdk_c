@@ -55,7 +55,7 @@ typedef struct {
 } ArkWeb_JavaScriptBridgeData;
 
 /**
- * @brief Defines the data type carried in a ArkWeb_WebMessage.
+ * @brief Defines the data type carried in an ArkWeb_WebMessage.
  *
  * @since 12
  */
@@ -69,7 +69,7 @@ typedef enum ArkWeb_WebMessageType {
 } ArkWeb_WebMessageType;
 
 /**
- * @brief Defines the data type carried in a ArkWeb_JavaScriptValue.
+ * @brief Defines the data type carried in an ArkWeb_JavaScriptValue.
  *
  * @since 18
  */
@@ -241,6 +241,7 @@ typedef struct {
  * Before invoking an API, you are advised to use ARKWEB_MEMBER_MISSING to check
  * whether the function structure has a corresponding function pointer to avoid crash
  * caused by mismatch between the SDK and the device ROM.
+ * Use OH_ArkWeb_GetNativeAPI in the UI thread to obtain the Controller-related interface cluster.
  *
  * @since 12
  */
@@ -251,7 +252,7 @@ typedef struct {
     void (*runJavaScript)(const char* webTag, const ArkWeb_JavaScriptObject* javascriptObject);
     /** Register the JavaScript object and method list. */
     void (*registerJavaScriptProxy)(const char* webTag, const ArkWeb_ProxyObject* proxyObject);
-    /** Deletes the registered object which th given name. */
+    /** Deletes the registered object which the given name. */
     void (*deleteJavaScriptRegister)(const char* webTag, const char* objName);
     /** Refresh the current web page. */
     void (*refresh)(const char* webTag);
@@ -291,7 +292,7 @@ typedef struct {
 
     /**
      * @brief Get the url of the last frame that calls the JavaScriptProxy.
-     *        This should be call on the thread which JavaScriptProxy called.
+     *        This should be called on the thread which JavaScriptProxy called.
      *
      * @return The url of the last frame that calls the JavaScriptProxy.
      * @since 14
@@ -348,6 +349,7 @@ typedef struct {
  * Before invoking an API, you are advised to use ARKWEB_MEMBER_MISSING to check
  * whether the function structure has a corresponding function pointer to avoid crash
  * caused by mismatch between the SDK and the device ROM.
+ * Use OH_ArkWeb_GetNativeAPI in the UI thread to obtain the WebMessagePort-related interface cluster.
  *
  * @since 12
  */
@@ -391,6 +393,7 @@ typedef struct {
  * Before invoking an API, you are advised to use ARKWEB_MEMBER_MISSING to check
  * whether the function structure has a corresponding function pointer to avoid crash
  * caused by mismatch between the SDK and the device ROM.
+ * Use OH_ArkWeb_GetNativeAPI in the UI thread to obtain the WebMessage-related interface cluster.
  *
  * @since 12
  */
@@ -447,6 +450,7 @@ typedef struct {
  * Before invoking an API, you are advised to use ARKWEB_MEMBER_MISSING to check
  * whether the function structure has a corresponding function pointer to avoid crash
  * caused by mismatch between the SDK and the device ROM.
+ * Use OH_ArkWeb_GetNativeAPI in the UI thread to obtain the CookieManager-related interface cluster.
  *
  * @since 12
  */

@@ -34,6 +34,11 @@
 #ifndef OH_WINDOW_H
 #define OH_WINDOW_H
 
+#ifdef __cplusplus
+#include <cstddef>
+#else
+#include <stddef.h>
+#endif
 #include "stdbool.h"
 #include "stdint.h"
 
@@ -200,7 +205,7 @@ int32_t OH_WindowManager_SetWindowKeepScreenOn(int32_t windowId, bool isKeepScre
 /**
  * @brief Sets whether is private mode or not.
  *
- * @permission {@code ohos.permission.PRIVACY_WINDOW}
+ * @permission ohos.permission.PRIVACY_WINDOW
  * @param windowId WindowId when window is created.
  * @param isPrivacy In private mode if true, or not if false.
  * @return Returns the result code.
@@ -311,7 +316,7 @@ void OH_WindowManager_ReleaseAllMainWindowInfo(WindowManager_MainWindowInfo* inf
  * @param snapshotListSize Size of snapshotPixelMapList
  * @since 21
  */
-typedef void (*OH_WindowManager_WindowSnapshotCallback)(const OH_PixelmapNative* snapshotPixelMapList,
+typedef void (*OH_WindowManager_WindowSnapshotCallback)(const OH_PixelmapNative** snapshotPixelMapList,
     size_t snapshotListSize);
 
 /**
@@ -339,6 +344,259 @@ int32_t OH_WindowManager_GetMainWindowSnapshot(int32_t* windowIdList, size_t win
  * @since 21
  */
 void OH_WindowManager_ReleaseMainWindowSnapshot(const OH_PixelmapNative* snapshotPixelMapList);
+
+/**
+ * @brief Lock the mouse cursor restricting it to a specified window area, and also control whether the cursor follows
+ *        movement. Only supported by the focus window; the lock is automatically released when the window loses focus.
+ *
+ * @permission ohos.permission.LOCK_WINDOW_CURSOR
+ * @param windowId WindowId when window is created.
+ * @param isCursorFollowMovement Set mouse cursor lock mode.
+ *        If true:the cursor follow the mouse movement.
+ *        If false:the cursor does not follow the mouse.
+ * @return Returns the status code of the execution.
+ *         {@link WS_OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_NO_PERMISSION} permission verification failed.
+ *         {@link WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED} capability not supported.
+ *         {@link WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL} this window state is abnormal.
+ *         {@link WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL} the window manager service works abnormally.
+ * @since 22
+ */
+int32_t OH_WindowManager_LockCursor(int32_t windowId, bool isCursorFollowMovement);
+
+/**
+ * @brief Clear the window mouse cursor status. Revert to mouse cursor free movement mode.
+ *
+ * @permission ohos.permission.LOCK_WINDOW_CURSOR
+ * @param windowId WindowId when window is created.
+ * @return Returns the status code of the execution.
+ *         {@link WS_OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_NO_PERMISSION} permission verification failed.
+ *         {@link WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED} capability not supported.
+ *         {@link WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL} this window state is abnormal.
+ *         {@link WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL} the window manager service works abnormally.
+ * @since 22
+ */
+int32_t OH_WindowManager_UnlockCursor(int32_t windowId);
+
+/**
+ * @brief Check whether the current frame is the first frame.
+ *
+ * @param metrics Frame metrics data object.
+ * @param isFirstDrawFrame This parameter is the return value of the function,
+ *     indicating whether the current frame is the first frame.
+ * @return Returns the status code of the execution.
+ *         {@link WS_OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} Parameter error. Possible cause:
+ *             1. Invalid parameter range.
+ * @since 26.0.0
+ */
+int32_t OH_WindowManager_FrameMetrics_IsFirstDrawFrame(
+    const OH_WindowManager_FrameMetrics* metrics, bool* isFirstDrawFrame);
+
+/**
+ * @brief Get the time taken to process external input events in one frame.
+ *
+ * @param metrics Frame metrics data object.
+ * @param duration This parameter is the return value of the function,
+ *     indicating the time taken to process external input events in one frame, in nanoseconds.
+ * @return Returns the status code of the execution.
+ *         {@link WS_OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} Parameter error. Possible cause:
+ *             1. Invalid parameter range.
+ * @since 26.0.0
+ */
+int32_t OH_WindowManager_FrameMetrics_GetInputHandlingDuration(
+    const OH_WindowManager_FrameMetrics* metrics, uint64_t* duration);
+
+/**
+ * @brief Get the time taken for layout measurement in one frame.
+ *
+ * @param metrics Frame metrics data object.
+ * @param duration This parameter is the return value of the function,
+ *     indicating the time taken for layout measurement in one frame, in nanoseconds.
+ * @return Returns the status code of the execution.
+ *         {@link WS_OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} Parameter error. Possible cause:
+ *             1. Invalid parameter range.
+ * @since 26.0.0
+ */
+int32_t OH_WindowManager_FrameMetrics_GetLayoutMeasureDuration(
+    const OH_WindowManager_FrameMetrics* metrics, uint64_t* duration);
+
+/**
+ * @brief Get the start timestamp of the current frame.
+ *
+ * @param metrics Frame metrics data object.
+ * @param timestamp This parameter is the return value of the function,
+ *     indicating the start timestamp of the current frame, in nanoseconds.
+ * @return Returns the status code of the execution.
+ *         {@link WS_OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} Parameter error. Possible cause:
+ *             1. Invalid parameter range.
+ * @since 26.0.0
+ */
+int32_t OH_WindowManager_FrameMetrics_GetVsyncTimestamp(
+    const OH_WindowManager_FrameMetrics* metrics, uint64_t* timestamp);
+
+/**
+ * @brief Subscribe to the listening event for changes in the window frame rate metrics.
+ *     This interface must be used after loadContent() or setUICContent() has taken effect.
+ *     After the application registers the frame metrics change listener, the registered callback will only be
+ *     triggered when the client UI content is redrawn (e.g., page switching, interaction with responsive
+ *     components, setting background color and opacity, etc.).
+ *     To unsubscribe from the listening event for changes in the window frame rate metrics, call
+ *     OH_WindowManager_UnregisterFrameMetricsMeasuredCallback.
+ *
+ * @param windowId WindowId when window is created.
+ * @param callback Callback used to return the result of frame metrics.
+ * @return Returns the status code of the execution.
+ *         {@link WS_OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL} this window state is abnormal. Possible cause:
+ *             1. The window is not created or destroyed;
+ *             2. This window state is abnormal.
+ *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} Parameter error. Possible cause:
+ *             1. Invalid parameter range.
+ * @since 26.0.0
+ */
+int32_t OH_WindowManager_RegisterFrameMetricsMeasuredCallback(int32_t windowId,
+    OH_WindowManager_FrameMetricsMeasuredCallback callback);
+
+/**
+ * @brief Unsubscribe from the listening event for changes in the window frame rate metrics.
+ *     This interface must be used after loadContent() or setUIContent() has taken effect.
+ *     To subscribe to the listening event for changes in the window frame rate metrics, call
+ *     OH_WindowManager_RegisterFrameMetricsMeasuredCallback.
+ *
+ * @param windowId WindowId when window is created.
+ * @param callback Callback used to return the result of frame metrics.
+ * @return Returns the status code of the execution.
+ *         {@link WS_OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL} this window state is abnormal. Possible cause:
+ *             1. The window is not created or destroyed;
+ *             2. This window state is abnormal.
+ *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} Parameter error. Possible cause:
+ *             1. Invalid parameter range.
+ * @since 26.0.0
+ */
+int32_t OH_WindowManager_UnregisterFrameMetricsMeasuredCallback(int32_t windowId,
+    OH_WindowManager_FrameMetricsMeasuredCallback callback);
+
+/**
+ * @brief Gets the system default display size scaling factor of the screen where the window is located.
+ *
+ * @param info Display size scaling factor information for the current window.
+ * @param density System default display size scaling factor
+ * @return Returns the status code of the execution.
+ *         {@link WS_OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} Parameter error. Possible cause:
+ *             1. Invalid parameter range.
+ * @since 26.0.0
+ */
+int32_t OH_WindowManager_DensityInfo_GetDefaultDensity(const OH_WindowManager_DensityInfo* info,
+    float* density);
+
+/**
+ * @brief Gets the system display size scaling factor of the screen where the window is located.
+ *
+ * @param info Display size scaling factor information for the current window.
+ * @param density System display size scaling factor
+ * @return Returns the status code of the execution.
+ *         {@link WS_OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} Parameter error. Possible cause:
+ *             1. Invalid parameter range.
+ * @since 26.0.0
+ */
+int32_t OH_WindowManager_DensityInfo_GetSystemDensity(const OH_WindowManager_DensityInfo* info,
+    float* density);
+
+/**
+ * @brief Gets the custom display size scaling factor of the window.
+ *
+ * @param info Display size scaling factor information for the current window.
+ * @param density Custom display size scaling factor of the window. A return value of -1 indicates that no custom
+ *     display size scaling factor has been set, or it has been reset.
+ * @return Returns the status code of the execution.
+ *         {@link WS_OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} Parameter error. Possible cause:
+ *             1. Invalid parameter range.
+ * @since 26.0.0
+ */
+int32_t OH_WindowManager_DensityInfo_GetCustomDensity(const OH_WindowManager_DensityInfo* info,
+    float* density);
+
+/**
+ * @brief Get the system display size scaling factor, the system default display size scaling factor,
+ *     and the custom display size scaling factor information of the screen where the current window is located.
+ *
+ * @param windowId WindowId when window is created.
+ * @param info Display size scaling factor information for the current window.
+ *     A return value of NULL means this interface is not supported on the current device.
+ * @return Returns the status code of the execution.
+ *         {@link WS_OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL} this window state is abnormal. Possible cause:
+ *             1. The window is not created or destroyed;
+ *             2. This window state is abnormal.
+ *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} Parameter error. Possible cause:
+ *             1. Invalid parameter range.
+ * @since 26.0.0
+ */
+int32_t OH_WindowManager_GetDensityInfoCopy(int32_t windowId,
+    const OH_WindowManager_DensityInfo** info);
+
+/**
+ * @brief Listen for changes in the display size scaling factor information of the window. The callback function is
+ *     triggered when any of the system display size scaling factor, system default display size scaling factor, or
+ *     custom display size scaling factor of the screen where the window resides changes.
+ *     To unlisten for changes in the display size scaling factor information of the window, call
+ *     OH_WindowManager_UnregisterDensityInfoChangeCallback.
+ *
+ * @param windowId WindowId when window is created.
+ * @param callback Callback used to return the result of density information.
+ * @return Returns the status code of the execution.
+ *         {@link WS_OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL} this window state is abnormal. Possible cause:
+ *             1. The window is not created or destroyed;
+ *             2. This window state is abnormal.
+ *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} Parameter error. Possible cause:
+ *             1. Invalid parameter range.
+ * @since 26.0.0
+ */
+int32_t OH_WindowManager_RegisterDensityInfoChangeCallback(int32_t windowId,
+    OH_WindowManager_DensityInfoCallback callback);
+
+/**
+ * @brief Unlisten for changes in the display size scaling factor information of the window. The callback function is
+ *     triggered when any of the system display size scaling factor, system default display size scaling factor, or
+ *     custom display size scaling factor of the screen where the window resides changes.
+ *     To listen for changes in the display size scaling factor information of the window, call
+ *     OH_WindowManager_RegisterDensityInfoChangeCallback.
+ *
+ * @param windowId WindowId when window is created.
+ * @param callback Callback used to return the result of density information.
+ * @return Returns the status code of the execution.
+ *         {@link WS_OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL} this window state is abnormal. Possible cause:
+ *             1. The window is not created or destroyed;
+ *             2. This window state is abnormal.
+ *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} Parameter error. Possible cause:
+ *             1. Invalid parameter range.
+ * @since 26.0.0
+ */
+int32_t OH_WindowManager_UnregisterDensityInfoChangeCallback(int32_t windowId,
+    OH_WindowManager_DensityInfoCallback callback);
+
+/**
+ * @brief Releases the memory occupied by DensityInfo.
+ *
+ * @param info Display size scaling factor information for the current window.
+ * @return Returns the status code of the execution.
+ *         {@link WS_OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} Parameter error. Possible cause:
+ *             1. Invalid parameter range.
+ * @since 26.0.0
+ */
+int32_t OH_WindowManager_DensityInfo_Release(const OH_WindowManager_DensityInfo* info);
 
 #ifdef __cplusplus
 }
