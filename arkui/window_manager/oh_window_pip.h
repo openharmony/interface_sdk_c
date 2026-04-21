@@ -14,9 +14,15 @@
  */
 
 /**
- * @addtogroup OH_PictureInPicture
+ * @addtogroup WindowManager
  * @{
  *
+ * @brief Provides abilities of windowManager on the native side, such as picture in picture window.
+ *
+ * @since 12
+ */
+
+/**
  * @file oh_window_pip.h
  *
  * @brief Declares C APIs for picture in picture window
@@ -306,7 +312,7 @@ int32_t OH_PictureInPicture_DeletePip(uint32_t controllerId);
  *         {@link OK} the function call is successful.
  *         {@link WINDOW_MANAGER_ERRORCODE_PIP_STATE_ABNORMAL} the PiP window state is abnormal.
  *         {@link WINDOW_MANAGER_ERRORCODE_PIP_CREATE_FAILED} failed to create the PiP window.
- *         {@link WINDOW_MANAGER_ERRORCODE_ERRORCODE_PIP_INTERNAL_ERROR} pip internal error.
+ *         {@link WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR} pip internal error.
  *         {@link WINDOW_MANAGER_ERRORCODE_PIP_REPEATED_OPERATION} repeated PiP operation.
  *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} parameter error.
  * @since 20
@@ -321,7 +327,7 @@ int32_t OH_PictureInPicture_StartPip(uint32_t controllerId);
  *         {@link OK} the function call is successful.
  *         {@link WINDOW_MANAGER_ERRORCODE_PIP_DESTROY_FAILED} failed to destroy the PiP window.
  *         {@link WINDOW_MANAGER_ERRORCODE_PIP_STATE_ABNORMAL} the PiP window state is abnormal.
- *         {@link WINDOW_MANAGER_ERRORCODE_ERRORCODE_PIP_INTERNAL_ERROR} pip internal error.
+ *         {@link WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR} pip internal error.
  *         {@link WINDOW_MANAGER_ERRORCODE_PIP_REPEATED_OPERATION} repeated PiP operation.
  *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} parameter error.
  * @since 20
@@ -371,6 +377,20 @@ int32_t OH_PictureInPicture_UpdatePipControlStatus(uint32_t controllerId, Pictur
  */
 int32_t OH_PictureInPicture_SetPipControlEnabled(uint32_t controllerId, PictureInPicture_PipControlType controlType,
     bool enabled);
+
+/**
+ * @brief Set the picture-in-picture parent window ID.
+ *
+ * @param controllerId The picture-in-picture controller ID.
+ * @param windowId The picture-in-picture parent window ID.
+ * @return Return the result code.
+ *         {@link OK} the function call is successful.
+ *         {@link WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM} parameter error.
+ *         {@link WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED} capability not supported.
+ *         {@link WINDOW_MANAGER_ERRORCODE_PIP_INTERNAL_ERROR} pip internal error.
+ * @since 22
+ */
+int32_t OH_PictureInPicture_SetParentWindowId(uint32_t controllerId, uint32_t windowId);
 
 /**
  * @brief Set picture-in-picture initial surface rect.

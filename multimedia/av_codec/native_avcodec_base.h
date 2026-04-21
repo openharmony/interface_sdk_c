@@ -400,6 +400,116 @@ extern const char *OH_AVCODEC_MIMETYPE_AUDIO_RAW;
 extern const char *OH_AVCODEC_MIMETYPE_AUDIO_G711A;
 
 /**
+ * @brief Enumerates the mime types of ALAC (Apple Lossless Audio Codec).
+ *
+ * @since 22
+ */
+extern const char *OH_AVCODEC_MIMETYPE_AUDIO_ALAC;
+
+/**
+ * @brief Enumerates the mime types of audio AC-3 codec.
+ *
+ * @since 22
+ */
+extern const char *OH_AVCODEC_MIMETYPE_AUDIO_AC3;
+
+/**
+ * @brief Enumerates the mime types of audio Enhanced AC-3 codec.
+ *
+ * @since 22
+ */
+extern const char *OH_AVCODEC_MIMETYPE_AUDIO_EAC3;
+
+
+/**
+ * @brief Enumerates the mime types of windows media audio 1 codec.
+ *
+ * @since 22
+ */
+extern const char *OH_AVCODEC_MIMETYPE_AUDIO_WMAV1;
+
+/**
+ * @brief Enumerates the mime types of windows media audio 2 codec.
+ *
+ * @since 22
+ */
+extern const char *OH_AVCODEC_MIMETYPE_AUDIO_WMAV2;
+
+/**
+ * @brief Enumerates the mime types of windows media audio 9 professional codec.
+ *
+ * @since 22
+ */
+extern const char *OH_AVCODEC_MIMETYPE_AUDIO_WMAPRO;
+
+/**
+ * @brief Key for specifying the number of bytes per audio packet. The value type is int32_t.
+ *
+ * This key is required only for Windows Media audio decoders. The supported decoder MIME types
+ * include {@link OH_AVCODEC_MIMETYPE_AUDIO_WMAV1}, {@link OH_AVCODEC_MIMETYPE_AUDIO_WMAV2},
+ * and {@link OH_AVCODEC_MIMETYPE_AUDIO_WMAPRO}.
+ *
+ * @since 22
+ */
+extern const char *OH_MD_KEY_BLOCK_ALIGN;
+
+/**
+ * @brief Enumerates the mime types of audio GSM codec.
+ *
+ * @since 22
+ */
+extern const char *OH_AVCODEC_MIMETYPE_AUDIO_GSM;
+
+/**
+ * @brief Enumerates the mime types of audio GSM Microsoft varient codec.
+ *
+ * @since 22
+ */
+extern const char *OH_AVCODEC_MIMETYPE_AUDIO_GSM_MS;
+
+/**
+ * @brief Enumerates the mime types of audio TwinVQ codec.
+ *
+ * @since 23
+ */
+extern const char *OH_AVCODEC_MIMETYPE_AUDIO_TWINVQ;
+
+/**
+ * @brief Enumerates the mime types of audio internet low bitrate codec.
+ *
+ * @since 23
+ */
+extern const char *OH_AVCODEC_MIMETYPE_AUDIO_ILBC;
+
+/**
+ * @brief Enumerates the mime types of audio TrueHD codec.
+ *
+ * @since 23
+ */
+extern const char *OH_AVCODEC_MIMETYPE_AUDIO_TRUEHD;
+
+/**
+ * @brief Enumerates the mime types of audio DV Audio codec.
+ *
+ * @since 23
+ */
+extern const char *OH_AVCODEC_MIMETYPE_AUDIO_DVAUDIO;
+
+/**
+ * @brief Enumerates the mime types of audio DTS codec.
+ *
+ * @since 23
+ */
+extern const char *OH_AVCODEC_MIMETYPE_AUDIO_DTS;
+
+/**
+ * @brief Enumerates the mime types of audio COOK codec.
+ *
+ * @since 23
+ */
+extern const char *OH_AVCODEC_MIMETYPE_AUDIO_COOK;
+
+/**
  * @brief Enumerates the MIME type of video mpeg2 codec.
  *
  * @syscap SystemCapability.Multimedia.Media.CodecBase
@@ -421,6 +531,104 @@ extern const char *OH_AVCODEC_MIMETYPE_VIDEO_MPEG4_PART2;
  * @since 17
  */
 extern const char *OH_AVCODEC_MIMETYPE_VIDEO_H263;
+
+/**
+ * @brief Enumerates the MIME type of video VC-1 codec.
+ *
+ * @since 22
+ */
+extern const char *OH_AVCODEC_MIMETYPE_VIDEO_VC1;
+
+/**
+* @brief Enumerates the MIME type of video AV1 codec.
+ *
+ * @since 23
+ * */
+extern const char *OH_AVCODEC_MIMETYPE_VIDEO_AV1;
+ 
+/**
+ * @brief Enumerates the MIME type of video VP9 codec.
+ *
+ * @since 23
+ */
+extern const char *OH_AVCODEC_MIMETYPE_VIDEO_VP9;
+
+/**
+ * @brief Enumerates the MIME type of video VP8 codec.
+ *
+ * @since 23
+ */
+extern const char *OH_AVCODEC_MIMETYPE_VIDEO_VP8;
+
+/**
+ * @brief Enumerates the MIME type of video RV30 codec.
+ *
+ * @since 23
+ * */
+extern const char *OH_AVCODEC_MIMETYPE_VIDEO_RV30;
+
+/**
+ * @brief Enumerates the MIME type of video RV40 codec.
+ *
+ * @since 23
+ * */
+extern const char *OH_AVCODEC_MIMETYPE_VIDEO_RV40;
+ 
+/**
+ * @brief Enumerates the MIME type of video WVC1 codec.
+ *
+ * @since 23
+ * */
+extern const char *OH_AVCODEC_MIMETYPE_VIDEO_WVC1;
+ 
+/**
+ * @brief Enumerates the MIME type of video DV codec.
+ *
+ * @since 23
+ * */
+extern const char *OH_AVCODEC_MIMETYPE_VIDEO_DVVIDEO;
+ 
+/**
+ * @brief Enumerates the MIME type of video raw.
+ *
+ * @since 23
+ * */
+extern const char *OH_AVCODEC_MIMETYPE_VIDEO_RAWVIDEO;
+
+/**
+ * @brief Enumerates the MIME type of video MPEG1 codec.
+ *
+ * @since 23
+ * */
+extern const char *OH_AVCODEC_MIMETYPE_VIDEO_MPEG1;
+
+/**
+ * @brief Enumerates the MIME type of video Cinepak codec.
+ *
+ * @since 24
+ * */
+extern const char *OH_AVCODEC_MIMETYPE_VIDEO_CINEPAK;
+
+/**
+ * @brief Enumerates the MIME type of video MSVIDEO1 codec.
+ *
+ * @since 22
+ */
+extern const char *OH_AVCODEC_MIMETYPE_VIDEO_MSVIDEO1;
+
+/**
+ * @brief Enumerates the MIME type of video WMV3 codec.
+ *
+ * @since 22
+ */
+extern const char *OH_AVCODEC_MIMETYPE_VIDEO_WMV3;
+
+/**
+ * @brief Enumerates the MIME type of video MJPEG codec.
+ *
+ * @since 22
+ */
+extern const char *OH_AVCODEC_MIMETYPE_VIDEO_MJPEG;
 
 /**
  * @brief Key for timeStamp in surface's extraData, value type is int64_t.
@@ -553,6 +761,25 @@ extern const char *OH_MD_KEY_I_FRAME_INTERVAL;
  * @since 9
  */
 extern const char *OH_MD_KEY_ROTATION;
+
+/**
+ * @brief Key for video transform type, value type is int32_t, see {@link OH_NativeBuffer_TransformType}.
+ *
+ * This key is used to set the surface transform for video decoders (surface mode).
+ * If not specified, the default value is 0 ({@link NATIVEBUFFER_ROTATE_NONE}).
+ * This key and {@link OH_MD_KEY_ROTATION} are mutually exclusive. If both are provided,
+ * OH_MD_KEY_VIDEO_TRANSFORM_TYPE takes precedence.
+ * Note that the degrees specified in {@link OH_NativeBuffer_TransformType} represent counter-clockwise rotation,
+ * which are opposite to the direction of rotation defined by {@link OH_MD_KEY_ROTATION}.
+ * The correspondence is:
+ * - {@link NATIVEBUFFER_ROTATE_NONE}  => same as OH_MD_KEY_ROTATION = 0
+ * - {@link NATIVEBUFFER_ROTATE_90}    => same as OH_MD_KEY_ROTATION = 270
+ * - {@link NATIVEBUFFER_ROTATE_180}   => same as OH_MD_KEY_ROTATION = 180
+ * - {@link NATIVEBUFFER_ROTATE_270}   => same as OH_MD_KEY_ROTATION = 90
+ *
+ * @since 22
+ */
+extern const char *OH_MD_KEY_VIDEO_TRANSFORM_TYPE;
 
 /**
  * @brief Key for video YUV value range flag, value type is bool, true for full range, false for limited range.
@@ -820,7 +1047,7 @@ extern const char *OH_MD_KEY_VIDEO_ENCODER_ENABLE_TEMPORAL_SCALABILITY;
 extern const char *OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_SIZE;
 /**
  * @brief Key for describing the reference mode in temporal group of picture, value type is int32_t, see enum
- * {@link OH_TemporalGopReferenceMode}. It takes effect only when temporal level sacle is enabled.
+ * {@link OH_TemporalGopReferenceMode}. It takes effect only when temporal level scale is enabled.
  * This is an optional key that applies only to video encoder. It is used in configure.
  *
  * @syscap SystemCapability.Multimedia.Media.CodecBase
@@ -828,8 +1055,21 @@ extern const char *OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_SIZE;
  */
 extern const char *OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_REFERENCE_MODE;
 /**
+ * @brief Key for the temporal layer ID within a Group of Pictures (GOP), the value type is int32_t.
+ * It is specific to video encoders and is available only when temporal level sacle is enabled.
+ * To retrieve the value associated with this key:
+ * 1. Obtain the encoded stream information (AVBuffer) via
+ *  {@link OH_AVCodecOnNewOutputBuffer} or {@link OH_VideoEncoder_GetOutputBuffer}.
+ * 2. Retrieve the parameter information (AVFormat) from the buffer
+ *  using {@link OH_AVBuffer_GetParameter}.
+ * 3. Use {@link OH_AVFormat_GetIntValue} with this key to get the corresponding value.
+ *
+ * @since 26.0.0
+ */
+extern const char *OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_LAYER_ID;
+/**
  * @brief Key for describing the count of used long-term reference frames, value type is int32_t, must be within the
- * supported range. To get supported range, you should query wthether the capability is supported through the interface
+ * supported range. To get supported range, you should query whether the capability is supported through the interface
  * {@link OH_AVCapability_GetFeatureProperties} with enum {@link VIDEO_ENCODER_LONG_TERM_REFERENCE}, otherwise, not set
  * the key. This is an optional key that applies only to video encoder. It is used in configure.
  *
@@ -1053,7 +1293,7 @@ extern const char *OH_MD_KEY_CREATION_TIME;
 /**
  * @brief Key applies only when configuring a video encoder in surface mode, value type is int32_t.
  * If no new frame became available since the last frame submitted to the encoder,
- * it will sumbit the previous frame repeatly in milliseconds. It is used in configure.
+ * it will submit the previous frame repeatedly in milliseconds. It is used in configure.
  *
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 18
@@ -1062,7 +1302,7 @@ extern const char *OH_MD_KEY_VIDEO_ENCODER_REPEAT_PREVIOUS_FRAME_AFTER;
 /**
  * @brief Key for describing the maximum count that the frame previously submitted to the encoder will be
  * repeated, in case no new frame has been available since, value type is int32_t. This key takes effect only when
- * {@link VIDEO_ENCODER_REPEAT_PREVIOUS_FRAME_AFTER} is vaild. It is used in configure.
+ * {@link VIDEO_ENCODER_REPEAT_PREVIOUS_FRAME_AFTER} is valid. It is used in configure.
  *
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @since 18
@@ -1199,6 +1439,108 @@ extern const char *OH_MD_KEY_ENABLE_SYNC_MODE;
  * @since 20
  */
 extern const char *OH_MD_KEY_VIDEO_DECODER_BLANK_FRAME_ON_SHUTDOWN;
+
+/**
+ * @brief Key for querying native buffer pixel formats for video codec operations, value type is int32_t.
+ * The value represents pixel formats defined in {@link OH_NativeBuffer_Format}.
+ *
+ * This key serves two primary purposes:
+ * 1. Runtime decoder output: Get current output format via {@link OH_VideoDecoder_GetOutputDescription}
+ * or {@link OH_AVCodecOnStreamChanged} events.
+ * 2. Runtime encoder input: Get current input format via {@link OH_VideoEncoder_GetInputDescription}.
+ *
+ * @since 22
+ */
+extern const char *OH_MD_KEY_VIDEO_NATIVE_BUFFER_FORMAT;
+
+/**
+ * @brief Key for skip samples of audio frame. value type is a uint8_t pointer.
+ *
+ * @since 23
+ */
+extern const char *OH_MD_KEY_BUFFER_SKIP_SAMPLES_INFO;
+
+/**
+ * @brief Key to enable {@link OH_MD_KEY_BUFFER_SKIP_SAMPLES_INFO} in audio decoder,
+ * value type is int32_t (0 or 1): 1 is enabled, 0 is disabled.
+ *
+ * This is an optional key, default is 0.
+ *
+ * @since 24
+ */
+extern const char *OH_MD_KEY_ENABLE_BUFFER_SKIP_SAMPLES;
+
+/**
+ * @brief Key for latitude, value type is float, The range is [-90.0, 90.0].
+ * Represents the latitude of the geographic location.
+ *
+ * @since 24
+ */
+extern const char *OH_MD_KEY_LATITUDE;
+
+/**
+ * @brief Key for longitude, value type is float, The range is [-180.0, 180.0].
+ * Represents the longitude of the geographic location.
+ *
+ * @since 24
+ */
+extern const char *OH_MD_KEY_LONGITUDE;
+
+/**
+ * @brief Key for altitude, value type is float.
+ * This is an optional key. Represents the altitude of the geographic location.
+ *
+ * @since 24
+ */
+extern const char *OH_MD_KEY_ALTITUDE;
+
+/**
+ * @brief Key for getting screen capture rectangular window. Value type is a int32_t array, the array length is 4.
+ * Get the rectangular window in captured screen, represent [top, left, width, height] in the int32_t array,
+ * which can be obtained by calling {@link OH_AVFormat_GetIntBuffer}.
+ *
+ * @since 26.0.0
+ */
+extern const char *OH_MD_KEY_SCREEN_CAPTURE_WINDOW_RECT;
+
+/**
+ * @brief Key for setting the Audio Vivid signal input format.
+ *
+ * Required for Audio Vivid encoder. Specifies the signal format of input data.
+ * The value should be from {@link OH_AudioVividSignalFormat}.
+ *
+ * @since 26.0.0
+ */
+extern const char *OH_MD_KEY_AUDIO_VIVID_SIGNAL_FORMAT;
+
+/**
+ * @brief Key for setting the soundbed channel layout.
+ *
+ * Configures the channel layout for soundbed. The value should be from {@link OH_AudioChannelLayout}.
+ *
+ * @since 26.0.0
+ */
+extern const char *OH_MD_KEY_AUDIO_SOUNDBED_LAYOUT;
+
+/**
+ * @brief Key for setting the soundbed bitrate in bits per second.
+ *
+ * Configures the bitrate for soundbed channels. The actual bitrate may be adjusted by the encoder
+ * based on codec capabilities and constraints.
+ *
+ * @since 26.0.0
+ */
+extern const char *OH_MD_KEY_AUDIO_SOUNDBED_BITRATE;
+
+/**
+ * @brief Key for setting the audio object bitrate in bits per second.
+ *
+ * Configures the bitrate for audio objects. The actual bitrate may be adjusted by the encoder
+ * based on codec capabilities and constraints.
+ *
+ * @since 26.0.0
+ */
+extern const char *OH_MD_KEY_AUDIO_OBJECT_BITRATE;
 
 /**
  * @brief Media type.
@@ -1390,6 +1732,72 @@ typedef enum OH_H263Profile {
 } OH_H263Profile;
 
 /**
+ * @brief VC-1 Profile
+ *
+ * @since 22
+ */
+typedef enum OH_VC1Profile {
+    /** Simple profile */
+    VC1_PROFILE_SIMPLE = 0,
+    /** Main profile */
+    VC1_PROFILE_MAIN = 1,
+    /** Advanced profile */
+    VC1_PROFILE_ADVANCED = 2,
+} OH_VC1Profile;
+
+/**
+ * @brief AV1 Profile
+ *
+ * @since 23
+ */
+typedef enum OH_AV1Profile {
+    /** Main profile */
+    AV1_PROFILE_MAIN = 0,
+    /** High profile */
+    AV1_PROFILE_HIGH = 1,
+    /** Professional profile */
+    AV1_PROFILE_PROFESSIONAL = 2,
+} OH_AV1Profile;
+
+/**
+* @brief VP9 Profile
+*
+* @since 23
+*/
+typedef enum OH_VP9Profile {
+    /** 0 profile */
+    VP9_PROFILE_0 = 0,
+    /** 1 profile */
+    VP9_PROFILE_1 = 1,
+    /** 2 profile */
+    VP9_PROFILE_2 = 2,
+    /** 3 profile */
+    VP9_PROFILE_3 = 3,
+} OH_VP9Profile;
+
+/**
+* @brief WVC1 Profile.
+*
+* @since 23
+*/
+typedef enum OH_WVC1Profile {
+    /** Advanced profile */
+    WVC1_PROFILE_ADVANCED = 0,
+ } OH_WVC1Profile;
+
+/**
+ * @brief WMV3 Profile
+ *
+ * @since 22
+ */
+typedef enum OH_WMV3Profile {
+    /** Simple profile */
+    WMV3_PROFILE_SIMPLE = 0,
+    /** Main profile */
+    WMV3_PROFILE_MAIN = 1,
+} OH_WMV3Profile;
+
+/**
  * @brief Enumerates the muxer output file format
  *
  * @syscap SystemCapability.Multimedia.Media.CodecBase
@@ -1424,6 +1832,16 @@ typedef enum OH_AVOutputFormat {
      * @since 20
      */
     AV_OUTPUT_FORMAT_FLAC = 12,
+    /**
+     * The muxer output ogg file format.
+     * @since 23
+     */
+    AV_OUTPUT_FORMAT_OGG = 13,
+    /**
+     * The muxer output flv file format.
+     * @since 26.0.0
+     */
+    AV_OUTPUT_FORMAT_FLV = 14,
 } OH_AVOutputFormat;
 
 /**
@@ -1714,6 +2132,154 @@ typedef enum OH_H263Level {
 } OH_H263Level;
 
 /**
+ * @brief VC-1 Level.
+ *
+ * @since 22
+ */
+typedef enum OH_VC1Level {
+    /** L0 level */
+    VC1_LEVEL_L0 = 0,
+    /** L1 level */
+    VC1_LEVEL_L1 = 1,
+    /** L2 level */
+    VC1_LEVEL_L2 = 2,
+    /** L3 level */
+    VC1_LEVEL_L3 = 3,
+    /** L4 level */
+    VC1_LEVEL_L4 = 4,
+    /** LOW level */
+    VC1_LEVEL_LOW = 5,
+    /** MEDIUM level */
+    VC1_LEVEL_MEDIUM = 6,
+    /** HIGH level */
+    VC1_LEVEL_HIGH = 7,
+} OH_VC1Level;
+
+/**
+ * @brief AV1 Level.
+ *
+ * @since 23
+ */
+typedef enum OH_AV1Level {
+    /** 2.0 level */
+    AV1_LEVEL_20 = 0,
+    /** 2.1 level */
+    AV1_LEVEL_21 = 1,
+    /** 2.2 level */
+    AV1_LEVEL_22 = 2,
+    /** 2.3 level */
+    AV1_LEVEL_23 = 3,
+    /** 3.0 level */
+    AV1_LEVEL_30 = 4,
+    /** 3.1 level */
+    AV1_LEVEL_31 = 5,
+    /** 3.2 level */
+    AV1_LEVEL_32 = 6,
+    /** 3.3 level */
+    AV1_LEVEL_33 = 7,
+    /** 4.0 level */
+    AV1_LEVEL_40 = 8,
+    /** 4.1 level */
+    AV1_LEVEL_41 = 9,
+    /** 4.2 level */
+    AV1_LEVEL_42 = 10,
+    /** 4.3 level */
+    AV1_LEVEL_43 = 11,
+    /** 5.0 level */
+    AV1_LEVEL_50 = 12,
+    /** 5.1 level */
+    AV1_LEVEL_51 = 13,
+    /** 5.2 level */
+    AV1_LEVEL_52 = 14,
+    /** 5.3 level */
+    AV1_LEVEL_53 = 15,
+    /** 6.0 level */
+    AV1_LEVEL_60 = 16,
+    /** 6.1 level */
+    AV1_LEVEL_61 = 17,
+    /** 6.2 level */
+    AV1_LEVEL_62 = 18,
+    /** 6.3 level */
+    AV1_LEVEL_63 = 19,
+    /** 7.0 level */
+    AV1_LEVEL_70 = 20,
+    /** 7.1 level */
+    AV1_LEVEL_71 = 21,
+    /** 7.2 level */
+    AV1_LEVEL_72 = 22,
+    /** 7.3 level */
+    AV1_LEVEL_73 = 23,
+} OH_AV1Level;
+
+/**
+ * @brief VP9 Level.
+ *
+ * @since 23
+ */
+typedef enum OH_VP9Level {
+    /** 1 level */
+    VP9_LEVEL_1 = 0,
+    /** 1.1 level */
+    VP9_LEVEL_11 = 1,
+    /** 2 level */
+    VP9_LEVEL_2 = 2,
+    /** 2.1 level */
+    VP9_LEVEL_21 = 3,
+    /** 3 level */
+    VP9_LEVEL_3 = 4,
+    /** 3.1 level */
+    VP9_LEVEL_31 = 5,
+    /** 4 level */
+    VP9_LEVEL_4 = 6,
+    /** 4.1 level */
+    VP9_LEVEL_41 = 7,
+    /** 5 level */
+    VP9_LEVEL_5 = 8,
+    /** 5.1 level */
+    VP9_LEVEL_51 = 9,
+    /** 5.2 level */
+    VP9_LEVEL_52 = 10,
+    /** 6 level */
+    VP9_LEVEL_6 = 11,
+    /** 6.1 level */
+    VP9_LEVEL_61 = 12,
+    /** 6.2 level */
+    VP9_LEVEL_62 = 13,
+} OH_VP9Level;
+
+/**
+ * @brief WVC1 level.
+ *
+ * @since 23
+ */
+typedef enum OH_WVC1Level {
+    /** L0 level */
+    WVC1_LEVEL_L0 = 0,
+    /** L1 level */
+    WVC1_LEVEL_L1 = 1,
+    /** L2 level */
+    WVC1_LEVEL_L2 = 2,
+    /** L3 level */
+    WVC1_LEVEL_L3 = 3,
+    /** L4 level */
+    WVC1_LEVEL_L4 = 4,
+} OH_WVC1Level;
+
+/**
+ * @brief WMV3 Level.
+ *
+ * @since 22
+ */
+typedef enum OH_WMV3Level {
+    /** LOW level */
+    WMV3_LEVEL_LOW = 0,
+    /** MEDIUM level */
+    WMV3_LEVEL_MEDIUM = 1,
+    /** HIGH level */
+    WMV3_LEVEL_HIGH = 2,
+} OH_WMV3Level;
+
+/**
  * @brief The reference mode in temporal group of picture.
  *
  * @syscap SystemCapability.Multimedia.Media.CodecBase
@@ -1747,7 +2313,11 @@ typedef enum OH_BitrateMode {
     /** Stable Quality RateControl.
      * @since 20
      */
-    BITRATE_MODE_SQR = 3
+    BITRATE_MODE_SQR = 3,
+    /** CBR for High Quality.
+     * @since 26.0.0
+     */
+    BITRATE_MODE_CBR_HIGH_QUALITY = 4
 } OH_BitrateMode;
 
 #ifdef __cplusplus

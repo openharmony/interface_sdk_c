@@ -157,6 +157,26 @@ typedef struct OH_Drawing_TextLine OH_Drawing_TextLine;
  */
 typedef struct OH_Drawing_Run OH_Drawing_Run;
 
+/**
+ * @brief Defines an <b>OH_Drawing_FontFullDescriptor</b>, which describes the font information.
+ *
+ * @since 22
+ */
+typedef struct OH_Drawing_FontFullDescriptor OH_Drawing_FontFullDescriptor;
+
+/**
+ * @brief Defines an <b>OH_Drawing_FontVariationAxis</b>, which describes the font variation axis.
+ *
+ * @since 24
+ */
+typedef struct OH_Drawing_FontVariationAxis OH_Drawing_FontVariationAxis;
+
+/**
+ * @brief Defines an <b>OH_Drawing_FontVariationInstance</b>, which describes the font variation instance.
+ *
+ * @since 24
+ */
+typedef struct OH_Drawing_FontVariationInstance OH_Drawing_FontVariationInstance;
 #ifdef __cplusplus
 }
 #endif

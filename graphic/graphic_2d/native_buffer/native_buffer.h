@@ -51,6 +51,14 @@ struct OH_NativeBuffer;
 typedef struct OH_NativeBuffer OH_NativeBuffer;
 
 /**
+ * @brief Defines the ipc parcel.
+ *
+ * @since 23
+ * @version 1.0
+ */
+typedef struct OHIPCParcel OHIPCParcel;
+
+/**
  * @brief Indicates the usage of a native buffer.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
@@ -66,187 +74,23 @@ typedef enum OH_NativeBuffer_Usage {
      * @since 20
      */
     NATIVEBUFFER_USAGE_MEM_MMZ_CACHE = (1ULL << 5),
+    /**
+     * @since 12
+     */
     NATIVEBUFFER_USAGE_HW_RENDER = (1ULL << 8),       /// < For GPU write case */
+    /**
+     * @since 12
+     */
     NATIVEBUFFER_USAGE_HW_TEXTURE = (1ULL << 9),      /// < For GPU read case */
+    /**
+     * @since 12
+     */
     NATIVEBUFFER_USAGE_CPU_READ_OFTEN = (1ULL << 16), /// < Often be mapped for direct CPU reads */
+    /**
+     * @since 12
+     */
     NATIVEBUFFER_USAGE_ALIGNMENT_512 = (1ULL << 18),  /// < 512 bytes alignment */
 } OH_NativeBuffer_Usage;
-
-/**
- * @brief Indicates the format of a native buffer.
- *
- * @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
- * @since 10
- * @version 1.0
- */
-typedef enum OH_NativeBuffer_Format {
-    /**
-     * CLUT8 format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_CLUT8 = 0,
-    /**
-     * CLUT1 format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_CLUT1,
-    /**
-     * CLUT4 format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_CLUT4,
-    NATIVEBUFFER_PIXEL_FMT_RGB_565 = 3,               /// < RGB565 format */
-    NATIVEBUFFER_PIXEL_FMT_RGBA_5658,                 /// < RGBA5658 format */
-    NATIVEBUFFER_PIXEL_FMT_RGBX_4444,                 /// < RGBX4444 format */
-    NATIVEBUFFER_PIXEL_FMT_RGBA_4444,                 /// < RGBA4444 format */
-    NATIVEBUFFER_PIXEL_FMT_RGB_444,                   /// < RGB444 format */
-    NATIVEBUFFER_PIXEL_FMT_RGBX_5551,                 /// < RGBX5551 format */
-    NATIVEBUFFER_PIXEL_FMT_RGBA_5551,                 /// < RGBA5551 format */
-    NATIVEBUFFER_PIXEL_FMT_RGB_555,                   /// < RGB555 format */
-    NATIVEBUFFER_PIXEL_FMT_RGBX_8888,                 /// < RGBX8888 format */
-    NATIVEBUFFER_PIXEL_FMT_RGBA_8888,                 /// < RGBA8888 format */
-    NATIVEBUFFER_PIXEL_FMT_RGB_888,                   /// < RGB888 format */
-    NATIVEBUFFER_PIXEL_FMT_BGR_565,                   /// < BGR565 format */
-    NATIVEBUFFER_PIXEL_FMT_BGRX_4444,                 /// < BGRX4444 format */
-    NATIVEBUFFER_PIXEL_FMT_BGRA_4444,                 /// < BGRA4444 format */
-    NATIVEBUFFER_PIXEL_FMT_BGRX_5551,                 /// < BGRX5551 format */
-    NATIVEBUFFER_PIXEL_FMT_BGRA_5551,                 /// < BGRA5551 format */
-    NATIVEBUFFER_PIXEL_FMT_BGRX_8888,                 /// < BGRX8888 format */
-    NATIVEBUFFER_PIXEL_FMT_BGRA_8888,                 /// < BGRA8888 format */
-    /**
-     * YUV422 interleaved format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_YUV_422_I,
-    /**
-     * YCBCR422 semi-planar format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_YCBCR_422_SP,
-    /**
-     * YCRCB422 semi-planar format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_YCRCB_422_SP,
-    /**
-     * YCBCR420 semi-planar format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_YCBCR_420_SP,
-    /**
-     * YCRCB420 semi-planar format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_YCRCB_420_SP,
-    /**
-     * YCBCR422 planar format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_YCBCR_422_P,
-    /**
-     * YCRCB422 planar format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_YCRCB_422_P,
-    /**
-     * YCBCR420 planar format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_YCBCR_420_P,
-    /**
-     * YCRCB420 planar format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_YCRCB_420_P,
-    /**
-     * YUYV422 packed format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_YUYV_422_PKG,
-    /**
-     * UYVY422 packed format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_UYVY_422_PKG,
-    /**
-     * YVYU422 packed format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_YVYU_422_PKG,
-    /**
-     * VYUY422 packed format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_VYUY_422_PKG,
-    /**
-     * RGBA_1010102 packed format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_RGBA_1010102,
-    /**
-     * YCBCR420 semi-planar 10bit packed format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_YCBCR_P010,
-    /**
-     * YCRCB420 semi-planar 10bit packed format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_YCRCB_P010,
-    /**
-     * Raw 10bit packed format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_RAW10,
-    /**
-     * BLOB format
-     * @since 15
-     */
-    NATIVEBUFFER_PIXEL_FMT_BLOB,
-    /**
-     * RGBA16 float format
-     * @since 15
-     */
-    NATIVEBUFFER_PIXEL_FMT_RGBA16_FLOAT,
-    /**
-     * Y8 format
-     * @since 20
-     */
-    NATIVEBUFFER_PIXEL_FMT_Y8 = 40,
-    /**
-     * Y16 format
-     * @since 20
-     */
-    NATIVEBUFFER_PIXEL_FMT_Y16 = 41,
-    /**
-     * vendor mask format
-     * @since 12
-     */
-    NATIVEBUFFER_PIXEL_FMT_VENDER_MASK = 0X7FFF0000,
-    NATIVEBUFFER_PIXEL_FMT_BUTT = 0X7FFFFFFF          /// < Invalid pixel format */
-} OH_NativeBuffer_Format;
-
-/**
- * @brief Indicates the transform type of a native buffer.
- *
- * @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
- * @since 12
- * @version 1.0
- */
-typedef enum OH_NativeBuffer_TransformType {
-    NATIVEBUFFER_ROTATE_NONE = 0,         /**< No rotation */
-    NATIVEBUFFER_ROTATE_90,               /**< Rotation by 90 degrees */
-    NATIVEBUFFER_ROTATE_180,              /**< Rotation by 180 degrees */
-    NATIVEBUFFER_ROTATE_270,              /**< Rotation by 270 degrees */
-    NATIVEBUFFER_FLIP_H,                  /**< Flip horizontally */
-    NATIVEBUFFER_FLIP_V,                  /**< Flip vertically */
-    NATIVEBUFFER_FLIP_H_ROT90,            /**< Flip horizontally and rotate 90 degrees */
-    NATIVEBUFFER_FLIP_V_ROT90,            /**< Flip vertically and rotate 90 degrees */
-    NATIVEBUFFER_FLIP_H_ROT180,           /**< Flip horizontally and rotate 180 degrees */
-    NATIVEBUFFER_FLIP_V_ROT180,           /**< Flip vertically and rotate 180 degrees */
-    NATIVEBUFFER_FLIP_H_ROT270,           /**< Flip horizontally and rotate 270 degrees */
-    NATIVEBUFFER_FLIP_V_ROT270,           /**< Flip vertically and rotate 270 degrees */
-} OH_NativeBuffer_TransformType;
 
 /**
  * @brief Indicates the color gamut of a native buffer.
@@ -282,6 +126,9 @@ typedef struct {
     int32_t height;          ///< Height in pixels
     int32_t format;          ///< One of PixelFormat
     int32_t usage;           ///< Combination of buffer usage
+    /**
+     * @since 10
+     */
     int32_t stride;          ///< the stride of memory in bytes
 } OH_NativeBuffer_Config;
 
@@ -498,6 +345,87 @@ int32_t OH_NativeBuffer_SetMetadataValue(OH_NativeBuffer *buffer, OH_NativeBuffe
 int32_t OH_NativeBuffer_GetMetadataValue(OH_NativeBuffer *buffer, OH_NativeBuffer_MetadataKey metadataKey,
     int32_t *size, uint8_t **metadata);
 
+/**
+ * @brief Provide direct cpu access to the OH_NativeBuffer in the process's address space and wait fence.\n
+ * If the interface returns OK, fenceFd does not need to be closed by the developer,
+ * Otherwise, the developer needs to close the fenceFd.\n
+ * This interface is a non-thread-safe type interface.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+ * @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+ * @param fenceFd Indicates the pointer to a file descriptor handle.
+ * @param virAddr Indicates the address of the <b>OH_NativeBuffer</b> in virtual memory.
+ * @return {@link NATIVE_ERROR_OK} 0 - Success.
+ * {@link NATIVE_ERROR_INVALID_ARGUMENTS} 40001000 - buffer or virAddr is NULL or invalid fenceFd.
+ * {@link NATIVE_ERROR_UNKNOWN} 50002000 - map failed.
+ * @since 23
+ * @version 1.0
+ */
+int32_t OH_NativeBuffer_MapWaitFence(OH_NativeBuffer *buffer, int32_t fenceFd, void **virAddr);
+
+/**
+ * @brief Serialize <b>OH_NativeBuffer</b> object to the serialized <b>OHIPCParcel</b> object.\n
+ * This interface is a non-thread-safe type interface.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+ * @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+ * @param parcel Indicates the serialized <b>OHIPCParcel</b> object.
+ * @return {@link NATIVE_ERROR_OK} 0 - Success.
+ * {@link NATIVE_ERROR_INVALID_ARGUMENTS} 40001000 - buffer or parcel is NULL.
+ * {@link SURFACE_ERROR_BINDER_ERROR} 50401000 - ipc send failed.
+ * @since 23
+ * @version 1.0
+ */
+int32_t OH_NativeBuffer_WriteToParcel(OH_NativeBuffer* buffer, OHIPCParcel* parcel);
+
+/**
+ * @brief Deserialize data from the serialized <b>OHIPCParcel</b> object and rebuild <b>OH_NativeBuffer</b> object.
+ * This interface will cause an increase in the reference count of the <b>OH_NativeBuffer</b> instance.
+ * This interface needs to be used in conjunction with <b>OH_NativeBuffer_Unreference</b>,\n
+ * otherwise memory leaks will occur.
+ * This interface is a non-thread-safe type interface.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+ * @param parcel Indicates the serialized <b>OHIPCParcel</b> object.
+ * @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> pointer.
+ * @return {@link NATIVE_ERROR_OK} 0 - Success.
+ * {@link NATIVE_ERROR_INVALID_ARGUMENTS} 40001000 - parcel or buffer is NULL.
+ * {@link NATIVE_ERROR_UNKNOWN} 50002000 - deserialize failed.
+ * @since 23
+ * @version 1.0
+ */
+int32_t OH_NativeBuffer_ReadFromParcel(OHIPCParcel* parcel, OH_NativeBuffer** buffer);
+
+/**
+ * @brief Check whether the system supports the <b>NativeBufferConfig</b>.\n
+ * This interface is a non-thread-safe type interface.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+ * @param config Indicates the config of the <b>OH_NativeBuffer</b>.
+ * @param isSupported Indicates whether the system supports the <b>NativeBufferConfig</b>.
+ * @return {@link NATIVE_ERROR_OK} 0 - Success.
+ * {@link NATIVE_ERROR_INVALID_ARGUMENTS} 40001000 - isSupported is NULL.
+ * @since 23
+ * @version 1.0
+ */
+int32_t OH_NativeBuffer_IsSupported(OH_NativeBuffer_Config config, bool* isSupported);
+
+/**
+ * @brief Provide direct cpu access to the <b>OH_NativeBuffer</b> in the process's address space,\n
+ * and return a <b>NativeBufferConfig<b> of the <b>OH_NativeBuffer</b>.
+ * This interface is a non-thread-safe type interface.
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeBuffer
+ * @param buffer Indicates the pointer to a <b>OH_NativeBuffer</b> instance.
+ * @param virAddr Indicates the address of the <b>OH_NativeBuffer</b> in virtual memory.
+ * @param config Indicates the pointer to the <b>NativeBufferConfig</b> of the buffer.
+ * @return {@link NATIVE_ERROR_OK} 0 - Success.
+ * {@link NATIVE_ERROR_INVALID_ARGUMENTS} 40001000 - buffer or virAddr or config is NULL or invalid fenceFd.
+ * {@link NATIVE_ERROR_UNKNOWN} 50002000 - map failed.
+ * @since 23
+ * @version 1.0
+ */
+int32_t OH_NativeBuffer_MapAndGetConfig(OH_NativeBuffer* buffer, void** virAddr, OH_NativeBuffer_Config* config);
 #ifdef __cplusplus
 }
 #endif

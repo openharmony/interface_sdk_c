@@ -198,6 +198,34 @@ typedef enum OH_ContainerFormatType {
 } OH_ContainerFormatType;
 
 /**
+ * @brief Capture source selector display mode enumeration
+ *
+ * @since 22
+ */
+typedef enum OH_CapturePickerMode {
+    /** Show application window options only */
+    OH_CAPTURE_PICKER_MODE_WINDOW_ONLY = 0,
+
+    /** Show physical screen options only */
+    OH_CAPTURE_PICKER_MODE_SCREEN_ONLY = 1,
+
+    /** Show both screen and window options (default mode) */
+    OH_CAPTURE_PICKER_MODE_SCREEN_AND_WINDOW = 2,
+} OH_CapturePickerMode;
+
+/**
+ * @brief Screen recording highlight mode definition
+ *
+ * @since 22
+ */
+typedef enum OH_ScreenCaptureHighlightMode {
+    /**Default mode, highlight recording area with closed border*/
+    OH_HIGHLIGHT_MODE_CLOSED = 0,
+    /** highlight recording area with corner wrap border */
+    OH_HIGHLIGHT_MODE_CORNER_WRAP = 1,
+} OH_ScreenCaptureHighlightMode;
+
+/**
  * @brief Audio capture info struct
  * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
  *
@@ -312,6 +340,35 @@ typedef struct OH_RecorderInfo {
 } OH_RecorderInfo;
 
 /**
+ * @brief Highlight configure for Capture rectangle frame  info
+ *
+ * @since 22
+ */
+typedef struct OH_AVScreenCaptureHighlightConfig {
+    /** define the style of the capture area frame. */
+    OH_ScreenCaptureHighlightMode mode;
+    /** define the thickness of the frame line*/
+    uint32_t lineThickness;
+    /** define the color of the frame line*/
+    uint32_t lineColor;
+} OH_AVScreenCaptureHighlightConfig;
+
+/**
+ * @brief Multi-display recording capability information.
+ * This structure describes the capabilities of multi-display recording, including whether the device supports
+ * multi-display recording and the supported resolution.
+ * @since 24
+ */
+typedef struct OH_MultiDisplayCapability {
+    /** Whether multi-display recording is supported */
+    bool isMultiDisplaySupport;
+    /** Supported width (in pixels) */
+    uint32_t width;
+    /** Supported height (in pixels) */
+    uint32_t height;
+} OH_MultiDisplayCapability;
+
+/**
  * @brief AV screeen capture config info
  * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
  *
@@ -326,6 +383,23 @@ typedef struct OH_AVScreenCaptureConfig {
     /* should be set, while dataType = OH_CAPTURE_FILE */
     OH_RecorderInfo recorderInfo;
 } OH_AVScreenCaptureConfig;
+
+/**
+ * @brief Privacy protect info struct
+ * @since 24
+ */
+typedef struct OH_PrivacyProtectInfo {
+    /**
+     * @brief System privacy protection status
+     * @since 24
+     */
+    bool systemWindowProtection;
+    /**
+     * @brief App privacy protection status
+     * @since 24
+     */
+    bool sensitiveAppProtection;
+} OH_PrivacyProtectInfo;
 
 /**
  * @brief When an error occurs in the running of the OH_AVScreenCapture instance, the function pointer will be called
@@ -449,6 +523,26 @@ typedef enum OH_AVScreenCaptureStateCode {
     OH_SCREEN_CAPTURE_STATE_EXIT_PRIVATE_SCENE = 9,
     /* ScreenCapture stopped by user switches */
     OH_SCREEN_CAPTURE_STATE_STOPPED_BY_USER_SWITCHES = 10,
+    /**
+     * @brief Screen capture paused by user
+     * @since 26.0.0
+     */
+    OH_SCREEN_CAPTURE_STATE_PAUSED_BY_USER = 11,
+    /**
+     * @brief Screen capture resumed by user
+     * @since 26.0.0
+     */
+    OH_SCREEN_CAPTURE_STATE_RESUMED_BY_USER = 12,
+    /**
+     * @brief Screen capture paused by app
+     * @since 26.0.0
+     */
+    OH_SCREEN_CAPTURE_STATE_PAUSED_BY_APP = 13,
+    /**
+     * @brief Screen capture resumed by app
+     * @since 26.0.0
+     */
+    OH_SCREEN_CAPTURE_STATE_RESUMED_BY_APP = 14,
 } OH_AVScreenCaptureStateCode;
 
 /**
@@ -608,6 +702,19 @@ typedef struct OH_AVScreenCapture_UserSelectionInfo OH_AVScreenCapture_UserSelec
 */
 typedef void (*OH_AVScreenCapture_OnUserSelected)(OH_AVScreenCapture* capture,
     OH_AVScreenCapture_UserSelectionInfo* selections, void *userData);
+
+/**
+ * @brief When privacy protect event occurs in the running of the OH_AVScreenCapture instance,
+ *  the function pointer will be called
+ * @param {OH_AVScreenCapture*} capture Pointer to an OH_AVScreenCapture instance
+ * @param {OH_PrivacyProtectInfo*} privacyProtect Pointer to privacy protect info
+ * @param {void*} userData Pointer to user specific data
+ *
+ * @since 24
+ */
+typedef void (*OH_AVScreenCapture_OnPrivacyProtect)(OH_AVScreenCapture* capture,
+    OH_PrivacyProtectInfo* privacyProtect, void *userData);
+
 #ifdef __cplusplus
 }
 #endif

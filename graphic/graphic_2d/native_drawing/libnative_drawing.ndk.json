@@ -154,6 +154,7 @@
         "first_introduced": "12",
         "name": "OH_Drawing_CanvasResetMatrix"
     },
+    { "name": "OH_Drawing_CanvasResetClip" },
     { "name": "OH_Drawing_CanvasGetWidth" },
     { "name": "OH_Drawing_CanvasGetHeight" },
     { "name": "OH_Drawing_CanvasGetLocalClipBounds" },
@@ -454,6 +455,10 @@
         "name": "OH_Drawing_MatrixPostTranslate"
     },
     { "name": "OH_Drawing_MatrixConcat" },
+    { 
+        "first_introduced": "22",
+        "name": "OH_Drawing_MatrixPreConcat"
+    },
     { "name": "OH_Drawing_MatrixGetValue" },
     { "name": "OH_Drawing_MatrixRotate" },
     { "name": "OH_Drawing_MatrixTranslate" },
@@ -470,6 +475,19 @@
         "first_introduced": "12",
         "name": "OH_Drawing_PathBuildFromSvgString"
     },
+    { "name": "OH_Drawing_PathConvertToSvgString" },
+    {
+        "first_introduced": "26.0.0",
+        "name": "OH_Drawing_PathGetPointData"
+ 	},
+ 	{
+        "first_introduced": "26.0.0",
+        "name": "OH_Drawing_PathGetVerbData"
+ 	},
+ 	{
+        "first_introduced": "26.0.0",
+        "name": "OH_Drawing_PathGetConicWeightData"
+ 	},
     { "name": "OH_Drawing_PathCreate" },
     { "name": "OH_Drawing_PathCopy" },
     { "name": "OH_Drawing_PathDestroy" },
@@ -683,6 +701,14 @@
     {
         "first_introduced": "12",
         "name": "OH_Drawing_PointSet"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "OH_Drawing_PointNegate"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "OH_Drawing_PointOffset"
     },
     { "name": "OH_Drawing_ColorSetArgb" },
     {
@@ -1107,6 +1133,14 @@
         "name": "OH_Drawing_UnregisterFont"
     },
     {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RegisterFontByIndex"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RegisterFontBufferByIndex"
+    },
+    {
         "first_introduced": "12",
         "name": "OH_Drawing_TypographyGetLineTextRange"
     },
@@ -1125,6 +1159,98 @@
     {
         "first_introduced": "18",
         "name": "OH_Drawing_DestroyFontDescriptors"
+    },
+    {
+        "first_introduced": "22",
+        "name": "OH_Drawing_GetFontFullDescriptorsFromStream"
+    },
+    {
+        "first_introduced": "22",
+        "name": "OH_Drawing_GetFontFullDescriptorsFromPath"
+    },
+    {
+        "first_introduced": "22",
+        "name": "OH_Drawing_GetFontFullDescriptorByIndex"
+    },
+    {
+        "first_introduced": "22",
+        "name": "OH_Drawing_DestroyFontFullDescriptors"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_DestroyFontFullDescriptor"
+    },
+    {
+        "first_introduced": "22",
+        "name": "OH_Drawing_GetFontFullDescriptorAttributeInt"
+    },
+    {
+        "first_introduced": "22",
+        "name": "OH_Drawing_GetFontFullDescriptorAttributeBool"
+    },
+    {
+        "first_introduced": "22",
+        "name": "OH_Drawing_GetFontFullDescriptorAttributeString"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_GetFontFullDescriptorAttributeArray"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_GetFontVariationAxisByIndex"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_DestroyFontVariationAxis"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_GetFontVariationAxisAttributeDouble"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_GetFontVariationAxisAttributeInt"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_GetFontVariationAxisAttributeStr"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_GetFontVariationInstanceByIndex"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_DestroyFontVariationInstance"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_GetFontVariationInstanceAttributeStr"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_GetFontVariationInstanceCoordinate"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_GetFontFullDescriptorByFullName"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_GetFontUnicodeArrayFromBuffer"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_GetFontUnicodeArrayFromFile"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_GetFontCountFromBuffer"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_GetFontCountFromFile"
     },
     {
         "first_introduced": "12",
@@ -1339,6 +1465,10 @@
         "name": "OH_Drawing_RegionDestroy"
     },
     {
+        "first_introduced": "22",
+        "name": "OH_Drawing_RegionEmpty"
+    },
+    {
         "first_introduced": "12",
         "name": "OH_Drawing_RegionSetRect"
     },
@@ -1365,6 +1495,10 @@
     {
         "first_introduced": "12",
         "name": "OH_Drawing_TextStyleAddFontVariation"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_TextStyleAddFontVariationWithNormalization"
     },
     {
         "first_introduced": "12",
@@ -1771,6 +1905,14 @@
         "name":"OH_Drawing_RectDestroyArray"
     },
     {
+        "first_introduced": "22",
+        "name":"OH_Drawing_RectContains"
+    },
+    {
+        "first_introduced": "22",
+        "name":"OH_Drawing_RectInset"
+    },
+    {
         "first_introduced": "18",
         "name":"OH_Drawing_CreateTextTab"
     },
@@ -1971,6 +2113,10 @@
         "name": "OH_Drawing_CanvasDrawArcWithCenter"
     },
     {
+        "first_introduced": "23",
+        "name": "OH_Drawing_CanvasDrawPixelMapMesh"
+    },
+    {
         "first_introduced": "18",
         "name": "OH_Drawing_CanvasDrawPixelMapNine"
     },
@@ -2069,5 +2215,193 @@
     {
         "first_introduced": "21",
         "name": "OH_Drawing_GetTypographyStyleAttributeInt"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_LatticeCreate"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_LatticeDestroy"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_MatrixIsAffine"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_MatrixPreSkew"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_MatrixRectStaysRect"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_MatrixSetSinCos"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_PathIteratorCreate"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_PathIteratorDestroy"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_PathIteratorHasNext"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_PathIteratorNext"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_PathIteratorPeek"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_PathIsInverseFillType"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_PathToggleInverseFillType"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RectIsEmpty"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RectOffset"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RectOffsetTo"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RectSetEmpty"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RectSort"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RectUnion"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RegionGetBoundaryPath"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RegionGetBounds"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RegionIsComplex"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RegionIsEmpty"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RegionIsRect"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RegionQuickContains"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RegionQuickReject"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_RegionTranslate"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_TypefaceIsBold"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_TypefaceIsItalic"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_SetTypographyStyleAttributeBool"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_GetTypographyStyleAttributeBool"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "OH_Drawing_SetTypographyStyleAttributeDoubleArray"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "OH_Drawing_GetTypographyStyleAttributeDoubleArray"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_TypographyGetCharacterRangeForGlyphRangeWithBuffer"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_TypographyGetCharacterPositionAtCoordinateWithBuffer"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_TypographyGetGlyphRangeForCharacterRangeWithBuffer"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_ReleaseRangeBuffer"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_DestroyPositionAndAffinity"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_GetFontPathsByType"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_IsFontSupportedFromPath"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_Drawing_IsFontSupportedFromBuffer"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_TypographyLayoutWithConstraintsWithBuffer"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_GetRangeByArrayIndex"
+    },
+    {
+        "first_introduced": "24",
+        "name": "OH_Drawing_ReleaseArrayBuffer"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "OH_Drawing_PathGetLastPoint"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "OH_Drawing_PathIsEqual"
+    },
+    {
+        "first_introduced": "26.0.0",
+        "name": "OH_Drawing_BitmapGetRowBytes"
     }
 ]

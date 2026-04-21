@@ -38,5 +38,33 @@
     {
         "first_introduced": "17",
         "name": "OH_NativeImage_SetDropBufferMode"
+    },
+    {
+        "first_introduced": "22",
+        "name": "OH_NativeImage_CreateWithSingleBufferMode"
+    },
+    {
+        "first_introduced": "22",
+        "name": "OH_ConsumerSurface_CreateWithSingleBufferMode"
+    },
+    {
+        "first_introduced": "22",
+        "name": "OH_NativeImage_ReleaseTextImage"
+    },
+    {
+        "first_introduced": "22",
+        "name": "OH_NativeImage_GetColorSpace"
+    },
+    {
+        "first_introduced": "22",
+        "name": "OH_NativeImage_AcquireLatestNativeWindowBuffer"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_NativeImage_IsReleased"
+    },
+    {
+        "first_introduced": "23",
+        "name": "OH_NativeImage_Release"
     }
 ]

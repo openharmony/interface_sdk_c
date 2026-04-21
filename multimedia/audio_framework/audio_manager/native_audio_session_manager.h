@@ -32,7 +32,7 @@
  *
  * This file interfaces are used for the creation of audioSessionManager
  * as well as activating/deactivating the audio session
- * as well as checking and listening the audio session decativated events.
+ * as well as checking and listening the audio session deactivated events.
  *
  * @library libohaudio.so
  * @syscap SystemCapability.Multimedia.Audio.Core
@@ -45,6 +45,7 @@
 #define NATIVE_AUDIO_SESSION_MANAGER_H
 
 #include "native_audio_common.h"
+#include "native_audio_session_base.h"
 #include "native_audiostream_base.h"
 #include "native_audio_device_base.h"
 #ifdef __cplusplus
@@ -58,33 +59,6 @@ extern "C" {
  * @since 12
  */
 typedef struct OH_AudioSessionManager OH_AudioSessionManager;
-
-/**
- * @brief Declare the audio concurrency modes.
- *
- * @since 12
- */
-typedef enum {
-    /**
-     * @brief default mode
-     */
-    CONCURRENCY_DEFAULT = 0,
-
-    /**
-     * @brief mix with others mode
-     */
-    CONCURRENCY_MIX_WITH_OTHERS = 1,
-
-    /**
-     * @brief duck others mode
-     */
-    CONCURRENCY_DUCK_OTHERS = 2,
-
-    /**
-     * @brief pause others mode
-     */
-    CONCURRENCY_PAUSE_OTHERS = 3,
-} OH_AudioSession_ConcurrencyMode;
 
 /**
  * @brief Declare the audio session scene.
@@ -143,6 +117,48 @@ typedef enum {
      * @brief Unducked the playback.
      */
     AUDIO_SESSION_STATE_CHANGE_HINT_UNDUCK = 5,
+
+    /**
+     * @brief Suggests to mute the playback because there is another application begin to play nonmixable
+     * audio, application can decide whether to mute.
+     * If interrupt strategy is duck, {@link #AUDIO_SESSION_STATE_CHANGE_HINT_DUCK} will replace mute suggestion event,
+     * but application can still decide to mute when receive hint duck.
+     *
+     * @since 23
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_MUTE_SUGGESTION = 6,
+
+    /**
+     * @brief Suggest to unmute the playback because another application's nonmixable audio ends,
+     * application can decide whether to mute.
+     * If interrupt strategy is unduck, {@link #AUDIO_SESSION_STATE_CHANGE_HINT_UNDUCK} will replace unmute
+     * suggestion event, but application can still decide to unmute when receive hint unduck.
+     *
+     * @since 23
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE_SUGGESTION = 7,
+
+    /**
+     * @brief The hint can be received only after
+     * the parameter {@link #OH_AudioSession_BehaviorFlags.MUTE_WHEN_INTERRUPTED}
+     * has been set by the interface {@link #OH_AudioSessionManager_SetBehavior}
+     * and {@link #OH_AudioSessionManager_SetScene} has been called, and the audio session has been activated.
+     * After the hint is received, the audio stream is muted.
+     *
+     * @since 24
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_MUTE = 8,
+
+    /**
+     * @brief The hint can be received only after
+     * the parameter {@link #OH_AudioSession_BehaviorFlags.MUTE_WHEN_INTERRUPTED}
+     * has been set by the interface {@link #OH_AudioSessionManager_SetBehavior}
+     * and {@link #OH_AudioSessionManager_SetScene} has been called, and the audio session has been activated.
+     * When the hint is received, the audio stream is unmuted.
+     *
+     * @since 24
+     */
+    AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE = 9,
 } OH_AudioSession_StateChangeHint;
 
 /**
@@ -153,6 +169,8 @@ typedef enum {
 typedef enum {
     /**
      * @brief Recommend to continue the playback.
+     * This event indicates that the application does not need to stop audio playback when switching devices.
+     * However, it should not be used to restart audio playback that has already been paused or stopped.
      */
     DEVICE_CHANGE_RECOMMEND_TO_CONTINUE = 0,
 
@@ -180,16 +198,34 @@ typedef enum {
 } OH_AudioSession_DeactivatedReason;
 
 /**
- * @brief declare the audio session strategy
+ * @brief Enumerates the categories application prefer to use
+ * when recording with bluetooth and nearlink.
  *
- * @since 12
+ * @since 21
  */
-typedef struct OH_AudioSession_Strategy {
+typedef enum {
     /**
-     * @brief audio session concurrency mode
+     * @brief Not prefer to use bluetooth and nearlink record.
      */
-    OH_AudioSession_ConcurrencyMode concurrencyMode;
-} OH_AudioSession_Strategy;
+    PREFERRED_NONE = 0,
+
+    /**
+     * @brief Prefer to use bluetooth and nearlink record.
+     * However, whether to use low latency or high quality recording
+     * depends on system.
+     */
+    PREFERRED_DEFAULT = 1,
+
+    /**
+     * @brief Prefer to use bluetooth and nearlink low latency mode to record.
+     */
+    PREFERRED_LOW_LATENCY = 2,
+
+    /**
+     * @brief Prefer to use bluetooth and nearlink high quality mode to record.
+     */
+    PREFERRED_HIGH_QUALITY = 3,
+} OH_AudioSession_BluetoothAndNearlinkPreferredRecordCategory;
 
 /**
  * @brief declare the audio session deactivated event
@@ -224,6 +260,40 @@ typedef struct OH_AudioSession_StateChangedEvent {
  */
 typedef void (*OH_AudioSession_StateChangedCallback) (
     OH_AudioSession_StateChangedEvent event);
+
+/**
+ * @brief This function pointer will point to the callback function that
+ *     is used to return the changing audio device descriptors.
+ *     There may be more than one audio device descriptor returned.
+ *
+ * @param type the {@link OH_AudioDevice_ChangeType} is connect or disconnect.
+ * @param audioDeviceDescriptorArray the {@link OH_AudioDeviceDescriptorArray}
+ *     pointer variable which will be set the audio device descriptors value.
+ *     Do not release the audioDeviceDescriptorArray pointer separately
+ *     instead call {@link OH_AudioSessionManager_ReleaseDevices} to release the DeviceDescriptor array
+ *     when it is no use anymore.
+ * @since 21
+ */
+typedef void (*OH_AudioSession_AvailableDeviceChangedCallback) (
+    OH_AudioDevice_ChangeType type,
+    OH_AudioDeviceDescriptorArray *audioDeviceDescriptorArray);
+
+/**
+ * @brief This function pointer will point to the callback function that
+ *     is used to return the audio session input device change event.
+ *
+ * @param audioDeviceDescriptorArray the {@link OH_AudioDeviceDescriptorArray}
+ *     pointer variable which will be set the audio input device descriptors value.
+ *     Do not release the audioDeviceDescriptorArray pointer separately
+ *     instead call {@link OH_AudioSessionManager_ReleaseDevices}
+ *     to release the DeviceDescriptor array when it is no use anymore.
+ * @param changeReason the {@link #OH_AudioStream_DeviceChangeReason} indicates
+ *     that why does the input device changes.
+ * @since 21
+ */
+typedef void (*OH_AudioSession_CurrentInputDeviceChangedCallback) (
+    OH_AudioDeviceDescriptorArray *devices,
+    OH_AudioStream_DeviceChangeReason changeReason);
 
 /**
  * @brief This function pointer will point to the callback function that
@@ -467,9 +537,262 @@ OH_AudioCommon_Result OH_AudioSessionManager_UnregisterCurrentOutputDeviceChange
     OH_AudioSessionManager *audioSessionManager,
     OH_AudioSession_CurrentOutputDeviceChangedCallback callback);
 
+/**
+ * @brief Get available devices by device usage.
+ *
+ * @param audioSessionManager the {@link OH_AudioSessionManager} handle returned
+ *     by {@link OH_AudioManager_GetAudioSessionManager}.
+ * @param deviceUsage the {@link OH_AudioDevice_Usage} which is used as
+ *     the filter parameter for get the available devices.
+ * @param audioDeviceDescriptorArray the {@link OH_AudioDeviceDescriptorArray}
+ *     pointer variable which will be set the audio device descriptors value
+ *     Do not release the audioDeviceDescriptorArray pointer separately
+ *     instead call {@link OH_AudioSessionManager_ReleaseDevices} to release the DeviceDescriptor array
+ *     when it is no use anymore.
+ * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error.
+ * @since 21
+ */
+OH_AudioCommon_Result OH_AudioSessionManager_GetAvailableDevices(
+    OH_AudioSessionManager *audioSessionManager,
+    OH_AudioDevice_Usage deviceUsage, OH_AudioDeviceDescriptorArray **audioDeviceDescriptorArray);
+
+/**
+ * @brief Register available device change event callback.
+ *
+ * @param audioSessionManager the {@link #OH_AudioSessionManager}
+ *     returned by the {@link #OH_AudioManager_GetAudioSessionManager}
+ * @param deviceUsage the {@link OH_AudioDevice_Usage} which is used as
+ *     the filter parameter for register the available devices change event.
+ * @param callback the {@link #OH_AudioSession_AvailableDeviceChangedCallback} which is used
+ *     to receive available device change event.
+ * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error.
+ * @since 21
+ */
+OH_AudioCommon_Result OH_AudioSessionManager_RegisterAvailableDevicesChangeCallback(
+    OH_AudioSessionManager *audioSessionManager, OH_AudioDevice_Usage deviceUsage,
+    OH_AudioSession_AvailableDeviceChangedCallback callback);
+
+/**
+ * @brief Unregister available device change event callback.
+ *
+ * @param audioSessionManager the {@link #OH_AudioSessionManager}
+ *     returned by the {@link #OH_AudioManager_GetAudioSessionManager}.
+ * @param callback the {@link #OH_AudioSession_AvailableDeviceChangedCallback} which is used
+ *     to receive the device change event.
+ * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error.
+ * @since 21
+ */
+OH_AudioCommon_Result OH_AudioSessionManager_UnregisterAvailableDevicesChangeCallback(
+    OH_AudioSessionManager *audioSessionManager,
+    OH_AudioSession_AvailableDeviceChangedCallback callback);
+
+/**
+ * @brief Sets the media input device.
+ *     This function is not valid for call recording, whose SourceType is
+ *     SOURCE_TYPE_VOICE_CALL or SOURCE_TYPE_VOICE_COMMUNICATION.
+ *     In scenarios where there are concurrent recording streams with higher priority,
+ *     the actual input device used by the application may differ from the selected one.
+ *     The application can use {@link OH_AudioSessionManager_RegisterCurrentInputDeviceChangeCallback}
+ *     to register a callback to listen for the actual input device.
+ *
+ * @param audioSessionManager the {@link OH_AudioSessionManager} handle returned
+ *     by {@link OH_AudioManager_GetAudioSessionManager}.
+ * @param deviceDescriptor The target device. The available device must be in the array returned
+ *     by {@link OH_AudioSessionManager_GetAvailableDevices}.
+ *     When the nullptr is passed, system will clear the last selection.
+ * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error.
+ * @since 21
+ */
+OH_AudioCommon_Result OH_AudioSessionManager_SelectMediaInputDevice(
+    OH_AudioSessionManager *audioSessionManager, OH_AudioDeviceDescriptor *deviceDescriptor);
+
+/**
+ * @brief Gets the selected media input device.
+ *
+ * @param audioSessionManager the {@link #OH_AudioSessionManager}
+ *     returned by the {@link #OH_AudioManager_GetAudioSessionManager}.
+ * @param audioDeviceDescriptor The target device set by
+ *     {@link OH_AudioSessionManager_SelectMediaInputDevice} or
+ *     device with AUDIO_DEVICE_TYPE_INVALID if not set yet.
+ *     Do not release the audioDeviceDescriptor pointer separately,
+ *     instead call {@link OH_AudioSessionManager_ReleaseDevice} to release it
+ *     when it is no use anymore.
+ * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error.
+ * @since 21
+ */
+OH_AudioCommon_Result OH_AudioSessionManager_GetSelectedMediaInputDevice(
+    OH_AudioSessionManager *audioSessionManager, OH_AudioDeviceDescriptor **audioDeviceDescriptor);
+
+/**
+ * @brief Sets the prefered record category with bluetooth and nearlink device.
+ *     The application can set this category before bluetooth and nearlink connected, and the system will
+ *     prefer to use bluetooth and nearlink to record when the device connected.
+ *     In scenarios where there are concurrent recording streams with higher priority,
+ *     the actual input device used by the application may differ from the prefered one.
+ *     The application can use {@link OH_AudioSessionManager_RegisterCurrentInputDeviceChangeCallback}
+ *     to register a callback to listen for the actual input device.
+ *
+ * @param audioSessionManager the {@link OH_AudioSessionManager} handle returned
+ *     by {@link OH_AudioManager_GetAudioSessionManager}.
+ * @param category The category application prefer to use when recording with bluetooth and nearlink.
+ * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error.
+ * @since 21
+ */
+OH_AudioCommon_Result OH_AudioSessionManager_SetBluetoothAndNearlinkPreferredRecordCategory(
+    OH_AudioSessionManager *audioSessionManager,
+    OH_AudioSession_BluetoothAndNearlinkPreferredRecordCategory category);
+
+/**
+ * @brief Gets the prefered record category with bluetooth and nearlink device.
+ *
+ * @param audioSessionManager the {@link OH_AudioSessionManager} handle returned
+ *     by {@link OH_AudioManager_GetAudioSessionManager}.
+ * @param category The category application prefer to use when recording with bluetooth and nearlink.
+ * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error.
+ * @since 21
+ */
+OH_AudioCommon_Result OH_AudioSessionManager_GetBluetoothAndNearlinkPreferredRecordCategory(
+    OH_AudioSessionManager *audioSessionManager,
+    OH_AudioSession_BluetoothAndNearlinkPreferredRecordCategory *category);
+
+/**
+ * @brief Register the audio session input device change event callback.
+ *
+ * @param audioSessionManager the {@link #OH_AudioSessionManager}
+ *     returned by the {@link #OH_AudioManager_GetAudioSessionManager}.
+ * @param callback the {@link #OH_AudioSession_CurrentInputDeviceChangedCallback} which is used
+ *     to receive the input device change event.
+ * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails.
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_NO_MEMORY} No memory error.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error.
+ * @since 21
+ */
+OH_AudioCommon_Result OH_AudioSessionManager_RegisterCurrentInputDeviceChangeCallback(
+    OH_AudioSessionManager *audioSessionManager,
+    OH_AudioSession_CurrentInputDeviceChangedCallback callback);
+
+/**
+ * @brief Unregister the audio session input device change event callback.
+ *
+ * @param audioSessionManager the {@link #OH_AudioSessionManager}
+ *     returned by the {@link #OH_AudioManager_GetAudioSessionManager}.
+ * @param callback the {@link #OH_AudioSession_CurrentInputDeviceChangedCallback} which is used
+ *     to receive the input device change event.
+ * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, System error.
+ * @since 21
+ */
+OH_AudioCommon_Result OH_AudioSessionManager_UnregisterCurrentInputDeviceChangeCallback(
+    OH_AudioSessionManager *audioSessionManager,
+    OH_AudioSession_CurrentInputDeviceChangedCallback callback);
+
+/**
+ * @brief Release the audio device descriptor object.
+ *
+ * @param audioSessionManager the {@link OH_AudioSessionManager}
+ *     returned by the {@link #OH_AudioManager_GetAudioSessionManager}
+ * @param audioDeviceDescriptor Audio device descriptor to release.
+ * @return {@link AUDIOCOMMON_RESULT_SUCCESS} If the execution is successful.
+ *     or {@link AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails
+ * @since 21
+ */
+OH_AudioCommon_Result OH_AudioSessionManager_ReleaseDevice(
+    OH_AudioSessionManager *audioSessionManager,
+    OH_AudioDeviceDescriptor *audioDeviceDescriptor);
+
+/**
+ * @brief Enables mute suggestion callback function when using {@link #CONCURRENCY_MIX_WITH_OTHERS} mode.
+ * Usually when using mix mode, application won't receive state change event when there is another audio playing
+ * simultaneously. But in some scenarios, like game or radio, the application may intend to mute its audio to
+ * achieve better user experience.
+ * If enabled, the mute and unmute suggestion hint will be sent by {@link #OH_AudioSession_StateChangedCallback}
+ * registered by {@link #OH_AudioSessionManager_RegisterStateChangeCallback}. Mute suggestion means there is
+ * another application starting non-mixable audio.
+ * This function only supports audio session with {@link #OH_AudioSession_Scene} set and activated with
+ * {@link #CONCURRENCY_MIX_WITH_OTHERS} mode. And it takes effect only once during activation, so application
+ * need to enable it every time before activation.
+ *
+ * @param audioSessionManager the {@link #OH_AudioSessionManager}
+ *     returned by the {@link #OH_AudioManager_GetAudioSessionManager}.
+ * @param enable Sets true to enable mute suggestion while registering session state change event callback.
+ * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} If the execution is successful.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} Parameter validation fails.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE} Function is called without setting
+ *     {@link #OH_AudioSession_Scene} or called after audio session activation.
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_SYSTEM} Audio client call audio service error, system internal error.
+ * @since 23
+ */
+OH_AudioCommon_Result OH_AudioSessionManager_EnableMuteSuggestionWhenMixWithOthers(
+    OH_AudioSessionManager *audioSessionManager, bool enable);
+
+/**
+ * @brief Returns if there is any other application playing audio in media usage, including media session activated.
+ *
+ * @param audioSessionManager the {@link #OH_AudioSessionManager}
+ *     returned by the {@link #OH_AudioManager_GetAudioSessionManager}.
+ * @return True if there is other application playing audio in media usage.
+ * @since 23
+ */
+bool OH_AudioSessionManager_IsOtherMediaPlaying(OH_AudioSessionManager *audioSessionManager);
+
+/**
+ * @brief Sets recording mute state to audio system.
+ * This method is used as a hint for power optimization, it does not mute the recording stream, only affects
+ * internal processing strategy. Audio system may disable some recording effects when application notifies
+ * its muted state to system.
+ * Mute hint state can only be set when there is at least one running stream in current process.
+ *
+ * @param audioSessionManager the {@link #OH_AudioSessionManager}
+ *     returned by the {@link #OH_AudioManager_GetAudioSessionManager}.
+ * @param mute use true if application recording stream muted by application itself.
+ * @return Function result code:
+ *     {@link #AUDIOCOMMON_RESULT_SUCCESS} If the execution is successful.
+ *     {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} The param of audioSessionManager is nullptr.
+ *     {@link #AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE} Operation not permitted at current state,
+ *         there is no audio capturer running.
+ * @since 24
+ */
+OH_AudioCommon_Result OH_AudioSessionManager_SetCaptureMuteHint(
+    OH_AudioSessionManager *audioSessionManager, bool mute);
+
+/**
+ * @brief Set audio session behavior parameters (supporting multiple flag combinations)
+ * This interface takes effect only after the interface {@link #OH_AudioSessionManager_SetScene} is called.
+ * Each time you call this interface to set parameters,
+ * you need to call the interface {@link #OH_AudioSessionManager_ActivateAudioSession} again
+ * for the settings to take effect.
+ *
+ * @param audioSessionManager the {@link #OH_AudioSessionManager}
+ * returned by the {@link #OH_AudioManager_GetAudioSessionManager}
+ * @param behavior Audio session behavior flags,
+ * which can be a single flag or a bitwise OR combination of multiple flags {@link #OH_AudioSession_BehaviorFlags}
+ * @return {@link #AUDIOCOMMON_RESULT_SUCCESS} if execution succeeds
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_INVALID_PARAM} if parameter validation fails
+ *     or {@link #AUDIOCOMMON_RESULT_ERROR_ILLEGAL_STATE} if system illegal state
+ * @since 24
+ */
+OH_AudioCommon_Result OH_AudioSessionManager_SetBehavior(
+    OH_AudioSessionManager *audioSessionManager, uint32_t behavior);
+
 #ifdef __cplusplus
 }
 #endif
 
-#endif // NATIVE_AUDIO_ROUTING_MANAGER_H
+#endif // NATIVE_AUDIO_SESSION_MANAGER_H
 /** @} */

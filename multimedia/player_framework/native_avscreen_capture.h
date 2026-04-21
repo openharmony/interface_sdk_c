@@ -607,6 +607,22 @@ OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_GetDisplayIdSelected(OH_AVScreenC
     uint64_t* displayId);
 
 /**
+ * @brief Get the selected display IDs from the user picker.
+ * This interface retrieves display IDs selected by the user.
+ * @param selection The pointer to OH_AVScreenCapture_UserSelectionInfo instance,
+ *        containing user selection information.
+ * @param displayIds The display id array to be obtained. The memory of displayIds is managed by
+ *        {@link OH_AVScreenCapture_UserSelectionInfo}, DO NOT free it manually.
+ * @param count The number of acquired display IDs.
+ * @return Function result code.
+ *         {@link AV_SCREEN_CAPTURE_ERR_OK} if the execution is successful.
+ *         {@link AV_SCREEN_CAPTURE_ERR_INVALID_VAL} if input parameter is nullptr.
+ * @since 24
+ */
+OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_GetMultiDisplayIdsSelected(
+    OH_AVScreenCapture_UserSelectionInfo *selection, uint64_t** displayIds, size_t *count);
+
+/**
  * @brief Indicates whether to enable B-frame encoding, which is used to reduce the size of the recorded file.
  * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
  * @param {OH_AVScreenCapture_CaptureStrategy*} strategy Pointer to an OH_AVScreenCapture_CaptureStrategy instance
@@ -645,6 +661,129 @@ OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_StrategyForPickerPopUp(
  */
 OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_StrategyForFillMode(
     OH_AVScreenCapture_CaptureStrategy *strategy, OH_AVScreenCapture_FillMode mode);
+
+/**
+ * @brief set the highlight style of recording area.
+ * @param {OH_AVScreenCapture*} capture Pointer to OH_AVScreenCapture which want to set highlight style.
+ * @param {OH_AVScreenCaptureHighlightConfig} config the highlight parameters are to be set for this screen capture.
+ * @return Function result code.
+ *         {@link AV_SCREEN_CAPTURE_ERR_OK} if the execution is successful.
+ *         {@link AV_SCREEN_CAPTURE_ERR_INVALID_VAL} input capture is nullptr or config is invalid.
+ *
+ * @since 22
+ */
+OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_SetCaptureAreaHighlight(struct OH_AVScreenCapture *capture,
+    OH_AVScreenCaptureHighlightConfig config);
+
+/**
+ * @brief Configures exclusion list for system-level picker window
+ * @details Filters specified windows before displaying the system-level picker.
+ *          Excluded windows will not appear in the selection list.
+ * @param capture [in] Screen capture handle created via OH_AVScreenCapture_Create
+ * @param excludedWindowIDs [in] Array of window IDs to exclude (process-local)
+ * @param windowCount [in] Number of excluded windows
+ * @return Function result code.
+ *         {@link AV_SCREEN_CAPTURE_ERR_OK} if the execution is successful.
+ *         {@link AV_SCREEN_CAPTURE_ERR_INVALID_VAL} invalid parameters.
+ *             (null pointer/cross-process window IDs)
+ *         {@link AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT} operation not be permitted.
+ * @since 22
+ */
+OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_ExcludePickerWindows(struct OH_AVScreenCapture *capture,
+    const int32_t *excludedWindowIDs, uint32_t windowCount);
+
+/**
+ * @brief Sets the mode for the system-level screen capture picker
+ * @details Defines the content type displayed in the system-level picker.
+ *          Mode changes take effect upon the next call to function PresentPicker.
+ * @param capture [in] Pointer to the screen capture instance created via OH_AVScreenCapture_Create
+ * @param pickerMode [in] Picker display mode (see OH_CapturePickerMode enum)
+ * @return Function result code.
+ *         {@link AV_SCREEN_CAPTURE_ERR_OK} mode configuration succeeded.
+ *         {@link AV_SCREEN_CAPTURE_ERR_INVALID_VAL} invalid mode value or null pointer.
+ *         {@link AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT} operation not be permitted.
+ * @since 22
+ */
+OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_SetPickerMode(struct OH_AVScreenCapture *capture,
+    OH_CapturePickerMode pickerMode);
+
+/**
+ * @brief Displays system-level picker for screen capture source selection
+ * @details Activates system visual picker with two usage scenarios:
+ *          1. Initial capture configuration: Select source before starting capture
+ *          2. Dynamic source switching: Change capture target during active capture
+ * @param capture [in] Initialized screen capture instance
+ * @return Function result code.
+ *         {@link AV_SCREEN_CAPTURE_ERR_OK} picker activated successfully.
+ *         {@link AV_SCREEN_CAPTURE_ERR_INVALID_VAL} null pointer or uninitialized instance.
+ *         {@link AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT} operation not be permitted.
+ * @since 22
+ */
+OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_PresentPicker(struct OH_AVScreenCapture *capture);
+
+/**
+ * @brief Get multi-display recording capability information
+ * @param capture Pointer to OH_AVScreenCapture instance
+ * @param displayIds Array of display IDs
+ * @param count Number of displays
+ * @param capability Pointer to OH_MultiDisplayCapability instance
+ * @return Function result code.
+ *         {@link AV_SCREEN_CAPTURE_ERR_OK} if the execution is successful.
+ *         {@link AV_SCREEN_CAPTURE_ERR_INVALID_VAL} if input parameter is nullptr.
+ *         {@link AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT} operation not permitted, failed to get data.
+ * @since 24
+ */
+OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_GetMultiDisplayCaptureCapability(struct OH_AVScreenCapture *capture,
+    uint64_t *displayIds, size_t count, OH_MultiDisplayCapability *capability);
+
+/**
+ * @brief Set the privacy protection callback function so that your application can
+ * Responds to privacy protection events generated by screen captures.
+ * This interface must be invoked before the Start interface is invoked.
+ * @param capture Pointer to an OH_AVScreenCapture instance
+ * @param callback Privacy protect callback function, see {@link OH_AVScreenCapture_OnPrivacyProtect}
+ * @param userData Pointer to user specific data
+ * @return Function result code.
+ *         {@link AV_SCREEN_CAPTURE_ERR_OK} if the execution is successful.
+ *         {@link AV_SCREEN_CAPTURE_ERR_INVALID_VAL} input capture is nullptr or input callback is nullptr.
+ * @since 24
+ */
+OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_SetPrivacyProtectCallback(struct OH_AVScreenCapture *capture,
+    OH_AVScreenCapture_OnPrivacyProtect callback, void *userData);
+
+/**
+ * @brief Allow to pause screen capture
+ * @param {OH_AVScreenCapture_CaptureStrategy *} strategy Pointer to an OH_AVScreenCapture_CaptureStrategy instance.
+ * @param {bool} value The default value is false, which means that screen recording is not allowed to pause
+ * @return Function result code.
+ *         {@link AV_SCREEN_CAPTURE_ERR_OK} if the execution is successful.
+ *         {@link AV_SCREEN_CAPTURE_ERR_INVALID_VAL} strategy value is nullptr.
+ * @since 26.0.0
+ */
+OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_StrategyForPause(OH_AVScreenCapture_CaptureStrategy *strategy,
+    bool value);
+
+/**
+ * @brief Pause screen capture
+ * @param {OH_AVScreenCapture*} capture Initialized screen capture instance.
+ * @return Function result code.
+ *         {@link AV_SCREEN_CAPTURE_ERR_OK} if the execution is successful.
+ *         {@link AV_SCREEN_CAPTURE_ERR_INVALID_VAL} capture value is nullptr.
+ *         {@link AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT} opertation not be permitted.
+ * @since 26.0.0
+ */
+OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_PauseScreenCapture(struct OH_AVScreenCapture *capture);
+
+/**
+ * @brief Resume screen capture
+ * @param {OH_AVScreenCapture*} capture Initialized screen capture instance.
+ * @return Function result code.
+ *         {@link AV_SCREEN_CAPTURE_ERR_OK} if the execution is successful.
+ *         {@link AV_SCREEN_CAPTURE_ERR_INVALID_VAL} capture value is nullptr.
+ *         {@link AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT} opertation not be permitted.
+ * @since 26.0.0
+ */
+OH_AVSCREEN_CAPTURE_ErrCode OH_AVScreenCapture_ResumeScreenCapture(struct OH_AVScreenCapture *capture);
 #ifdef __cplusplus
 }
 #endif

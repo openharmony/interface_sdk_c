@@ -723,7 +723,7 @@ typedef struct OH_AudioCapturer_Callbacks_Struct {
      * is used to handle audio capturer stream events.
      *
      * @deprecated since 20
-     * @useinstead OH_AudioRenderer_OutputDeviceChangeCallback
+     * @useinstead OH_AudioCapturer_OnDeviceChangeCallback
      * @since 10
      */
     int32_t (*OH_AudioCapturer_OnStreamEvent)(
@@ -816,9 +816,9 @@ typedef void (*OH_AudioRenderer_OnMarkReachedCallback)(OH_AudioRenderer* rendere
  * @param renderer AudioRenderer where this event occurs.
  * @param userData User data which is passed by user.
  * @param audioData Audio data which is written by user.
- * @param audioDataSize Audio data size which is the size of audio data written by user.
+ * @param audioDataSize Audio data size which is the size of audio data written by user, unit is byte.
  * @param metadata Metadata which is written by user.
- * @param metadataSize Metadata size which is the size of metadata written by user.
+ * @param metadataSize Metadata size which is the size of metadata written by user, unit is byte.
  * @return Error code of the callback function returned by user.
  * @since 12
  */
@@ -855,9 +855,9 @@ typedef enum {
  * @since 12
  */
 typedef enum {
-    /** Result of audio data callabck is invalid. */
+    /** Result of audio data callback is invalid. */
     AUDIO_DATA_CALLBACK_RESULT_INVALID = -1,
-    /** Result of audio data callabck is valid. */
+    /** Result of audio data callback is valid. */
     AUDIO_DATA_CALLBACK_RESULT_VALID = 0,
 } OH_AudioData_Callback_Result;
 
@@ -871,7 +871,7 @@ typedef enum {
  * @param renderer AudioRenderer where this callback occurs.
  * @param userData User data which is passed by user.
  * @param audioData Audio data pointer, where user should fill in audio data.
- * @param audioDataSize Size of audio data that user should fill in.
+ * @param audioDataSize Size of audio data that user should fill in, unit is byte.
  * @return Audio Data callback result.
  * @see OH_AudioRenderer_Callbacks_Struct.OH_AudioRenderer_OnWriteData
  * @since 12
@@ -900,6 +900,83 @@ typedef enum {
      */
     AUDIOSTREAM_VOLUMEMODE_APP_INDIVIDUAL = 1
 } OH_AudioStream_VolumeMode;
+
+/**
+ * @brief Defines audio latency types.
+ *
+ * @since 23
+ */
+typedef enum {
+    /**
+     * Type to get latency of all audio processing units, including software and hardware.
+     *
+     * @since 23
+     */
+    AUDIOSTREAM_LATENCY_TYPE_ALL = 0,
+
+    /**
+     * Type to get latency of software part, including audio effects in software.
+     *
+     * @since 23
+     */
+    AUDIOSTREAM_LATENCY_TYPE_SOFTWARE = 1,
+
+    /**
+     * Type to get latency of hardware part, including audio effects in hal, driver and hardware.
+     *
+     * @since 23
+     */
+    AUDIOSTREAM_LATENCY_TYPE_HARDWARE = 2
+} OH_AudioStream_LatencyType;
+
+/**
+ * @brief Defines mode for playback capture, each mode means different target
+ * streams to capture.
+ *
+ * @since 23
+ */
+typedef enum {
+    /**
+     * Default mode. Capture most of the audio streams, except tone streams and privacy streams.
+     * @since 23
+     */
+    AUDIOSTREAM_PLAYBACKCAPTURE_MODE_DEFAULT = 0x0,
+    /**
+     * Media mode. Capture media, voice message and also unknown streams.
+     * @since 23
+     */
+    AUDIOSTREAM_PLAYBACKCAPTURE_MODE_MEDIA = 0x1,
+    /**
+     * Excluding self mode. Capture streams excluding the audio played by application itself.
+     * @since 23
+     */
+    AUDIOSTREAM_PLAYBACKCAPTURE_MODE_EXCLUDING_SELF = 0x8000,
+} OH_AudioStream_PlaybackCaptureMode;
+ 
+/**
+ * @brief Defines the playback capture start state, which is returned asynchronously
+ * after calling {@link #OH_AudioCapturer_RequestPlaybackCaptureStart} function.
+ *
+ * @since 23
+ */
+typedef enum {
+/**
+ * Start playback capture success state.
+ * @since 23
+ */
+    AUDIOSTREAM_PLAYBACKCAPTURE_START_STATE_SUCCESS = 0,
+/**
+ * Start playback capture failed state, because the request for interrupt is denied
+ * or meet system internal error.
+ * @since 23
+ */
+    AUDIOSTREAM_PLAYBACKCAPTURE_START_STATE_FAILED = 1,
+/**
+ * Start playback capture but user not authorized state.
+ * @since 23
+ */
+    AUDIOSTREAM_PLAYBACKCAPTURE_START_STATE_NOT_AUTHORIZED = 2,
+} OH_AudioStream_PlaybackCaptureStartState;
 
 #ifdef __cplusplus
 }

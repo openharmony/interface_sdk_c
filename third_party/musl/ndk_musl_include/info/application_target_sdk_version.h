@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,6 +19,23 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#define __INNER_CONCAT(a, b) a##.##b
+#define __INNER_APIAVAILABLE(ver) __builtin_available(ohos ver, *)
+
+/**
+  * @brief To ensure compatibility and stability of an application across different versions.
+  * Prevent crashes caused by invoking non-existent APIs on older systems through compile-time
+  * and runtime conditional checks.
+  * Whenever using APIs that are newer than the distribution target version,
+  * it is essential to protect them with the APIAVAILABLE method and provide a reasonable fallback solution.
+  *
+  * @param maj, int value 0 - 99.
+  * @param min, int value 0 - 99.
+  * @param patch, int value 0 - 99.
+  * @since 22
+  */
+#define APIAVAILABLE(maj, min, patch) __INNER_APIAVAILABLE(__INNER_CONCAT(maj, min##.##patch))
 
 #define SDK_VERSION_FUTURE 9999
 #define SDK_VERSION_7 7

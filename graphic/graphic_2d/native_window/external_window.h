@@ -278,7 +278,7 @@ typedef enum NativeWindowOperation {
 /**
  * @brief Indicates Scaling Mode.
  * @since 9
- * @deprecated(since = "10")
+ * @deprecated since 10
  * @useinstead OHScalingModeV2
  */
 typedef enum {
@@ -337,7 +337,7 @@ typedef enum {
 /**
  * @brief Enumerates the HDR metadata keys.
  * @since 9
- * @deprecated(since = "10")
+ * @deprecated since 10
  */
 typedef enum {
     OH_METAKEY_RED_PRIMARY_X = 0,
@@ -359,7 +359,7 @@ typedef enum {
 /**
  * @brief Defines the HDR metadata.
  * @since 9
- * @deprecated(since = "10")
+ * @deprecated since 10
  */
 typedef struct {
     OHHDRMetadataKey key;
@@ -369,7 +369,7 @@ typedef struct {
 /**
  * @brief Defines the ExtData Handle
  * @since 9
- * @deprecated(since = "10")
+ * @deprecated since 10
  */
 typedef struct OHExtDataHandle {
     /**< Handle fd, -1 if not supported */
@@ -626,7 +626,7 @@ int32_t OH_NativeWindow_GetNativeObjectMagic(void *obj);
  * @return Returns an error code, 0 is success, otherwise, failed.
  * @since 9
  * @version 1.0
- * @deprecated(since = "10")
+ * @deprecated since 10
  * @useinstead OH_NativeWindow_NativeWindowSetScalingModeV2
  */
 int32_t OH_NativeWindow_NativeWindowSetScalingMode(OHNativeWindow *window, uint32_t sequence,
@@ -643,7 +643,7 @@ int32_t OH_NativeWindow_NativeWindowSetScalingMode(OHNativeWindow *window, uint3
  * @return Returns an error code, 0 is success, otherwise, failed.
  * @since 9
  * @version 1.0
- * @deprecated(since = "10")
+ * @deprecated since 10
  */
 int32_t OH_NativeWindow_NativeWindowSetMetaData(OHNativeWindow *window, uint32_t sequence, int32_t size,
                                                 const OHHDRMetaData *metaData);
@@ -660,7 +660,7 @@ int32_t OH_NativeWindow_NativeWindowSetMetaData(OHNativeWindow *window, uint32_t
  * @return Returns an error code, 0 is success, otherwise, failed.
  * @since 9
  * @version 1.0
- * @deprecated(since = "10")
+ * @deprecated since 10
  */
 int32_t OH_NativeWindow_NativeWindowSetMetaDataSet(OHNativeWindow *window, uint32_t sequence, OHHDRMetadataKey key,
                                                    int32_t size, const uint8_t *metaData);
@@ -674,7 +674,7 @@ int32_t OH_NativeWindow_NativeWindowSetMetaDataSet(OHNativeWindow *window, uint3
  * @return Returns an error code, 0 is success, otherwise, failed.
  * @since 9
  * @version 1.0
- * @deprecated(since = "10")
+ * @deprecated since 10
  */
 int32_t OH_NativeWindow_NativeWindowSetTunnelHandle(OHNativeWindow *window, const OHExtDataHandle *handle);
 
@@ -894,6 +894,54 @@ int32_t OH_NativeWindow_GetMetadataValue(OHNativeWindow *window, OH_NativeBuffer
  * @version 1.0
  */
 int32_t OH_NativeWindow_CleanCache(OHNativeWindow *window);
+
+/**
+ * @brief PreAlloc <b>OHNativeWindowBuffer</b> of this <b>OHNativeWindow</b>
+ * This interface is a non-thread-safe type interface.\n
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
+ * @param window Indicates the pointer to a <b>OHNativeWindow</b> instance.
+ * @param allocBufferCnt Indicates the count of <b>OHNativeWindowBuffers</b>.
+ * @return Returns an error code, 0 is success, otherwise, failed.
+ * @since 22
+ * @version 1.0
+ */
+int32_t OH_NativeWindow_PreAllocBuffers(OHNativeWindow *window, uint32_t allocBufferCnt);
+
+/**
+ * @brief Requests an <b>OHNativeWindowBuffer</b> through an <b>OHNativeWindow</b> instance for content production,\n
+ * and lock the <b>OHNativeWindowBuffer</b>, the interface needs to be paired with\n
+ * <b>OH_NativeWindow_UnlockAndFlushBuffer</b> for use, after lock, it must be unlocked in order to relock,\n
+ * repeatedly lock or unlock will return an illegal operation error code, the interface supports rendering images\n
+ * directly through memory read and write on the CPU.
+ * This interface is a non-thread-safe type interface.\n
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
+ * @param window Indicates the pointer to a <b>OHNativeWindow</b> instance.
+ * @param region Indicates the info of the dirty region.
+ * @param buffer Indicates the pointer to an <b>OHNativeWindowBuffer</b> pointer.
+ * @return {@link NATIVE_ERROR_OK} 0 - Success.
+ *     {@link NATIVE_ERROR_INVALID_ARGUMENTS} 40001000 - window or buffer is NULL.
+ *     {@link NATIVE_ERROR_UNKNOWN} 50002000 - surface of window is NULL.
+ * @since 23
+ * @version 1.0
+ */
+int32_t OH_NativeWindow_LockBuffer(OHNativeWindow* window, Region region, OHNativeWindowBuffer** buffer);
+
+/**
+ * @brief Flushes the <b>OHNativeWindowBuffer</b> filled with the content to the buffer queue through an \n
+ * <b>OHNativeWindow</b> instance for content consumption, and unlock the <b>OHNativeWindowBuffer</b>.
+ * This interface is a non-thread-safe type interface.\n
+ *
+ * @syscap SystemCapability.Graphic.Graphic2D.NativeWindow
+ * @param window Indicates the pointer to a <b>OHNativeWindow</b> instance.
+ * @return {@link NATIVE_ERROR_OK} 0 - Success.
+ *     {@link NATIVE_ERROR_INVALID_ARGUMENTS} 40001000 - window is NULL.
+ *     {@link NATIVE_ERROR_UNKNOWN} 50002000 - surface of window is NULL.
+ * @since 23
+ * @version 1.0
+ */
+int32_t OH_NativeWindow_UnlockAndFlushBuffer(OHNativeWindow* window);
 #ifdef __cplusplus
 }
 #endif

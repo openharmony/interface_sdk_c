@@ -41,6 +41,7 @@
 #include "native_averrors.h"
 #include "native_avformat.h"
 #include "native_avcodec_base.h"
+#include "native_buffer/buffer_common.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -72,6 +73,34 @@ typedef enum OH_AVCodecCategory {
     HARDWARE = 0,
     SOFTWARE
 } OH_AVCodecCategory;
+
+/**
+ * @brief The codec type
+ *
+ * @since 24
+ */
+typedef enum OH_AVCodecType {
+    /**
+     * Indicates video encoder.
+     * @since 24
+     */
+    OH_AVCODEC_TYPE_VIDEO_ENCODER = 0,
+    /**
+     * Indicates video decoder.
+     * @since 24
+     */
+    OH_AVCODEC_TYPE_VIDEO_DECODER = 1,
+    /**
+     * Indicates audio encoder
+     * @since 24
+     */
+    OH_AVCODEC_TYPE_AUDIO_ENCODER = 2,
+    /**
+     * Indicates audio decoder
+     * @since 24
+     */
+    OH_AVCODEC_TYPE_AUDIO_DECODER = 3
+} OH_AVCodecType;
 
 /**
  * @brief The enum of optional features that can be used in specific codec seenarios.
@@ -117,6 +146,22 @@ OH_AVCapability *OH_AVCodec_GetCapability(const char *mime, bool isEncoder);
 OH_AVCapability *OH_AVCodec_GetCapabilityByCategory(const char *mime, bool isEncoder, OH_AVCodecCategory category);
 
 /**
+ * @brief Obtains a list of codec capabilities for a specified codec type.
+ *
+ * This function retrieves all matching codec capabilities based on the provided codec type.
+ *
+ * @param codecType The type of codec to filter by, refer to {@link OH_AVCodecType}.
+ * @param count Output parameter. A pointer to a uint32_t variable that will store
+ *              the number of matched codec capabilities found.
+ * @return Returns a pointer to an array of {@link OH_AVCapability} instances if matches are found;
+ *         returns NULL if no matching codecs are found or if an error occurs.
+ * @note The memory for the codec capability list is managed internally.
+ *       Developers MUST NOT manually allocate or free this memory.
+ * @since 24
+ */
+OH_AVCapability **OH_AVCodec_GetCapabilityList(OH_AVCodecType codecType, uint32_t *count);
+
+/**
  * @brief Check if the capability instance is describing a hardware codec.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @param capability Codec capability pointer
@@ -127,6 +172,16 @@ OH_AVCapability *OH_AVCodec_GetCapabilityByCategory(const char *mime, bool isEnc
 bool OH_AVCapability_IsHardware(OH_AVCapability *capability);
 
 /**
+ * @brief Check if the capability instance is describing a secure codec.
+ *
+ * @param capability Codec capability pointer
+ * @return Returns true if the capability instance is describing a secure codec,
+ * false if the capability instance is describing a non-secure codec
+ * @since 24
+ */
+bool OH_AVCapability_IsSecure(OH_AVCapability *capability);
+
+/**
  * @brief Get the codec name.
  * @syscap SystemCapability.Multimedia.Media.CodecBase
  * @param capability Codec capability pointer
@@ -134,6 +189,25 @@ bool OH_AVCapability_IsHardware(OH_AVCapability *capability);
  * @since 10
  */
 const char *OH_AVCapability_GetName(OH_AVCapability *capability);
+
+/**
+ * @brief Get the codec mime type.
+ *
+ * @param capability Codec capability pointer
+ * @return Returns codec mime type string
+ * @since 24
+ */
+const char *OH_AVCapability_GetMimeType(OH_AVCapability *capability);
+
+/**
+ * @brief Check if the mime type of the codec of the capability matches the specified mime type.
+ *
+ * @param capability Codec capability pointer
+ * @param mimeType target mime type string to check
+ * @return Returns true if the mime type matches, false otherwise
+ * @since 24
+ */
+bool OH_AVCapability_CheckMimeType(OH_AVCapability *capability, const char *mimeType);
 
 /**
  * @brief Get the supported max instance number of the codec.
@@ -398,6 +472,28 @@ bool OH_AVCapability_AreVideoSizeAndFrameRateSupported(OH_AVCapability *capabili
  */
 OH_AVErrCode OH_AVCapability_GetVideoSupportedPixelFormats(OH_AVCapability *capability, const int32_t **pixelFormats,
                                                            uint32_t *pixelFormatNum);
+
+/**
+ * @brief Get the native buffer formats supported by the video codec.
+ *
+ * This function provides information about the native buffer formats that the video codec can handle.
+ *
+ * @param capability A pointer to a valid video codec capability instance.
+ * @param nativeBufferFormats Output parameter. A pointer to the native buffer format array,
+ * refer to {@link OH_NativeBuffer_Format}
+ * @param nativeBufferFormatNum Output parameter. The element number of the native buffer format array
+ * @return Returns AV_ERR_OK if the execution is successful,
+ * otherwise returns a specific error code, refer to {@link OH_AVErrCode}
+ * {@link AV_ERR_INVALID_VAL}, the capability is invalid, the capability is an audio codec capability pointer,
+ * the nativeBufferFormats is nullptr, or the nativeBufferFormatNum is nullptr.
+ * {@link AV_ERR_UNKNOWN}, unknown error.
+ * {@link AV_ERR_NO_MEMORY}, internal use memory malloc failed.
+ *
+ * @since 22
+ */
+OH_AVErrCode OH_AVCapability_GetVideoSupportedNativeBufferFormats(OH_AVCapability *capability,
+                                                                  const OH_NativeBuffer_Format **nativeBufferFormats,
+                                                                  uint32_t *nativeBufferFormatNum);
 
 /**
  * @brief Get the codec's supported profiles.

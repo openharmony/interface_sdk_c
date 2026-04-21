@@ -298,7 +298,7 @@ typedef enum {
     /** @error The operation is successful. */
     USB_DDK_SUCCESS = 0,
     /** @error The operation failed.
-     *  @deprecate since 16
+     *  @deprecated since 16
      */
     USB_DDK_FAILED = -1,
     /** @error Permission denied.
@@ -312,11 +312,11 @@ typedef enum {
      */
     USB_DDK_MEMORY_ERROR = 27400001,
     /** @error Null pointer exception
-     *  @deprecate since 16
+     *  @deprecated since 16
      */
     USB_DDK_NULL_PTR = -5,
     /** @error Device busy.
-     *  @deprecate since 16
+     *  @deprecated since 16
      */
     USB_DDK_DEVICE_BUSY = -6,
     /** @error Invalid operation. */
@@ -340,6 +340,26 @@ typedef struct Usb_DeviceArray {
     /** Number of devices. If the value is 0, no device exists */
     uint32_t num;
 } Usb_DeviceArray;
+
+/**
+ * @brief The list of non-root hubs.
+ *
+ * @since 26.0.0
+ */
+typedef struct Usb_NonRootHubArray {
+
+    /**
+     * Array of non-root hub device IDs. The non-root USB hub device ID is constructed by left-shifting the bus number by 32 bits and adding the device address.
+     * @since 26.0.0
+     */
+    uint64_t* nonRootHubIds;
+
+    /**
+     * Number of non-root hubs. If the value is 0, no non-root hubs are present.
+     * @since 26.0.0
+     */
+    uint32_t num;
+} Usb_NonRootHubArray;
 #ifdef __cplusplus
 }
 /** @} */

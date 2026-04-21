@@ -80,6 +80,84 @@ extern "C" {
  */
 #define PARAM_DISTRIBUTED_SERVICE_INSTANCE_ID "ds_instance_id"
 
+/**
+ * @brief Used in MAIN_THREAD_JANK_V2, type of the log that need to be collected when main thread jank happend.
+ *
+ * @since 22
+ */
+#define MAIN_THREAD_JANK_PARAM_LOG_TYPE "log_type"
+
+/**
+ * @brief Used in MAIN_THREAD_JANK_V2, The timeout detection interval and sampling interval for the main thread.
+ *
+ * @since 22
+ */
+#define MAIN_THREAD_JANK_PARAM_SAMPLE_INTERVAL "sample_interval"
+
+/**
+ * @brief Used in MAIN_THREAD_JANK_V2, Ignore main thread timeout detection during startup.
+ *
+ * @since 22
+ */
+#define MAIN_THREAD_JANK_PARAM_IGNORE_STARTUP_TIME "ignore_startup_time"
+
+/**
+ * @brief Used in MAIN_THREAD_JANK_V2, Number of main thread timeout samples.
+ *
+ * @since 22
+ */
+#define MAIN_THREAD_JANK_PARAM_SAMPLE_COUNT "sample_count"
+
+/**
+ * @brief Used in MAIN_THREAD_JANK_V2, Number of main thread timeout sampling reports per application PID within a
+ * single lifecycle.
+ *
+ * @since 22
+ */
+#define MAIN_THREAD_JANK_PARAM_REPORT_TIMES_PER_APP "report_times_per_app"
+
+/**
+ * @brief Used in MAIN_THREAD_JANK_V2, Stop sampling main thread stack when main thread blockage is resolved.
+ *
+ * @since 22
+ */
+#define MAIN_THREAD_JANK_PARAM_AUTO_STOP_SAMPLING "auto_stop_sampling"
+
+/**
+ * @brief Print additional memory information near the PC and LR registers
+ *
+ * @since 24
+ */
+#define OH_APP_CRASH_PARAM_EXTEND_PC_LR_PRINTING "extend_pc_lr_printing"
+
+/**
+ * @brief Automatically truncate the cppcrash log size
+ *
+ * @since 24
+ */
+#define OH_APP_CRASH_PARAM_LOG_FILE_CUTOFF_SZ_BYTES "log_file_cutoff_sz_bytes"
+
+/**
+ * @brief Only print VMA within the stacktrace of the cppcrash log
+ *
+ * @since 24
+ */
+#define OH_APP_CRASH_PARAM_SIMPLIFY_VMA_PRINTING "simplify_vma_printing"
+
+/**
+ * @brief Merge the app log into the system cppcrash log and return it via external_log in the APP_CRASH event
+ *
+ * @since 24
+ */
+#define OH_APP_CRASH_PARAM_MERGE_CPPCRASH_APP_LOG "merge_cppcrash_app_log"
+
+/**
+ * @brief Enable collecting minidump log for cppcrash and return it via external_log in the APP_CRASH event
+ *
+ * @since 26.0.0
+ */
+#define OH_APP_CRASH_PARAM_COLLECT_MINIDUMP "collect_minidump"
+
 #ifdef __cplusplus
 }
 #endif

@@ -112,6 +112,38 @@ NAPI_EXTERN napi_status napi_run_script_path(napi_env env, const char* path, nap
 NAPI_EXTERN napi_status napi_queue_async_work_with_qos(napi_env env, napi_async_work work, napi_qos_t qos);
 
 /**
+ * @brief Native critical scope provides a scope within that an ArkTS string buffer cache can be obtained.
+ * @since 21
+ */
+typedef struct napi_critical_scope__* napi_critical_scope;
+
+/**
+ * @brief Native strong reference of an ArkTS object.
+ * @since 21
+ */
+typedef struct napi_strong_ref__* napi_strong_ref;
+
+/**
+ * @brief Callsite info handle for caching inline cache (IC) information of property access.
+ * @since 24
+ */
+typedef struct napi_callsite_info__* napi_callsite_info;
+
+/**
+ * @brief Native strong sendable reference of an sendable ArkTS object.
+ *
+ * @since 22
+ */
+typedef struct napi_sendable_ref__* napi_sendable_ref;
+
+/**
+ * @brief Native finalize callback is utilized to recycle native object resource.
+ *
+ * @since 22
+ */
+typedef void (*napi_finalize_callback)(void* finalize_data, void* finalize_hint);
+
+/**
  * @brief Loads an .abc file as a module. This API returns the namespace of the module.
  * @param env Current running virtual machine context.
  * @param path Path of the .abc file or name of the module to load.
@@ -2882,6 +2914,270 @@ NAPI_EXTERN napi_status napi_switch_ark_context(napi_env env);
  * @since 20
  */
 NAPI_EXTERN napi_status napi_destroy_ark_context(napi_env env);
+
+/**
+ * @brief To open a critical scope.
+ * @param env Current running virtual machine context.
+ * @param scope A critical scope of type of napi_critical_scope is generated.
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If the param scope is nullptr.\n
+ * @since 21
+ */
+NAPI_EXTERN napi_status napi_open_critical_scope(napi_env env, napi_critical_scope* scope);
+
+/**
+ * @brief To close a critical scope.
+ * @param env Current running virtual machine context.
+ * @param scope A critical scope to be closed.
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If the param scope is nullptr.\n
+ * @since 21
+ */
+NAPI_EXTERN napi_status napi_close_critical_scope(napi_env env, napi_critical_scope scope);
+
+/**
+ * @brief To obtain a ArkTS string buffer cache within the critical scope.
+ * @param env Current running virtual machine context.
+ * @param value An ArkTS string object which need be encoded with UTF16 format.
+ * @param buffer String buffer cache of the ArkTS string object value.
+ * @param length Length size of the string buffer cache which needs to be obtained.
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If the param env, value, buffer and length is nullptr.\n
+ * @since 21
+ */
+NAPI_EXTERN napi_status napi_get_buffer_string_utf16_in_critical_scope(napi_env env,
+                                                                       napi_value value,
+                                                                       const char16_t** buffer,
+                                                                       size_t* length);
+
+/**
+ * @brief Creates a strong reference for an ArkTS object to extend its lifespan. The caller needs to manage the
+ *        reference lifespan.
+ * @param env Current running virtual machine context.
+ * @param value The napi_value that is being referenced.
+ * @param result napi_strong_ref pointing to the new strong reference.
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If env, value or result is nullptr.\n
+ * @since 21
+ */
+NAPI_EXTERN napi_status napi_create_strong_reference(napi_env env, napi_value value, napi_strong_ref* result);
+
+/**
+ * @brief Deletes the strong reference passed in.
+ * @param env Current running virtual machine context.
+ * @param ref The napi_strong_ref to be deleted.
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If env or ref is nullptr.\n
+ * @since 21
+ */
+NAPI_EXTERN napi_status napi_delete_strong_reference(napi_env env, napi_strong_ref ref);
+
+/**
+ * @brief Obtains the ArkTS Object associated with the strong reference.
+ * @param env Current running virtual machine context.
+ * @param ref The napi_strong_ref of the value being requested.
+ * @param result The napi_value referenced by the napi_strong_ref.
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If env, ref or result is nullptr.\n
+ * @since 21
+ */
+NAPI_EXTERN napi_status napi_get_strong_reference_value(napi_env env, napi_strong_ref ref, napi_value* result);
+
+/**
+ * @brief Creates an ArkTS string from a UTF16-encoded C string.
+ * @param env Current running virtual machine context.
+ * @param str C string encoded in UTF16 format.
+ * @param length The length of the C string 'str'.
+ * @param finalize_callback Native finalize callback used to recycle native resource.
+ * @param finalize_hint Optional contextual hint that is passed to the finalize_callback.
+ * @param result Result of the ArkTS string from the UTF16-encoded C string.
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If the param env, str and(or) result is nullptr;\n
+ *                                   If the param length is not equal with NAPI_AUTO_LENGTH and\n
+ *                                   length is larger than INT_MAX;\n
+ * @since 22
+ */
+NAPI_EXTERN napi_status napi_create_external_string_utf16(napi_env env,
+                                                          const char16_t* str,
+                                                          size_t length,
+                                                          napi_finalize_callback finalize_callback,
+                                                          void* finalize_hint,
+                                                          napi_value* result);
+
+ /**
+ * @brief Creates an ArkTS string from a ASCII-encoded C string.
+ * @param env Current running virtual machine context.
+ * @param str C string encoded in ASCII format.
+ * @param length The length of the C string 'str'.
+ * @param finalize_callback Native finalize callback used to recycle native resource.
+ * @param finalize_hint Optional contextual hint that is passed to the finalize_callback.
+ * @param result Result of the ArkTS string from the ASCII-encoded C string.
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If the param env, str and(or) result is nullptr;\n
+ *                                   If the param length is not equal with NAPI_AUTO_LENGTH and\n
+ *                                   length is larger than INT_MAX;\n
+ * @since 22
+ */
+NAPI_EXTERN napi_status napi_create_external_string_ascii(napi_env env,
+                                                          const char* str,
+                                                          size_t length,
+                                                          napi_finalize_callback finalize_callback,
+                                                          void* finalize_hint,
+                                                          napi_value* result);
+
+/**
+ * @brief Creates a strong sendable reference for an ArkTS object to extend its lifespan. The caller needs to manage
+ *        the sendable reference lifespan.
+ * @param env Current running virtual machine context.
+ * @param value The sendable ArkTS object that is being referenced.
+ * @param result The napi_sendable_ref pointing to the new strong sendable reference.
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If env, value or result is nullptr.\n
+ * @since 22
+ */
+NAPI_EXTERN napi_status napi_create_strong_sendable_reference(napi_env env,
+                                                              napi_value value,
+                                                              napi_sendable_ref* result);
+
+/**
+ * @brief Deletes the strong sendable reference passed in.
+ * @param env Current running virtual machine context.
+ * @param ref The sendable reference to be deleted.
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If env or ref is nullptr.\n
+ * @since 22
+ */
+NAPI_EXTERN napi_status napi_delete_strong_sendable_reference(napi_env env, napi_sendable_ref ref);
+
+/**
+ * @brief Obtains the ArkTS Object associated with the strong reference.
+ * @param env Current running virtual machine context.
+ * @param ref The sendable reference of the sendable object value being requested.
+ * @param result The sendable ArkTS object referenced by the sendable reference.
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If env, ref or result is nullptr.\n
+ * @since 22
+ */
+NAPI_EXTERN napi_status napi_get_strong_sendable_reference_value(napi_env env,
+                                                                 napi_sendable_ref ref,
+                                                                 napi_value* result);
+
+/**
+ * @brief Throws an ArkTS Error with text information.
+ * @param env Current running virtual machine context.
+ * @param errorCode Error code to be set on the error object.
+ * @param msg C string representing the text to be associated with the error object.
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If env or msg is nullptr.\n
+ *         {@link napi_pending_exception } There is an uncaught exception occurred before execution.\n
+ * @since 23
+ */
+NAPI_EXTERN napi_status napi_throw_business_error(napi_env env,
+                                                  int32_t errorCode,
+                                                  const char* msg);
+
+/**
+ * @brief Creates a callsite info handle for caching inline cache (IC) information of property access.
+ *        Each different callsite should create an independent handle. The same handle can be reused across
+ *        multiple calls but must not be used across threads. When no longer needed, napi_delete_callsite_info
+ *        must be called to release the handle.
+ * @param env Current running virtual machine context.
+ * @param result Pointer to napi_callsite_info to receive the created callsite info handle.
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If env or result is nullptr.\n
+ *         {@link napi_pending_exception } If a pending exception existed before the call.\n
+ *         {@link napi_generic_failure } If the callsite info creation failed.\n
+ * @since 24
+ */
+NAPI_EXTERN napi_status napi_create_callsite_info(napi_env env, napi_callsite_info* result);
+
+/**
+ * @brief Deletes a callsite info handle and releases associated cache resources.
+ * @param env Current running virtual machine context.
+ * @param info The callsite info handle to be deleted.
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If env is nullptr.\n
+ * @since 24
+ */
+NAPI_EXTERN napi_status napi_delete_callsite_info(napi_env env, napi_callsite_info info);
+
+/**
+ * @brief Uses callsite info to quickly get an object property value. When the IC hits (the object has the same
+ *        hidden class), it skips the regular hash table lookup and prototype chain traversal. The info parameter
+ *        can be NULL, in which case the behavior is equivalent to napi_get_property.
+ * @param env Current running virtual machine context.
+ * @param object The object to get the property from.
+ * @param key The key name of the property to get.
+ * @param info Callsite info handle for IC caching. Can be NULL.
+ * @param result Pointer to napi_value to receive the property value.
+ * @param hit Receives whether the IC cache was hit (true) or missed (false).
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If env, object, key or result is nullptr.\n
+ *         {@link napi_object_expected } If the param object is not an ArkTS Object.\n
+ *         {@link napi_pending_exception } If have uncaught exception, or exception occurred in execution.\n
+ * @since 24
+ */
+NAPI_EXTERN napi_status napi_get_property_with_callsite_info(napi_env env,
+                                                             napi_value object,
+                                                             napi_value key,
+                                                             napi_callsite_info info,
+                                                             napi_value* result,
+                                                             bool* hit);
+
+/**
+ * @brief Uses callsite info to quickly set an object property value. When the IC hits (the object has the same
+ *        hidden class), it skips the regular property setting process. The info parameter can be NULL, in which
+ *        case the behavior is equivalent to napi_set_property.
+ * @param env Current running virtual machine context.
+ * @param object The object to set the property on.
+ * @param key The key name of the property to set.
+ * @param value The property value to set.
+ * @param info Callsite info handle for IC caching. Can be NULL.
+ * @param hit Receives whether the IC cache was hit (true) or missed (false).
+ *
+ * @return Returns the function execution status.
+ *         {@link napi_ok } If the function executed successfully.\n
+ *         {@link napi_invalid_arg } If env, object, key or value is nullptr.\n
+ *         {@link napi_object_expected } If the param object is not an ArkTS Object.\n
+ *         {@link napi_pending_exception } If have uncaught exception, or exception occurred in execution.\n
+ * @since 24
+ */
+NAPI_EXTERN napi_status napi_set_property_with_callsite_info(napi_env env,
+                                                             napi_value object,
+                                                             napi_value key,
+                                                             napi_value value,
+                                                             napi_callsite_info info,
+                                                             bool* hit);
 #ifdef __cplusplus
 }
 #endif
