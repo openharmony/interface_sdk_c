@@ -73,7 +73,7 @@ OH_AudioCommon_Result OH_AudioManager_GetAudioDeviceEnhanceManager(
 
 /**
  * @brief Queries whether the system supports the enhanced routing functions provided by this manager.
- * 
+ *
  * The enhanced routing functions support selecting input and output devices for the application or audio streams.
  * You are advised to call this API to check system support before using the enhanced routing functions.
  * Even for the same type of host device, some models may support these functions while others may not due
@@ -130,11 +130,11 @@ OH_AudioCommon_Result OH_AudioDeviceEnhanceManager_SelectOutputDevice(
  * is designated for an individual stream. When the application implements its own UX for input device selection,
  * it can obtain the list of available input devices through {@link OH_AudioRoutingManager_GetAvailableDevices},
  * and use the {@link OH_AudioRoutingManager_GetPreferredInputDevice} API to obtain the currently selected input device.
- * Your application can register a callback via {@link OH_AudioDeviceEnhanceManager_RegisterCurrentInputDeviceChangeCallback}
- * to listen for changes to the actual input device. The selection becomes invalid when the application exits
- * or the selected device goes offline. After the application restarts or the device comes back online,
- * you must re-issue the selection for it to take effect. If the system does not support this function,
- * a default input device will be selected automatically.
+ * Your application can register a callback via
+ * {@link OH_AudioDeviceEnhanceManager_RegisterCurrentInputDeviceChangeCallback} to listen for changes to the actual
+ * input device. The selection becomes invalid when the application exits or the selected device goes offline.
+ * After the application restarts or the device comes back online, you must re-issue the selection for it to take effect.
+ * If the system does not support this function, a default input device will be selected automatically.
  *
  * @param audioDeviceEnhanceManager the {@link OH_AudioDeviceEnhanceManager} handle returned
  *     by {@link OH_AudioManager_GetAudioDeviceEnhanceManager}.
