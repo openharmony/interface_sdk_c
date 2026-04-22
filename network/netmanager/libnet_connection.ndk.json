@@ -96,11 +96,11 @@
         "name": "OH_NetConn_QueryTraceRoute"
     },
     {
-        "first_introduced": "26",
+        "first_introduced": "26.0.0",
         "name": "OH_NetConn_RegisterCustomDnsResolver"
     },
     {
-        "first_introduced": "26",
+        "first_introduced": "26.0.0",
         "name": "OH_NetConn_UnregisterCustomDnsResolver"
     }
 ]
