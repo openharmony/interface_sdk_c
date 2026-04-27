@@ -3489,17 +3489,15 @@ typedef enum {
      */
     NODE_IMAGE_SOURCE_SIZE = 4013,
     /**
-     * @brief Support the implementation of affine image transformations using floating-point numbers or matrix objects.
+     * @brief Support the implementation of affine image transformations using floating-point numbers.
      * This attribute can be set, reset, and obtained as required through APIs.
      * The parameter types for setting and getting should be the same.
      *
      * Format of the {@link ArkUI_AttributeItem} parameter for setting the attribute:\n
      * .value[0...15].f32: 16 floating-point numbers.\n
-     * .object: The parameter type is {@link ArkUI_Matrix4},add since api 24.\n
      * 
      * Format of the return value {@link ArkUI_AttributeItem}:\n
      * .value[0...15].f32: 16 floating-point numbers.\n
-     * .object: The parameter type is {@link ArkUI_Matrix4},add since api 24.\n
      *
      * @since 21
      */
