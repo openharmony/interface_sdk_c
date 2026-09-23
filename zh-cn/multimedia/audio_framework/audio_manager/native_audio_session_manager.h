@@ -78,7 +78,13 @@ typedef enum {
      * @brief VoIP语音通话音频会话场景。
      *
      */
-    AUDIO_SESSION_SCENE_VOICE_COMMUNICATION = 2
+    AUDIO_SESSION_SCENE_VOICE_COMMUNICATION = 2,
+
+    /**
+     * @brief 语音消息音频会话场景。
+     *
+     */
+    AUDIO_SESSION_SCENE_VOICE_MESSAGE = 3
 } OH_AudioSession_Scene;
 
 /**
