@@ -192,7 +192,6 @@ typedef struct {
      */
     void* reserved;
 } OH_IPC_MessageOption;
-#pragma pack(4)
 #pragma pack()
 
 /**
